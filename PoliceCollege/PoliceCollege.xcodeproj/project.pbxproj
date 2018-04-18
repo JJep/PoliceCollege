@@ -1,0 +1,562 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4441EAF739CA1F19E0045A7C /* libPods-PoliceCollege.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64810C7D0025691C5DB2A706 /* libPods-PoliceCollege.a */; };
+		BE21DA652086DE3C0086B8BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE21DA642086DE3C0086B8BA /* AppDelegate.m */; };
+		BE21DA6B2086DE3D0086B8BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE21DA692086DE3C0086B8BA /* Main.storyboard */; };
+		BE21DA6D2086DE460086B8BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE21DA6C2086DE460086B8BA /* Assets.xcassets */; };
+		BE21DA702086DE460086B8BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE21DA6E2086DE460086B8BA /* LaunchScreen.storyboard */; };
+		BE21DA732086DE460086B8BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE21DA722086DE460086B8BA /* main.m */; };
+		BE21DA822086E0700086B8BA /* UITextfieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE21DA812086E0700086B8BA /* UITextfieldView.m */; };
+		BE21DA842086E57F0086B8BA /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = BE21DA832086E57F0086B8BA /* Podfile */; };
+		BE21DA892086F09F0086B8BA /* PCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE21DA882086F09F0086B8BA /* PCBaseViewController.m */; };
+		BE21DA8E2086F11E0086B8BA /* PCViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE21DA8D2086F11E0086B8BA /* PCViewModel.m */; };
+		BE21DA912086F2BC0086B8BA /* PCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE21DA902086F2BC0086B8BA /* PCLoginViewController.m */; };
+		BE21DA94208722680086B8BA /* PCLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE21DA93208722680086B8BA /* PCLoginView.m */; };
+		BE21DA9C208731750086B8BA /* PCBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE21DA9B208731750086B8BA /* PCBannerView.m */; };
+		BE21DAA0208732D40086B8BA /* PCCenterdView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE21DA9F208732D40086B8BA /* PCCenterdView.m */; };
+		BE21DAA62087352C0086B8BA /* PCCenterdViewButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BE21DAA42087352C0086B8BA /* PCCenterdViewButton.m */; };
+		BE21DAAB20873F030086B8BA /* PCPromotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE21DAAA20873F030086B8BA /* PCPromotionViewController.m */; };
+		BE21DAAE2087485D0086B8BA /* PCHotIssueView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE21DAAD2087485D0086B8BA /* PCHotIssueView.m */; };
+		BE21DAB22087815A0086B8BA /* HotIssueTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE21DAB12087815A0086B8BA /* HotIssueTableViewCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5CA212BC3AC3083BEBB1DEFB /* Pods-PoliceCollege.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoliceCollege.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PoliceCollege/Pods-PoliceCollege.debug.xcconfig"; sourceTree = "<group>"; };
+		64810C7D0025691C5DB2A706 /* libPods-PoliceCollege.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PoliceCollege.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E7ADA4407D7851203CE0BC5 /* Pods-PoliceCollege.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoliceCollege.release.xcconfig"; path = "Pods/Target Support Files/Pods-PoliceCollege/Pods-PoliceCollege.release.xcconfig"; sourceTree = "<group>"; };
+		BE21DA602086DE3C0086B8BA /* PoliceCollege.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoliceCollege.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE21DA632086DE3C0086B8BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BE21DA642086DE3C0086B8BA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BE21DA6A2086DE3C0086B8BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BE21DA6C2086DE460086B8BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BE21DA6F2086DE460086B8BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BE21DA712086DE460086B8BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE21DA722086DE460086B8BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BE21DA802086E0700086B8BA /* UITextfieldView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITextfieldView.h; sourceTree = "<group>"; };
+		BE21DA812086E0700086B8BA /* UITextfieldView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITextfieldView.m; sourceTree = "<group>"; };
+		BE21DA832086E57F0086B8BA /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		BE21DA872086F09F0086B8BA /* PCBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCBaseViewController.h; sourceTree = "<group>"; };
+		BE21DA882086F09F0086B8BA /* PCBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCBaseViewController.m; sourceTree = "<group>"; };
+		BE21DA8C2086F11E0086B8BA /* PCViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCViewModel.h; sourceTree = "<group>"; };
+		BE21DA8D2086F11E0086B8BA /* PCViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCViewModel.m; sourceTree = "<group>"; };
+		BE21DA8F2086F2BC0086B8BA /* PCLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCLoginViewController.h; sourceTree = "<group>"; };
+		BE21DA902086F2BC0086B8BA /* PCLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCLoginViewController.m; sourceTree = "<group>"; };
+		BE21DA92208722680086B8BA /* PCLoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCLoginView.h; sourceTree = "<group>"; };
+		BE21DA93208722680086B8BA /* PCLoginView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCLoginView.m; sourceTree = "<group>"; };
+		BE21DA9A208731750086B8BA /* PCBannerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCBannerView.h; sourceTree = "<group>"; };
+		BE21DA9B208731750086B8BA /* PCBannerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCBannerView.m; sourceTree = "<group>"; };
+		BE21DA9E208732D40086B8BA /* PCCenterdView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCCenterdView.h; sourceTree = "<group>"; };
+		BE21DA9F208732D40086B8BA /* PCCenterdView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCCenterdView.m; sourceTree = "<group>"; };
+		BE21DAA42087352C0086B8BA /* PCCenterdViewButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCenterdViewButton.m; sourceTree = "<group>"; };
+		BE21DAA52087352C0086B8BA /* PCCenterdViewButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCenterdViewButton.h; sourceTree = "<group>"; };
+		BE21DAA8208735A90086B8BA /* PC.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PC.pch; sourceTree = "<group>"; };
+		BE21DAA920873F030086B8BA /* PCPromotionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCPromotionViewController.h; sourceTree = "<group>"; };
+		BE21DAAA20873F030086B8BA /* PCPromotionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCPromotionViewController.m; sourceTree = "<group>"; };
+		BE21DAAC2087485D0086B8BA /* PCHotIssueView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCHotIssueView.h; sourceTree = "<group>"; };
+		BE21DAAD2087485D0086B8BA /* PCHotIssueView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCHotIssueView.m; sourceTree = "<group>"; };
+		BE21DAB02087815A0086B8BA /* HotIssueTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HotIssueTableViewCell.h; sourceTree = "<group>"; };
+		BE21DAB12087815A0086B8BA /* HotIssueTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotIssueTableViewCell.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BE21DA5D2086DE3C0086B8BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4441EAF739CA1F19E0045A7C /* libPods-PoliceCollege.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		27AF961209FCF3F671425597 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5CA212BC3AC3083BEBB1DEFB /* Pods-PoliceCollege.debug.xcconfig */,
+				6E7ADA4407D7851203CE0BC5 /* Pods-PoliceCollege.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BE21DA572086DE3C0086B8BA = {
+			isa = PBXGroup;
+			children = (
+				BE21DA832086E57F0086B8BA /* Podfile */,
+				BE21DA622086DE3C0086B8BA /* PoliceCollege */,
+				BE21DA612086DE3C0086B8BA /* Products */,
+				27AF961209FCF3F671425597 /* Pods */,
+				F88CF27F9C889AB4BA862A5D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BE21DA612086DE3C0086B8BA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BE21DA602086DE3C0086B8BA /* PoliceCollege.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BE21DA622086DE3C0086B8BA /* PoliceCollege */ = {
+			isa = PBXGroup;
+			children = (
+				BE21DA862086F08D0086B8BA /* Base */,
+				BE21DA792086DE970086B8BA /* Login */,
+				BE21DA99208731370086B8BA /* 党政宣传 */,
+				BE21DA632086DE3C0086B8BA /* AppDelegate.h */,
+				BE21DA642086DE3C0086B8BA /* AppDelegate.m */,
+				BE21DA692086DE3C0086B8BA /* Main.storyboard */,
+				BE21DA6C2086DE460086B8BA /* Assets.xcassets */,
+				BE21DA6E2086DE460086B8BA /* LaunchScreen.storyboard */,
+				BE21DA712086DE460086B8BA /* Info.plist */,
+				BE21DA722086DE460086B8BA /* main.m */,
+				BE21DAA8208735A90086B8BA /* PC.pch */,
+			);
+			path = PoliceCollege;
+			sourceTree = "<group>";
+		};
+		BE21DA792086DE970086B8BA /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BE21DA9520872E7C0086B8BA /* ViewModel */,
+				BE21DA852086F0140086B8BA /* View */,
+				BE21DA8F2086F2BC0086B8BA /* PCLoginViewController.h */,
+				BE21DA902086F2BC0086B8BA /* PCLoginViewController.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		BE21DA852086F0140086B8BA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE21DA802086E0700086B8BA /* UITextfieldView.h */,
+				BE21DA812086E0700086B8BA /* UITextfieldView.m */,
+				BE21DA92208722680086B8BA /* PCLoginView.h */,
+				BE21DA93208722680086B8BA /* PCLoginView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE21DA862086F08D0086B8BA /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				BE21DA8B2086F0F60086B8BA /* ViewModel */,
+				BE21DA8A2086F0ED0086B8BA /* Controller */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		BE21DA8A2086F0ED0086B8BA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BE21DA872086F09F0086B8BA /* PCBaseViewController.h */,
+				BE21DA882086F09F0086B8BA /* PCBaseViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BE21DA8B2086F0F60086B8BA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BE21DA8C2086F11E0086B8BA /* PCViewModel.h */,
+				BE21DA8D2086F11E0086B8BA /* PCViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BE21DA9520872E7C0086B8BA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BE21DA99208731370086B8BA /* 党政宣传 */ = {
+			isa = PBXGroup;
+			children = (
+				BE21DA9D208731790086B8BA /* View */,
+				BE21DAA920873F030086B8BA /* PCPromotionViewController.h */,
+				BE21DAAA20873F030086B8BA /* PCPromotionViewController.m */,
+			);
+			path = "党政宣传";
+			sourceTree = "<group>";
+		};
+		BE21DA9D208731790086B8BA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE21DAA52087352C0086B8BA /* PCCenterdViewButton.h */,
+				BE21DAA42087352C0086B8BA /* PCCenterdViewButton.m */,
+				BE21DA9A208731750086B8BA /* PCBannerView.h */,
+				BE21DA9B208731750086B8BA /* PCBannerView.m */,
+				BE21DAAF2087516D0086B8BA /* HotIssueView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE21DAAF2087516D0086B8BA /* HotIssueView */ = {
+			isa = PBXGroup;
+			children = (
+				BE21DA9E208732D40086B8BA /* PCCenterdView.h */,
+				BE21DA9F208732D40086B8BA /* PCCenterdView.m */,
+				BE21DAAC2087485D0086B8BA /* PCHotIssueView.h */,
+				BE21DAAD2087485D0086B8BA /* PCHotIssueView.m */,
+				BE21DAB02087815A0086B8BA /* HotIssueTableViewCell.h */,
+				BE21DAB12087815A0086B8BA /* HotIssueTableViewCell.m */,
+			);
+			path = HotIssueView;
+			sourceTree = "<group>";
+		};
+		F88CF27F9C889AB4BA862A5D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				64810C7D0025691C5DB2A706 /* libPods-PoliceCollege.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BE21DA5F2086DE3C0086B8BA /* PoliceCollege */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE21DA762086DE460086B8BA /* Build configuration list for PBXNativeTarget "PoliceCollege" */;
+			buildPhases = (
+				9236A7F73339E7497BC68B19 /* [CP] Check Pods Manifest.lock */,
+				BE21DA5C2086DE3C0086B8BA /* Sources */,
+				BE21DA5D2086DE3C0086B8BA /* Frameworks */,
+				BE21DA5E2086DE3C0086B8BA /* Resources */,
+				D9136C06E55A0546499107C8 /* [CP] Embed Pods Frameworks */,
+				BB8BEE4A6669A0F5C5572BC2 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PoliceCollege;
+			productName = PoliceCollege;
+			productReference = BE21DA602086DE3C0086B8BA /* PoliceCollege.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BE21DA582086DE3C0086B8BA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Jep Xia";
+				TargetAttributes = {
+					BE21DA5F2086DE3C0086B8BA = {
+						CreatedOnToolsVersion = 9.3;
+					};
+				};
+			};
+			buildConfigurationList = BE21DA5B2086DE3C0086B8BA /* Build configuration list for PBXProject "PoliceCollege" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BE21DA572086DE3C0086B8BA;
+			productRefGroup = BE21DA612086DE3C0086B8BA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BE21DA5F2086DE3C0086B8BA /* PoliceCollege */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BE21DA5E2086DE3C0086B8BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE21DA702086DE460086B8BA /* LaunchScreen.storyboard in Resources */,
+				BE21DA6D2086DE460086B8BA /* Assets.xcassets in Resources */,
+				BE21DA842086E57F0086B8BA /* Podfile in Resources */,
+				BE21DA6B2086DE3D0086B8BA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9236A7F73339E7497BC68B19 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PoliceCollege-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB8BEE4A6669A0F5C5572BC2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PoliceCollege/Pods-PoliceCollege-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9136C06E55A0546499107C8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PoliceCollege/Pods-PoliceCollege-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BE21DA5C2086DE3C0086B8BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE21DA822086E0700086B8BA /* UITextfieldView.m in Sources */,
+				BE21DA9C208731750086B8BA /* PCBannerView.m in Sources */,
+				BE21DA732086DE460086B8BA /* main.m in Sources */,
+				BE21DA8E2086F11E0086B8BA /* PCViewModel.m in Sources */,
+				BE21DAA62087352C0086B8BA /* PCCenterdViewButton.m in Sources */,
+				BE21DA912086F2BC0086B8BA /* PCLoginViewController.m in Sources */,
+				BE21DA892086F09F0086B8BA /* PCBaseViewController.m in Sources */,
+				BE21DA652086DE3C0086B8BA /* AppDelegate.m in Sources */,
+				BE21DAB22087815A0086B8BA /* HotIssueTableViewCell.m in Sources */,
+				BE21DAAB20873F030086B8BA /* PCPromotionViewController.m in Sources */,
+				BE21DAA0208732D40086B8BA /* PCCenterdView.m in Sources */,
+				BE21DAAE2087485D0086B8BA /* PCHotIssueView.m in Sources */,
+				BE21DA94208722680086B8BA /* PCLoginView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BE21DA692086DE3C0086B8BA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE21DA6A2086DE3C0086B8BA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BE21DA6E2086DE460086B8BA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE21DA6F2086DE460086B8BA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BE21DA742086DE460086B8BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BE21DA752086DE460086B8BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BE21DA772086DE460086B8BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CA212BC3AC3083BEBB1DEFB /* Pods-PoliceCollege.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8TAEZXHB8K;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = /Users/jepxia/Desktop/Developer/PoliceCollege/PoliceCollege/PoliceCollege/PC.pch;
+				INFOPLIST_FILE = PoliceCollege/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Jep-.PoliceCollege";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BE21DA782086DE460086B8BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E7ADA4407D7851203CE0BC5 /* Pods-PoliceCollege.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8TAEZXHB8K;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = /Users/jepxia/Desktop/Developer/PoliceCollege/PoliceCollege/PoliceCollege/PC.pch;
+				INFOPLIST_FILE = PoliceCollege/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Jep-.PoliceCollege";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BE21DA5B2086DE3C0086B8BA /* Build configuration list for PBXProject "PoliceCollege" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE21DA742086DE460086B8BA /* Debug */,
+				BE21DA752086DE460086B8BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE21DA762086DE460086B8BA /* Build configuration list for PBXNativeTarget "PoliceCollege" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE21DA772086DE460086B8BA /* Debug */,
+				BE21DA782086DE460086B8BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BE21DA582086DE3C0086B8BA /* Project object */;
+}
