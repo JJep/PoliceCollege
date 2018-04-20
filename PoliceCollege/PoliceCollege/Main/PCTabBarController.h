@@ -1,5 +1,5 @@
 //
-//  PCPromotionView.h
+//  PCTabBarController.h
 //  PoliceCollege
 //
 //  Created by Jep Xia on 2018/4/20.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PCPromotionView : UIView
+@interface PCTabBarController : UITabBarController
 
 @end

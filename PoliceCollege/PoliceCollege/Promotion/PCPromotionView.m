@@ -26,6 +26,9 @@ float lastContentOffsetX;//监听水平滑动
 -(instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        
+
+        
         bannerView = [PCBannerView new];
         centerView = [PCCenterdView new];
         hotIssueView = [PCHotIssueView new];
