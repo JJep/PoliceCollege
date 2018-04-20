@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PCHotIssueView : UIView
-
+@property (nonatomic,retain)UITableView *hotIssueTableView;
 @end

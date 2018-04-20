@@ -12,7 +12,7 @@
     UIView *gradientView;
     UILabel *title;
     UIButton *more;
-    UITableView *hotIssueTableView;
+//    UITableView *hotIssueTableView;
 }
 -(instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -22,7 +22,7 @@
         gradientView = [UIView new];
         title = [UILabel new];
         more = [UIButton new];
-        hotIssueTableView = [UITableView new];
+        _hotIssueTableView = [UITableView new];
         
         //95,190,247
         //49,138,236
@@ -44,7 +44,7 @@
         [self addSubview:gradientView];
         [self addSubview:title];
         [self addSubview:more];
-        [self addSubview:hotIssueTableView];
+        [self addSubview:_hotIssueTableView];
         
     }
     return self;
@@ -67,13 +67,12 @@
     
     [more mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.mas_right).offset(-15);
-        make.top.equalTo(self.mas_top).offset(15);
         make.width.mas_equalTo(22);
         make.height.mas_equalTo(16);
         make.centerY.equalTo(self->title);
     }];
     
-    [hotIssueTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_hotIssueTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self->title.mas_bottom).offset(8);
         make.left.right.equalTo(self);
         make.bottom.equalTo(self);

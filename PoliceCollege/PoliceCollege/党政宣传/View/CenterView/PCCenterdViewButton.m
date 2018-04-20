@@ -31,13 +31,15 @@
 
 -(void)layoutSubviews {
     [buttonImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.width.mas_equalTo(27);
+//        make.height.width.mas_equalTo(27);
+        make.size.mas_equalTo(self->_image.size);
         make.centerX.equalTo(self);
         make.top.equalTo(self.mas_top).offset(8.5);
     }];
     
     [buttonLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self->buttonImageView.mas_bottom).offset(9);
+//        make.top.equalTo(self->buttonImageView.mas_bottom).offset(9);
+        make.height.mas_equalTo(18);
         make.width.mas_equalTo(52);
         make.centerX.equalTo(self);
         make.bottom.equalTo(self.mas_bottom).offset(-8.5);

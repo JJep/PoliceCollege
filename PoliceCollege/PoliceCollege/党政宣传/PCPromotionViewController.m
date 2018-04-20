@@ -7,49 +7,25 @@
 //
 
 #import "PCPromotionViewController.h"
-#import "PCBannerView.h"
-#import "PCCenterdView.h"
-#import "PCCentralIssueView.h"
+
+#import "PCPromotionView.h"
 @interface PCPromotionViewController ()
-@property (nonatomic,retain)PCBannerView *bannerView;
-@property (nonatomic,retain)PCCenterdView *centeredView;
-@property (nonatomic,retain)PCCentralIssueView *issueView;
+
 @end
 
-@implementation PCPromotionViewController
+@implementation PCPromotionViewController {
+    PCPromotionView *promotionView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self.view setBackgroundColor:[UIColor lightGrayColor]];
-    
-    _bannerView = [PCBannerView new];
-    _centeredView = [PCCenterdView new];
-    _issueView = [PCCentralIssueView new];
-    
-    [self.view addSubview:_bannerView];
-    [self.view addSubview:_centeredView];
-    [self.view addSubview:_issueView];
-    
-    [_bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.equalTo(self.view);
-        make.height.mas_equalTo(244.3);
-    }];
-    
-    [_centeredView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view.mas_left).offset(15);
-        make.right.equalTo(self.view.mas_right).offset(-15);
-        make.top.equalTo(self->_bannerView.mas_bottom).offset(3.7);
-        make.height.mas_equalTo(80);
-    }];
-    
-    [_issueView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self->_centeredView.mas_bottom).offset(15);
-        make.left.equalTo(self.view.mas_left).offset(15);
-        make.right.equalTo(self.view.mas_right).offset(-15);
-        make.bottom.equalTo(self.view.mas_bottom).offset(-15);
-    }];
+    [self.view setBackgroundColor:MyWhiteBackgroundColor];
+//
+    promotionView = [[PCPromotionView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:promotionView];
+  
 }
 
 - (void)didReceiveMemoryWarning {

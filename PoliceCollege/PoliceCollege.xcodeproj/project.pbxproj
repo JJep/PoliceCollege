@@ -25,6 +25,7 @@
 		BE21DAAB20873F030086B8BA /* PCPromotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE21DAAA20873F030086B8BA /* PCPromotionViewController.m */; };
 		BE21DAAE2087485D0086B8BA /* PCHotIssueView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE21DAAD2087485D0086B8BA /* PCHotIssueView.m */; };
 		BE21DAB22087815A0086B8BA /* HotIssueTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE21DAB12087815A0086B8BA /* HotIssueTableViewCell.m */; };
+		BEDE52AF20897B9000D00A98 /* PCPromotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52AE20897B9000D00A98 /* PCPromotionView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +42,7 @@
 		BE21DA722086DE460086B8BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BE21DA802086E0700086B8BA /* UITextfieldView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITextfieldView.h; sourceTree = "<group>"; };
 		BE21DA812086E0700086B8BA /* UITextfieldView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITextfieldView.m; sourceTree = "<group>"; };
-		BE21DA832086E57F0086B8BA /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		BE21DA832086E57F0086B8BA /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BE21DA872086F09F0086B8BA /* PCBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCBaseViewController.h; sourceTree = "<group>"; };
 		BE21DA882086F09F0086B8BA /* PCBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCBaseViewController.m; sourceTree = "<group>"; };
 		BE21DA8C2086F11E0086B8BA /* PCViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCViewModel.h; sourceTree = "<group>"; };
@@ -63,6 +64,8 @@
 		BE21DAAD2087485D0086B8BA /* PCHotIssueView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCHotIssueView.m; sourceTree = "<group>"; };
 		BE21DAB02087815A0086B8BA /* HotIssueTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HotIssueTableViewCell.h; sourceTree = "<group>"; };
 		BE21DAB12087815A0086B8BA /* HotIssueTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotIssueTableViewCell.m; sourceTree = "<group>"; };
+		BEDE52AD20897B9000D00A98 /* PCPromotionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCPromotionView.h; sourceTree = "<group>"; };
+		BEDE52AE20897B9000D00A98 /* PCPromotionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCPromotionView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +188,8 @@
 				BE21DA9D208731790086B8BA /* View */,
 				BE21DAA920873F030086B8BA /* PCPromotionViewController.h */,
 				BE21DAAA20873F030086B8BA /* PCPromotionViewController.m */,
+				BEDE52AD20897B9000D00A98 /* PCPromotionView.h */,
+				BEDE52AE20897B9000D00A98 /* PCPromotionView.m */,
 			);
 			path = "党政宣传";
 			sourceTree = "<group>";
@@ -192,10 +197,8 @@
 		BE21DA9D208731790086B8BA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BE21DAA52087352C0086B8BA /* PCCenterdViewButton.h */,
-				BE21DAA42087352C0086B8BA /* PCCenterdViewButton.m */,
-				BE21DA9A208731750086B8BA /* PCBannerView.h */,
-				BE21DA9B208731750086B8BA /* PCBannerView.m */,
+				BEDE52B020897E1700D00A98 /* BannerView */,
+				BEDE52AB20897AB800D00A98 /* CenterView */,
 				BE21DAAF2087516D0086B8BA /* HotIssueView */,
 			);
 			path = View;
@@ -204,14 +207,32 @@
 		BE21DAAF2087516D0086B8BA /* HotIssueView */ = {
 			isa = PBXGroup;
 			children = (
-				BE21DA9E208732D40086B8BA /* PCCenterdView.h */,
-				BE21DA9F208732D40086B8BA /* PCCenterdView.m */,
 				BE21DAAC2087485D0086B8BA /* PCHotIssueView.h */,
 				BE21DAAD2087485D0086B8BA /* PCHotIssueView.m */,
 				BE21DAB02087815A0086B8BA /* HotIssueTableViewCell.h */,
 				BE21DAB12087815A0086B8BA /* HotIssueTableViewCell.m */,
 			);
 			path = HotIssueView;
+			sourceTree = "<group>";
+		};
+		BEDE52AB20897AB800D00A98 /* CenterView */ = {
+			isa = PBXGroup;
+			children = (
+				BE21DAA52087352C0086B8BA /* PCCenterdViewButton.h */,
+				BE21DAA42087352C0086B8BA /* PCCenterdViewButton.m */,
+				BE21DA9E208732D40086B8BA /* PCCenterdView.h */,
+				BE21DA9F208732D40086B8BA /* PCCenterdView.m */,
+			);
+			path = CenterView;
+			sourceTree = "<group>";
+		};
+		BEDE52B020897E1700D00A98 /* BannerView */ = {
+			isa = PBXGroup;
+			children = (
+				BE21DA9A208731750086B8BA /* PCBannerView.h */,
+				BE21DA9B208731750086B8BA /* PCBannerView.m */,
+			);
+			path = BannerView;
 			sourceTree = "<group>";
 		};
 		F88CF27F9C889AB4BA862A5D /* Frameworks */ = {
@@ -350,6 +371,7 @@
 				BE21DA822086E0700086B8BA /* UITextfieldView.m in Sources */,
 				BE21DA9C208731750086B8BA /* PCBannerView.m in Sources */,
 				BE21DA732086DE460086B8BA /* main.m in Sources */,
+				BEDE52AF20897B9000D00A98 /* PCPromotionView.m in Sources */,
 				BE21DA8E2086F11E0086B8BA /* PCViewModel.m in Sources */,
 				BE21DAA62087352C0086B8BA /* PCCenterdViewButton.m in Sources */,
 				BE21DA912086F2BC0086B8BA /* PCLoginViewController.m in Sources */,
