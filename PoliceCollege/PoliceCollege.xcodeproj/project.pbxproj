@@ -27,6 +27,14 @@
 		BE21DAB22087815A0086B8BA /* HotIssueTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE21DAB12087815A0086B8BA /* HotIssueTableViewCell.m */; };
 		BEDE52AF20897B9000D00A98 /* PCPromotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52AE20897B9000D00A98 /* PCPromotionView.m */; };
 		BEDE52B5208991E900D00A98 /* PCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52B4208991E900D00A98 /* PCTabBarController.m */; };
+		BEDE52B82089B31600D00A98 /* PCAnouncementTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52B72089B31600D00A98 /* PCAnouncementTableViewController.m */; };
+		BEDE52BB2089B36E00D00A98 /* AnouncementTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52BA2089B36E00D00A98 /* AnouncementTableViewCell.m */; };
+		BEDE52BE2089D29500D00A98 /* PCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52BD2089D29500D00A98 /* PCNavigationController.m */; };
+		BEDE52C12089D5FE00D00A98 /* DetailAnouncementView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52C02089D5FE00D00A98 /* DetailAnouncementView.m */; };
+		BEDE52C62089DB9C00D00A98 /* MePortraitButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52C52089DB9C00D00A98 /* MePortraitButton.m */; };
+		BEDE52C92089E09900D00A98 /* MeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52C82089E09900D00A98 /* MeView.m */; };
+		BEDE52CC2089E0C300D00A98 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52CB2089E0C300D00A98 /* MeViewController.m */; };
+		BEDE52CF2089F03F00D00A98 /* MeItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52CE2089F03F00D00A98 /* MeItemTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +77,22 @@
 		BEDE52AE20897B9000D00A98 /* PCPromotionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCPromotionView.m; sourceTree = "<group>"; };
 		BEDE52B3208991E900D00A98 /* PCTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCTabBarController.h; sourceTree = "<group>"; };
 		BEDE52B4208991E900D00A98 /* PCTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCTabBarController.m; sourceTree = "<group>"; };
+		BEDE52B62089B31600D00A98 /* PCAnouncementTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCAnouncementTableViewController.h; sourceTree = "<group>"; };
+		BEDE52B72089B31600D00A98 /* PCAnouncementTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCAnouncementTableViewController.m; sourceTree = "<group>"; };
+		BEDE52B92089B36E00D00A98 /* AnouncementTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnouncementTableViewCell.h; sourceTree = "<group>"; };
+		BEDE52BA2089B36E00D00A98 /* AnouncementTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnouncementTableViewCell.m; sourceTree = "<group>"; };
+		BEDE52BC2089D29500D00A98 /* PCNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCNavigationController.h; sourceTree = "<group>"; };
+		BEDE52BD2089D29500D00A98 /* PCNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCNavigationController.m; sourceTree = "<group>"; };
+		BEDE52BF2089D5FE00D00A98 /* DetailAnouncementView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailAnouncementView.h; sourceTree = "<group>"; };
+		BEDE52C02089D5FE00D00A98 /* DetailAnouncementView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailAnouncementView.m; sourceTree = "<group>"; };
+		BEDE52C42089DB9C00D00A98 /* MePortraitButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MePortraitButton.h; sourceTree = "<group>"; };
+		BEDE52C52089DB9C00D00A98 /* MePortraitButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MePortraitButton.m; sourceTree = "<group>"; };
+		BEDE52C72089E09900D00A98 /* MeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeView.h; sourceTree = "<group>"; };
+		BEDE52C82089E09900D00A98 /* MeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeView.m; sourceTree = "<group>"; };
+		BEDE52CA2089E0C300D00A98 /* MeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
+		BEDE52CB2089E0C300D00A98 /* MeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
+		BEDE52CD2089F03F00D00A98 /* MeItemTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeItemTableViewCell.h; sourceTree = "<group>"; };
+		BEDE52CE2089F03F00D00A98 /* MeItemTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeItemTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,11 +138,12 @@
 		BE21DA622086DE3C0086B8BA /* PoliceCollege */ = {
 			isa = PBXGroup;
 			children = (
+				BEDE52C32089DB5400D00A98 /* Me */,
 				BEDE52B2208991D300D00A98 /* Main */,
-				BEDE52B1208991A300D00A98 /* Announcement */,
 				BE21DA862086F08D0086B8BA /* Base */,
 				BE21DA792086DE970086B8BA /* Login */,
 				BE21DA99208731370086B8BA /* Promotion */,
+				BEDE52B1208991A300D00A98 /* Announcement */,
 				BE21DA632086DE3C0086B8BA /* AppDelegate.h */,
 				BE21DA642086DE3C0086B8BA /* AppDelegate.m */,
 				BE21DA692086DE3C0086B8BA /* Main.storyboard */,
@@ -243,6 +268,12 @@
 		BEDE52B1208991A300D00A98 /* Announcement */ = {
 			isa = PBXGroup;
 			children = (
+				BEDE52B62089B31600D00A98 /* PCAnouncementTableViewController.h */,
+				BEDE52B72089B31600D00A98 /* PCAnouncementTableViewController.m */,
+				BEDE52B92089B36E00D00A98 /* AnouncementTableViewCell.h */,
+				BEDE52BA2089B36E00D00A98 /* AnouncementTableViewCell.m */,
+				BEDE52BF2089D5FE00D00A98 /* DetailAnouncementView.h */,
+				BEDE52C02089D5FE00D00A98 /* DetailAnouncementView.m */,
 			);
 			path = Announcement;
 			sourceTree = "<group>";
@@ -252,8 +283,25 @@
 			children = (
 				BEDE52B3208991E900D00A98 /* PCTabBarController.h */,
 				BEDE52B4208991E900D00A98 /* PCTabBarController.m */,
+				BEDE52BC2089D29500D00A98 /* PCNavigationController.h */,
+				BEDE52BD2089D29500D00A98 /* PCNavigationController.m */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		BEDE52C32089DB5400D00A98 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				BEDE52C42089DB9C00D00A98 /* MePortraitButton.h */,
+				BEDE52C52089DB9C00D00A98 /* MePortraitButton.m */,
+				BEDE52C72089E09900D00A98 /* MeView.h */,
+				BEDE52C82089E09900D00A98 /* MeView.m */,
+				BEDE52CA2089E0C300D00A98 /* MeViewController.h */,
+				BEDE52CB2089E0C300D00A98 /* MeViewController.m */,
+				BEDE52CD2089F03F00D00A98 /* MeItemTableViewCell.h */,
+				BEDE52CE2089F03F00D00A98 /* MeItemTableViewCell.m */,
+			);
+			path = Me;
 			sourceTree = "<group>";
 		};
 		F88CF27F9C889AB4BA862A5D /* Frameworks */ = {
@@ -389,21 +437,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEDE52C62089DB9C00D00A98 /* MePortraitButton.m in Sources */,
 				BE21DA822086E0700086B8BA /* UITextfieldView.m in Sources */,
 				BE21DA9C208731750086B8BA /* PCBannerView.m in Sources */,
 				BE21DA732086DE460086B8BA /* main.m in Sources */,
 				BEDE52AF20897B9000D00A98 /* PCPromotionView.m in Sources */,
+				BEDE52B82089B31600D00A98 /* PCAnouncementTableViewController.m in Sources */,
 				BE21DA8E2086F11E0086B8BA /* PCViewModel.m in Sources */,
 				BE21DAA62087352C0086B8BA /* PCCenterdViewButton.m in Sources */,
 				BE21DA912086F2BC0086B8BA /* PCLoginViewController.m in Sources */,
+				BEDE52C92089E09900D00A98 /* MeView.m in Sources */,
 				BE21DA892086F09F0086B8BA /* PCBaseViewController.m in Sources */,
 				BE21DA652086DE3C0086B8BA /* AppDelegate.m in Sources */,
 				BE21DAB22087815A0086B8BA /* HotIssueTableViewCell.m in Sources */,
 				BEDE52B5208991E900D00A98 /* PCTabBarController.m in Sources */,
 				BE21DAAB20873F030086B8BA /* PCPromotionViewController.m in Sources */,
 				BE21DAA0208732D40086B8BA /* PCCenterdView.m in Sources */,
+				BEDE52C12089D5FE00D00A98 /* DetailAnouncementView.m in Sources */,
 				BE21DAAE2087485D0086B8BA /* PCHotIssueView.m in Sources */,
 				BE21DA94208722680086B8BA /* PCLoginView.m in Sources */,
+				BEDE52BE2089D29500D00A98 /* PCNavigationController.m in Sources */,
+				BEDE52CF2089F03F00D00A98 /* MeItemTableViewCell.m in Sources */,
+				BEDE52CC2089E0C300D00A98 /* MeViewController.m in Sources */,
+				BEDE52BB2089B36E00D00A98 /* AnouncementTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

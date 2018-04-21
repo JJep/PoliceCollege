@@ -7,8 +7,14 @@
 //
 
 #import "PCPromotionViewController.h"
-
+#import "PCCenterdView.h"
 #import "PCPromotionView.h"
+#import "PCCenterdViewButton.h"
+#import "PCAnouncementTableViewController.h"
+#define leftBtnTag 123
+#define centerBtnTag 1234
+#define rightBtnTag 12345
+
 @interface PCPromotionViewController ()
 
 @end
@@ -25,7 +31,33 @@
 //
     promotionView = [[PCPromotionView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:promotionView];
-  
+    
+    [promotionView.centerView.leftBtn  addTarget:self action:@selector(touchedBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [promotionView.centerView.centerBtn  addTarget:self action:@selector(touchedBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [promotionView.centerView.rightBtn  addTarget:self action:@selector(touchedBtn:) forControlEvents:UIControlEventTouchUpInside];
+
+    [promotionView.centerView.leftBtn  setTag:leftBtnTag];
+    [promotionView.centerView.centerBtn  setTag:centerBtnTag];
+    [promotionView.centerView.rightBtn  setTag:rightBtnTag];
+}
+
+- (void)touchedBtn:(UIButton *)button {
+    switch (button.tag) {
+        case leftBtnTag:
+        {
+            PCAnouncementTableViewController *newVC = [PCAnouncementTableViewController new];
+
+            [self.navigationController pushViewController:newVC animated:true];
+            break;
+        }
+        case centerBtnTag:
+            break;
+        case rightBtnTag:
+            break;
+
+        default:
+            break;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,7 +65,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.tabBarController.hidesBottomBarWhenPushed = NO;
+}
 
 /*
 #pragma mark - Navigation

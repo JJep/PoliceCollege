@@ -8,6 +8,9 @@
 
 #import "PCCenterdView.h"
 #import "PCCenterdViewButton.h"
+#define leftBtnTag 123
+#define centerBtnTar 1234
+#define rightBtnTag 12345
 @implementation PCCenterdView
 -(instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -29,9 +32,14 @@
         
         [_rightBtn setImage:[UIImage imageNamed:@"publicVideo"]];
         [_rightBtn setLabelStr:@"公开视频"];
+        
+
+        
     }
     return self;
 }
+
+
 
 -(void)layoutSubviews {
     [_leftBtn mas_makeConstraints:^(MASConstraintMaker *make) {

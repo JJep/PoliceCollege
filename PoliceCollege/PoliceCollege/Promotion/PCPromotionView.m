@@ -16,9 +16,7 @@
 @end
 
 @implementation PCPromotionView {
-    PCBannerView *bannerView;
-    PCCenterdView *centerView;
-    PCHotIssueView *hotIssueView;
+
 }
 float lastContentOffsetY;//用于监听scrollvie垂直滑动的数据
 float lastContentOffsetX;//监听水平滑动
@@ -27,39 +25,37 @@ float lastContentOffsetX;//监听水平滑动
     self = [super initWithFrame:frame];
     if (self) {
         
-
+        _bannerView = [PCBannerView new];
+        _centerView = [PCCenterdView new];
+        _hotIssueView = [PCHotIssueView new];
         
-        bannerView = [PCBannerView new];
-        centerView = [PCCenterdView new];
-        hotIssueView = [PCHotIssueView new];
+        [self addSubview:_bannerView];
+        [self addSubview:_centerView];
+        [self addSubview:_hotIssueView];
         
-        [self addSubview:bannerView];
-        [self addSubview:centerView];
-        [self addSubview:hotIssueView];
+        _hotIssueView.hotIssueTableView.delegate = self;
+        _hotIssueView.hotIssueTableView.dataSource = self;
         
-        hotIssueView.hotIssueTableView.delegate = self;
-        hotIssueView.hotIssueTableView.dataSource = self;
-        
-        [bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [_bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.left.right.equalTo(self);
             make.height.mas_equalTo(244.3);
         }];
         
-        [centerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [_centerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.mas_left).offset(15);
             make.right.equalTo(self.mas_right).offset(-15);
-            make.top.equalTo(self->bannerView.mas_bottom).offset(3.7);
+            make.top.equalTo(self->_bannerView.mas_bottom).offset(3.7);
             make.height.mas_equalTo(80);
         }];
         
-        [hotIssueView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self->centerView.mas_bottom).offset(15);
+        [_hotIssueView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self->_centerView.mas_bottom).offset(15);
             make.left.equalTo(self.mas_left).offset(15);
             make.right.equalTo(self.mas_right).offset(-15);
             make.bottom.equalTo(self.mas_bottom).offset(-15);
         }];
         
-        self.topContentOffset = hotIssueView.hotIssueTableView.contentOffset.y;
+        self.topContentOffset = _hotIssueView.hotIssueTableView.contentOffset.y;
         
     }
     return self;
@@ -109,14 +105,14 @@ float lastContentOffsetX;//监听水平滑动
 
 - (void)hotIssueViewToTop {
     [UIView animateWithDuration:0.3 animations:^{
-        [self->bannerView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        [self->_bannerView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self);
             make.height.mas_equalTo(244.3);
-            make.bottom.equalTo(self.mas_top).offset(-3.7 - self->centerView.bounds.size.height);
+            make.bottom.equalTo(self.mas_top).offset(-3.7 - self->_centerView.bounds.size.height);
         }];
         
-        [self->hotIssueView mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self->centerView.mas_bottom).offset(20);
+        [self->_hotIssueView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self->_centerView.mas_bottom).offset(20);
             make.left.equalTo(self.mas_left).offset(15);
             make.right.equalTo(self.mas_right).offset(-15);
             make.bottom.equalTo(self.mas_bottom).offset(-15);
@@ -138,13 +134,13 @@ float lastContentOffsetX;//监听水平滑动
     if (offsetY == 0 && lastContentOffsetY == self.topContentOffset ) {
         [UIView animateWithDuration:0.3 animations:^{
             
-            [self->bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
+            [self->_bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.left.right.equalTo(self);
                 make.height.mas_equalTo(244.3);
             }];
 
-            [self->hotIssueView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(self->centerView.mas_bottom).offset(15);
+            [self->_hotIssueView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self->_centerView.mas_bottom).offset(15);
                 make.left.equalTo(self.mas_left).offset(15);
                 make.right.equalTo(self.mas_right).offset(-15);
                 make.bottom.equalTo(self.mas_bottom).offset(-15);

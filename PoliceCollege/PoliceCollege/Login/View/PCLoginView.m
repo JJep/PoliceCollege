@@ -57,7 +57,6 @@
         [_loginBtn setTitleColor:
          [UIColor colorWithRed:74/255.0 green:144/255.0 blue:226/255.0 alpha:1/1.0]
                         forState:UIControlStateNormal];
-        _loginBtn.layer.cornerRadius = 1;
         [backView addSubview:_loginBtn];
         
         _userNameTextField.layer.cornerRadius = 3;

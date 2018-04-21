@@ -8,11 +8,18 @@
 
 #import "PCTabBarController.h"
 #import "PCPromotionViewController.h"
+#import "PCNavigationController.h"
+#import "MeViewController.h"
 @interface PCTabBarController ()
 
 @end
 
 @implementation PCTabBarController
+
+-(void)setHidesBottomBarWhenPushed:(BOOL)hidesBottomBarWhenPushed
+{
+    self.tabBar.hidden = hidesBottomBarWhenPushed;
+}
 
 -(void)viewDidLoad{
     
@@ -78,7 +85,7 @@
  */
 - (void)setUpChildViewController{
     
-    [self addOneChildViewController:[[UINavigationController alloc]initWithRootViewController:[[PCPromotionViewController alloc]init]]
+    [self addOneChildViewController:[[PCNavigationController alloc]initWithRootViewController:[[PCPromotionViewController alloc]init]]
                           WithTitle:@"党务宣传"
                           imageName:@"promotionUnselected"
                   selectedImageName:@"promotionSelected"];
@@ -95,7 +102,7 @@
                   selectedImageName:@"personalCenterSelected"];
     
     
-    [self addOneChildViewController:[[UINavigationController alloc]initWithRootViewController:[[UIViewController alloc]init]]
+    [self addOneChildViewController:[[PCNavigationController alloc]initWithRootViewController:[[MeViewController alloc]init]]
                           WithTitle:@"我的"
                           imageName:@"meUnselected"
                   selectedImageName:@"meSelected"];
