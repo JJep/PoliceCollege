@@ -7,6 +7,7 @@
 //
 
 #import "MeItemTableViewCell.h"
+
 @implementation MeItemTableViewCell {
     UIImageView *imageView;
     UILabel *titleLabel;
@@ -26,12 +27,14 @@
         [self addSubview:imageView];
         [self addSubview:titleLabel];
         [self addSubview:arrowImageView];
+        [contentLabel setHidden:true];
         
         titleLabel.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:15];
         titleLabel.textColor = [UIColor colorWithRed:75/255.0 green:75/255.0 blue:75/255.0 alpha:1/1.0];
         
         contentLabel.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:15];
         contentLabel.textColor = [UIColor colorWithRed:203/255.0 green:204/255.0 blue:205/255.0 alpha:1/1.0];
+        [contentLabel setTextAlignment:NSTextAlignmentRight];
         
         [arrowImageView setImage:[UIImage imageNamed:@"arrow"]];
 
@@ -51,7 +54,7 @@
         make.left.equalTo(self->imageView.mas_right).offset(18.1);
         make.top.equalTo(self).offset(19);
         make.bottom.equalTo(self).offset(-20);
-        make.right.equalTo(self).offset(-200);
+        make.right.equalTo(self->contentLabel.mas_left).offset(-10);
     }];
     
     [arrowImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -84,16 +87,21 @@
 }
 
 -(void)setContent:(NSString *)content {
-    if (_content != content) {
+    if (_content != content && ![content isEqualToString:@""]) {
         _content = content;
         [contentLabel setText:_content];
         [arrowImageView setHidden:true];
+        [contentLabel setHidden:false];
     }
 }
 
 -(void)setModel:(MeTableViewModel *)model{
-//    model = [MeTableViewModel ]
-    model = [MeTableViewModel initWithDictionary:<#(NSDictionary *)#>]
+    MeItem *meModel = (MeItem *)model;
+    [self setImage:meModel.image];
+    [self setTitle:meModel.title];
+    if (meModel.content) {
+        [self setContent:meModel.content];
+    }
 }
 
 - (void)awakeFromNib {

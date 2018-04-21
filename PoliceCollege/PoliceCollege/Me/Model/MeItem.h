@@ -9,5 +9,7 @@
 #import "MeTableViewModel.h"
 
 @interface MeItem : MeTableViewModel
-
+@property (nonatomic,copy)NSString *title;
+@property (nonatomic,retain)UIImage *image;
+@property (nonatomic,copy)NSString *content;
 @end

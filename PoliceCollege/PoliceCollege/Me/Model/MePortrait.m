@@ -9,5 +9,9 @@
 #import "MePortrait.h"
 
 @implementation MePortrait
-
+-(void)setValue:(id)value forUndefinedKey:(NSString *)key
+{
+    
+    
+}
 @end

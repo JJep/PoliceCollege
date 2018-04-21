@@ -19,8 +19,8 @@
 @synthesize image = _image;
 @synthesize nameStr = _nameStr;
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         portraitImageView = [UIImageView new];
         lbName = [UILabel new];
@@ -132,7 +132,7 @@
     
     [arrowImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.mas_right).offset(-10);
-        make.size.mas_equalTo([UIImage imageNamed:@"arrow"].size);
+        make.width.height.mas_equalTo(18);
         make.centerY.equalTo(self);
     }];
 }

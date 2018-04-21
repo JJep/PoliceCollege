@@ -12,6 +12,13 @@
 #import "MeTableViewCell.h"
 @interface MeViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic,retain)NSArray *dataArray;
+@property (nonatomic,retain)NSMutableArray *modelArray;
+@property (nonatomic,retain)NSURL *imageURL;
+@property (nonatomic,copy)NSString *userName;
+@property (nonatomic)int totalTime;
+@property (nonatomic)int todayTime;
+@property (nonatomic,copy)NSString *cacheCapacity;
+@property (nonatomic,copy)NSString *maturityTime;
 @end
 
 @implementation MeViewController {
@@ -22,20 +29,69 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _imageURL = [[NSURL alloc] initWithString:@"www.baidu.com"];
+    _userName = [NSString new];
+    _cacheCapacity = [NSString new];
+    _maturityTime = [NSString new];
     
-
+    
     tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     [self.view addSubview:tableView];
     
     tableView.delegate = self;
     tableView.dataSource = self;
-    
+    _modelArray = [[NSMutableArray alloc] init];
     [self initDataArray];
     
 }
 
 - (void)initDataArray {
-    
+    self.dataArray = @[
+                       @{
+                           @"tag":@"portrait",
+                           @"userName":self.userName,
+                           @"totalTime":[NSNumber numberWithInt:self.totalTime],
+                           @"todayTime":[NSNumber numberWithInt:self.todayTime],
+                           @"portraitURL":self.imageURL
+                           },
+                       @{
+                           @"tag":@"item",
+                           @"image":[UIImage imageNamed:@"banner"],
+                           @"title":@"修改密码",
+                           @"content":@""
+                           },
+                       @{
+                           @"tag":@"item",
+                           @"image":[UIImage imageNamed:@"banner"],
+                           @"title":@"推送设置",
+                           @"content":@""
+                           },
+                       @{
+                           @"tag":@"item",
+                           @"image":[UIImage imageNamed:@"banner"],
+                           @"title":@"清理缓存",
+                           @"content":self.cacheCapacity
+                           },
+                       @{
+                           @"tag":@"item",
+                           @"image":[UIImage imageNamed:@"banner"],
+                           @"title":@"缓存到期时间",
+                           @"content":self.maturityTime
+                           },
+                       @{
+                           @"tag":@"item",
+                           @"image":[UIImage imageNamed:@"banner"],
+                           @"title":@"关于",
+                           @"content":@""
+                           }
+                       ];
+    for (NSDictionary *dic in _dataArray) {
+        
+        MeTableViewModel *model = [MeTableViewModel initWithDictionary:dic];
+        //将不同的子类创建的model对象添加到数组中
+        [self.modelArray addObject:model];
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,7 +106,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //根据indexPath.row获取对应的model
-    MeTableViewModel *model = [self.dataArray objectAtIndex:indexPath.row];
+    MeTableViewModel *model = [self.modelArray objectAtIndex:indexPath.row];
     
     //根据取出的modle获取对应的类名
     NSString *modelName = [NSString stringWithUTF8String:object_getClassName(model)];
@@ -71,15 +127,19 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 0;
+    return 1;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return 6;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 0;
+    if (indexPath.row == 0) {
+        return 201;
+    } else {
+        return 60;
+    }
 }
 
 /*

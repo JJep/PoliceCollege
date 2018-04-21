@@ -22,22 +22,15 @@
         rootModel = [[MeItem alloc]init];
         
     }
-    
+    //使用KVC，使用dictionary的key作为对象的属性，value作为属性值给rootmodel赋值
     [rootModel setValuesForKeysWithDictionary:dictionary];
     return rootModel;
 }
 
-+ (MeTableViewModel *)meTableViewModel:(PCMeTableViewModelType)PCMeTableViewModelType {
-    MeTableViewModel *meTableViewModel ;
-    switch (PCMeTableViewModelType) {
-        case PCMeTableViewModelTypePortrait:
-            meTableViewModel = [[MePortrait alloc] init];
-            break;
-            case PCMeTableViewModelTypeItem:
-            meTableViewModel = [[MeItem alloc] init];
-        default:
-            break;
-    }
-    return meTableViewModel;
+-(void)setValue:(id)value forUndefinedKey:(NSString *)key
+{
+    
+    
 }
+
 @end

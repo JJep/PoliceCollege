@@ -9,5 +9,9 @@
 #import "MeItem.h"
 
 @implementation MeItem
-
+-(void)setValue:(id)value forUndefinedKey:(NSString *)key
+{
+    
+    
+}
 @end

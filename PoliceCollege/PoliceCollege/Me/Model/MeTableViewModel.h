@@ -13,5 +13,4 @@ typedef NS_ENUM(NSInteger, PCMeTableViewModelType){
 };
 @interface MeTableViewModel : NSObject
 +(instancetype)initWithDictionary:(NSDictionary *)dictionary;
-+ (MeTableViewModel *)meTableViewModel:(PCMeTableViewModelType )PCMeTableViewModelType ;
 @end
