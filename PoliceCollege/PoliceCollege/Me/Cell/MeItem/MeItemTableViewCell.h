@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface MeItemTableViewCell : UITableViewCell
+#import "MeTableViewCell.h"
+#import "MeTableViewModel.h"
+@interface MeItemTableViewCell : MeTableViewCell;
 @property (nonatomic,retain)UIImage *image;
 @property (nonatomic,copy)NSString *title;
 @property (nonatomic,copy)NSString *content;

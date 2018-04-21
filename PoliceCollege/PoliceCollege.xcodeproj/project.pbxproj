@@ -31,10 +31,14 @@
 		BEDE52BB2089B36E00D00A98 /* AnouncementTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52BA2089B36E00D00A98 /* AnouncementTableViewCell.m */; };
 		BEDE52BE2089D29500D00A98 /* PCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52BD2089D29500D00A98 /* PCNavigationController.m */; };
 		BEDE52C12089D5FE00D00A98 /* DetailAnouncementView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52C02089D5FE00D00A98 /* DetailAnouncementView.m */; };
-		BEDE52C62089DB9C00D00A98 /* MePortraitButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52C52089DB9C00D00A98 /* MePortraitButton.m */; };
-		BEDE52C92089E09900D00A98 /* MeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52C82089E09900D00A98 /* MeView.m */; };
+		BEDE52C62089DB9C00D00A98 /* MePortraitTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52C52089DB9C00D00A98 /* MePortraitTableViewCell.m */; };
 		BEDE52CC2089E0C300D00A98 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52CB2089E0C300D00A98 /* MeViewController.m */; };
 		BEDE52CF2089F03F00D00A98 /* MeItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52CE2089F03F00D00A98 /* MeItemTableViewCell.m */; };
+		BEDE52D4208B13D200D00A98 /* MeTableViewCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52D3208B13D200D00A98 /* MeTableViewCellFactory.m */; };
+		BEDE52D8208B2AFD00D00A98 /* MeTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52D7208B2AFD00D00A98 /* MeTableViewModel.m */; };
+		BEDE52DB208B2BBC00D00A98 /* MePortrait.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52DA208B2BBC00D00A98 /* MePortrait.m */; };
+		BEDE52DE208B2BC800D00A98 /* MeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52DD208B2BC800D00A98 /* MeItem.m */; };
+		BEDE52E2208B2C5700D00A98 /* MeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52E1208B2C5700D00A98 /* MeTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,14 +89,22 @@
 		BEDE52BD2089D29500D00A98 /* PCNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCNavigationController.m; sourceTree = "<group>"; };
 		BEDE52BF2089D5FE00D00A98 /* DetailAnouncementView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailAnouncementView.h; sourceTree = "<group>"; };
 		BEDE52C02089D5FE00D00A98 /* DetailAnouncementView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailAnouncementView.m; sourceTree = "<group>"; };
-		BEDE52C42089DB9C00D00A98 /* MePortraitButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MePortraitButton.h; sourceTree = "<group>"; };
-		BEDE52C52089DB9C00D00A98 /* MePortraitButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MePortraitButton.m; sourceTree = "<group>"; };
-		BEDE52C72089E09900D00A98 /* MeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeView.h; sourceTree = "<group>"; };
-		BEDE52C82089E09900D00A98 /* MeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeView.m; sourceTree = "<group>"; };
+		BEDE52C42089DB9C00D00A98 /* MePortraitTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MePortraitTableViewCell.h; sourceTree = "<group>"; };
+		BEDE52C52089DB9C00D00A98 /* MePortraitTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MePortraitTableViewCell.m; sourceTree = "<group>"; };
 		BEDE52CA2089E0C300D00A98 /* MeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
 		BEDE52CB2089E0C300D00A98 /* MeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		BEDE52CD2089F03F00D00A98 /* MeItemTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeItemTableViewCell.h; sourceTree = "<group>"; };
 		BEDE52CE2089F03F00D00A98 /* MeItemTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeItemTableViewCell.m; sourceTree = "<group>"; };
+		BEDE52D2208B13D200D00A98 /* MeTableViewCellFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeTableViewCellFactory.h; sourceTree = "<group>"; };
+		BEDE52D3208B13D200D00A98 /* MeTableViewCellFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeTableViewCellFactory.m; sourceTree = "<group>"; };
+		BEDE52D6208B2AFD00D00A98 /* MeTableViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeTableViewModel.h; sourceTree = "<group>"; };
+		BEDE52D7208B2AFD00D00A98 /* MeTableViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeTableViewModel.m; sourceTree = "<group>"; };
+		BEDE52D9208B2BBC00D00A98 /* MePortrait.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MePortrait.h; sourceTree = "<group>"; };
+		BEDE52DA208B2BBC00D00A98 /* MePortrait.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MePortrait.m; sourceTree = "<group>"; };
+		BEDE52DC208B2BC800D00A98 /* MeItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeItem.h; sourceTree = "<group>"; };
+		BEDE52DD208B2BC800D00A98 /* MeItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeItem.m; sourceTree = "<group>"; };
+		BEDE52E0208B2C5700D00A98 /* MeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeTableViewCell.h; sourceTree = "<group>"; };
+		BEDE52E1208B2C5700D00A98 /* MeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,16 +304,56 @@
 		BEDE52C32089DB5400D00A98 /* Me */ = {
 			isa = PBXGroup;
 			children = (
-				BEDE52C42089DB9C00D00A98 /* MePortraitButton.h */,
-				BEDE52C52089DB9C00D00A98 /* MePortraitButton.m */,
-				BEDE52C72089E09900D00A98 /* MeView.h */,
-				BEDE52C82089E09900D00A98 /* MeView.m */,
+				BEDE52DF208B2C3F00D00A98 /* Cell */,
+				BEDE52D5208B2A6300D00A98 /* Model */,
 				BEDE52CA2089E0C300D00A98 /* MeViewController.h */,
 				BEDE52CB2089E0C300D00A98 /* MeViewController.m */,
+				BEDE52D2208B13D200D00A98 /* MeTableViewCellFactory.h */,
+				BEDE52D3208B13D200D00A98 /* MeTableViewCellFactory.m */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		BEDE52D0208B063200D00A98 /* portraitButton */ = {
+			isa = PBXGroup;
+			children = (
+				BEDE52C42089DB9C00D00A98 /* MePortraitTableViewCell.h */,
+				BEDE52C52089DB9C00D00A98 /* MePortraitTableViewCell.m */,
+			);
+			path = portraitButton;
+			sourceTree = "<group>";
+		};
+		BEDE52D1208B064700D00A98 /* MeItem */ = {
+			isa = PBXGroup;
+			children = (
 				BEDE52CD2089F03F00D00A98 /* MeItemTableViewCell.h */,
 				BEDE52CE2089F03F00D00A98 /* MeItemTableViewCell.m */,
 			);
-			path = Me;
+			path = MeItem;
+			sourceTree = "<group>";
+		};
+		BEDE52D5208B2A6300D00A98 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BEDE52D6208B2AFD00D00A98 /* MeTableViewModel.h */,
+				BEDE52D7208B2AFD00D00A98 /* MeTableViewModel.m */,
+				BEDE52D9208B2BBC00D00A98 /* MePortrait.h */,
+				BEDE52DA208B2BBC00D00A98 /* MePortrait.m */,
+				BEDE52DC208B2BC800D00A98 /* MeItem.h */,
+				BEDE52DD208B2BC800D00A98 /* MeItem.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BEDE52DF208B2C3F00D00A98 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BEDE52D1208B064700D00A98 /* MeItem */,
+				BEDE52D0208B063200D00A98 /* portraitButton */,
+				BEDE52E0208B2C5700D00A98 /* MeTableViewCell.h */,
+				BEDE52E1208B2C5700D00A98 /* MeTableViewCell.m */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		F88CF27F9C889AB4BA862A5D /* Frameworks */ = {
@@ -437,16 +489,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEDE52C62089DB9C00D00A98 /* MePortraitButton.m in Sources */,
+				BEDE52C62089DB9C00D00A98 /* MePortraitTableViewCell.m in Sources */,
+				BEDE52DB208B2BBC00D00A98 /* MePortrait.m in Sources */,
 				BE21DA822086E0700086B8BA /* UITextfieldView.m in Sources */,
 				BE21DA9C208731750086B8BA /* PCBannerView.m in Sources */,
+				BEDE52D8208B2AFD00D00A98 /* MeTableViewModel.m in Sources */,
 				BE21DA732086DE460086B8BA /* main.m in Sources */,
 				BEDE52AF20897B9000D00A98 /* PCPromotionView.m in Sources */,
 				BEDE52B82089B31600D00A98 /* PCAnouncementTableViewController.m in Sources */,
+				BEDE52DE208B2BC800D00A98 /* MeItem.m in Sources */,
 				BE21DA8E2086F11E0086B8BA /* PCViewModel.m in Sources */,
 				BE21DAA62087352C0086B8BA /* PCCenterdViewButton.m in Sources */,
 				BE21DA912086F2BC0086B8BA /* PCLoginViewController.m in Sources */,
-				BEDE52C92089E09900D00A98 /* MeView.m in Sources */,
 				BE21DA892086F09F0086B8BA /* PCBaseViewController.m in Sources */,
 				BE21DA652086DE3C0086B8BA /* AppDelegate.m in Sources */,
 				BE21DAB22087815A0086B8BA /* HotIssueTableViewCell.m in Sources */,
@@ -454,12 +508,14 @@
 				BE21DAAB20873F030086B8BA /* PCPromotionViewController.m in Sources */,
 				BE21DAA0208732D40086B8BA /* PCCenterdView.m in Sources */,
 				BEDE52C12089D5FE00D00A98 /* DetailAnouncementView.m in Sources */,
+				BEDE52D4208B13D200D00A98 /* MeTableViewCellFactory.m in Sources */,
 				BE21DAAE2087485D0086B8BA /* PCHotIssueView.m in Sources */,
 				BE21DA94208722680086B8BA /* PCLoginView.m in Sources */,
 				BEDE52BE2089D29500D00A98 /* PCNavigationController.m in Sources */,
 				BEDE52CF2089F03F00D00A98 /* MeItemTableViewCell.m in Sources */,
 				BEDE52CC2089E0C300D00A98 /* MeViewController.m in Sources */,
 				BEDE52BB2089B36E00D00A98 /* AnouncementTableViewCell.m in Sources */,
+				BEDE52E2208B2C5700D00A98 /* MeTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

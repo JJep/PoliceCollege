@@ -49,7 +49,9 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    self.tabBarController.hidesBottomBarWhenPushed = YES;
+//    self.tabBarController.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController setNavigationBarHidden:false];
+    [self.navigationController setNavigationBarHidden:false animated:animated];
 }
 
 

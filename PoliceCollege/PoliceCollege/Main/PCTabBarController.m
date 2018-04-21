@@ -16,10 +16,10 @@
 
 @implementation PCTabBarController
 
--(void)setHidesBottomBarWhenPushed:(BOOL)hidesBottomBarWhenPushed
-{
-    self.tabBar.hidden = hidesBottomBarWhenPushed;
-}
+//-(void)setHidesBottomBarWhenPushed:(BOOL)hidesBottomBarWhenPushed
+//{
+//    self.tabBar.hidden = hidesBottomBarWhenPushed;
+//}
 
 -(void)viewDidLoad{
     

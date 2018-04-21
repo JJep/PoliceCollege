@@ -31,6 +31,7 @@
         gradientLayer.locations = @[@0, @1];
         gradientLayer.startPoint = CGPointMake(0, 1);
         gradientLayer.endPoint = CGPointMake(0, 0);
+        gradientLayer.frame = CGRectMake(0, 0, 2, 14);
         [gradientView.layer addSublayer:gradientLayer];
         
         title.text = @"今日热点";

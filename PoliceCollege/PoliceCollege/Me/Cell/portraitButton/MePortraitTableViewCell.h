@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface MePortraitButton : UIButton
+#import "MeTableViewCell.h"
+@interface MePortraitTableViewCell : MeTableViewCell
 @property (nonatomic,retain)UIImage *image;
 @property (nonatomic,copy)NSString *nameStr;
 @property (nonatomic)float totalTime;

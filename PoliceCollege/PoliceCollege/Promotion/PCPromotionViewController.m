@@ -39,6 +39,8 @@
     [promotionView.centerView.leftBtn  setTag:leftBtnTag];
     [promotionView.centerView.centerBtn  setTag:centerBtnTag];
     [promotionView.centerView.rightBtn  setTag:rightBtnTag];
+    
+//    [self.navigationController setNavigationBarHidden:true];
 }
 
 - (void)touchedBtn:(UIButton *)button {
@@ -67,8 +69,8 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    self.tabBarController.hidesBottomBarWhenPushed = NO;
-}
+//    self.tabBarController.hidesBottomBarWhenPushed = NO;
+[self.navigationController setNavigationBarHidden:true animated:animated];}
 
 /*
 #pragma mark - Navigation

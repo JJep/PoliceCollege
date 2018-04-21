@@ -14,10 +14,10 @@
 
 @implementation PCNavigationController
 
--(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    viewController.hidesBottomBarWhenPushed = YES;
-    [super pushViewController:viewController animated:animated];
-}
+//-(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+//    viewController.hidesBottomBarWhenPushed = YES;
+//    [super pushViewController:viewController animated:animated];
+//}
 
 -(UIViewController *)popViewControllerAnimated:(BOOL)animated {
     return [super popViewControllerAnimated:animated];

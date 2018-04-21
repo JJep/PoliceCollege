@@ -6,9 +6,9 @@
 //  Copyright © 2018年 Jep Xia. All rights reserved.
 //
 
-#import "MePortraitButton.h"
+#import "MePortraitTableViewCell.h"
 
-@implementation MePortraitButton {
+@implementation MePortraitTableViewCell {
     UIImageView *portraitImageView;
     UILabel *lbName;
     UILabel *lbtime;
