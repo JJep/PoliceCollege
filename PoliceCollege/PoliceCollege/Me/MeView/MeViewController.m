@@ -10,6 +10,7 @@
 #import "MeTableViewModel.h"
 #import "MeTableViewCell.h"
 #import "PersonalInformationViewController.h"
+#import "ChangePasswordViewController.h"
 @interface MeViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic,retain)NSArray *dataArray;
 @property (nonatomic,retain)NSMutableArray *modelArray;
@@ -35,7 +36,6 @@
     _maturityTime = [NSString new];
     
     
-//    tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     tableView = [[UITableView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.y, self.view.bounds.origin.y - 20, self.view.bounds.size.width, self.view.bounds.size.height)];
     [self.view addSubview:tableView];
     
@@ -148,9 +148,16 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        PersonalInformationViewController *newVC = [PersonalInformationViewController new];
-        [self.navigationController pushViewController:newVC animated:true];
+        [self pushToViewController:[PersonalInformationViewController new]];
+        
+    } else if (indexPath.row == 1 ) {
+        [self pushToViewController:[ChangePasswordViewController new]];
     }
+}
+
+- (void)pushToViewController:(UIViewController *)viewController {
+    viewController.hidesBottomBarWhenPushed = true;
+    [self.navigationController pushViewController:viewController animated:true];
 }
 
 /*

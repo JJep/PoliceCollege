@@ -26,21 +26,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    [self setPromotionView];
     [self.view setBackgroundColor:MyWhiteBackgroundColor];
-//
+}
+
+- (void)setPromotionView {
     promotionView = [[PCPromotionView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:promotionView];
     
     [promotionView.centerView.leftBtn  addTarget:self action:@selector(touchedBtn:) forControlEvents:UIControlEventTouchUpInside];
     [promotionView.centerView.centerBtn  addTarget:self action:@selector(touchedBtn:) forControlEvents:UIControlEventTouchUpInside];
     [promotionView.centerView.rightBtn  addTarget:self action:@selector(touchedBtn:) forControlEvents:UIControlEventTouchUpInside];
-
+    
     [promotionView.centerView.leftBtn  setTag:leftBtnTag];
     [promotionView.centerView.centerBtn  setTag:centerBtnTag];
     [promotionView.centerView.rightBtn  setTag:rightBtnTag];
-    
-//    [self.navigationController setNavigationBarHidden:true];
 }
 
 - (void)touchedBtn:(UIButton *)button {
@@ -48,7 +48,7 @@
         case leftBtnTag:
         {
             PCAnouncementTableViewController *newVC = [PCAnouncementTableViewController new];
-
+            newVC.hidesBottomBarWhenPushed = true;
             [self.navigationController pushViewController:newVC animated:true];
             break;
         }

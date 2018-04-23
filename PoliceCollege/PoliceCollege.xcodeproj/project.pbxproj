@@ -41,6 +41,8 @@
 		BEDE52E9208D784500D00A98 /* PersonalInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52E7208D784500D00A98 /* PersonalInfoTableViewCell.m */; };
 		BEDE52ED208D820C00D00A98 /* PersonalInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52EC208D820C00D00A98 /* PersonalInformationViewController.m */; };
 		BEDE52F0208DC5A300D00A98 /* PersonalInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52EF208DC5A300D00A98 /* PersonalInfoModel.m */; };
+		BEDE52F6208DDB8D00D00A98 /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52F5208DDB8D00D00A98 /* ChangePasswordViewController.m */; };
+		BEDE52FA208DE65200D00A98 /* PushSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52F9208DE65200D00A98 /* PushSettingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +113,10 @@
 		BEDE52EC208D820C00D00A98 /* PersonalInformationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalInformationViewController.m; sourceTree = "<group>"; };
 		BEDE52EE208DC5A300D00A98 /* PersonalInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalInfoModel.h; sourceTree = "<group>"; };
 		BEDE52EF208DC5A300D00A98 /* PersonalInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoModel.m; sourceTree = "<group>"; };
+		BEDE52F4208DDB8D00D00A98 /* ChangePasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangePasswordViewController.h; sourceTree = "<group>"; };
+		BEDE52F5208DDB8D00D00A98 /* ChangePasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordViewController.m; sourceTree = "<group>"; };
+		BEDE52F8208DE65200D00A98 /* PushSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushSettingViewController.h; sourceTree = "<group>"; };
+		BEDE52F9208DE65200D00A98 /* PushSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PushSettingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,11 +316,10 @@
 		BEDE52C32089DB5400D00A98 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				BEDE52F7208DE63B00D00A98 /* PushSetting */,
+				BEDE52F3208DDB7400D00A98 /* ChangePassword */,
+				BEDE52F2208DDACF00D00A98 /* MeView */,
 				BEDE52E4208D780A00D00A98 /* PersonalInfo */,
-				BEDE52DF208B2C3F00D00A98 /* Cell */,
-				BEDE52D5208B2A6300D00A98 /* Model */,
-				BEDE52CA2089E0C300D00A98 /* MeViewController.h */,
-				BEDE52CB2089E0C300D00A98 /* MeViewController.m */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -388,6 +393,35 @@
 				BEDE52EF208DC5A300D00A98 /* PersonalInfoModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BEDE52F2208DDACF00D00A98 /* MeView */ = {
+			isa = PBXGroup;
+			children = (
+				BEDE52DF208B2C3F00D00A98 /* Cell */,
+				BEDE52D5208B2A6300D00A98 /* Model */,
+				BEDE52CA2089E0C300D00A98 /* MeViewController.h */,
+				BEDE52CB2089E0C300D00A98 /* MeViewController.m */,
+			);
+			path = MeView;
+			sourceTree = "<group>";
+		};
+		BEDE52F3208DDB7400D00A98 /* ChangePassword */ = {
+			isa = PBXGroup;
+			children = (
+				BEDE52F4208DDB8D00D00A98 /* ChangePasswordViewController.h */,
+				BEDE52F5208DDB8D00D00A98 /* ChangePasswordViewController.m */,
+			);
+			path = ChangePassword;
+			sourceTree = "<group>";
+		};
+		BEDE52F7208DE63B00D00A98 /* PushSetting */ = {
+			isa = PBXGroup;
+			children = (
+				BEDE52F8208DE65200D00A98 /* PushSettingViewController.h */,
+				BEDE52F9208DE65200D00A98 /* PushSettingViewController.m */,
+			);
+			path = PushSetting;
 			sourceTree = "<group>";
 		};
 		F88CF27F9C889AB4BA862A5D /* Frameworks */ = {
@@ -536,6 +570,7 @@
 				BEDE52E9208D784500D00A98 /* PersonalInfoTableViewCell.m in Sources */,
 				BE21DA8E2086F11E0086B8BA /* PCViewModel.m in Sources */,
 				BEDE52ED208D820C00D00A98 /* PersonalInformationViewController.m in Sources */,
+				BEDE52F6208DDB8D00D00A98 /* ChangePasswordViewController.m in Sources */,
 				BE21DAA62087352C0086B8BA /* PCCenterdViewButton.m in Sources */,
 				BE21DA912086F2BC0086B8BA /* PCLoginViewController.m in Sources */,
 				BE21DA892086F09F0086B8BA /* PCBaseViewController.m in Sources */,
@@ -544,6 +579,7 @@
 				BEDE52B5208991E900D00A98 /* PCTabBarController.m in Sources */,
 				BE21DAAB20873F030086B8BA /* PCPromotionViewController.m in Sources */,
 				BE21DAA0208732D40086B8BA /* PCCenterdView.m in Sources */,
+				BEDE52FA208DE65200D00A98 /* PushSettingViewController.m in Sources */,
 				BEDE52C12089D5FE00D00A98 /* DetailAnouncementView.m in Sources */,
 				BE21DAAE2087485D0086B8BA /* PCHotIssueView.m in Sources */,
 				BE21DA94208722680086B8BA /* PCLoginView.m in Sources */,
