@@ -34,11 +34,13 @@
 		BEDE52C62089DB9C00D00A98 /* MePortraitTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52C52089DB9C00D00A98 /* MePortraitTableViewCell.m */; };
 		BEDE52CC2089E0C300D00A98 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52CB2089E0C300D00A98 /* MeViewController.m */; };
 		BEDE52CF2089F03F00D00A98 /* MeItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52CE2089F03F00D00A98 /* MeItemTableViewCell.m */; };
-		BEDE52D4208B13D200D00A98 /* MeTableViewCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52D3208B13D200D00A98 /* MeTableViewCellFactory.m */; };
 		BEDE52D8208B2AFD00D00A98 /* MeTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52D7208B2AFD00D00A98 /* MeTableViewModel.m */; };
 		BEDE52DB208B2BBC00D00A98 /* MePortrait.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52DA208B2BBC00D00A98 /* MePortrait.m */; };
 		BEDE52DE208B2BC800D00A98 /* MeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52DD208B2BC800D00A98 /* MeItem.m */; };
 		BEDE52E2208B2C5700D00A98 /* MeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52E1208B2C5700D00A98 /* MeTableViewCell.m */; };
+		BEDE52E9208D784500D00A98 /* PersonalInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52E7208D784500D00A98 /* PersonalInfoTableViewCell.m */; };
+		BEDE52ED208D820C00D00A98 /* PersonalInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52EC208D820C00D00A98 /* PersonalInformationViewController.m */; };
+		BEDE52F0208DC5A300D00A98 /* PersonalInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52EF208DC5A300D00A98 /* PersonalInfoModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,8 +97,6 @@
 		BEDE52CB2089E0C300D00A98 /* MeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		BEDE52CD2089F03F00D00A98 /* MeItemTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeItemTableViewCell.h; sourceTree = "<group>"; };
 		BEDE52CE2089F03F00D00A98 /* MeItemTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeItemTableViewCell.m; sourceTree = "<group>"; };
-		BEDE52D2208B13D200D00A98 /* MeTableViewCellFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeTableViewCellFactory.h; sourceTree = "<group>"; };
-		BEDE52D3208B13D200D00A98 /* MeTableViewCellFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeTableViewCellFactory.m; sourceTree = "<group>"; };
 		BEDE52D6208B2AFD00D00A98 /* MeTableViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeTableViewModel.h; sourceTree = "<group>"; };
 		BEDE52D7208B2AFD00D00A98 /* MeTableViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeTableViewModel.m; sourceTree = "<group>"; };
 		BEDE52D9208B2BBC00D00A98 /* MePortrait.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MePortrait.h; sourceTree = "<group>"; };
@@ -105,6 +105,12 @@
 		BEDE52DD208B2BC800D00A98 /* MeItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeItem.m; sourceTree = "<group>"; };
 		BEDE52E0208B2C5700D00A98 /* MeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeTableViewCell.h; sourceTree = "<group>"; };
 		BEDE52E1208B2C5700D00A98 /* MeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeTableViewCell.m; sourceTree = "<group>"; };
+		BEDE52E6208D784500D00A98 /* PersonalInfoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalInfoTableViewCell.h; sourceTree = "<group>"; };
+		BEDE52E7208D784500D00A98 /* PersonalInfoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoTableViewCell.m; sourceTree = "<group>"; };
+		BEDE52EB208D820C00D00A98 /* PersonalInformationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalInformationViewController.h; sourceTree = "<group>"; };
+		BEDE52EC208D820C00D00A98 /* PersonalInformationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalInformationViewController.m; sourceTree = "<group>"; };
+		BEDE52EE208DC5A300D00A98 /* PersonalInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalInfoModel.h; sourceTree = "<group>"; };
+		BEDE52EF208DC5A300D00A98 /* PersonalInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,12 +310,11 @@
 		BEDE52C32089DB5400D00A98 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				BEDE52E4208D780A00D00A98 /* PersonalInfo */,
 				BEDE52DF208B2C3F00D00A98 /* Cell */,
 				BEDE52D5208B2A6300D00A98 /* Model */,
 				BEDE52CA2089E0C300D00A98 /* MeViewController.h */,
 				BEDE52CB2089E0C300D00A98 /* MeViewController.m */,
-				BEDE52D2208B13D200D00A98 /* MeTableViewCellFactory.h */,
-				BEDE52D3208B13D200D00A98 /* MeTableViewCellFactory.m */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -354,6 +359,35 @@
 				BEDE52E1208B2C5700D00A98 /* MeTableViewCell.m */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		BEDE52E4208D780A00D00A98 /* PersonalInfo */ = {
+			isa = PBXGroup;
+			children = (
+				BEDE52F1208DC5A900D00A98 /* Model */,
+				BEDE52E5208D782700D00A98 /* Cell */,
+				BEDE52EB208D820C00D00A98 /* PersonalInformationViewController.h */,
+				BEDE52EC208D820C00D00A98 /* PersonalInformationViewController.m */,
+			);
+			path = PersonalInfo;
+			sourceTree = "<group>";
+		};
+		BEDE52E5208D782700D00A98 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BEDE52E6208D784500D00A98 /* PersonalInfoTableViewCell.h */,
+				BEDE52E7208D784500D00A98 /* PersonalInfoTableViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		BEDE52F1208DC5A900D00A98 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BEDE52EE208DC5A300D00A98 /* PersonalInfoModel.h */,
+				BEDE52EF208DC5A300D00A98 /* PersonalInfoModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		F88CF27F9C889AB4BA862A5D /* Frameworks */ = {
@@ -496,9 +530,12 @@
 				BEDE52D8208B2AFD00D00A98 /* MeTableViewModel.m in Sources */,
 				BE21DA732086DE460086B8BA /* main.m in Sources */,
 				BEDE52AF20897B9000D00A98 /* PCPromotionView.m in Sources */,
+				BEDE52F0208DC5A300D00A98 /* PersonalInfoModel.m in Sources */,
 				BEDE52B82089B31600D00A98 /* PCAnouncementTableViewController.m in Sources */,
 				BEDE52DE208B2BC800D00A98 /* MeItem.m in Sources */,
+				BEDE52E9208D784500D00A98 /* PersonalInfoTableViewCell.m in Sources */,
 				BE21DA8E2086F11E0086B8BA /* PCViewModel.m in Sources */,
+				BEDE52ED208D820C00D00A98 /* PersonalInformationViewController.m in Sources */,
 				BE21DAA62087352C0086B8BA /* PCCenterdViewButton.m in Sources */,
 				BE21DA912086F2BC0086B8BA /* PCLoginViewController.m in Sources */,
 				BE21DA892086F09F0086B8BA /* PCBaseViewController.m in Sources */,
@@ -508,7 +545,6 @@
 				BE21DAAB20873F030086B8BA /* PCPromotionViewController.m in Sources */,
 				BE21DAA0208732D40086B8BA /* PCCenterdView.m in Sources */,
 				BEDE52C12089D5FE00D00A98 /* DetailAnouncementView.m in Sources */,
-				BEDE52D4208B13D200D00A98 /* MeTableViewCellFactory.m in Sources */,
 				BE21DAAE2087485D0086B8BA /* PCHotIssueView.m in Sources */,
 				BE21DA94208722680086B8BA /* PCLoginView.m in Sources */,
 				BEDE52BE2089D29500D00A98 /* PCNavigationController.m in Sources */,

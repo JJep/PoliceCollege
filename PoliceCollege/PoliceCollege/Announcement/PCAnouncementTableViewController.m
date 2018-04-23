@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
- 
+    self.title = @"通知公告";
 }
 
 - (void)didReceiveMemoryWarning {

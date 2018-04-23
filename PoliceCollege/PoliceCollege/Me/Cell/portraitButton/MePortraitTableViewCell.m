@@ -28,8 +28,6 @@
         arrowImageView = [UIImageView new];
         
         //49,138,236
-
-        
         CAGradientLayer *gradientLayer = [CAGradientLayer layer];
         gradientLayer.colors = @[(__bridge id)rgb(42,194,253).CGColor, (__bridge id)rgb(41,128,226).CGColor];
         gradientLayer.locations = @[@0, @1];
@@ -95,7 +93,7 @@
 
 -(UIImage *)image {
     if (!_image) {
-        return [UIImage imageNamed:@"banner"];
+        return [UIImage imageNamed:@"portrait"];
     }else {
         return _image;
     }
@@ -103,7 +101,7 @@
 
 -(NSString *)nameStr {
     if (!_nameStr) {
-        return @"陈冠希";
+        return @"userName";
     } else {
         return _nameStr;
     }

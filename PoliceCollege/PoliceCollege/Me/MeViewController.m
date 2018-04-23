@@ -7,9 +7,9 @@
 //
 
 #import "MeViewController.h"
-#import "MeTableViewCellFactory.h"
 #import "MeTableViewModel.h"
 #import "MeTableViewCell.h"
+#import "PersonalInformationViewController.h"
 @interface MeViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic,retain)NSArray *dataArray;
 @property (nonatomic,retain)NSMutableArray *modelArray;
@@ -35,12 +35,14 @@
     _maturityTime = [NSString new];
     
     
-    tableView = [[UITableView alloc] initWithFrame:self.view.frame];
+//    tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    tableView = [[UITableView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.y, self.view.bounds.origin.y - 20, self.view.bounds.size.width, self.view.bounds.size.height)];
     [self.view addSubview:tableView];
     
     tableView.delegate = self;
     tableView.dataSource = self;
     _modelArray = [[NSMutableArray alloc] init];
+    tableView.contentInsetAdjustmentBehavior = NO;
     [self initDataArray];
     
 }
@@ -101,6 +103,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:true animated:animated];
+    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -126,6 +129,7 @@
     
 }
 
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -139,6 +143,13 @@
         return 201;
     } else {
         return 60;
+    }
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        PersonalInformationViewController *newVC = [PersonalInformationViewController new];
+        [self.navigationController pushViewController:newVC animated:true];
     }
 }
 

@@ -70,7 +70,9 @@
 -(void)viewWillAppear:(BOOL)animated
 {
 //    self.tabBarController.hidesBottomBarWhenPushed = NO;
-[self.navigationController setNavigationBarHidden:true animated:animated];}
+    [self.navigationController setNavigationBarHidden:true animated:animated];
+    
+}
 
 /*
 #pragma mark - Navigation
