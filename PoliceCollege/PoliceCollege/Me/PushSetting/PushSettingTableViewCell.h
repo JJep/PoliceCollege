@@ -1,0 +1,14 @@
+//
+//  PushSettingTableViewCell.h
+//  PoliceCollege
+//
+//  Created by Jep Xia on 2018/4/24.
+//  Copyright © 2018年 Jep Xia. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface PushSettingTableViewCell : UITableViewCell
+@property (nonatomic,copy)NSString *title;
+@property (nonatomic,assign)BOOL isOn;
+@end

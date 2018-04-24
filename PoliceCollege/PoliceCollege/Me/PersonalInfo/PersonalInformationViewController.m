@@ -42,6 +42,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    [self animateTabl];
+//}
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return  1;
 }
@@ -77,6 +81,35 @@
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:false];
 }
+
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    if (indexPath.row == 9) {
+//        [self animateTabl];
+//    }
+//}
+//
+//- (void)animateTabl {
+//
+//    NSArray *cells = tableView.visibleCells;
+//
+//    CGFloat tableHeight = tableView.bounds.size.height;
+//
+//    [cells enumerateObjectsUsingBlock:^(PersonalInfoTableViewCell *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        obj.transform = CGAffineTransformMakeTranslation(0, tableHeight);
+//        [UIView animateWithDuration:1.0
+//                              delay:0.05* (double)idx
+//             usingSpringWithDamping:0.8
+//              initialSpringVelocity:0
+//                            options:UIViewAnimationOptionTransitionNone
+//                         animations:^{
+//                     obj.transform = CGAffineTransformMakeTranslation(0, 0);
+//
+//        }
+//                         completion:^(BOOL finished) {
+//        }];
+//    }];
+//}
+
 
 /*
 #pragma mark - Navigation

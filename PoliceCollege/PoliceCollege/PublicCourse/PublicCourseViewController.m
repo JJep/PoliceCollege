@@ -1,29 +1,29 @@
 //
-//  PushSettingViewController.m
+//  PublicCourseViewController.m
 //  PoliceCollege
 //
-//  Created by Jep Xia on 2018/4/23.
+//  Created by Jep Xia on 2018/4/24.
 //  Copyright © 2018年 Jep Xia. All rights reserved.
 //
 
-#import "PushSettingViewController.h"
-#import "PushSettingTableViewCell.h"
-@interface PushSettingViewController () <UITableViewDelegate, UITableViewDataSource>
+#import "PublicCourseViewController.h"
+#import "PublicCourseTableViewCell.h"
+@interface PublicCourseViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @end
 
-@implementation PushSettingViewController {
+@implementation PublicCourseViewController {
     UITableView *tableView;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    // Do any additional setup after loading the view.
+    self.title = @"公开课程";
     tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     tableView.delegate = self;
     tableView.dataSource = self;
     [self.view addSubview:tableView];
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,23 +31,23 @@
     // Dispose of any resources that can be recreated.
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *ID=@"PushSettingCell";
-    PushSettingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    cell = [[PushSettingTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-    return cell;
-}
-
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 5;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50;
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *cellID = @"publicCourseCell";
+    PublicCourseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    cell = [[PublicCourseTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 300;
 }
 
 -(void)viewWillAppear:(BOOL)animated {

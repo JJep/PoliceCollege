@@ -43,6 +43,11 @@
 		BEDE52F0208DC5A300D00A98 /* PersonalInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52EF208DC5A300D00A98 /* PersonalInfoModel.m */; };
 		BEDE52F6208DDB8D00D00A98 /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52F5208DDB8D00D00A98 /* ChangePasswordViewController.m */; };
 		BEDE52FA208DE65200D00A98 /* PushSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52F9208DE65200D00A98 /* PushSettingViewController.m */; };
+		BEDE5305208F355800D00A98 /* PushSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE5304208F355800D00A98 /* PushSettingTableViewCell.m */; };
+		BEDE5309208F388200D00A98 /* PublicCourseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE5308208F388200D00A98 /* PublicCourseTableViewCell.m */; };
+		BEDE530C208F40EF00D00A98 /* PublicCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE530B208F40EF00D00A98 /* PublicCourseViewController.m */; };
+		BEDE5311208F44DF00D00A98 /* LearningTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE5310208F44DE00D00A98 /* LearningTableViewCell.m */; };
+		BEDE5314208F65E100D00A98 /* LearningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE5313208F65E100D00A98 /* LearningViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +122,16 @@
 		BEDE52F5208DDB8D00D00A98 /* ChangePasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordViewController.m; sourceTree = "<group>"; };
 		BEDE52F8208DE65200D00A98 /* PushSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushSettingViewController.h; sourceTree = "<group>"; };
 		BEDE52F9208DE65200D00A98 /* PushSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PushSettingViewController.m; sourceTree = "<group>"; };
+		BEDE5303208F355800D00A98 /* PushSettingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushSettingTableViewCell.h; sourceTree = "<group>"; };
+		BEDE5304208F355800D00A98 /* PushSettingTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PushSettingTableViewCell.m; sourceTree = "<group>"; };
+		BEDE5307208F388200D00A98 /* PublicCourseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicCourseTableViewCell.h; sourceTree = "<group>"; };
+		BEDE5308208F388200D00A98 /* PublicCourseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicCourseTableViewCell.m; sourceTree = "<group>"; };
+		BEDE530A208F40EF00D00A98 /* PublicCourseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicCourseViewController.h; sourceTree = "<group>"; };
+		BEDE530B208F40EF00D00A98 /* PublicCourseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicCourseViewController.m; sourceTree = "<group>"; };
+		BEDE530F208F44DE00D00A98 /* LearningTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LearningTableViewCell.h; sourceTree = "<group>"; };
+		BEDE5310208F44DE00D00A98 /* LearningTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LearningTableViewCell.m; sourceTree = "<group>"; };
+		BEDE5312208F65E000D00A98 /* LearningViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LearningViewController.h; sourceTree = "<group>"; };
+		BEDE5313208F65E100D00A98 /* LearningViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LearningViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +177,8 @@
 		BE21DA622086DE3C0086B8BA /* PoliceCollege */ = {
 			isa = PBXGroup;
 			children = (
+				BEDE530E208F44C400D00A98 /* Learning */,
+				BEDE5306208F385000D00A98 /* PublicCourse */,
 				BEDE52C32089DB5400D00A98 /* Me */,
 				BEDE52B2208991D300D00A98 /* Main */,
 				BE21DA862086F08D0086B8BA /* Base */,
@@ -420,8 +437,40 @@
 			children = (
 				BEDE52F8208DE65200D00A98 /* PushSettingViewController.h */,
 				BEDE52F9208DE65200D00A98 /* PushSettingViewController.m */,
+				BEDE5303208F355800D00A98 /* PushSettingTableViewCell.h */,
+				BEDE5304208F355800D00A98 /* PushSettingTableViewCell.m */,
 			);
 			path = PushSetting;
+			sourceTree = "<group>";
+		};
+		BEDE5306208F385000D00A98 /* PublicCourse */ = {
+			isa = PBXGroup;
+			children = (
+				BEDE530D208F40F500D00A98 /* Cell */,
+				BEDE530A208F40EF00D00A98 /* PublicCourseViewController.h */,
+				BEDE530B208F40EF00D00A98 /* PublicCourseViewController.m */,
+			);
+			path = PublicCourse;
+			sourceTree = "<group>";
+		};
+		BEDE530D208F40F500D00A98 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BEDE5307208F388200D00A98 /* PublicCourseTableViewCell.h */,
+				BEDE5308208F388200D00A98 /* PublicCourseTableViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		BEDE530E208F44C400D00A98 /* Learning */ = {
+			isa = PBXGroup;
+			children = (
+				BEDE530F208F44DE00D00A98 /* LearningTableViewCell.h */,
+				BEDE5310208F44DE00D00A98 /* LearningTableViewCell.m */,
+				BEDE5312208F65E000D00A98 /* LearningViewController.h */,
+				BEDE5313208F65E100D00A98 /* LearningViewController.m */,
+			);
+			path = Learning;
 			sourceTree = "<group>";
 		};
 		F88CF27F9C889AB4BA862A5D /* Frameworks */ = {
@@ -573,12 +622,15 @@
 				BEDE52F6208DDB8D00D00A98 /* ChangePasswordViewController.m in Sources */,
 				BE21DAA62087352C0086B8BA /* PCCenterdViewButton.m in Sources */,
 				BE21DA912086F2BC0086B8BA /* PCLoginViewController.m in Sources */,
+				BEDE5311208F44DF00D00A98 /* LearningTableViewCell.m in Sources */,
 				BE21DA892086F09F0086B8BA /* PCBaseViewController.m in Sources */,
 				BE21DA652086DE3C0086B8BA /* AppDelegate.m in Sources */,
 				BE21DAB22087815A0086B8BA /* HotIssueTableViewCell.m in Sources */,
 				BEDE52B5208991E900D00A98 /* PCTabBarController.m in Sources */,
 				BE21DAAB20873F030086B8BA /* PCPromotionViewController.m in Sources */,
+				BEDE5314208F65E100D00A98 /* LearningViewController.m in Sources */,
 				BE21DAA0208732D40086B8BA /* PCCenterdView.m in Sources */,
+				BEDE5305208F355800D00A98 /* PushSettingTableViewCell.m in Sources */,
 				BEDE52FA208DE65200D00A98 /* PushSettingViewController.m in Sources */,
 				BEDE52C12089D5FE00D00A98 /* DetailAnouncementView.m in Sources */,
 				BE21DAAE2087485D0086B8BA /* PCHotIssueView.m in Sources */,
@@ -586,7 +638,9 @@
 				BEDE52BE2089D29500D00A98 /* PCNavigationController.m in Sources */,
 				BEDE52CF2089F03F00D00A98 /* MeItemTableViewCell.m in Sources */,
 				BEDE52CC2089E0C300D00A98 /* MeViewController.m in Sources */,
+				BEDE530C208F40EF00D00A98 /* PublicCourseViewController.m in Sources */,
 				BEDE52BB2089B36E00D00A98 /* AnouncementTableViewCell.m in Sources */,
+				BEDE5309208F388200D00A98 /* PublicCourseTableViewCell.m in Sources */,
 				BEDE52E2208B2C5700D00A98 /* MeTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

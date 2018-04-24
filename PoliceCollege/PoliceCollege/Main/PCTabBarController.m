@@ -10,6 +10,7 @@
 #import "PCPromotionViewController.h"
 #import "PCNavigationController.h"
 #import "MeViewController.h"
+#import "LearningViewController.h"
 @interface PCTabBarController ()
 
 @end
@@ -90,7 +91,7 @@
                           imageName:@"promotionUnselected"
                   selectedImageName:@"promotionSelected"];
     
-    [self addOneChildViewController:[[UINavigationController alloc]initWithRootViewController:[[UIViewController alloc] init]]
+    [self addOneChildViewController:[[PCNavigationController alloc]initWithRootViewController:[[LearningViewController alloc] init]]
                           WithTitle:@"党员学习"
                           imageName:@"learningUnselected"
                   selectedImageName:@"learningSelected"];

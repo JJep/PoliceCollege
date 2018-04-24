@@ -11,6 +11,7 @@
 #import "PCPromotionView.h"
 #import "PCCenterdViewButton.h"
 #import "PCAnouncementTableViewController.h"
+#import "PublicCourseViewController.h"
 #define leftBtnTag 123
 #define centerBtnTag 1234
 #define rightBtnTag 12345
@@ -53,8 +54,14 @@
             break;
         }
         case centerBtnTag:
-            break;
+        
+        
         case rightBtnTag:
+        {
+            PublicCourseViewController *newVC = [PublicCourseViewController new];
+            newVC.hidesBottomBarWhenPushed = true;
+            [self.navigationController pushViewController:newVC animated:true];
+        }
             break;
 
         default:

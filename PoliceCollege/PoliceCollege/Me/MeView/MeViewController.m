@@ -11,6 +11,7 @@
 #import "MeTableViewCell.h"
 #import "PersonalInformationViewController.h"
 #import "ChangePasswordViewController.h"
+#import "PushSettingViewController.h"
 @interface MeViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic,retain)NSArray *dataArray;
 @property (nonatomic,retain)NSMutableArray *modelArray;
@@ -152,6 +153,8 @@
         
     } else if (indexPath.row == 1 ) {
         [self pushToViewController:[ChangePasswordViewController new]];
+    } else if (indexPath.row == 2) {
+        [self pushToViewController:[PushSettingViewController new]];
     }
 }
 

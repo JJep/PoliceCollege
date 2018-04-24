@@ -8,7 +8,7 @@
 
 #import "ChangePasswordViewController.h"
 
-@interface ChangePasswordViewController ()
+@interface ChangePasswordViewController () <UITextFieldDelegate>
 
 @end
 
@@ -28,11 +28,14 @@
     
     self.title = @"修改密码";
     
-    [self.view setBackgroundColor:MyWhiteBackgroundColor];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     
     oldPassword = [UITextField new];
     newPassword = [UITextField new];
     confirmBtn = [UIButton new];
+    
+    oldPassword.delegate = self;
+    newPassword.delegate = self;
     
     [self.view addSubview:oldPassword];
     [self.view addSubview:newPassword];
@@ -70,6 +73,12 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:false];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [oldPassword resignFirstResponder];
+    [newPassword resignFirstResponder];
+    return true;
 }
 
 /*
