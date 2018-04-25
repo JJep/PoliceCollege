@@ -24,10 +24,11 @@
         [imageView setImage:[UIImage imageNamed:@"banner"]];
         imageView.layer.cornerRadius = 25;
         imageView.layer.masksToBounds = YES;
+        [titleLabel setTextAlignment:NSTextAlignmentCenter];
         
         [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.top.equalTo(self);
-            make.height.mas_equalTo(self->imageView.bounds.size.height);
+            make.bottom.equalTo(self->titleLabel.mas_top).offset(-8);
         }];
         
         [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -48,6 +48,9 @@
 		BEDE530C208F40EF00D00A98 /* PublicCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE530B208F40EF00D00A98 /* PublicCourseViewController.m */; };
 		BEDE5311208F44DF00D00A98 /* LearningTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE5310208F44DE00D00A98 /* LearningTableViewCell.m */; };
 		BEDE5314208F65E100D00A98 /* LearningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE5313208F65E100D00A98 /* LearningViewController.m */; };
+		BEDE5318208F7FED00D00A98 /* OnlineTestCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE5317208F7FED00D00A98 /* OnlineTestCollectionViewCell.m */; };
+		BEDE531B208F81A200D00A98 /* OnlineTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE531A208F81A200D00A98 /* OnlineTestViewController.m */; };
+		BEDE532020900FEF00D00A98 /* CourseCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE531F20900FEF00D00A98 /* CourseCenterTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +135,12 @@
 		BEDE5310208F44DE00D00A98 /* LearningTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LearningTableViewCell.m; sourceTree = "<group>"; };
 		BEDE5312208F65E000D00A98 /* LearningViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LearningViewController.h; sourceTree = "<group>"; };
 		BEDE5313208F65E100D00A98 /* LearningViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LearningViewController.m; sourceTree = "<group>"; };
+		BEDE5316208F7FED00D00A98 /* OnlineTestCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnlineTestCollectionViewCell.h; sourceTree = "<group>"; };
+		BEDE5317208F7FED00D00A98 /* OnlineTestCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnlineTestCollectionViewCell.m; sourceTree = "<group>"; };
+		BEDE5319208F81A200D00A98 /* OnlineTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnlineTestViewController.h; sourceTree = "<group>"; };
+		BEDE531A208F81A200D00A98 /* OnlineTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnlineTestViewController.m; sourceTree = "<group>"; };
+		BEDE531E20900FEF00D00A98 /* CourseCenterTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseCenterTableViewCell.h; sourceTree = "<group>"; };
+		BEDE531F20900FEF00D00A98 /* CourseCenterTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseCenterTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -465,12 +474,42 @@
 		BEDE530E208F44C400D00A98 /* Learning */ = {
 			isa = PBXGroup;
 			children = (
+				BEDE531D20900FC500D00A98 /* CourseCenter */,
+				BEDE531C20900FAD00D00A98 /* LearningView */,
+				BEDE5315208F7FC400D00A98 /* OnlineTest */,
+			);
+			path = Learning;
+			sourceTree = "<group>";
+		};
+		BEDE5315208F7FC400D00A98 /* OnlineTest */ = {
+			isa = PBXGroup;
+			children = (
+				BEDE5316208F7FED00D00A98 /* OnlineTestCollectionViewCell.h */,
+				BEDE5317208F7FED00D00A98 /* OnlineTestCollectionViewCell.m */,
+				BEDE5319208F81A200D00A98 /* OnlineTestViewController.h */,
+				BEDE531A208F81A200D00A98 /* OnlineTestViewController.m */,
+			);
+			path = OnlineTest;
+			sourceTree = "<group>";
+		};
+		BEDE531C20900FAD00D00A98 /* LearningView */ = {
+			isa = PBXGroup;
+			children = (
 				BEDE530F208F44DE00D00A98 /* LearningTableViewCell.h */,
 				BEDE5310208F44DE00D00A98 /* LearningTableViewCell.m */,
 				BEDE5312208F65E000D00A98 /* LearningViewController.h */,
 				BEDE5313208F65E100D00A98 /* LearningViewController.m */,
 			);
-			path = Learning;
+			path = LearningView;
+			sourceTree = "<group>";
+		};
+		BEDE531D20900FC500D00A98 /* CourseCenter */ = {
+			isa = PBXGroup;
+			children = (
+				BEDE531E20900FEF00D00A98 /* CourseCenterTableViewCell.h */,
+				BEDE531F20900FEF00D00A98 /* CourseCenterTableViewCell.m */,
+			);
+			path = CourseCenter;
 			sourceTree = "<group>";
 		};
 		F88CF27F9C889AB4BA862A5D /* Frameworks */ = {
@@ -615,6 +654,7 @@
 				BEDE52AF20897B9000D00A98 /* PCPromotionView.m in Sources */,
 				BEDE52F0208DC5A300D00A98 /* PersonalInfoModel.m in Sources */,
 				BEDE52B82089B31600D00A98 /* PCAnouncementTableViewController.m in Sources */,
+				BEDE531B208F81A200D00A98 /* OnlineTestViewController.m in Sources */,
 				BEDE52DE208B2BC800D00A98 /* MeItem.m in Sources */,
 				BEDE52E9208D784500D00A98 /* PersonalInfoTableViewCell.m in Sources */,
 				BE21DA8E2086F11E0086B8BA /* PCViewModel.m in Sources */,
@@ -633,12 +673,14 @@
 				BEDE5305208F355800D00A98 /* PushSettingTableViewCell.m in Sources */,
 				BEDE52FA208DE65200D00A98 /* PushSettingViewController.m in Sources */,
 				BEDE52C12089D5FE00D00A98 /* DetailAnouncementView.m in Sources */,
+				BEDE532020900FEF00D00A98 /* CourseCenterTableViewCell.m in Sources */,
 				BE21DAAE2087485D0086B8BA /* PCHotIssueView.m in Sources */,
 				BE21DA94208722680086B8BA /* PCLoginView.m in Sources */,
 				BEDE52BE2089D29500D00A98 /* PCNavigationController.m in Sources */,
 				BEDE52CF2089F03F00D00A98 /* MeItemTableViewCell.m in Sources */,
 				BEDE52CC2089E0C300D00A98 /* MeViewController.m in Sources */,
 				BEDE530C208F40EF00D00A98 /* PublicCourseViewController.m in Sources */,
+				BEDE5318208F7FED00D00A98 /* OnlineTestCollectionViewCell.m in Sources */,
 				BEDE52BB2089B36E00D00A98 /* AnouncementTableViewCell.m in Sources */,
 				BEDE5309208F388200D00A98 /* PublicCourseTableViewCell.m in Sources */,
 				BEDE52E2208B2C5700D00A98 /* MeTableViewCell.m in Sources */,

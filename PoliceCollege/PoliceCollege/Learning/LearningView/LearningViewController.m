@@ -8,6 +8,7 @@
 
 #import "LearningViewController.h"
 #import "LearningTableViewCell.h"
+#import "OnlineTestViewController.h"
 @interface LearningViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end
@@ -19,33 +20,42 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    [self.view setBackgroundColor:MyWhiteBackgroundColor];
+    self.title = @"党员学习";
+    // 流水布局
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    
+    // 设置cell的尺寸
+    layout.itemSize = CGSizeMake(50, 75);
+    
+    // 设置每一行的间距
+    layout.minimumLineSpacing = 20;
+    
+    // 设置每个cell的间距
+    layout.minimumInteritemSpacing = 25;
+    
+    // 设置每组的内边距
+    layout.sectionInset = UIEdgeInsetsMake(22, 30, 22, 30);
+    
+    
     //设置CollectionView的属性
-    collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
-
-    
-    CGFloat ScreenWidth = [UIScreen mainScreen].bounds.size.width;
-    //设置间距
-    NSInteger margin = 10;
-    flowLayout.minimumInteritemSpacing = margin;
-    flowLayout.minimumInteritemSpacing = margin;
-    
-    //设置item尺寸
-    CGFloat itemW = 74;
-    CGFloat itemH = 74;
-    flowLayout.itemSize = CGSizeMake(itemW, itemH);
-    
-    flowLayout.sectionInset = UIEdgeInsetsMake(margin, margin, margin, margin);
-
+    collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
+    [collectionView setBackgroundColor:[UIColor whiteColor]];
     collectionView.delegate = self;
     collectionView.dataSource = self;
     collectionView.scrollEnabled = YES;
     [self.view addSubview:collectionView];
     //注册Cell
     [collectionView registerClass:[LearningTableViewCell class] forCellWithReuseIdentifier:@"cell"];
+    
+    [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.right.equalTo(self.view);
+        make.height.mas_equalTo(212);
+    }];
 
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -54,7 +64,7 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     LearningTableViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    cell = [[LearningTableViewCell alloc] init];
+//    cell = [[LearningTableViewCell alloc] init];
     return cell;
 }
 
@@ -63,7 +73,15 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 4;
+    return 8;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        OnlineTestViewController *newVC = [[OnlineTestViewController alloc] init];
+        newVC.hidesBottomBarWhenPushed = true;
+        [self.navigationController pushViewController:newVC animated:true];
+    }
 }
 
 
