@@ -7,15 +7,48 @@
 //
 
 #import "ChannelView.h"
-
-@implementation ChannelView
+#import "ChannelCollectionViewCell.h"
+//@interface ChannelView() <UICollectionViewDelegate, UICollectionViewDataSource>
+//@end
+@implementation ChannelView {
+    UIImageView *imageView;
+    UIView *view;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        [self setBackgroundColor:[UIColor whiteColor]];
         [self initCollectionView];
+        imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"add"]];
+        [self addSubview:imageView];
+        view = [UIView new];
+        [self addSubview:view];
+        [view setBackgroundColor:MyGrayColor];
     }
     return self;
+}
+
+- (void)layoutSubviews {
+    
+    [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.bottom.equalTo(self);
+        make.right.equalTo(self->view.mas_left);
+    }];
+    
+    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self).offset(-16);
+        make.height.width.mas_equalTo(14);
+        make.centerY.equalTo(self);
+    }];
+    
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self->imageView.mas_left).offset(-16);
+        make.width.mas_equalTo(2);
+        make.height.mas_equalTo(20);
+        make.centerY.equalTo(self);
+    }];
+    
 }
 
 - (void)initCollectionView {
@@ -38,8 +71,27 @@
     _collectionView.scrollEnabled = YES;
     
     [self addSubview:_collectionView];
-    _collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
+//    _collectionView.dataSource = self;
+//    _collectionView.delegate = self;
+    
+    //注册Cell
+//    [_collectionView registerClass:[ChannelCollectionViewCell class] forCellWithReuseIdentifier:@"channelCell"];
+
 }
+
+//
+//-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+//    return 1;
+//}
+//
+//- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+//    return 5;
+//}
+//
+//-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+//    ChannelCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"channelCell" forIndexPath:indexPath];
+//    return cell;
+//}
 
 /*
 // Only override drawRect: if you perform custom drawing.

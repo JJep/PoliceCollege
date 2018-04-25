@@ -9,13 +9,14 @@
 #import "CourseCenterViewController.h"
 #import "ChannelCollectionViewCell.h"
 #import "CourseCenterTableViewCell.h"
+#import "ChannelView.h"
 @interface CourseCenterViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end
 
 @implementation CourseCenterViewController {
-    UICollectionView *collectionView;
     UITableView *tableView;
+    ChannelView *channelView;
 }
 
 - (void)viewDidLoad {
@@ -30,38 +31,22 @@
     tableView.delegate = self;
     tableView.dataSource = self;
     
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    
-    // 设置cell的尺寸
-    layout.itemSize = CGSizeMake(66, 22);
-    // 设置每一行的间距
-    layout.minimumLineSpacing = 20;
-    // 设置每个cell的间距
-    layout.minimumInteritemSpacing = 20;
-    // 设置每组的内边距
-    layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
-    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    
-    //设置CollectionView的属性
-    collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
-    [collectionView setBackgroundColor:[UIColor whiteColor]];
-    
-    collectionView.delegate = self;
-    collectionView.dataSource = self;
-    collectionView.scrollEnabled = YES;
+    channelView = [[ChannelView alloc] init];
+    [self.view addSubview:channelView];
+    channelView.collectionView.delegate = self;
+    channelView.collectionView.dataSource = self;
 
-    [self.view addSubview:collectionView];
     //注册Cell
-    [collectionView registerClass:[ChannelCollectionViewCell class] forCellWithReuseIdentifier:@"channelCell"];
+    [channelView.collectionView registerClass:[ChannelCollectionViewCell class] forCellWithReuseIdentifier:@"channelCell"];
     
-    [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [channelView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(self.view);
         make.height.mas_equalTo(45);
     }];
     
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.view);
-        make.top.equalTo(self->collectionView.mas_bottom).offset(5);
+        make.top.equalTo(self->channelView.mas_bottom).offset(5);
     }];
 }
 
