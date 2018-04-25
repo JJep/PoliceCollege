@@ -9,6 +9,7 @@
 #import "LearningViewController.h"
 #import "LearningTableViewCell.h"
 #import "OnlineTestViewController.h"
+#import "CourseCenterViewController.h"
 @interface LearningViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end
@@ -79,6 +80,10 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
         OnlineTestViewController *newVC = [[OnlineTestViewController alloc] init];
+        newVC.hidesBottomBarWhenPushed = true;
+        [self.navigationController pushViewController:newVC animated:true];
+    } else if (indexPath.row == 1) {
+        CourseCenterViewController *newVC = [CourseCenterViewController new];
         newVC.hidesBottomBarWhenPushed = true;
         [self.navigationController pushViewController:newVC animated:true];
     }
