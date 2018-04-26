@@ -20,21 +20,24 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        
+//        self.contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+        
         bookImageView = [UIImageView new];
         bookNameLabel = [UILabel new];
         bookCategoryLabel = [UILabel new];
         bookStatusLabel = [UILabel new];
         bookWriterLabel = [UILabel new];
-        _readBtn = [UIButton new];
-        _downloadBtn = [UIButton new];
+        _readBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+        _downloadBtn = [UIButton buttonWithType:UIButtonTypeSystem];
         
-        [self addSubview:bookImageView];
-        [self addSubview:bookNameLabel];
-        [self addSubview:bookCategoryLabel];
-        [self addSubview:bookStatusLabel];
-        [self addSubview:bookWriterLabel];
-        [self addSubview:_readBtn];
-        [self addSubview:_downloadBtn];
+        [self.contentView addSubview:bookImageView];
+        [self.contentView addSubview:bookNameLabel];
+        [self.contentView addSubview:bookCategoryLabel];
+        [self.contentView addSubview:bookStatusLabel];
+        [self.contentView addSubview:bookWriterLabel];
+        [self.contentView addSubview:_readBtn];
+        [self.contentView addSubview:_downloadBtn];
         
         [bookImageView setImage:[UIImage imageNamed:@"banner"]];
         
@@ -70,52 +73,52 @@
 - (void)layoutSubviews {
     
     [bookImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).offset(15);
-        make.top.equalTo(self).offset(20);
+        make.left.equalTo(self.contentView).offset(15);
+        make.top.equalTo(self.contentView).offset(20);
         make.width.mas_equalTo(82);
         make.height.mas_equalTo(110);
     }];
     
     [bookNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self->bookImageView.mas_right).offset(20);
-        make.top.equalTo(self).offset(20);
-        make.right.equalTo(self).offset(-20);
+        make.top.equalTo(self.contentView).offset(20);
+        make.right.equalTo(self.contentView).offset(-20);
         make.height.mas_equalTo(26);
     }];
     
     [bookWriterLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self->bookNameLabel.mas_bottom).offset(9);
         make.left.equalTo(self->bookNameLabel);
-        make.right.equalTo(self).offset(-20);
+        make.right.equalTo(self.contentView).offset(-20);
         make.height.mas_equalTo(18);
     }];
     
     [bookCategoryLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self->bookNameLabel);
         make.top.equalTo(self->bookWriterLabel.mas_bottom).offset(5);
-        make.right.equalTo(self).offset(-20);
+        make.right.equalTo(self.contentView).offset(-20);
         make.height.mas_equalTo(18);
     }];
     
     [bookStatusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self->bookNameLabel);
         make.top.equalTo(self->bookCategoryLabel.mas_bottom).offset(5);
-        make.right.equalTo(self).offset(-20);
+        make.right.equalTo(self.contentView).offset(-20);
         make.height.mas_equalTo(18);
     }];
     
     [_readBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).offset(15);
+        make.left.equalTo(self.contentView).offset(15);
         make.top.equalTo(self->bookImageView.mas_bottom).offset(15);
         make.width.equalTo(self->_downloadBtn);
         make.height.mas_equalTo(50);
-        make.bottom.equalTo(self);
+        make.bottom.equalTo(self.contentView);
     }];
     
     [_downloadBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(50);
         make.left.equalTo(self->_readBtn.mas_right);
-        make.right.equalTo(self);
+        make.right.equalTo(self.contentView).offset(-15);
         make.bottom.top.equalTo(self->_readBtn);
     }];
 }

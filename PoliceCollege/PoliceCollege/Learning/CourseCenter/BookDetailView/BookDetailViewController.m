@@ -26,6 +26,8 @@
     tableView.delegate = self;
     tableView.dataSource = self;
     [self.view addSubview:tableView];
+    tableView.estimatedRowHeight = 205;
+    tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,7 +71,9 @@
 //-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 //    if (indexPath.section == 0) {
 //        return 205;
-//    } else
+//    } else {
+//        return 400;
+//    }
 //}
 
 @end
