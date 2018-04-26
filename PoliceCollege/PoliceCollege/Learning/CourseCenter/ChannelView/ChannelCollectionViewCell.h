@@ -10,4 +10,5 @@
 
 @interface ChannelCollectionViewCell : UICollectionViewCell
 @property (nonatomic,copy)NSString *channelName;
+@property (nonatomic,assign)BOOL isSelected;
 @end

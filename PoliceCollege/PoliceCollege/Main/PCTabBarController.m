@@ -43,9 +43,9 @@
     [[UINavigationBar appearance] setBackgroundImage:[self imageWithColor:[UIColor whiteColor]] forBarMetrics:UIBarMetricsDefault];
     
     //设置导航控制器字体颜色为灰色
-    NSDictionary *attributes=[NSDictionary dictionaryWithObjectsAndKeys:MyGrayColor,NSForegroundColorAttributeName,nil];
-    [[UINavigationBar appearance] setTitleTextAttributes:attributes];
-    [[UINavigationBar appearance] setTintColor:MyGrayColor];
+//    NSDictionary *attributes=[NSDictionary dictionaryWithObjectsAndKeys:MyGrayColor,NSForegroundColorAttributeName,nil];
+//    [[UINavigationBar appearance] setTitleTextAttributes:attributes];
+//    [[UINavigationBar appearance] setTintColor:MyGrayColor];
 }
 
 #pragma mark -

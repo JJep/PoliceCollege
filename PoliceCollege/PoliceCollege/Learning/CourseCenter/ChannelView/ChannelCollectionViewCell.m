@@ -21,6 +21,7 @@
         [channelLabel setTextAlignment:NSTextAlignmentCenter];
         [self addSubview:channelLabel];
         [channelLabel setTextAlignment:NSTextAlignmentCenter];
+        [channelLabel setFont:[UIFont fontWithName:@"PingFangSC-Thin" size:15]];
     }
     return self;
 }
@@ -29,6 +30,17 @@
     if (_channelName != channelName) {
         _channelName = channelName;
         [channelLabel setText:_channelName];
+    }
+}
+
+-(void)setIsSelected:(BOOL)isSelected {
+    if (_isSelected != isSelected) {
+        _isSelected = isSelected;
+        if (_isSelected) {
+            channelLabel.font = [UIFont fontWithName:@"PingFang-SC-Semibold" size:16];
+        } else {
+            channelLabel.font = [UIFont fontWithName:@"PingFangSC-Thin" size:15];
+        }
     }
 }
 

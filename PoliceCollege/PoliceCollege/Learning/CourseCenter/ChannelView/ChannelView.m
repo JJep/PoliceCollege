@@ -24,7 +24,7 @@
         [self addSubview:imageView];
         view = [UIView new];
         [self addSubview:view];
-        [view setBackgroundColor:MyGrayColor];
+        [view setBackgroundColor:rgb(238, 238, 238)];
     }
     return self;
 }
@@ -33,7 +33,7 @@
     
     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.bottom.equalTo(self);
-        make.right.equalTo(self->view.mas_left);
+        make.right.equalTo(self->view.mas_left).offset(-10) ;
     }];
     
     [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -61,7 +61,7 @@
     // 设置每个cell的间距
     layout.minimumInteritemSpacing = 20;
     // 设置每组的内边距
-    layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+    layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 0);
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
     //设置CollectionView的属性
@@ -69,6 +69,7 @@
     [_collectionView setBackgroundColor:[UIColor whiteColor]];
     
     _collectionView.scrollEnabled = YES;
+    [_collectionView setShowsHorizontalScrollIndicator:false];
     
     [self addSubview:_collectionView];
 //    _collectionView.dataSource = self;
@@ -78,27 +79,5 @@
 //    [_collectionView registerClass:[ChannelCollectionViewCell class] forCellWithReuseIdentifier:@"channelCell"];
 
 }
-
-//
-//-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-//    return 1;
-//}
-//
-//- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-//    return 5;
-//}
-//
-//-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    ChannelCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"channelCell" forIndexPath:indexPath];
-//    return cell;
-//}
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end

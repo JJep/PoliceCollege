@@ -10,6 +10,7 @@
 #import "ChannelCollectionViewCell.h"
 #import "CourseCenterTableViewCell.h"
 #import "ChannelView.h"
+#import "BookDetailViewController.h"
 @interface CourseCenterViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end
@@ -17,6 +18,7 @@
 @implementation CourseCenterViewController {
     UITableView *tableView;
     ChannelView *channelView;
+    ChannelCollectionViewCell *tempCell;
 }
 
 - (void)viewDidLoad {
@@ -65,6 +67,10 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ChannelCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"channelCell" forIndexPath:indexPath];
+    if (!tempCell) {
+        [cell setIsSelected:true];
+        tempCell = cell;
+    }
     return cell;
 }
 
@@ -80,21 +86,48 @@
     static NSString *cellID = @"courseCenterTableViewCell";
     CourseCenterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     cell = [[CourseCenterTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    BookDetailViewController *newVC = [BookDetailViewController new];
+    [self.navigationController pushViewController:newVC animated:true];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 140;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (tempCell) {
+        ChannelCollectionViewCell *cell = (ChannelCollectionViewCell *)[channelView.collectionView cellForItemAtIndexPath:indexPath];
+        [tempCell setIsSelected:false];
+        [cell setIsSelected:true];
+        tempCell = cell;
+    }
+    
 }
-*/
-
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+//
+//  BookView.h
+//  PoliceCollege
+//
+//  Created by Jep Xia on 2018/4/26.
+//  Copyright © 2018年 Jep Xia. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "BookModel.h"
+@interface BookTableViewCell : UITableViewCell
+@property(nonatomic,retain)UIButton *readBtn;
+@property(nonatomic,retain)UIButton *downloadBtn;
+@property(nonatomic,retain)BookModel *bookModel;
+@end
