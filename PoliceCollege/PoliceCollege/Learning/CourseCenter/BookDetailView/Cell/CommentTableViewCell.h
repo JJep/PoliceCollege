@@ -1,5 +1,5 @@
 //
-//  BookTableView.h
+//  CommentTableViewCell.h
 //  PoliceCollege
 //
 //  Created by Jep Xia on 2018/4/26.
@@ -7,5 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@interface BookIntroductionTableView : UITableView
+
+@interface CommentTableViewCell : UITableViewCell
+
 @end

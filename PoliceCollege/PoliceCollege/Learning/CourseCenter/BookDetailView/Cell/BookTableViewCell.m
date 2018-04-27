@@ -66,63 +66,61 @@
         [_downloadBtn setTitle:@"立即下载" forState:UIControlStateNormal];
         [_downloadBtn setTitleColor:rgb(74,144,226) forState:UIControlStateNormal];
         
+        
+        [bookImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.contentView).offset(15);
+            make.top.equalTo(self.contentView).offset(20);
+            make.width.mas_equalTo(82);
+            make.height.mas_equalTo(110);
+        }];
+        
+        [bookNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self->bookImageView.mas_right).offset(20);
+            make.top.equalTo(self.contentView).offset(20);
+            make.right.equalTo(self.contentView).offset(-20);
+            make.height.mas_equalTo(26);
+        }];
+        
+        [bookWriterLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self->bookNameLabel.mas_bottom).offset(9);
+            make.left.equalTo(self->bookNameLabel);
+            make.right.equalTo(self.contentView).offset(-20);
+            make.height.mas_equalTo(18);
+        }];
+        
+        [bookCategoryLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self->bookNameLabel);
+            make.top.equalTo(self->bookWriterLabel.mas_bottom).offset(5);
+            make.right.equalTo(self.contentView).offset(-20);
+            make.height.mas_equalTo(18);
+        }];
+        
+        [bookStatusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self->bookNameLabel);
+            make.top.equalTo(self->bookCategoryLabel.mas_bottom).offset(5);
+            make.right.equalTo(self.contentView).offset(-20);
+            make.height.mas_equalTo(18);
+        }];
+        
+        [_readBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.contentView).offset(15);
+            make.top.equalTo(self->bookImageView.mas_bottom).offset(15);
+            //        make.top.equalTo(self->bookStatusLabel.mas_bottom).offset(27);
+            make.width.equalTo(self->_downloadBtn);
+            make.height.mas_equalTo(50);
+            make.bottom.equalTo(self.contentView);
+        }];
+        
+        [_downloadBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(50);
+            make.left.equalTo(self->_readBtn.mas_right);
+            make.right.equalTo(self.contentView).offset(-15);
+            make.bottom.top.equalTo(self->_readBtn);
+        }];
+        
     }
     return self;
 }
-
-- (void)layoutSubviews {
-    
-    [bookImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contentView).offset(15);
-        make.top.equalTo(self.contentView).offset(20);
-        make.width.mas_equalTo(82);
-        make.height.mas_equalTo(110);
-    }];
-    
-    [bookNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self->bookImageView.mas_right).offset(20);
-        make.top.equalTo(self.contentView).offset(20);
-        make.right.equalTo(self.contentView).offset(-20);
-        make.height.mas_equalTo(26);
-    }];
-    
-    [bookWriterLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self->bookNameLabel.mas_bottom).offset(9);
-        make.left.equalTo(self->bookNameLabel);
-        make.right.equalTo(self.contentView).offset(-20);
-        make.height.mas_equalTo(18);
-    }];
-    
-    [bookCategoryLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self->bookNameLabel);
-        make.top.equalTo(self->bookWriterLabel.mas_bottom).offset(5);
-        make.right.equalTo(self.contentView).offset(-20);
-        make.height.mas_equalTo(18);
-    }];
-    
-    [bookStatusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self->bookNameLabel);
-        make.top.equalTo(self->bookCategoryLabel.mas_bottom).offset(5);
-        make.right.equalTo(self.contentView).offset(-20);
-        make.height.mas_equalTo(18);
-    }];
-    
-    [_readBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contentView).offset(15);
-        make.top.equalTo(self->bookImageView.mas_bottom).offset(15);
-        make.width.equalTo(self->_downloadBtn);
-        make.height.mas_equalTo(50);
-        make.bottom.equalTo(self.contentView);
-    }];
-    
-    [_downloadBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo(50);
-        make.left.equalTo(self->_readBtn.mas_right);
-        make.right.equalTo(self.contentView).offset(-15);
-        make.bottom.top.equalTo(self->_readBtn);
-    }];
-}
-
 
 -(void)setBookModel:(BookModel *)bookModel {
     if (_bookModel != bookModel) {

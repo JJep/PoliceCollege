@@ -59,9 +59,9 @@
 		BEDE533E20916A6B00D00A98 /* ChannelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE533D20916A6B00D00A98 /* ChannelModel.m */; };
 		BEDE53422091AF2100D00A98 /* BookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE53412091AF2100D00A98 /* BookTableViewCell.m */; };
 		BEDE53452091AF6B00D00A98 /* BookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE53442091AF6B00D00A98 /* BookModel.m */; };
-		BEDE53482091B67D00D00A98 /* BookIntroductionTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE53472091B67D00D00A98 /* BookIntroductionTableView.m */; };
 		BEDE534B2091B93B00D00A98 /* BookIntroductionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE534A2091B93B00D00A98 /* BookIntroductionTableViewCell.m */; };
 		BEDE534E2091BFF700D00A98 /* BookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE534D2091BFF700D00A98 /* BookDetailViewController.m */; };
+		BEDE53512091DB1400D00A98 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE53502091DB1400D00A98 /* CommentTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -168,12 +168,12 @@
 		BEDE53412091AF2100D00A98 /* BookTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookTableViewCell.m; sourceTree = "<group>"; };
 		BEDE53432091AF6B00D00A98 /* BookModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookModel.h; sourceTree = "<group>"; };
 		BEDE53442091AF6B00D00A98 /* BookModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookModel.m; sourceTree = "<group>"; };
-		BEDE53462091B67D00D00A98 /* BookIntroductionTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookIntroductionTableView.h; sourceTree = "<group>"; };
-		BEDE53472091B67D00D00A98 /* BookIntroductionTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookIntroductionTableView.m; sourceTree = "<group>"; };
 		BEDE53492091B93B00D00A98 /* BookIntroductionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookIntroductionTableViewCell.h; sourceTree = "<group>"; };
 		BEDE534A2091B93B00D00A98 /* BookIntroductionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookIntroductionTableViewCell.m; sourceTree = "<group>"; };
 		BEDE534C2091BFF700D00A98 /* BookDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookDetailViewController.h; sourceTree = "<group>"; };
 		BEDE534D2091BFF700D00A98 /* BookDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookDetailViewController.m; sourceTree = "<group>"; };
+		BEDE534F2091DB1400D00A98 /* CommentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentTableViewCell.h; sourceTree = "<group>"; };
+		BEDE53502091DB1400D00A98 /* CommentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -609,18 +609,34 @@
 		BEDE533F2091835100D00A98 /* BookDetailView */ = {
 			isa = PBXGroup;
 			children = (
-				BEDE53402091AF2100D00A98 /* BookTableViewCell.h */,
-				BEDE53412091AF2100D00A98 /* BookTableViewCell.m */,
-				BEDE53432091AF6B00D00A98 /* BookModel.h */,
-				BEDE53442091AF6B00D00A98 /* BookModel.m */,
-				BEDE53462091B67D00D00A98 /* BookIntroductionTableView.h */,
-				BEDE53472091B67D00D00A98 /* BookIntroductionTableView.m */,
-				BEDE53492091B93B00D00A98 /* BookIntroductionTableViewCell.h */,
-				BEDE534A2091B93B00D00A98 /* BookIntroductionTableViewCell.m */,
+				BEDE53532092B6E100D00A98 /* Model */,
+				BEDE53522092B6CB00D00A98 /* Cell */,
 				BEDE534C2091BFF700D00A98 /* BookDetailViewController.h */,
 				BEDE534D2091BFF700D00A98 /* BookDetailViewController.m */,
 			);
 			path = BookDetailView;
+			sourceTree = "<group>";
+		};
+		BEDE53522092B6CB00D00A98 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BEDE53492091B93B00D00A98 /* BookIntroductionTableViewCell.h */,
+				BEDE534A2091B93B00D00A98 /* BookIntroductionTableViewCell.m */,
+				BEDE534F2091DB1400D00A98 /* CommentTableViewCell.h */,
+				BEDE53502091DB1400D00A98 /* CommentTableViewCell.m */,
+				BEDE53402091AF2100D00A98 /* BookTableViewCell.h */,
+				BEDE53412091AF2100D00A98 /* BookTableViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		BEDE53532092B6E100D00A98 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BEDE53432091AF6B00D00A98 /* BookModel.h */,
+				BEDE53442091AF6B00D00A98 /* BookModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		F88CF27F9C889AB4BA862A5D /* Frameworks */ = {
@@ -779,10 +795,10 @@
 				BEDE532C20908A0300D00A98 /* ChannelCollectionViewCell.m in Sources */,
 				BE21DAA62087352C0086B8BA /* PCCenterdViewButton.m in Sources */,
 				BE21DA912086F2BC0086B8BA /* PCLoginViewController.m in Sources */,
+				BEDE53512091DB1400D00A98 /* CommentTableViewCell.m in Sources */,
 				BEDE5311208F44DF00D00A98 /* LearningTableViewCell.m in Sources */,
 				BE21DA892086F09F0086B8BA /* PCBaseViewController.m in Sources */,
 				BE21DA652086DE3C0086B8BA /* AppDelegate.m in Sources */,
-				BEDE53482091B67D00D00A98 /* BookIntroductionTableView.m in Sources */,
 				BE21DAB22087815A0086B8BA /* HotIssueTableViewCell.m in Sources */,
 				BEDE52B5208991E900D00A98 /* PCTabBarController.m in Sources */,
 				BE21DAAB20873F030086B8BA /* PCPromotionViewController.m in Sources */,

@@ -22,6 +22,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.title = @"图书详情";
+    
     tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     tableView.delegate = self;
     tableView.dataSource = self;
@@ -34,7 +37,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
@@ -54,6 +56,8 @@
     if (indexPath.section == 0) {
         BookTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bookCell"];
         cell = [[BookTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"bookCell"];
+        [cell setNeedsUpdateConstraints];
+        [cell updateConstraintsIfNeeded];
         return cell;
     } else if (indexPath.section == 1) {
         BookIntroductionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"introductionCell"];
@@ -67,13 +71,5 @@
         return cell;
     }
 }
-
-//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if (indexPath.section == 0) {
-//        return 205;
-//    } else {
-//        return 400;
-//    }
-//}
 
 @end
