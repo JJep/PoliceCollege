@@ -10,6 +10,8 @@
 #import "BookIntroductionTableViewCell.h"
 #import "BookModel.h"
 #import "BookTableViewCell.h"
+//#define introductionBtnTag 123
+//#define commentBtnTag 1234
 @interface BookDetailViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @end
@@ -56,9 +58,15 @@
     if (indexPath.section == 0) {
         BookTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bookCell"];
         cell = [[BookTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"bookCell"];
-        [cell setNeedsUpdateConstraints];
-        [cell updateConstraintsIfNeeded];
+//        [cell.introductionBtn addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
+//        [cell.commentBtn addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
+//        [cell.introductionBtn setTag:introductionBtnTag];
+//        [cell.commentBtn setTag:commentBtnTag];
+        [cell.introductionBtn setSelected:true];
+        [cell.commentBtn setSelected:false];
+        
         return cell;
+
     } else if (indexPath.section == 1) {
         BookIntroductionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"introductionCell"];
         cell = [[BookIntroductionTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"introductionCell"];
@@ -71,5 +79,17 @@
         return cell;
     }
 }
+
+//- (void)didTouchBtn:(UIButton *)button {
+//    long tag = button.tag;
+//    switch (tag) {
+//        case introductionBtnTag:
+//            [button setSelected:true];
+//            break;
+//
+//        default:
+//            break;
+//    }
+//}
 
 @end

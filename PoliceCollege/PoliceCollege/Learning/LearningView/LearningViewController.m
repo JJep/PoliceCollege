@@ -10,6 +10,7 @@
 #import "LearningTableViewCell.h"
 #import "OnlineTestViewController.h"
 #import "CourseCenterViewController.h"
+#import "VideoCenterViewController.h"
 @interface LearningViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end
@@ -88,6 +89,10 @@
         [self.navigationController pushViewController:newVC animated:true];
     } else if (indexPath.row == 2) {
         CourseCenterViewController *newVC = [CourseCenterViewController new];
+        newVC.hidesBottomBarWhenPushed = true;
+        [self.navigationController pushViewController:newVC animated:true];
+    } else if (indexPath.row == 3) {
+        VideoCenterViewController *newVC = [VideoCenterViewController new];
         newVC.hidesBottomBarWhenPushed = true;
         [self.navigationController pushViewController:newVC animated:true];
     }

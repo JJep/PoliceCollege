@@ -62,6 +62,11 @@
 		BEDE534B2091B93B00D00A98 /* BookIntroductionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE534A2091B93B00D00A98 /* BookIntroductionTableViewCell.m */; };
 		BEDE534E2091BFF700D00A98 /* BookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE534D2091BFF700D00A98 /* BookDetailViewController.m */; };
 		BEDE53512091DB1400D00A98 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE53502091DB1400D00A98 /* CommentTableViewCell.m */; };
+		BEDE535A2092D80C00D00A98 /* VideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE53592092D80C00D00A98 /* VideoTableViewCell.m */; };
+		BEDE535D2092DA0700D00A98 /* VideoCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE535C2092DA0700D00A98 /* VideoCenterViewController.m */; };
+		BEDE53612092F28D00D00A98 /* SeasonRank.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE53602092F28C00D00A98 /* SeasonRank.m */; };
+		BEDE536420930A1F00D00A98 /* PersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE536320930A1F00D00A98 /* PersonViewController.m */; };
+		BEDE536720930E9100D00A98 /* SelectedCoursesView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE536620930E9100D00A98 /* SelectedCoursesView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -174,6 +179,16 @@
 		BEDE534D2091BFF700D00A98 /* BookDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookDetailViewController.m; sourceTree = "<group>"; };
 		BEDE534F2091DB1400D00A98 /* CommentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentTableViewCell.h; sourceTree = "<group>"; };
 		BEDE53502091DB1400D00A98 /* CommentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
+		BEDE53582092D80C00D00A98 /* VideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoTableViewCell.h; sourceTree = "<group>"; };
+		BEDE53592092D80C00D00A98 /* VideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoTableViewCell.m; sourceTree = "<group>"; };
+		BEDE535B2092DA0700D00A98 /* VideoCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCenterViewController.h; sourceTree = "<group>"; };
+		BEDE535C2092DA0700D00A98 /* VideoCenterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCenterViewController.m; sourceTree = "<group>"; };
+		BEDE535F2092F28C00D00A98 /* SeasonRank.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeasonRank.h; sourceTree = "<group>"; };
+		BEDE53602092F28C00D00A98 /* SeasonRank.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeasonRank.m; sourceTree = "<group>"; };
+		BEDE536220930A1F00D00A98 /* PersonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonViewController.h; sourceTree = "<group>"; };
+		BEDE536320930A1F00D00A98 /* PersonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonViewController.m; sourceTree = "<group>"; };
+		BEDE536520930E9100D00A98 /* SelectedCoursesView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectedCoursesView.h; sourceTree = "<group>"; };
+		BEDE536620930E9100D00A98 /* SelectedCoursesView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectedCoursesView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +234,7 @@
 		BE21DA622086DE3C0086B8BA /* PoliceCollege */ = {
 			isa = PBXGroup;
 			children = (
+				BEDE535E2092F26F00D00A98 /* Person */,
 				BEDE530E208F44C400D00A98 /* Learning */,
 				BEDE5306208F385000D00A98 /* PublicCourse */,
 				BEDE52C32089DB5400D00A98 /* Me */,
@@ -507,6 +523,7 @@
 		BEDE530E208F44C400D00A98 /* Learning */ = {
 			isa = PBXGroup;
 			children = (
+				BEDE53572092D7FA00D00A98 /* VideoCenter */,
 				BEDE5315208F7FC400D00A98 /* OnlineTest */,
 				BEDE531D20900FC500D00A98 /* CourseCenter */,
 				BEDE531C20900FAD00D00A98 /* LearningView */,
@@ -637,6 +654,30 @@
 				BEDE53442091AF6B00D00A98 /* BookModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BEDE53572092D7FA00D00A98 /* VideoCenter */ = {
+			isa = PBXGroup;
+			children = (
+				BEDE53582092D80C00D00A98 /* VideoTableViewCell.h */,
+				BEDE53592092D80C00D00A98 /* VideoTableViewCell.m */,
+				BEDE535B2092DA0700D00A98 /* VideoCenterViewController.h */,
+				BEDE535C2092DA0700D00A98 /* VideoCenterViewController.m */,
+			);
+			path = VideoCenter;
+			sourceTree = "<group>";
+		};
+		BEDE535E2092F26F00D00A98 /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				BEDE535F2092F28C00D00A98 /* SeasonRank.h */,
+				BEDE53602092F28C00D00A98 /* SeasonRank.m */,
+				BEDE536220930A1F00D00A98 /* PersonViewController.h */,
+				BEDE536320930A1F00D00A98 /* PersonViewController.m */,
+				BEDE536520930E9100D00A98 /* SelectedCoursesView.h */,
+				BEDE536620930E9100D00A98 /* SelectedCoursesView.m */,
+			);
+			path = Person;
 			sourceTree = "<group>";
 		};
 		F88CF27F9C889AB4BA862A5D /* Frameworks */ = {
@@ -777,8 +818,10 @@
 				BEDE52C62089DB9C00D00A98 /* MePortraitTableViewCell.m in Sources */,
 				BEDE533920916A1A00D00A98 /* MyChannelsCollectionViewCell.m in Sources */,
 				BEDE533E20916A6B00D00A98 /* ChannelModel.m in Sources */,
+				BEDE536420930A1F00D00A98 /* PersonViewController.m in Sources */,
 				BEDE52DB208B2BBC00D00A98 /* MePortrait.m in Sources */,
 				BEDE534E2091BFF700D00A98 /* BookDetailViewController.m in Sources */,
+				BEDE536720930E9100D00A98 /* SelectedCoursesView.m in Sources */,
 				BE21DA822086E0700086B8BA /* UITextfieldView.m in Sources */,
 				BE21DA9C208731750086B8BA /* PCBannerView.m in Sources */,
 				BEDE52D8208B2AFD00D00A98 /* MeTableViewModel.m in Sources */,
@@ -793,6 +836,7 @@
 				BEDE52ED208D820C00D00A98 /* PersonalInformationViewController.m in Sources */,
 				BEDE52F6208DDB8D00D00A98 /* ChangePasswordViewController.m in Sources */,
 				BEDE532C20908A0300D00A98 /* ChannelCollectionViewCell.m in Sources */,
+				BEDE535A2092D80C00D00A98 /* VideoTableViewCell.m in Sources */,
 				BE21DAA62087352C0086B8BA /* PCCenterdViewButton.m in Sources */,
 				BE21DA912086F2BC0086B8BA /* PCLoginViewController.m in Sources */,
 				BEDE53512091DB1400D00A98 /* CommentTableViewCell.m in Sources */,
@@ -813,9 +857,11 @@
 				BE21DA94208722680086B8BA /* PCLoginView.m in Sources */,
 				BEDE52BE2089D29500D00A98 /* PCNavigationController.m in Sources */,
 				BEDE53362091670700D00A98 /* MoreChannelsViewController.m in Sources */,
+				BEDE53612092F28D00D00A98 /* SeasonRank.m in Sources */,
 				BEDE53422091AF2100D00A98 /* BookTableViewCell.m in Sources */,
 				BEDE52CF2089F03F00D00A98 /* MeItemTableViewCell.m in Sources */,
 				BEDE52CC2089E0C300D00A98 /* MeViewController.m in Sources */,
+				BEDE535D2092DA0700D00A98 /* VideoCenterViewController.m in Sources */,
 				BEDE530C208F40EF00D00A98 /* PublicCourseViewController.m in Sources */,
 				BEDE5318208F7FED00D00A98 /* OnlineTestCollectionViewCell.m in Sources */,
 				BEDE52BB2089B36E00D00A98 /* AnouncementTableViewCell.m in Sources */,

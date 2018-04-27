@@ -5,17 +5,16 @@
 //  Created by Jep Xia on 2018/4/25.
 //  Copyright © 2018年 Jep Xia. All rights reserved.
 //
-
+#import "VideoCenterViewController.h"
 #import "CourseCenterViewController.h"
 #import "ChannelCollectionViewCell.h"
-#import "CourseCenterTableViewCell.h"
 #import "ChannelView.h"
-#import "BookDetailViewController.h"
-@interface CourseCenterViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
+#import "VideoTableViewCell.h"
+@interface  VideoCenterViewController() <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end
 
-@implementation CourseCenterViewController {
+@implementation VideoCenterViewController {
     UITableView *tableView;
     ChannelView *channelView;
     ChannelCollectionViewCell *tempCell;
@@ -26,7 +25,7 @@
     // Do any additional setup after loading the view.
     
     [self.view setBackgroundColor:MyWhiteBackgroundColor];
-    self.title = @"课程中心";
+    self.title = @"视频中心";
     
     tableView = [[UITableView alloc] initWithFrame:self.view.bounds ];
     [self.view addSubview:tableView];
@@ -37,7 +36,7 @@
     [self.view addSubview:channelView];
     channelView.collectionView.delegate = self;
     channelView.collectionView.dataSource = self;
-
+    
     //注册Cell
     [channelView.collectionView registerClass:[ChannelCollectionViewCell class] forCellWithReuseIdentifier:@"channelCell"];
     
@@ -84,15 +83,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellID = @"courseCenterTableViewCell";
-    CourseCenterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    cell = [[CourseCenterTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    VideoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    cell = [[VideoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    BookDetailViewController *newVC = [BookDetailViewController new];
-    [self.navigationController pushViewController:newVC animated:true];
+//    BookDetailViewController *newVC = [BookDetailViewController new];
+//    [self.navigationController pushViewController:newVC animated:true];
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
