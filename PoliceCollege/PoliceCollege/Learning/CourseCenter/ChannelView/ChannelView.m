@@ -8,10 +8,8 @@
 
 #import "ChannelView.h"
 #import "ChannelCollectionViewCell.h"
-//@interface ChannelView() <UICollectionViewDelegate, UICollectionViewDataSource>
-//@end
+#import "MoreChannelsViewController.h"
 @implementation ChannelView {
-    UIImageView *imageView;
     UIView *view;
 }
 
@@ -20,8 +18,9 @@
     if (self) {
         [self setBackgroundColor:[UIColor whiteColor]];
         [self initCollectionView];
-        imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"add"]];
-        [self addSubview:imageView];
+        _addButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_addButton setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
+        [self addSubview:_addButton];
         view = [UIView new];
         [self addSubview:view];
         [view setBackgroundColor:rgb(238, 238, 238)];
@@ -36,14 +35,14 @@
         make.right.equalTo(self->view.mas_left).offset(-10) ;
     }];
     
-    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_addButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).offset(-16);
         make.height.width.mas_equalTo(14);
         make.centerY.equalTo(self);
     }];
     
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self->imageView.mas_left).offset(-16);
+        make.right.equalTo(self->_addButton.mas_left).offset(-16);
         make.width.mas_equalTo(2);
         make.height.mas_equalTo(20);
         make.centerY.equalTo(self);
@@ -72,12 +71,26 @@
     [_collectionView setShowsHorizontalScrollIndicator:false];
     
     [self addSubview:_collectionView];
-//    _collectionView.dataSource = self;
-//    _collectionView.delegate = self;
-    
-    //注册Cell
-//    [_collectionView registerClass:[ChannelCollectionViewCell class] forCellWithReuseIdentifier:@"channelCell"];
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end

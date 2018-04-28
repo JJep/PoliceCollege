@@ -20,7 +20,6 @@
         [channelLabel setFont:[UIFont systemFontOfSize:16]];
         [channelLabel setTextAlignment:NSTextAlignmentCenter];
         [self addSubview:channelLabel];
-        [channelLabel setTextAlignment:NSTextAlignmentCenter];
         [channelLabel setFont:[UIFont fontWithName:@"PingFangSC-Thin" size:15]];
     }
     return self;

@@ -10,4 +10,6 @@
 
 @interface ChannelView : UIView
 @property (nonatomic,retain)UICollectionView *collectionView;
+@property (nonatomic,retain)UIButton *addButton;
+
 @end

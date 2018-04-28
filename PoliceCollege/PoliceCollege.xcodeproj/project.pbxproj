@@ -25,6 +25,8 @@
 		BE21DAAB20873F030086B8BA /* PCPromotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE21DAAA20873F030086B8BA /* PCPromotionViewController.m */; };
 		BE21DAAE2087485D0086B8BA /* PCHotIssueView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE21DAAD2087485D0086B8BA /* PCHotIssueView.m */; };
 		BE21DAB22087815A0086B8BA /* HotIssueTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE21DAB12087815A0086B8BA /* HotIssueTableViewCell.m */; };
+		BE44B567209410BD0001B143 /* SeasonCreditModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B566209410BD0001B143 /* SeasonCreditModel.m */; };
+		BE44B56A2094254E0001B143 /* YearPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5692094254E0001B143 /* YearPickerView.m */; };
 		BEDE52AF20897B9000D00A98 /* PCPromotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52AE20897B9000D00A98 /* PCPromotionView.m */; };
 		BEDE52B5208991E900D00A98 /* PCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52B4208991E900D00A98 /* PCTabBarController.m */; };
 		BEDE52B82089B31600D00A98 /* PCAnouncementTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52B72089B31600D00A98 /* PCAnouncementTableViewController.m */; };
@@ -67,6 +69,8 @@
 		BEDE53612092F28D00D00A98 /* SeasonRank.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE53602092F28C00D00A98 /* SeasonRank.m */; };
 		BEDE536420930A1F00D00A98 /* PersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE536320930A1F00D00A98 /* PersonViewController.m */; };
 		BEDE536720930E9100D00A98 /* SelectedCoursesView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE536620930E9100D00A98 /* SelectedCoursesView.m */; };
+		BEDE536A2094091200D00A98 /* PersonMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE53692094091200D00A98 /* PersonMoreViewController.m */; };
+		BEDE536D20940CD700D00A98 /* SeasonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE536C20940CD700D00A98 /* SeasonTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +109,10 @@
 		BE21DAAD2087485D0086B8BA /* PCHotIssueView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCHotIssueView.m; sourceTree = "<group>"; };
 		BE21DAB02087815A0086B8BA /* HotIssueTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HotIssueTableViewCell.h; sourceTree = "<group>"; };
 		BE21DAB12087815A0086B8BA /* HotIssueTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotIssueTableViewCell.m; sourceTree = "<group>"; };
+		BE44B565209410BD0001B143 /* SeasonCreditModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeasonCreditModel.h; sourceTree = "<group>"; };
+		BE44B566209410BD0001B143 /* SeasonCreditModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeasonCreditModel.m; sourceTree = "<group>"; };
+		BE44B5682094254E0001B143 /* YearPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YearPickerView.h; sourceTree = "<group>"; };
+		BE44B5692094254E0001B143 /* YearPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YearPickerView.m; sourceTree = "<group>"; };
 		BEDE52AD20897B9000D00A98 /* PCPromotionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCPromotionView.h; sourceTree = "<group>"; };
 		BEDE52AE20897B9000D00A98 /* PCPromotionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCPromotionView.m; sourceTree = "<group>"; };
 		BEDE52B3208991E900D00A98 /* PCTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCTabBarController.h; sourceTree = "<group>"; };
@@ -189,6 +197,10 @@
 		BEDE536320930A1F00D00A98 /* PersonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonViewController.m; sourceTree = "<group>"; };
 		BEDE536520930E9100D00A98 /* SelectedCoursesView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectedCoursesView.h; sourceTree = "<group>"; };
 		BEDE536620930E9100D00A98 /* SelectedCoursesView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectedCoursesView.m; sourceTree = "<group>"; };
+		BEDE53682094091200D00A98 /* PersonMoreViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonMoreViewController.h; sourceTree = "<group>"; };
+		BEDE53692094091200D00A98 /* PersonMoreViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonMoreViewController.m; sourceTree = "<group>"; };
+		BEDE536B20940CD700D00A98 /* SeasonTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeasonTableViewCell.h; sourceTree = "<group>"; };
+		BEDE536C20940CD700D00A98 /* SeasonTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeasonTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,7 +246,7 @@
 		BE21DA622086DE3C0086B8BA /* PoliceCollege */ = {
 			isa = PBXGroup;
 			children = (
-				BEDE535E2092F26F00D00A98 /* Person */,
+				BEDE535E2092F26F00D00A98 /* PersonCenter */,
 				BEDE530E208F44C400D00A98 /* Learning */,
 				BEDE5306208F385000D00A98 /* PublicCourse */,
 				BEDE52C32089DB5400D00A98 /* Me */,
@@ -342,6 +354,37 @@
 				BE21DAB12087815A0086B8BA /* HotIssueTableViewCell.m */,
 			);
 			path = HotIssueView;
+			sourceTree = "<group>";
+		};
+		BE44B56B209448B00001B143 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BEDE535F2092F28C00D00A98 /* SeasonRank.h */,
+				BEDE53602092F28C00D00A98 /* SeasonRank.m */,
+				BEDE536B20940CD700D00A98 /* SeasonTableViewCell.h */,
+				BEDE536C20940CD700D00A98 /* SeasonTableViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		BE44B56C209448C60001B143 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BEDE536520930E9100D00A98 /* SelectedCoursesView.h */,
+				BEDE536620930E9100D00A98 /* SelectedCoursesView.m */,
+				BE44B5682094254E0001B143 /* YearPickerView.h */,
+				BE44B5692094254E0001B143 /* YearPickerView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE44B56E209448E50001B143 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BE44B565209410BD0001B143 /* SeasonCreditModel.h */,
+				BE44B566209410BD0001B143 /* SeasonCreditModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BEDE52AB20897AB800D00A98 /* CenterView */ = {
@@ -667,17 +710,18 @@
 			path = VideoCenter;
 			sourceTree = "<group>";
 		};
-		BEDE535E2092F26F00D00A98 /* Person */ = {
+		BEDE535E2092F26F00D00A98 /* PersonCenter */ = {
 			isa = PBXGroup;
 			children = (
-				BEDE535F2092F28C00D00A98 /* SeasonRank.h */,
-				BEDE53602092F28C00D00A98 /* SeasonRank.m */,
+				BE44B56E209448E50001B143 /* Model */,
+				BE44B56C209448C60001B143 /* View */,
+				BE44B56B209448B00001B143 /* Cell */,
 				BEDE536220930A1F00D00A98 /* PersonViewController.h */,
 				BEDE536320930A1F00D00A98 /* PersonViewController.m */,
-				BEDE536520930E9100D00A98 /* SelectedCoursesView.h */,
-				BEDE536620930E9100D00A98 /* SelectedCoursesView.m */,
+				BEDE53682094091200D00A98 /* PersonMoreViewController.h */,
+				BEDE53692094091200D00A98 /* PersonMoreViewController.m */,
 			);
-			path = Person;
+			path = PersonCenter;
 			sourceTree = "<group>";
 		};
 		F88CF27F9C889AB4BA862A5D /* Frameworks */ = {
@@ -827,6 +871,7 @@
 				BEDE52D8208B2AFD00D00A98 /* MeTableViewModel.m in Sources */,
 				BE21DA732086DE460086B8BA /* main.m in Sources */,
 				BEDE52AF20897B9000D00A98 /* PCPromotionView.m in Sources */,
+				BEDE536A2094091200D00A98 /* PersonMoreViewController.m in Sources */,
 				BEDE52F0208DC5A300D00A98 /* PersonalInfoModel.m in Sources */,
 				BEDE52B82089B31600D00A98 /* PCAnouncementTableViewController.m in Sources */,
 				BEDE531B208F81A200D00A98 /* OnlineTestViewController.m in Sources */,
@@ -844,6 +889,7 @@
 				BE21DA892086F09F0086B8BA /* PCBaseViewController.m in Sources */,
 				BE21DA652086DE3C0086B8BA /* AppDelegate.m in Sources */,
 				BE21DAB22087815A0086B8BA /* HotIssueTableViewCell.m in Sources */,
+				BEDE536D20940CD700D00A98 /* SeasonTableViewCell.m in Sources */,
 				BEDE52B5208991E900D00A98 /* PCTabBarController.m in Sources */,
 				BE21DAAB20873F030086B8BA /* PCPromotionViewController.m in Sources */,
 				BEDE5314208F65E100D00A98 /* LearningViewController.m in Sources */,
@@ -852,6 +898,7 @@
 				BEDE5305208F355800D00A98 /* PushSettingTableViewCell.m in Sources */,
 				BEDE52FA208DE65200D00A98 /* PushSettingViewController.m in Sources */,
 				BEDE52C12089D5FE00D00A98 /* DetailAnouncementView.m in Sources */,
+				BE44B56A2094254E0001B143 /* YearPickerView.m in Sources */,
 				BEDE532020900FEF00D00A98 /* CourseCenterTableViewCell.m in Sources */,
 				BE21DAAE2087485D0086B8BA /* PCHotIssueView.m in Sources */,
 				BE21DA94208722680086B8BA /* PCLoginView.m in Sources */,
@@ -864,6 +911,7 @@
 				BEDE535D2092DA0700D00A98 /* VideoCenterViewController.m in Sources */,
 				BEDE530C208F40EF00D00A98 /* PublicCourseViewController.m in Sources */,
 				BEDE5318208F7FED00D00A98 /* OnlineTestCollectionViewCell.m in Sources */,
+				BE44B567209410BD0001B143 /* SeasonCreditModel.m in Sources */,
 				BEDE52BB2089B36E00D00A98 /* AnouncementTableViewCell.m in Sources */,
 				BEDE5309208F388200D00A98 /* PublicCourseTableViewCell.m in Sources */,
 				BEDE53302090C59D00D00A98 /* ChannelView.m in Sources */,

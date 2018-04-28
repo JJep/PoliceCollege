@@ -26,6 +26,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.view setBackgroundColor:MyWhiteBackgroundColor];
 
     [self initMyChannelsCollectionView];
     [self initRecommendedChannelsCollectionView];
@@ -39,19 +41,22 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    if ([collectionView isEqual:myChannelsCollectionView]) {
-        return myChannelDataArray.count;
-    } else {
-        return recommendedChannelDataArray.count;
-    }
+//    if ([collectionView isEqual:myChannelsCollectionView]) {
+//        return myChannelDataArray.count;
+//    } else {
+//        return recommendedChannelDataArray.count;
+//    }
+    
+    return 8;
 }
+
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     MyChannelsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    if ([collectionView isEqual:myChannelsCollectionView])
-        [cell setChannelModel:myChannelDataArray[indexPath.row]];
-    else
-        [cell setChannelModel:recommendedChannelDataArray[indexPath.row]];
+//    if ([collectionView isEqual:myChannelsCollectionView])
+//        [cell setChannelModel:myChannelDataArray[indexPath.row]];
+//    else
+//        [cell setChannelModel:recommendedChannelDataArray[indexPath.row]];
     return cell;
 }
 
@@ -64,7 +69,8 @@
 
 
 - (void)initData {
-    
+    myChannelDataArray = [NSMutableArray new];
+    recommendedChannelDataArray = [NSMutableArray new];
 }
 
 - (void)initSubViews {
@@ -83,23 +89,69 @@
     
     [myChannelsLabel setText:@"我的频道"];
     [myChannelsSubLabel setText:@"点击进入频道"];
+
+    myChannelsSubLabel.font = [UIFont fontWithName:@"PingFangSC-Thin" size:13];
     [recommendedChannelsLabel setText:@"频道推荐"];
     [recommendedChannelsSubLabel setText:@"点击添加频道"];
-    [editBtn setImage:[UIImage imageNamed:@"edit"] forState:UIControlStateNormal];
+    recommendedChannelsSubLabel.font = [UIFont fontWithName:@"PingFangSC-Thin" size:13];
+    [editBtn setTitle:@"编辑" forState:UIControlStateNormal];
     [editBtn setTitleColor:rgb(234, 74, 77) forState:UIControlStateNormal];
+    [editBtn.titleLabel setFont:[UIFont systemFontOfSize:15.0]];
+    editBtn.layer.cornerRadius = 12.5;
+    editBtn.layer.masksToBounds = true;
     editBtn.layer.borderWidth = 1;
     editBtn.layer.borderColor = rgb(234, 74, 77).CGColor;
-}
+    
+    [myChannelsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).offset(20);
+        make.top.equalTo(self.view).offset(20);
+        make.width.mas_equalTo(80);
+    }];
+    
+    [myChannelsSubLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self->myChannelsLabel.mas_right).offset(10);
+        make.bottom.equalTo(self->myChannelsLabel);
+        make.right.equalTo(self.view);
+    }];
+    
+    [editBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.view).offset(-20);
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+        make.bottom.equalTo(self->myChannelsLabel);
+        make.size.mas_equalTo(CGSizeMake(40, 25));
+    }];
+    
+    [myChannelsCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self->myChannelsLabel.mas_bottom);
+        make.left.equalTo(self.view).offset(20);
+        make.right.equalTo(self.view).offset(-20);
+        make.height.mas_equalTo(200);
+    }];
+    
+    [recommendedChannelsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).offset(20);
+        make.top.equalTo(self->myChannelsCollectionView.mas_bottom).offset(20);
+        make.width.mas_equalTo(80);
+    }];
+    
+    [recommendedChannelsSubLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self->recommendedChannelsLabel.mas_right).offset(10);
+        make.bottom.equalTo(self->recommendedChannelsLabel);
+        make.right.equalTo(self.view);
+    }];
+    
+    [recommendedChannelsCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).offset(20);
+        make.right.equalTo(self.view).offset(-20);
+        make.top.equalTo(self->recommendedChannelsLabel.mas_bottom);
+        make.bottom.equalTo(self.view);
+    }];
 }
 
 - (void)initMyChannelsCollectionView {
     // 流水布局
     UICollectionViewFlowLayout *myChannelsLayout = [[UICollectionViewFlowLayout alloc] init];
-    myChannelsLayout.itemSize = CGSizeMake(80, 50);
+    myChannelsLayout.itemSize = CGSizeMake(60, 40);
     myChannelsLayout.minimumLineSpacing = 10;
     myChannelsLayout.minimumInteritemSpacing = 10;
     myChannelsLayout.sectionInset = UIEdgeInsetsMake(20, 20, 20, 20);
@@ -114,7 +166,7 @@
 
 - (void)initRecommendedChannelsCollectionView {
     UICollectionViewFlowLayout *recomendedChannelLayout = [[UICollectionViewFlowLayout alloc] init];
-    recomendedChannelLayout.itemSize = CGSizeMake(80, 50);
+    recomendedChannelLayout.itemSize = CGSizeMake(60, 40);
     recomendedChannelLayout.minimumLineSpacing = 10;
     recomendedChannelLayout.minimumInteritemSpacing = 10;
     recomendedChannelLayout.sectionInset = UIEdgeInsetsMake(20, 20, 20, 20);

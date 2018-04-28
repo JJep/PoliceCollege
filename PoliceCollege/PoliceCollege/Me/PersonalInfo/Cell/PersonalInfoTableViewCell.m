@@ -89,32 +89,4 @@
         [imageView setHidden:false];
     }
 }
-
-//-(void)setTitle:(NSString *)title {
-//    if (_title != title) {
-//        _title = title;
-//        [titleLabel setText:_title];
-//    }
-//}
-//
-//- (void)setContent:(NSString *)content {
-//    if (_content != content) {
-//        _content = content;
-//        [contentLabel setText:_content];
-//        [imageView setHidden:true];
-//        [contentLabel setHidden:false];
-//    }
-//}
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
 @end

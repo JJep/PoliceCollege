@@ -11,6 +11,7 @@
 #import "CourseCenterTableViewCell.h"
 #import "ChannelView.h"
 #import "BookDetailViewController.h"
+#import "MoreChannelsViewController.h"
 @interface CourseCenterViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end
@@ -37,6 +38,7 @@
     [self.view addSubview:channelView];
     channelView.collectionView.delegate = self;
     channelView.collectionView.dataSource = self;
+    [channelView.addButton addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
 
     //注册Cell
     [channelView.collectionView registerClass:[ChannelCollectionViewCell class] forCellWithReuseIdentifier:@"channelCell"];
@@ -103,6 +105,11 @@
         tempCell = cell;
     }
     
+}
+
+- (void)didTouchBtn:(UIButton *)button {
+    MoreChannelsViewController *newVC = [MoreChannelsViewController new];
+    [self.navigationController pushViewController:newVC animated:true];
 }
 @end
 

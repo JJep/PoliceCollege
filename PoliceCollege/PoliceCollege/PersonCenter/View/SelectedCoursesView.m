@@ -103,7 +103,7 @@
         make.top.equalTo(self->selectedCoursesTitleLabel.mas_bottom).offset(11);
         make.left.equalTo(self).offset(20);
         make.right.equalTo(self).offset(-20);
-        make.height.mas_equalTo(3);
+        make.height.mas_equalTo(1);
     }];
     
     [learningProgressLabel mas_makeConstraints:^(MASConstraintMaker *make) {

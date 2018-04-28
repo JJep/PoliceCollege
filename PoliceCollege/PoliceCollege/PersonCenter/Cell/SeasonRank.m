@@ -116,7 +116,7 @@
         make.left.equalTo(self).offset(28);
         make.right.equalTo(self).offset(-28);
         make.top.equalTo(self->rankLabel.mas_bottom).offset(10);
-        make.height.mas_equalTo(3);
+        make.height.mas_equalTo(1);
     }];
     
     [creditLabel mas_makeConstraints:^(MASConstraintMaker *make) {

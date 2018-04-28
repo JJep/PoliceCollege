@@ -9,6 +9,7 @@
 #import "PersonViewController.h"
 #import "SeasonRank.h"
 #import "SelectedCoursesView.h"
+#import "PersonMoreViewController.h"
 @interface PersonViewController ()
 
 @end
@@ -25,21 +26,14 @@
     
     self.title = @"个人中心";
     
-//    UIBarButtonItem *rightButton = [UIButton buttonWithType:UIButtonTypeSystem];
-//    [rightButton setTitle:@"更多" forState:UIControlStateNormal];
-    
-//
-//
-//    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"更多" style:UIBarButtonItemStylePlain target:self action:@selector(didTouchBtn:)];
-//    self.navigationItem.rightBarButtonItem = rightButton;
-//
-    
     UIButton *moreButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [moreButton setTitle:@"更多" forState:UIControlStateNormal];
     [moreButton setTitleColor:rgba(181,181,181,1) forState:UIControlStateNormal];
+    [moreButton addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
+    
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:moreButton];
     self.navigationItem.rightBarButtonItem = rightButton;
-    [self.view setBackgroundColor:MyWhiteBackgroundColor];
+    [self.view setBackgroundColor:rgb(244, 244, 249)];
     
     seasonRankView = [SeasonRank new];
     selectedCoursesView = [SelectedCoursesView new];
@@ -70,7 +64,9 @@
 }
 
 - (void)didTouchBtn:(UIButton *)button {
-    
+    PersonMoreViewController *newVC = [PersonMoreViewController new];
+    newVC.hidesBottomBarWhenPushed = true;
+    [self.navigationController pushViewController:newVC animated:true];
 }
 
 @end

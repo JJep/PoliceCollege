@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Learning/CourseCenter/ChannelView/ChannelView.m"
-            timestampString = "546517342.633702"
+            timestampString = "546592387.84708"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "-layoutSubviews"
             landmarkType = "7">
             <Locations>
@@ -217,11 +217,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Learning/CourseCenter/ChannelView/ChannelView.m"
-            timestampString = "546517342.634271"
+            timestampString = "546592387.847183"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "-initCollectionView"
             landmarkType = "7">
          </BreakpointContent>
@@ -233,11 +233,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Learning/CourseCenter/ChannelView/ChannelView.m"
-            timestampString = "546517342.634563"
+            timestampString = "546592387.847254"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
             landmarkName = "-initWithFrame:"
             landmarkType = "7">
          </BreakpointContent>
