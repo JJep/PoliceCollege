@@ -8,12 +8,13 @@
 
 #import "OnlineTestViewController.h"
 #import "OnlineTestCollectionViewCell.h"
-@interface OnlineTestViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+#import "TestViewController.h"
+@interface OnlineTestViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @end
 
 @implementation OnlineTestViewController {
-    UICollectionView *collectionView;
+    UITableView *tableView;
 }
 
 - (void)viewDidLoad {
@@ -21,51 +22,36 @@
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:MyWhiteBackgroundColor];
     self.title = @"党员学习";
-    // 流水布局
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     
-    // 设置cell的尺寸
-    layout.itemSize = CGSizeMake(120, 75);
-    
-    // 设置每一行的间距
-    layout.minimumLineSpacing = 20;
-    
-    // 设置每个cell的间距
-    layout.minimumInteritemSpacing = 25;
-    
-    // 设置每组的内边距
-    layout.sectionInset = UIEdgeInsetsMake(22, 30, 22, 30);
-    
-    
-    //设置CollectionView的属性
-    collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
-    [collectionView setBackgroundColor:[UIColor whiteColor]];
-    collectionView.delegate = self;
-    collectionView.dataSource = self;
-    collectionView.scrollEnabled = YES;
-    [self.view addSubview:collectionView];
-    //注册Cell
-    [collectionView registerClass:[OnlineTestCollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
-    
+    tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    [self.view addSubview:tableView];
 }
 
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 10;
 }
 
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    OnlineTestCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellID = @"testCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    if ( cell == nil )  {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    }
+    cell.textLabel.text = @"HTML入门测试";
     return cell;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    TestViewController *newVC = [TestViewController new];
+    [self.navigationController pushViewController:newVC animated:true];
 }
+    
 
 /*
 #pragma mark - Navigation

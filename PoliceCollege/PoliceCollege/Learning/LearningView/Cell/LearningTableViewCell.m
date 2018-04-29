@@ -25,6 +25,10 @@
         imageView.layer.cornerRadius = 25;
         imageView.layer.masksToBounds = YES;
         [titleLabel setTextAlignment:NSTextAlignmentCenter];
+        titleLabel.text = @"在线测试";
+        titleLabel.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:11];
+        titleLabel.textColor = [UIColor colorWithRed:94/255.0 green:89/255.0 blue:91/255.0 alpha:1/1.0];
+
         
         [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.top.equalTo(self);
@@ -38,18 +42,6 @@
     }
     return self;
 
-}
-
--(void)layoutSubviews {
-//    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.right.top.equalTo(self);
-//        make.height.mas_equalTo(self->imageView.bounds.size.height);
-//    }];
-//
-//    [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.right.bottom.equalTo(self);
-//        make.height.mas_equalTo(16);
-//    }];
 }
 
 - (void)setImage:(UIImage *)image  {
@@ -66,7 +58,6 @@
         [titleLabel setText:_title];
     }
 }
-
 
 - (void)awakeFromNib {
     [super awakeFromNib];

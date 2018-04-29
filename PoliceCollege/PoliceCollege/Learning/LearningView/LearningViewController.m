@@ -11,71 +11,100 @@
 #import "OnlineTestViewController.h"
 #import "CourseCenterViewController.h"
 #import "VideoCenterViewController.h"
-@interface LearningViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+#import "PCTopView.h"
+#import "LearningMainCollectionView.h"
+@interface LearningViewController () <UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @end
 
 @implementation LearningViewController {
-    UICollectionView *collectionView;
+    LearningMainCollectionView *collectionView;
+    NSArray *dataArray;
+    PCTopView *topView;
+    UITableView *tableView;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     [self.view setBackgroundColor:MyWhiteBackgroundColor];
     self.title = @"党员学习";
-    // 流水布局
+    
+    tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    
+    tableView.tableHeaderView = [self headView];
+    //防止添加headview后tableview无法滑动到底部
+    tableView.contentInset = UIEdgeInsetsMake(0, 0, 160, 0);
+
+    //利用systemLayoutSizeFittingSize:计算出真实高度
+    CGFloat height = [tableView.tableHeaderView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+    CGRect headerFrame = tableView.tableHeaderView.frame;
+    headerFrame.size.height = height;
+    //修改tableHeaderView的frame
+    tableView.tableHeaderView.frame = headerFrame;
+    
+    [self.view addSubview:tableView];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    NSLog(@"%@", tableView.description);
+}
+
+- (UIView *)headView {
+    UIView *view = [UIView new];
+//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 242)];
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     
     // 设置cell的尺寸
     layout.itemSize = CGSizeMake(50, 75);
-    
     // 设置每一行的间距
     layout.minimumLineSpacing = 20;
-    
     // 设置每个cell的间距
     layout.minimumInteritemSpacing = 25;
-    
     // 设置每组的内边距
     layout.sectionInset = UIEdgeInsetsMake(22, 30, 22, 30);
-    
-    
     //设置CollectionView的属性
-    collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
-    [collectionView setBackgroundColor:[UIColor whiteColor]];
+    LearningMainCollectionView *collectionView = [[LearningMainCollectionView alloc] initWithFrame:view.bounds collectionViewLayout:layout];
     collectionView.delegate = self;
-    collectionView.dataSource = self;
-    collectionView.scrollEnabled = YES;
-    [self.view addSubview:collectionView];
-    //注册Cell
-    [collectionView registerClass:[LearningTableViewCell class] forCellWithReuseIdentifier:@"cell"];
+    PCTopView *topView = [PCTopView new];
+    [view addSubview:topView];
+    [view addSubview:collectionView];
     
     [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.right.equalTo(self.view);
+        make.left.top.right.equalTo(view);
         make.height.mas_equalTo(212);
     }];
-
+    
+    [topView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(view);
+        make.top.equalTo(collectionView.mas_bottom);
+        make.height.mas_equalTo(30);
+        make.bottom.equalTo(view);
+    }];
+    [topView.title setText:@"党员测试"];
+    
+    return view;
 }
 
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    LearningTableViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-//    cell = [[LearningTableViewCell alloc] init];
-    return cell;
-}
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 8;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 20;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellID = @"testCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    }
+    cell.textLabel.text = @"HTML在线测试";
+    return cell;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -97,16 +126,5 @@
         [self.navigationController pushViewController:newVC animated:true];
     }
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
