@@ -33,6 +33,7 @@
 		BE44B57E209576B70001B143 /* QuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B57D209576B70001B143 /* QuestionView.m */; };
 		BE44B5812095799A0001B143 /* TestBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5802095799A0001B143 /* TestBottomView.m */; };
 		BE44B5842095BBB70001B143 /* OptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5832095BBB70001B143 /* OptionView.m */; };
+		BE44B58720982B3F0001B143 /* SeasonSubview.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B58620982B3F0001B143 /* SeasonSubview.m */; };
 		BEDE52AF20897B9000D00A98 /* PCPromotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52AE20897B9000D00A98 /* PCPromotionView.m */; };
 		BEDE52B5208991E900D00A98 /* PCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52B4208991E900D00A98 /* PCTabBarController.m */; };
 		BEDE52B82089B31600D00A98 /* PCAnouncementTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52B72089B31600D00A98 /* PCAnouncementTableViewController.m */; };
@@ -131,6 +132,8 @@
 		BE44B5802095799A0001B143 /* TestBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestBottomView.m; sourceTree = "<group>"; };
 		BE44B5822095BBB70001B143 /* OptionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OptionView.h; sourceTree = "<group>"; };
 		BE44B5832095BBB70001B143 /* OptionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OptionView.m; sourceTree = "<group>"; };
+		BE44B58520982B3F0001B143 /* SeasonSubview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeasonSubview.h; sourceTree = "<group>"; };
+		BE44B58620982B3F0001B143 /* SeasonSubview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeasonSubview.m; sourceTree = "<group>"; };
 		BEDE52AD20897B9000D00A98 /* PCPromotionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCPromotionView.h; sourceTree = "<group>"; };
 		BEDE52AE20897B9000D00A98 /* PCPromotionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCPromotionView.m; sourceTree = "<group>"; };
 		BEDE52B3208991E900D00A98 /* PCTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCTabBarController.h; sourceTree = "<group>"; };
@@ -394,6 +397,8 @@
 				BEDE536620930E9100D00A98 /* SelectedCoursesView.m */,
 				BE44B5682094254E0001B143 /* YearPickerView.h */,
 				BE44B5692094254E0001B143 /* YearPickerView.m */,
+				BE44B58520982B3F0001B143 /* SeasonSubview.h */,
+				BE44B58620982B3F0001B143 /* SeasonSubview.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -965,6 +970,7 @@
 				BE44B571209468660001B143 /* PCTopView.m in Sources */,
 				BEDE52FA208DE65200D00A98 /* PushSettingViewController.m in Sources */,
 				BEDE52C12089D5FE00D00A98 /* DetailAnouncementView.m in Sources */,
+				BE44B58720982B3F0001B143 /* SeasonSubview.m in Sources */,
 				BE44B56A2094254E0001B143 /* YearPickerView.m in Sources */,
 				BEDE532020900FEF00D00A98 /* CourseCenterTableViewCell.m in Sources */,
 				BE21DAAE2087485D0086B8BA /* PCHotIssueView.m in Sources */,

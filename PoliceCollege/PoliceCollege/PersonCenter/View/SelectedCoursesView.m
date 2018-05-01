@@ -58,26 +58,32 @@
         learningProgressLabel.text = @"5/8";
         learningProgressLabel.font = [UIFont fontWithName:@"PingFang-SC-Semibold" size:25];
         learningProgressLabel.textColor = [UIColor colorWithRed:88/255.0 green:162/255.0 blue:245/255.0 alpha:1/1.0];
+        [learningProgressLabel setTextAlignment:NSTextAlignmentCenter];
         
         learningProgressTitleLabel.text = @"学习进度";
         learningProgressTitleLabel.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:11];
         learningProgressTitleLabel.textColor = [UIColor colorWithRed:88/255.0 green:162/255.0 blue:245/255.0 alpha:1/1.0];
+        [learningProgressTitleLabel setTextAlignment:NSTextAlignmentCenter];
 
         creditLabel.text = @"5/8";
         creditLabel.font = [UIFont fontWithName:@"PingFang-SC-Semibold" size:25];
         creditLabel.textColor = [UIColor colorWithRed:88/255.0 green:162/255.0 blue:245/255.0 alpha:1/1.0];
+        [creditLabel setTextAlignment:NSTextAlignmentCenter];
 
         commentLabel.text = @"5/8";
         commentLabel.font = [UIFont fontWithName:@"PingFang-SC-Semibold" size:25];
         commentLabel.textColor = [UIColor colorWithRed:88/255.0 green:162/255.0 blue:245/255.0 alpha:1/1.0];
+        [commentLabel setTextAlignment:NSTextAlignmentCenter];
 
         creditTitleLabel.text = @"学习学分";
         creditTitleLabel.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:11];
         creditTitleLabel.textColor = [UIColor colorWithRed:88/255.0 green:162/255.0 blue:245/255.0 alpha:1/1.0];
+        [creditTitleLabel setTextAlignment:NSTextAlignmentCenter];
 
-        commentTitleLabel.text = @"学习学分";
+        commentTitleLabel.text = @"评论学分";
         commentTitleLabel.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:11];
         commentTitleLabel.textColor = [UIColor colorWithRed:88/255.0 green:162/255.0 blue:245/255.0 alpha:1/1.0];
+        [commentTitleLabel setTextAlignment:NSTextAlignmentCenter];
         
         [self layoutViews];
     }
@@ -115,12 +121,12 @@
     
     [creditLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self->learningProgressLabel);
-        make.width.equalTo(self->learningProgressLabel);
+        make.width.equalTo(self->commentLabel);
         make.right.equalTo(self->commentLabel.mas_left).offset(-20);
     }];
     
     [commentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.width.equalTo(self->creditLabel);
+        make.top.equalTo(self->creditLabel);
         make.right.equalTo(self).offset(-20);
     }];
     

@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "SeasonCreditModel.h"
-
+@class SeasonSubview;
 @interface SeasonTableViewCell : UITableViewCell
 @property (nonatomic,retain)SeasonCreditModel *model;
-
+@property (nonatomic,assign)BOOL isSelected;
+@property (nonatomic,retain)SeasonSubview *seasonSubview;
 
 @end

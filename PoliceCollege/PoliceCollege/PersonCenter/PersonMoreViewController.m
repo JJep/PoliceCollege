@@ -10,21 +10,28 @@
 #import "SeasonRank.h"
 #import "SeasonTableViewCell.h"
 #import "YearPickerView.h"
+#import "SeasonSubview.h"
 @interface PersonMoreViewController () <UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource>
 
 @end
-
+static const int cancelButtonTag = 123;
+static const int confirmButtonTag = 1234;
+static const int calenderButtonTag = 12345;
 @implementation PersonMoreViewController {
     SeasonRank *seasonRankView;
     UITableView *seasonTableView;
     YearPickerView *pickerView;
+    NSMutableArray *selectedArray;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initViews];
-
+    selectedArray = [[NSMutableArray alloc] initWithArray:@ [@false,
+                                                             @false,
+                                                             @false,
+                                                             @false]];
 }
 
 - (void)initViews {
@@ -34,6 +41,7 @@
     //设置导航栏的按钮
     UIButton *rightButtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [rightButtn setImage:[UIImage imageNamed:@"calender"] forState:UIControlStateNormal];
+    [rightButtn setTag:calenderButtonTag];
     [rightButtn addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightItemButton = [[UIBarButtonItem alloc] initWithCustomView:rightButtn];
     [self.navigationItem setRightBarButtonItem:rightItemButton];
@@ -48,6 +56,10 @@
     pickerView = [YearPickerView new];
     pickerView.pickerView.delegate = self;
     pickerView.pickerView.dataSource = self;
+    [pickerView.cancelButton addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [pickerView.confirmButton addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [pickerView.cancelButton setTag:cancelButtonTag];
+    [pickerView.confirmButton setTag:confirmButtonTag];
     [pickerView setHidden:true];
     
     [self.view addSubview:seasonTableView];
@@ -86,7 +98,29 @@
     static NSString *cellID = @"seasonCell";
     SeasonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     cell = [[SeasonTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    if ([selectedArray[indexPath.row] isEqual:@false]) {
+        [cell.seasonSubview setHidden:true];
+    } else {
+        [cell.seasonSubview setHidden:false];
+    }
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([selectedArray[indexPath.row] isEqual:@false]) {
+        selectedArray[indexPath.row] = @true;
+    } else {
+        selectedArray[indexPath.row] = @false;
+    }
+    [tableView reloadData];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([selectedArray[indexPath.row] isEqual:@true]) {
+        return 112;
+    } else {
+        return 56;
+    }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -98,7 +132,18 @@
 }
 
 - (void)didTouchBtn:(UIButton *)button {
-    [pickerView setHidden:false];
+    switch (button.tag) {
+        case cancelButtonTag:
+            [pickerView setHidden:true];
+            break;
+        case confirmButtonTag:
+            [pickerView setHidden:true];
+            break;
+        case calenderButtonTag:
+            [pickerView setHidden:false];
+        default:
+            break;
+    }
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {

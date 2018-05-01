@@ -56,7 +56,7 @@
         
         [contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self->userNameLabel.mas_bottom);
-            make.left.equalTo(self->portraitImageView).offset(15);
+            make.left.equalTo(self->portraitImageView.mas_right).offset(15);
             make.right.equalTo(self).offset(-15);
         }];
         
@@ -70,18 +70,6 @@
     }
     return self;
 }
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
 
 
 

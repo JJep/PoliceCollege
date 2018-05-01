@@ -10,16 +10,23 @@
 #import "BookIntroductionTableViewCell.h"
 #import "BookModel.h"
 #import "BookTableViewCell.h"
-//#define introductionBtnTag 123
-//#define commentBtnTag 1234
+#import "CommentTableViewCell.h"
 @interface BookDetailViewController () <UITableViewDataSource, UITableViewDelegate>
-
+@property (nonatomic,assign)int currentView;
 @end
+
+
 
 @implementation BookDetailViewController {
     UITableView *tableView;
     BookModel *bookModel;
+    CommentTableViewCell *commentCell;
 }
+
+static const int introductionView = 12;
+static const int commentView = 13;
+static const int introductionButtonTag = 123;
+static const int commentButtonTag = 1234;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,6 +40,8 @@
     [self.view addSubview:tableView];
     tableView.estimatedRowHeight = 205;
     tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    _currentView = introductionView;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,44 +60,88 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    switch (_currentView) {
+        case introductionView:
+            return 3;
+        case commentView:
+            return 2;
+        default:
+            return 0;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         BookTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bookCell"];
         cell = [[BookTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"bookCell"];
-//        [cell.introductionBtn addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
-//        [cell.commentBtn addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
-//        [cell.introductionBtn setTag:introductionBtnTag];
-//        [cell.commentBtn setTag:commentBtnTag];
+        [cell.introductionBtn addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.commentBtn addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.introductionBtn setTag:introductionButtonTag];
+        [cell.commentBtn setTag:commentButtonTag];
         [cell.introductionBtn setSelected:true];
         [cell.commentBtn setSelected:false];
-        
+        if (_currentView == introductionView) {
+            [cell.rightView setHidden:true];
+            [cell.leftView setHidden:false];
+        } else {
+            [cell.leftView setHidden:true];
+            [cell.rightView setHidden:false];
+        }
         return cell;
 
-    } else if (indexPath.section == 1) {
-        BookIntroductionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"introductionCell"];
-        cell = [[BookIntroductionTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"introductionCell"];
-        [cell setContent:bookModel.bookIntroduction];
-        return cell;
     } else {
-        BookIntroductionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"introductionCell"];
-        cell = [[BookIntroductionTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"chapterCell"];
-        [cell setContent:bookModel.bookChapters[indexPath.row]];
-        return cell;
+        switch (_currentView) {
+            case commentView:
+            {
+                CommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"commentCell"];
+                cell = [[CommentTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"commentCell"];
+                return cell;
+            }
+            case introductionView:
+            {
+                if (indexPath.section == 1) {
+                    BookIntroductionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"introductionCell"];
+                    cell = [[BookIntroductionTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"introductionCell"];
+                    [cell setContent:bookModel.bookIntroduction];
+                    return cell;
+                } else {
+                    BookIntroductionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"chapterCell"];
+                    cell = [[BookIntroductionTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"chapterCell"];
+                    [cell setContent:bookModel.bookChapters[indexPath.row]];
+                    return cell;
+                }
+            }
+            default:
+            {
+                UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+                return cell;
+            }
+        }
+        
     }
 }
 
-//- (void)didTouchBtn:(UIButton *)button {
-//    long tag = button.tag;
-//    switch (tag) {
-//        case introductionBtnTag:
-//            [button setSelected:true];
-//            break;
-//
-//        default:
-//            break;
+- (void)didTouchBtn:(UIButton *)button {
+    long tag = button.tag;
+    switch (tag) {
+        case introductionButtonTag:
+            _currentView = introductionView;
+            [tableView reloadData];
+            break;
+        case commentButtonTag:
+            _currentView = commentView;
+            [tableView reloadData];
+            break;
+        default:
+            break;
+    }
+}
+
+//- (void)setCurrentView:(int)currentView {
+//    if (_currentView != currentView) {
+//        _currentView = currentView;
+//        [tableView reloadData];
 //    }
 //}
 

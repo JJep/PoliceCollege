@@ -14,4 +14,6 @@
 @property(nonatomic,retain)BookModel *bookModel;
 @property(nonatomic,retain)UIButton *introductionBtn;
 @property(nonatomic,retain)UIButton *commentBtn;
+@property(nonatomic,retain)UIView *leftView;
+@property(nonatomic,retain)UIView *rightView;
 @end

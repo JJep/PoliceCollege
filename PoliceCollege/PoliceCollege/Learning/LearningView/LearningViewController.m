@@ -13,6 +13,7 @@
 #import "VideoCenterViewController.h"
 #import "PCTopView.h"
 #import "LearningMainCollectionView.h"
+#import "TestViewController.h"
 @interface LearningViewController () <UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @end
@@ -105,6 +106,12 @@
     }
     cell.textLabel.text = @"HTML在线测试";
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    TestViewController *testViewController = [TestViewController new];
+    testViewController.hidesBottomBarWhenPushed = true;
+    [self.navigationController pushViewController:testViewController animated:true];
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

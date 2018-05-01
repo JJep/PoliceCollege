@@ -15,8 +15,7 @@
     UILabel *bookCategoryLabel;
     UILabel *bookStatusLabel;
     UILabel *bookWriterLabel;
-    UIView *leftView;
-    UIView *rightView;
+
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -24,6 +23,8 @@
     if (self) {
         
 //        self.contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+        
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         
         bookImageView = [UIImageView new];
         bookNameLabel = [UILabel new];
@@ -34,11 +35,11 @@
         _downloadBtn = [UIButton buttonWithType:UIButtonTypeSystem];
         _introductionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _commentBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        leftView = [UIView new];
-        rightView = [UIView new];
+        _leftView = [UIView new];
+        _rightView = [UIView new];
         
-        [self.contentView addSubview:leftView];
-        [self.contentView addSubview:rightView];
+        [self.contentView addSubview:_leftView];
+        [self.contentView addSubview:_rightView];
         [self.contentView addSubview:_introductionBtn];
         [self.contentView addSubview:_commentBtn];
         [self.contentView addSubview:bookImageView];
@@ -80,22 +81,22 @@
         [_introductionBtn setTitleColor:rgb(74,144,226) forState:UIControlStateSelected];
         [_introductionBtn setTitleColor:rgba(128,128,128,1) forState:UIControlStateNormal];
         [_introductionBtn setSelected:true];
-        [leftView setHidden:false];
+        [_leftView setHidden:false];
         
         [_commentBtn setTitle:@"评论" forState:UIControlStateNormal];
         [_commentBtn setTitleColor:rgb(74,144,226) forState:UIControlStateSelected];
         [_commentBtn setTitleColor:rgba(128,128,128,1) forState:UIControlStateNormal];
         [_commentBtn setSelected:false];
-        [rightView setHidden:true];
+        [_rightView setHidden:true];
         
         [_commentBtn setTag:commentBtnTag];
         [_introductionBtn setTag:introductionBtnTag];
-        
-        [_introductionBtn addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
-        [_commentBtn addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
+//        
+//        [_introductionBtn addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
+//        [_commentBtn addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
 
-        [leftView setBackgroundColor: rgba(74,144,226,1)];
-        [rightView setBackgroundColor: rgba(74,144,226,1)];
+        [_leftView setBackgroundColor: rgba(74,144,226,1)];
+        [_rightView setBackgroundColor: rgba(74,144,226,1)];
 
         [bookImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.contentView).offset(15);
@@ -152,7 +153,7 @@
             make.top.equalTo(self->_readBtn.mas_bottom).offset(20);
             make.width.mas_equalTo(60);
             make.height.mas_equalTo(20);
-            make.bottom.equalTo(self->leftView.mas_top).offset(-6);
+            make.bottom.equalTo(self.leftView.mas_top).offset(-6);
         }];
         
         [_commentBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -164,41 +165,41 @@
         }];
         
         
-        [leftView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [_leftView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.width.mas_equalTo(50);
             make.centerX.equalTo(self.introductionBtn);
             make.height.mas_equalTo(2);
             make.bottom.equalTo(self.contentView);
         }];
         
-        [rightView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [_rightView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.width.mas_equalTo(50);
             make.centerX.equalTo(self.commentBtn);
             make.height.mas_equalTo(2);
-            make.bottom.equalTo(self->leftView);
+            make.bottom.equalTo(self->_leftView);
         }];
     }
     return self;
 }
 
-- (void)didTouchBtn:(UIButton *)button {
-    long tag = button.tag;
-    switch (tag) {
-        case introductionBtnTag:
-            [_introductionBtn setSelected:true];
-            [_commentBtn setSelected:false];
-            [leftView setHidden:false];
-            [rightView setHidden:true];
-            break;
-        case commentBtnTag:
-            [_introductionBtn setSelected:false];
-            [_commentBtn setSelected:true];
-            [leftView setHidden:true];
-            [rightView setHidden:false];
-        default:
-            break;
-    }
-}
+//- (void)didTouchBtn:(UIButton *)button {
+//    long tag = button.tag;
+//    switch (tag) {
+//        case introductionBtnTag:
+//            [_introductionBtn setSelected:true];
+//            [_commentBtn setSelected:false];
+//            [_leftView setHidden:false];
+//            [_rightView setHidden:true];
+//            break;
+//        case commentBtnTag:
+//            [_introductionBtn setSelected:false];
+//            [_commentBtn setSelected:true];
+//            [_leftView setHidden:true];
+//            [_rightView setHidden:false];
+//        default:
+//            break;
+//    }
+//}
 
 -(void)setBookModel:(BookModel *)bookModel {
     if (_bookModel != bookModel) {
