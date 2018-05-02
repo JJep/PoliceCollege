@@ -12,6 +12,7 @@
 #import "MeViewController.h"
 #import "LearningViewController.h"
 #import "PersonViewController.h"
+#import "PCLoginViewController.h"
 @interface PCTabBarController ()
 
 @end
@@ -98,7 +99,7 @@
                   selectedImageName:@"learningSelected"];
     
     
-    [self addOneChildViewController:[[UINavigationController alloc]initWithRootViewController:[[PersonViewController alloc]init]]
+    [self addOneChildViewController:[[UINavigationController alloc]initWithRootViewController:[[PCLoginViewController alloc]init]]
                           WithTitle:@"个人中心"
                           imageName:@"personalCenterUnselected"
                   selectedImageName:@"personalCenterSelected"];

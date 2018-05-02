@@ -50,14 +50,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     PCPromotionDetailViewController *VC = [PCPromotionDetailViewController new];
-//    [VC.navigationController setNavigationBarHidden:true];
     [self.navigationController pushViewController:VC animated:true];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-//    self.tabBarController.hidesBottomBarWhenPushed = YES;
-//    [self.navigationController setNavigationBarHidden:false];
+
     [self.navigationController setNavigationBarHidden:false animated:animated];
 }
 

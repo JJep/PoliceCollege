@@ -8,23 +8,37 @@
 
 #import "PCLoginViewController.h"
 #import "UITextfieldView.h"
-#import <Masonry.h>
 #import "PCLoginView.h"
+#import "PCLoginViewModel.h"
+#import "UITextfieldView.h"
 @interface PCLoginViewController ()
 @end
 
-@implementation PCLoginViewController
+@implementation PCLoginViewController {
+    PCLoginView *loginView;
+    PCLoginViewModel *viewModel;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    viewModel = [[PCLoginViewModel alloc] init];
     [self createView];
 }
 
 - (void)createView {
-    PCLoginView *loginView = [[PCLoginView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    loginView = [[PCLoginView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [loginView.loginBtn addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:loginView];
+}
+
+- (void)login {
+    [viewModel loginAction:loginView.userNameTextField.text password:loginView.passwordTextField.text success:^(id responseObject) {
+        NSLog(@"%@", responseObject);
+    } fail:^(NSError *error) {
+        NSLog(@"%@", error);
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {

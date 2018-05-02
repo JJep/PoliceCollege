@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "PCBaseRequest.h"
 typedef void (^PCFailedHandler)(NSError *error);
 typedef void (^PCSuccessHandler)(id responseObject);
 

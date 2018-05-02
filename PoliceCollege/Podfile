@@ -1,5 +1,6 @@
 target 'PoliceCollege' do
 pod 'Masonry'
 pod 'AFNetworking'
+pod 'YYModel'
 end
 
