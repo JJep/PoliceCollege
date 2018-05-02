@@ -14,12 +14,6 @@
 
 @implementation PCNavigationController
 
-//-(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-//    viewController.hidesBottomBarWhenPushed = YES;
-//    [super pushViewController:viewController animated:animated];
-//}
-
-
 -(UIViewController *)popViewControllerAnimated:(BOOL)animated {
     return [super popViewControllerAnimated:animated];
 }
@@ -27,21 +21,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UIImageView *cancelImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cancel"]];
+//    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:moreButton];
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithCustomView:cancelImageView];
+    self.navigationItem.leftBarButtonItem = cancelButton;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

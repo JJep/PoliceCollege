@@ -9,7 +9,7 @@
 #import "PersonMoreViewController.h"
 #import "SeasonRank.h"
 #import "SeasonTableViewCell.h"
-#import "YearPickerView.h"
+#import "PCPickerView.h"
 #import "SeasonSubview.h"
 @interface PersonMoreViewController () <UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource>
 
@@ -20,7 +20,7 @@ static const int calenderButtonTag = 12345;
 @implementation PersonMoreViewController {
     SeasonRank *seasonRankView;
     UITableView *seasonTableView;
-    YearPickerView *pickerView;
+    PCPickerView *pickerView;
     NSMutableArray *selectedArray;
 }
 
@@ -53,7 +53,7 @@ static const int calenderButtonTag = 12345;
     seasonTableView.delegate = self;
     seasonTableView.dataSource = self;
     
-    pickerView = [YearPickerView new];
+    pickerView = [PCPickerView new];
     pickerView.pickerView.delegate = self;
     pickerView.pickerView.dataSource = self;
     [pickerView.cancelButton addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];

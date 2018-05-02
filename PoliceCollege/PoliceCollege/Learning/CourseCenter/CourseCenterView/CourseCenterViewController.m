@@ -12,6 +12,7 @@
 #import "ChannelView.h"
 #import "BookDetailViewController.h"
 #import "MoreChannelsViewController.h"
+#import "BackView.h"
 @interface CourseCenterViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end
@@ -20,11 +21,13 @@
     UITableView *tableView;
     ChannelView *channelView;
     ChannelCollectionViewCell *tempCell;
+    BackView *backView;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     
     [self.view setBackgroundColor:MyWhiteBackgroundColor];
     self.title = @"课程中心";

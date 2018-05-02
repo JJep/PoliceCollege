@@ -59,31 +59,31 @@
                            },
                        @{
                            @"tag":@"item",
-                           @"image":[UIImage imageNamed:@"banner"],
+                           @"image":[UIImage imageNamed:@"changePasswordIcon"],
                            @"title":@"修改密码",
                            @"content":@""
                            },
                        @{
                            @"tag":@"item",
-                           @"image":[UIImage imageNamed:@"banner"],
+                           @"image":[UIImage imageNamed:@"notificationSettingIcon"],
                            @"title":@"推送设置",
                            @"content":@""
                            },
                        @{
                            @"tag":@"item",
-                           @"image":[UIImage imageNamed:@"banner"],
+                           @"image":[UIImage imageNamed:@"clearCacheIcon"],
                            @"title":@"清理缓存",
                            @"content":self.cacheCapacity
                            },
                        @{
                            @"tag":@"item",
-                           @"image":[UIImage imageNamed:@"banner"],
-                           @"title":@"缓存到期时间",
+                           @"image":[UIImage imageNamed:@"expiredTimeIcon"],
+                           @"title":@"服务到期时间",
                            @"content":self.maturityTime
                            },
                        @{
                            @"tag":@"item",
-                           @"image":[UIImage imageNamed:@"banner"],
+                           @"image":[UIImage imageNamed:@"aboutIcon"],
                            @"title":@"关于",
                            @"content":@""
                            }
@@ -162,15 +162,5 @@
     viewController.hidesBottomBarWhenPushed = true;
     [self.navigationController pushViewController:viewController animated:true];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

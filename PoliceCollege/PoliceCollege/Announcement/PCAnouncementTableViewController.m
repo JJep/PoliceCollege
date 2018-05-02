@@ -8,6 +8,7 @@
 
 #import "PCAnouncementTableViewController.h"
 #import "AnouncementTableViewCell.h"
+#import "PCPromotionDetailViewController.h"
 @interface PCAnouncementTableViewController ()
 
 @end
@@ -45,6 +46,12 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 130;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    PCPromotionDetailViewController *VC = [PCPromotionDetailViewController new];
+//    [VC.navigationController setNavigationBarHidden:true];
+    [self.navigationController pushViewController:VC animated:true];
 }
 
 -(void)viewWillAppear:(BOOL)animated

@@ -83,9 +83,13 @@ static const int commentButtonTag = 1234;
         if (_currentView == introductionView) {
             [cell.rightView setHidden:true];
             [cell.leftView setHidden:false];
+            [cell.introductionBtn setSelected:true];
+            [cell.commentBtn setSelected:false];
         } else {
             [cell.leftView setHidden:true];
             [cell.rightView setHidden:false];
+            [cell.commentBtn setSelected:true];
+            [cell.introductionBtn setSelected:false];
         }
         return cell;
 

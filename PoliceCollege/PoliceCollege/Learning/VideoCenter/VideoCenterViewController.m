@@ -10,6 +10,7 @@
 #import "ChannelCollectionViewCell.h"
 #import "ChannelView.h"
 #import "VideoTableViewCell.h"
+#import "BackView.h"
 @interface  VideoCenterViewController() <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end
@@ -18,6 +19,7 @@
     UITableView *tableView;
     ChannelView *channelView;
     ChannelCollectionViewCell *tempCell;
+    BackView *backView;
 }
 
 - (void)viewDidLoad {
@@ -26,6 +28,10 @@
     
     [self.view setBackgroundColor:MyWhiteBackgroundColor];
     self.title = @"视频中心";
+    
+    backView = [[BackView alloc] initWithFrame:self.view.bounds];
+    [backView setImage:[UIImage imageNamed:@"video"]];
+    [backView setName:@"暂无公开课程"];
     
     tableView = [[UITableView alloc] initWithFrame:self.view.bounds ];
     [self.view addSubview:tableView];
