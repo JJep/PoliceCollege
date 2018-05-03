@@ -10,7 +10,7 @@
 
 #define localLogin @"isLogin"
 #define localUserInfo @"userinfo"
-
+#define localCookie @"cookie"
 @implementation JMUserLocalData
 
 + (instancetype)sharedManager {
@@ -21,6 +21,16 @@
     });
     
     return instance;
+}
+
+-(void)setCookie:(NSString *)cookie
+{
+    [[NSUserDefaults standardUserDefaults] setObject:cookie forKey:localCookie];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (NSString *)cookie {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:localCookie] ;
 }
 
 -(void)setIsLogin:(BOOL)isLogin

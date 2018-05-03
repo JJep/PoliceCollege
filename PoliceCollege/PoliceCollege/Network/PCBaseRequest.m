@@ -59,6 +59,9 @@
     //确认最终的url为actual url
     NSString *actualUrl = [self.apiString hasPrefix:@"http://"] ? self.apiString : [NSString stringWithFormat:@"%@/%@", self.baseUrl, self.apiString];
   
+    
+    
+    
     if ([self.requstType isEqualToString:@"get"]) {
         self.task = [[PCNetworkEngine sharedEngine] getWithAPI:actualUrl parameters:self.paraDict succeededBlock:^(id responseObject) {
             id json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
@@ -79,6 +82,14 @@
         }];
     } else if ([self.requstType isEqualToString:@"post"]) {
         self.task = [[PCNetworkEngine sharedEngine] postWithAPI:actualUrl parameters:self.paraDict succeededBlock:^(id responseObject) {
+//            NSLog(@"%@",responseObject);
+            NSHTTPURLResponse *response = (NSHTTPURLResponse *)self.task.response;
+            NSDictionary *allHeaders = response.allHeaderFields;
+            [allHeaders enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+                if (obj) {
+                    NSLog(@"%@:%@",key,obj);
+                }
+            }];
             id jsonS = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
             //连接成功
 //            if ([[jsonS objectForKey:@"state"]  isEqualToString:@"2"] || [[jsonS objectForKey:@"state"] isEqualToString:@"1"]) {

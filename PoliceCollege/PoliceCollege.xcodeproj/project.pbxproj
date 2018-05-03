@@ -47,6 +47,7 @@
 		BE44B5B1209A9F370001B143 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5B0209A9F360001B143 /* User.m */; };
 		BE44B5B4209AE28C0001B143 /* JMUserLocalData.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5B2209AE28B0001B143 /* JMUserLocalData.m */; };
 		BE44B5B7209AE5450001B143 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5B6209AE5440001B143 /* UserInfo.m */; };
+		BE44B5BB209AFD630001B143 /* PCAlertControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5BA209AFD630001B143 /* PCAlertControllerViewController.m */; };
 		BEDE52AF20897B9000D00A98 /* PCPromotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52AE20897B9000D00A98 /* PCPromotionView.m */; };
 		BEDE52B5208991E900D00A98 /* PCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52B4208991E900D00A98 /* PCTabBarController.m */; };
 		BEDE52B82089B31600D00A98 /* PCAnouncementTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52B72089B31600D00A98 /* PCAnouncementTableViewController.m */; };
@@ -173,6 +174,8 @@
 		BE44B5B3209AE28C0001B143 /* JMUserLocalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMUserLocalData.h; sourceTree = "<group>"; };
 		BE44B5B5209AE5440001B143 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
 		BE44B5B6209AE5440001B143 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		BE44B5B9209AFD630001B143 /* PCAlertControllerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCAlertControllerViewController.h; sourceTree = "<group>"; };
+		BE44B5BA209AFD630001B143 /* PCAlertControllerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCAlertControllerViewController.m; sourceTree = "<group>"; };
 		BEDE52AD20897B9000D00A98 /* PCPromotionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCPromotionView.h; sourceTree = "<group>"; };
 		BEDE52AE20897B9000D00A98 /* PCPromotionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCPromotionView.m; sourceTree = "<group>"; };
 		BEDE52B3208991E900D00A98 /* PCTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCTabBarController.h; sourceTree = "<group>"; };
@@ -363,6 +366,7 @@
 		BE21DA8A2086F0ED0086B8BA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BE44B5B8209AFD2B0001B143 /* AlertController */,
 				BE21DA872086F09F0086B8BA /* PCBaseViewController.h */,
 				BE21DA882086F09F0086B8BA /* PCBaseViewController.m */,
 			);
@@ -576,6 +580,15 @@
 				BE44B5AD2099C1B60001B143 /* PCUserModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BE44B5B8209AFD2B0001B143 /* AlertController */ = {
+			isa = PBXGroup;
+			children = (
+				BE44B5B9209AFD630001B143 /* PCAlertControllerViewController.h */,
+				BE44B5BA209AFD630001B143 /* PCAlertControllerViewController.m */,
+			);
+			path = AlertController;
 			sourceTree = "<group>";
 		};
 		BEDE52AB20897AB800D00A98 /* CenterView */ = {
@@ -1115,6 +1128,7 @@
 				BEDE53422091AF2100D00A98 /* BookTableViewCell.m in Sources */,
 				BEDE52CF2089F03F00D00A98 /* MeItemTableViewCell.m in Sources */,
 				BE44B59C20999C780001B143 /* PCBaseRequest.m in Sources */,
+				BE44B5BB209AFD630001B143 /* PCAlertControllerViewController.m in Sources */,
 				BEDE52CC2089E0C300D00A98 /* MeViewController.m in Sources */,
 				BEDE535D2092DA0700D00A98 /* VideoCenterViewController.m in Sources */,
 				BEDE530C208F40EF00D00A98 /* PublicCourseViewController.m in Sources */,

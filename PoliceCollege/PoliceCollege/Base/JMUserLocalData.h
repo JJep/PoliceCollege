@@ -12,6 +12,7 @@
 @interface JMUserLocalData : NSObject
 
 @property(nonatomic,assign) BOOL isLogin;
+@property(nonatomic,retain) NSString *cookie;
 @property(nonatomic,strong) UserInfo *usermodel;
 @property(nonatomic,assign) NSInteger userid;
 @property(nonatomic,strong) NSString *account;

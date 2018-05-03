@@ -14,6 +14,8 @@
 #import "PCUserModel.h"
 #import <NSObject+YYModel.h>
 #import "User.h"
+#import "JMUserLocalData.h"
+#import "PCAlertControllerViewController.h"
 @interface PCLoginViewController ()
 @end
 
@@ -43,11 +45,17 @@
         if ([[responseObject objectForKey:@"state"] isEqualToString:@"1"] || [[responseObject objectForKey:@"state"] isEqualToString:@"2"]) {
             //成功登陆
             self->user = [User yy_modelWithJSON:[responseObject objectForKey:@"user"]];
+            [JMUserLocalData sharedManager].usermodel = responseObject;
+            [JMUserLocalData sharedManager].isLogin = YES;
+            PCAlertControllerViewController *alertController = [[PCAlertControllerViewController alloc] initWithMessage:@"ok"];
+            [self presentViewController:alertController animated:true completion:nil];
+//            [self dismissViewControllerAnimated:YES completion:nil];
+        } else {
+            //登录失败
             
-            NSLog(@"%@", self->user);
         }
     } fail:^(NSError *error) {
-        NSLog(@"%@", error);
+        NSLog(@"出错了，请稍后再试");
     }];
     
 }
