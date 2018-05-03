@@ -13,7 +13,7 @@
     //设置相关网络请求
     PCBaseRequest *request = [[PCBaseRequest alloc] init];
     //设置request解析的model类型
-    request.modelName = @"PCUserModel";
+    request.modelName = @"User";
     //设置request的类型为post
     request.requstType = @"post";
     //设置请求的接口

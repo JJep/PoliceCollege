@@ -18,9 +18,9 @@
     self = [super init];
     if(self) {
 #if DEBUG
-        self.baseUrl = @"http://192.168.0.108/NetworkCollege-app/";
+        self.baseUrl = @"http://139.224.208.224/NetworkCollege-app";
 #else
-        self.baseUrl = @"http://192.168.0.108/NetworkCollege-app/";
+        self.baseUrl = @"http://139.224.208.224/NetworkCollege-app";
 #endif
     }
     return self;
@@ -80,36 +80,17 @@
     } else if ([self.requstType isEqualToString:@"post"]) {
         self.task = [[PCNetworkEngine sharedEngine] postWithAPI:actualUrl parameters:self.paraDict succeededBlock:^(id responseObject) {
             id jsonS = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-            if ([[[jsonS objectForKey:@"state"] stringValue] isEqualToString:@"1"]) {
+            //连接成功
+//            if ([[jsonS objectForKey:@"state"]  isEqualToString:@"2"] || [[jsonS objectForKey:@"state"] isEqualToString:@"1"]) {
+                successBlock(jsonS);
                 
-                id json = [jsonS objectForKey:@"returnObject"];
-                if (self.modelName.length == 0) {
-                    successBlock(json);
-                    return ;
-                }
-                Class<JMResponseProtocol> class = NSClassFromString(self.modelName);
-                if ([json isKindOfClass:[NSArray class]]) {
-                    NSArray *modelArray = [NSArray sp_modelArrayWithClass:class json:json];
-                    successBlock(modelArray);
-                }
-                else
-                {
-                    id pageList = [json objectForKey:@"pageList"];
-                    if ([pageList isKindOfClass:[NSArray class]] ) {
-                        NSArray *modelArray = [NSArray sp_modelArrayWithClass:class json:pageList];
-                        successBlock(modelArray);
-                    } else {
-                        id<JMResponseProtocol> model = [class JM_modelWithJSON:json];
-                        successBlock(model);
-                    }
-                }
-                
-            }
-            else
-            {
-                NSError *error = [NSError errorWithDomain:[jsonS objectForKey:@"resultCode"] code:[[jsonS objectForKey:@"resultCode"] integerValue] userInfo:@{@"error":[jsonS objectForKey:@"returnObject"]}];
-                errorBlock(error);
-            }
+//            }
+//            else
+//            {
+//                NSError *error = [NSError errorWithDomain:[jsonS objectForKey:@"resultCode"] code:[[jsonS objectForKey:@"resultCode"] integerValue] userInfo:@{@"error":[jsonS objectForKey:@"returnObject"]}];
+//                NSError *newError = [NSError errorWithDomain:<#(nonnull NSErrorDomain)#> code:<#(NSInteger)#> userInfo:<#(nullable NSDictionary<NSErrorUserInfoKey,id> *)#>]
+//                errorBlock(error);
+//            }
         } failedBlock:^(NSError *error) {
             errorBlock(error);
         }];

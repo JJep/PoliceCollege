@@ -44,6 +44,9 @@
 		BE44B5A620999DE70001B143 /* PCRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5A520999DE70001B143 /* PCRequestSerializer.m */; };
 		BE44B5AA2099BD340001B143 /* JMBaseResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5A72099BD330001B143 /* JMBaseResponseModel.m */; };
 		BE44B5AE2099C1B60001B143 /* PCUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5AD2099C1B60001B143 /* PCUserModel.m */; };
+		BE44B5B1209A9F370001B143 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5B0209A9F360001B143 /* User.m */; };
+		BE44B5B4209AE28C0001B143 /* JMUserLocalData.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5B2209AE28B0001B143 /* JMUserLocalData.m */; };
+		BE44B5B7209AE5450001B143 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5B6209AE5440001B143 /* UserInfo.m */; };
 		BEDE52AF20897B9000D00A98 /* PCPromotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52AE20897B9000D00A98 /* PCPromotionView.m */; };
 		BEDE52B5208991E900D00A98 /* PCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52B4208991E900D00A98 /* PCTabBarController.m */; };
 		BEDE52B82089B31600D00A98 /* PCAnouncementTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52B72089B31600D00A98 /* PCAnouncementTableViewController.m */; };
@@ -164,6 +167,12 @@
 		BE44B5A92099BD340001B143 /* JMResponseProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMResponseProtocol.h; sourceTree = "<group>"; };
 		BE44B5AC2099C1B60001B143 /* PCUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCUserModel.h; sourceTree = "<group>"; };
 		BE44B5AD2099C1B60001B143 /* PCUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCUserModel.m; sourceTree = "<group>"; };
+		BE44B5AF209A9F360001B143 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = PoliceCollege/Login/Model/User.h; sourceTree = SOURCE_ROOT; };
+		BE44B5B0209A9F360001B143 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = PoliceCollege/Login/Model/User.m; sourceTree = SOURCE_ROOT; };
+		BE44B5B2209AE28B0001B143 /* JMUserLocalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMUserLocalData.m; sourceTree = "<group>"; };
+		BE44B5B3209AE28C0001B143 /* JMUserLocalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMUserLocalData.h; sourceTree = "<group>"; };
+		BE44B5B5209AE5440001B143 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		BE44B5B6209AE5440001B143 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		BEDE52AD20897B9000D00A98 /* PCPromotionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCPromotionView.h; sourceTree = "<group>"; };
 		BEDE52AE20897B9000D00A98 /* PCPromotionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCPromotionView.m; sourceTree = "<group>"; };
 		BEDE52B3208991E900D00A98 /* PCTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCTabBarController.h; sourceTree = "<group>"; };
@@ -342,6 +351,8 @@
 		BE21DA862086F08D0086B8BA /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				BE44B5B3209AE28C0001B143 /* JMUserLocalData.h */,
+				BE44B5B2209AE28B0001B143 /* JMUserLocalData.m */,
 				BE44B594209987180001B143 /* View */,
 				BE21DA8B2086F0F60086B8BA /* ViewModel */,
 				BE21DA8A2086F0ED0086B8BA /* Controller */,
@@ -557,6 +568,10 @@
 		BE44B5AB2099C19B0001B143 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BE44B5B5209AE5440001B143 /* UserInfo.h */,
+				BE44B5B6209AE5440001B143 /* UserInfo.m */,
+				BE44B5AF209A9F360001B143 /* User.h */,
+				BE44B5B0209A9F360001B143 /* User.m */,
 				BE44B5AC2099C1B60001B143 /* PCUserModel.h */,
 				BE44B5AD2099C1B60001B143 /* PCUserModel.m */,
 			);
@@ -1069,6 +1084,7 @@
 				BE21DAA62087352C0086B8BA /* PCCenterdViewButton.m in Sources */,
 				BE21DA912086F2BC0086B8BA /* PCLoginViewController.m in Sources */,
 				BEDE53512091DB1400D00A98 /* CommentTableViewCell.m in Sources */,
+				BE44B5B4209AE28C0001B143 /* JMUserLocalData.m in Sources */,
 				BEDE5311208F44DF00D00A98 /* LearningTableViewCell.m in Sources */,
 				BE21DA892086F09F0086B8BA /* PCBaseViewController.m in Sources */,
 				BE21DA652086DE3C0086B8BA /* AppDelegate.m in Sources */,
@@ -1086,6 +1102,7 @@
 				BE44B571209468660001B143 /* PCTopView.m in Sources */,
 				BE44B5A320999DB40001B143 /* PCResponseSerializer.m in Sources */,
 				BE44B58A209950150001B143 /* BackView.m in Sources */,
+				BE44B5B7209AE5450001B143 /* UserInfo.m in Sources */,
 				BEDE52FA208DE65200D00A98 /* PushSettingViewController.m in Sources */,
 				BE44B58720982B3F0001B143 /* SeasonSubview.m in Sources */,
 				BE44B56A2094254E0001B143 /* PCPickerView.m in Sources */,
@@ -1107,6 +1124,7 @@
 				BEDE52BB2089B36E00D00A98 /* AnouncementTableViewCell.m in Sources */,
 				BE44B58D209953440001B143 /* PCPromotionDetailViewController.m in Sources */,
 				BE44B597209995C20001B143 /* PCLoginViewModel.m in Sources */,
+				BE44B5B1209A9F370001B143 /* User.m in Sources */,
 				BEDE5309208F388200D00A98 /* PublicCourseTableViewCell.m in Sources */,
 				BEDE53302090C59D00D00A98 /* ChannelView.m in Sources */,
 				BEDE52E2208B2C5700D00A98 /* MeTableViewCell.m in Sources */,

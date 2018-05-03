@@ -11,18 +11,23 @@
 #import "PCLoginView.h"
 #import "PCLoginViewModel.h"
 #import "UITextfieldView.h"
+#import "PCUserModel.h"
+#import <NSObject+YYModel.h>
+#import "User.h"
 @interface PCLoginViewController ()
 @end
 
 @implementation PCLoginViewController {
     PCLoginView *loginView;
     PCLoginViewModel *viewModel;
+    User *user;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     viewModel = [[PCLoginViewModel alloc] init];
+    
     [self createView];
 }
 
@@ -35,25 +40,16 @@
 - (void)login {
     [viewModel loginAction:loginView.userNameTextField.text password:loginView.passwordTextField.text success:^(id responseObject) {
         NSLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"state"] isEqualToString:@"1"] || [[responseObject objectForKey:@"state"] isEqualToString:@"2"]) {
+            //成功登陆
+            self->user = [User yy_modelWithJSON:[responseObject objectForKey:@"user"]];
+            
+            NSLog(@"%@", self->user);
+        }
     } fail:^(NSError *error) {
         NSLog(@"%@", error);
     }];
     
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

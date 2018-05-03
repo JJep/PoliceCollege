@@ -6,9 +6,6 @@
 //  Copyright © 2018年 Jep Xia. All rights reserved.
 //
 
-/*
- "birthday": "生日","headimg": "头像","hobby": "爱好","hometown": "家乡","id": 0,"livingplace": "现居地","nativeDialect": "一句家乡话","nickname": "昵称","phone": "611224","pos": "职务或职级","sex": "male,性别"
- */
 #import "PCUserModel.h"
 
 @interface PCUserModel() <NSCoding>

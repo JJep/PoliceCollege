@@ -357,11 +357,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Network/PCBaseRequest.m"
-            timestampString = "546954010.7804"
+            timestampString = "547021232.682407"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
@@ -370,14 +370,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "-[PCBaseRequest sendRequestSuccess:error:]"
                   moduleName = "PoliceCollege"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jepxia/Desktop/Developer/PoliceCollege/PoliceCollege/PoliceCollege/Network/PCBaseRequest.m"
-                  timestampString = "546954011.568072"
+                  timestampString = "547020148.9021831"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "81"
@@ -385,29 +385,29 @@
                   offsetFromSymbolStart = "1350">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "__42-[PCBaseRequest sendRequestSuccess:error:]_block_invoke.68"
                   moduleName = "PoliceCollege"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jepxia/Desktop/Developer/PoliceCollege/PoliceCollege/PoliceCollege/Network/PCBaseRequest.m"
-                  timestampString = "546954011.5770251"
+                  timestampString = "547020148.9340121"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "82"
-                  endingLineNumber = "82"
-                  offsetFromSymbolStart = "73">
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "16">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.94"
+                  symbolName = "__destroy_helper_block_.70"
                   moduleName = "PoliceCollege"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jepxia/Desktop/Developer/PoliceCollege/PoliceCollege/PoliceCollege/Network/PCBaseRequest.m"
-                  timestampString = "546954011.581002"
+                  timestampString = "547020148.939463"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "81"
@@ -420,59 +420,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PoliceCollege/Login/Controllers/PCLoginViewController.m"
-            timestampString = "546954010.790428"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "-login"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[PCLoginViewController login]"
-                  moduleName = "PoliceCollege"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jepxia/Desktop/Developer/PoliceCollege/PoliceCollege/PoliceCollege/Login/Controllers/PCLoginViewController.m"
-                  timestampString = "546954011.602403"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "20">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__30-[PCLoginViewController login]_block_invoke"
-                  moduleName = "PoliceCollege"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jepxia/Desktop/Developer/PoliceCollege/PoliceCollege/PoliceCollege/Login/Controllers/PCLoginViewController.m"
-                  timestampString = "546954011.609933"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "51">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Login/ViewModel/PCLoginViewModel.m"
-            timestampString = "546954010.816659"
+            timestampString = "547021232.683103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "13"
