@@ -9,8 +9,9 @@
 #import "JMUserLocalData.h"
 
 #define localLogin @"isLogin"
-#define localUserInfo @"userinfo"
+#define localUser @"user"
 #define localCookie @"cookie"
+#define localUserInfo @"userInfo"
 @implementation JMUserLocalData
 
 + (instancetype)sharedManager {
@@ -55,16 +56,27 @@
     return [[[NSUserDefaults standardUserDefaults] objectForKey:@"userid"] integerValue];
 }
 
--(void)setUsermodel:(UserInfo *)usermodel
-{
-    NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:usermodel];
+-(void)setUserInfo:(UserInfo *)userInfo {
+    NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:userInfo];
     [[NSUserDefaults standardUserDefaults] setObject:myEncodedObject forKey:localUserInfo];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
--(UserInfo *)usermodel
-{
+- (UserInfo *)userInfo {
     UserInfo *obj = (UserInfo *)[NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:localUserInfo]];
+    return obj;
+}
+
+-(void)setUser:(User *)user
+{
+    NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:user];
+    [[NSUserDefaults standardUserDefaults] setObject:myEncodedObject forKey:localUser];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(User *)user
+{
+    User *obj = (User *)[NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:localUser]];
     return obj;
 }
 

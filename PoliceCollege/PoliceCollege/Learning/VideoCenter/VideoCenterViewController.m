@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Jep Xia. All rights reserved.
 //
 #import "VideoCenterViewController.h"
-#import "CourseCenterViewController.h"
+#import "BookCenterViewController.h"
 #import "ChannelCollectionViewCell.h"
 #import "ChannelView.h"
 #import "VideoTableViewCell.h"

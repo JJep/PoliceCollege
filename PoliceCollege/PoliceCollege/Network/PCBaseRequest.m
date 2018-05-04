@@ -8,6 +8,7 @@
 
 #import "PCBaseRequest.h"
 #import "JMBaseResponseModel.h"
+#import "JMUserLocalData.h"
 @interface PCBaseRequest()
 @property (nonatomic, strong) NSURLSessionTask *task;
 @property (nonatomic, strong) NSString *baseUrl;
@@ -58,10 +59,7 @@
 - (void)sendRequestSuccess:(NetworkSuccessHandler)successBlock error:(NetworkFailedHandler)errorBlock {
     //确认最终的url为actual url
     NSString *actualUrl = [self.apiString hasPrefix:@"http://"] ? self.apiString : [NSString stringWithFormat:@"%@/%@", self.baseUrl, self.apiString];
-  
-    
-    
-    
+
     if ([self.requstType isEqualToString:@"get"]) {
         self.task = [[PCNetworkEngine sharedEngine] getWithAPI:actualUrl parameters:self.paraDict succeededBlock:^(id responseObject) {
             id json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
@@ -82,26 +80,15 @@
         }];
     } else if ([self.requstType isEqualToString:@"post"]) {
         self.task = [[PCNetworkEngine sharedEngine] postWithAPI:actualUrl parameters:self.paraDict succeededBlock:^(id responseObject) {
-//            NSLog(@"%@",responseObject);
-            NSHTTPURLResponse *response = (NSHTTPURLResponse *)self.task.response;
-            NSDictionary *allHeaders = response.allHeaderFields;
-            [allHeaders enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-                if (obj) {
-                    NSLog(@"%@:%@",key,obj);
-                }
-            }];
+            
+            if ([self.modelName isEqualToString:@"User"]) {
+                NSHTTPURLResponse *response = (NSHTTPURLResponse *)self.task.response;
+                NSDictionary *allHeaders = response.allHeaderFields;
+                [[JMUserLocalData sharedManager] setCookie:[allHeaders objectForKey:@"Set-Cookie"]];
+            }
+
             id jsonS = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-            //连接成功
-//            if ([[jsonS objectForKey:@"state"]  isEqualToString:@"2"] || [[jsonS objectForKey:@"state"] isEqualToString:@"1"]) {
-                successBlock(jsonS);
-                
-//            }
-//            else
-//            {
-//                NSError *error = [NSError errorWithDomain:[jsonS objectForKey:@"resultCode"] code:[[jsonS objectForKey:@"resultCode"] integerValue] userInfo:@{@"error":[jsonS objectForKey:@"returnObject"]}];
-//                NSError *newError = [NSError errorWithDomain:<#(nonnull NSErrorDomain)#> code:<#(NSInteger)#> userInfo:<#(nullable NSDictionary<NSErrorUserInfoKey,id> *)#>]
-//                errorBlock(error);
-//            }
+            successBlock(jsonS);
         } failedBlock:^(NSError *error) {
             errorBlock(error);
         }];

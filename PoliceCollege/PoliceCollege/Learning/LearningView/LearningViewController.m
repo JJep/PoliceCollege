@@ -9,7 +9,7 @@
 #import "LearningViewController.h"
 #import "LearningTableViewCell.h"
 #import "OnlineTestViewController.h"
-#import "CourseCenterViewController.h"
+#import "BookCenterViewController.h"
 #import "VideoCenterViewController.h"
 #import "PCTopView.h"
 #import "LearningMainCollectionView.h"
@@ -48,10 +48,6 @@
     tableView.tableHeaderView.frame = headerFrame;
     
     [self.view addSubview:tableView];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    NSLog(@"%@", tableView.description);
 }
 
 - (UIView *)headView {
@@ -120,11 +116,11 @@
         newVC.hidesBottomBarWhenPushed = true;
         [self.navigationController pushViewController:newVC animated:true];
     } else if (indexPath.row == 1) {
-        CourseCenterViewController *newVC = [CourseCenterViewController new];
+        BookCenterViewController *newVC = [BookCenterViewController new];
         newVC.hidesBottomBarWhenPushed = true;
         [self.navigationController pushViewController:newVC animated:true];
     } else if (indexPath.row == 2) {
-        CourseCenterViewController *newVC = [CourseCenterViewController new];
+        BookCenterViewController *newVC = [BookCenterViewController new];
         newVC.hidesBottomBarWhenPushed = true;
         [self.navigationController pushViewController:newVC animated:true];
     } else if (indexPath.row == 3) {

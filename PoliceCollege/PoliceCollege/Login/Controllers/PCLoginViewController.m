@@ -45,17 +45,25 @@
         if ([[responseObject objectForKey:@"state"] isEqualToString:@"1"] || [[responseObject objectForKey:@"state"] isEqualToString:@"2"]) {
             //成功登陆
             self->user = [User yy_modelWithJSON:[responseObject objectForKey:@"user"]];
-            [JMUserLocalData sharedManager].usermodel = responseObject;
-            [JMUserLocalData sharedManager].isLogin = YES;
-            PCAlertControllerViewController *alertController = [[PCAlertControllerViewController alloc] initWithMessage:@"ok"];
-            [self presentViewController:alertController animated:true completion:nil];
-//            [self dismissViewControllerAnimated:YES completion:nil];
+            //将账户信息保存到本地
+            [[JMUserLocalData sharedManager] setIsLogin:true];
+            [[JMUserLocalData sharedManager] setUser:self->user];
+            NSLog(@"%@",self->user);
+            NSLog(@"%@",[JMUserLocalData sharedManager].user);
+            //弹出消息框
+            PCAlertControllerViewController *alertController = [[PCAlertControllerViewController alloc] initWithMessage:@"登录成功"];
+            [self presentViewController:alertController animated:true completion:^{
+                [self dismissViewControllerAnimated:true completion:nil];
+            }];
         } else {
             //登录失败
-            
+            PCAlertControllerViewController *alertController = [[PCAlertControllerViewController alloc] initWithMessage:@"账户密码错误"];
+            [self presentViewController:alertController animated:true completion:nil];
         }
     } fail:^(NSError *error) {
-        NSLog(@"出错了，请稍后再试");
+        //服务器错误，或网络连接失败
+        PCAlertControllerViewController *alertController = [[PCAlertControllerViewController alloc] initWithMessage:@"出错了"];
+        [self presentViewController:alertController animated:true completion:nil];
     }];
     
 }

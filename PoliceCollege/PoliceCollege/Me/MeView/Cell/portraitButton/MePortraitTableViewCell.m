@@ -16,7 +16,6 @@
     CAGradientLayer *gradientLayer;
 }
 
-@synthesize image = _image;
 @synthesize nameStr = _nameStr;
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -41,7 +40,7 @@
         [self addSubview:lbtime];
         [self addSubview:arrowImageView];
         
-        [portraitImageView setImage:self.image];
+        [portraitImageView sd_setImageWithURL:_imageURL placeholderImage:[UIImage imageNamed:@"portrait"]];
         portraitImageView.layer.cornerRadius = 40;
         portraitImageView.layer.masksToBounds = true;
         [lbName setText:self.nameStr];
@@ -60,16 +59,23 @@
     return self;
 }
 
+- (void)setModel:(MeTableViewModel *)model{
+    MePortrait *portraitModel = (MePortrait *)model;
+    [self setImageURL:portraitModel.portraitURL];
+    [self setNameStr:portraitModel.userName];
+    [self setTotalTime:portraitModel.totalTime];
+    [self setTodayTime:portraitModel.todayTime];
+}
 
-- (void)setImage:(UIImage *)image {
-    if (_image != image) {
-        _image = image;
-        [portraitImageView setImage:_image];
+- (void)setImageURL:(NSURL *)imageURL {
+    if (![_imageURL isEqual:imageURL]) {
+        _imageURL = imageURL;
+        [portraitImageView sd_setImageWithURL:_imageURL placeholderImage:[UIImage imageNamed:@"portrait"]];
     }
 }
 
 - (void)setNameStr:(NSString *)nameStr {
-    if (nameStr != _nameStr) {
+    if (nameStr != _nameStr && ![nameStr isEqualToString:@""]) {
         _nameStr = nameStr;
         [lbName setText:_nameStr];
     }
@@ -90,17 +96,18 @@
                          @"累计读%lf.1小时,今日读%lf.0分钟",self.totalTime,self.todayTime]];
     }
 }
+//
+//-(UIImage *)image {
+//    if (!_image) {
+//        return [UIImage imageNamed:@"portrait"];
+//    }else {
+//        return _image;
+//    }
+//}
 
--(UIImage *)image {
-    if (!_image) {
-        return [UIImage imageNamed:@"portrait"];
-    }else {
-        return _image;
-    }
-}
 
 -(NSString *)nameStr {
-    if (!_nameStr) {
+    if ([_nameStr isEqualToString:@""] || !_nameStr) {
         return @"userName";
     } else {
         return _nameStr;

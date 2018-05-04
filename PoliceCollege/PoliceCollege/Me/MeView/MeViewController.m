@@ -12,6 +12,7 @@
 #import "PersonalInformationViewController.h"
 #import "ChangePasswordViewController.h"
 #import "PushSettingViewController.h"
+#import "JMUserLocalData.h"
 @interface MeViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic,retain)NSArray *dataArray;
 @property (nonatomic,retain)NSMutableArray *modelArray;
@@ -28,10 +29,10 @@
     UITableView *tableView;
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    _imageURL = [[NSURL alloc] initWithString:@"www.baidu.com"];
+    _imageURL = [NSURL URLWithString:@""];
     _userName = [NSString new];
     _cacheCapacity = [NSString new];
     _maturityTime = [NSString new];
@@ -97,6 +98,57 @@
     }
 }
 
+- (void)updateData {
+    self.dataArray = @[
+                       @{
+                           @"tag":@"portrait",
+                           @"userName":self.userName,
+                           @"totalTime":[NSNumber numberWithInt:self.totalTime],
+                           @"todayTime":[NSNumber numberWithInt:self.todayTime],
+                           @"portraitURL":self.imageURL
+                           },
+                       @{
+                           @"tag":@"item",
+                           @"image":[UIImage imageNamed:@"changePasswordIcon"],
+                           @"title":@"修改密码",
+                           @"content":@""
+                           },
+                       @{
+                           @"tag":@"item",
+                           @"image":[UIImage imageNamed:@"notificationSettingIcon"],
+                           @"title":@"推送设置",
+                           @"content":@""
+                           },
+                       @{
+                           @"tag":@"item",
+                           @"image":[UIImage imageNamed:@"clearCacheIcon"],
+                           @"title":@"清理缓存",
+                           @"content":self.cacheCapacity
+                           },
+                       @{
+                           @"tag":@"item",
+                           @"image":[UIImage imageNamed:@"expiredTimeIcon"],
+                           @"title":@"服务到期时间",
+                           @"content":self.maturityTime
+                           },
+                       @{
+                           @"tag":@"item",
+                           @"image":[UIImage imageNamed:@"aboutIcon"],
+                           @"title":@"关于",
+                           @"content":@""
+                           }
+                       ];
+    [self.modelArray removeAllObjects];
+
+    for (NSDictionary *dic in _dataArray) {
+        
+        MeTableViewModel *model = [MeTableViewModel initWithDictionary:dic];
+        //将不同的子类创建的model对象添加到数组中
+        [self.modelArray addObject:model];
+        
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -104,7 +156,13 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:true animated:animated];
-    
+    if ([JMUserLocalData sharedManager].user) {
+        _imageURL = [NSURL URLWithString:[JMUserLocalData sharedManager].user.headimg];
+        _userName = [JMUserLocalData sharedManager].user.nickname;
+        NSLog(@"%@",[JMUserLocalData sharedManager].user);
+        [self updateData];
+        [tableView reloadData];
+    }
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -35,7 +35,7 @@
 		BE44B5842095BBB70001B143 /* OptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5832095BBB70001B143 /* OptionView.m */; };
 		BE44B58720982B3F0001B143 /* SeasonSubview.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B58620982B3F0001B143 /* SeasonSubview.m */; };
 		BE44B58A209950150001B143 /* BackView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B589209950150001B143 /* BackView.m */; };
-		BE44B58D209953440001B143 /* PCPromotionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B58C209953440001B143 /* PCPromotionDetailViewController.m */; };
+		BE44B58D209953440001B143 /* PCPromotionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B58C209953440001B143 /* PCPromotionTableViewController.m */; };
 		BE44B590209955890001B143 /* PCPromotionTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B58F209955890001B143 /* PCPromotionTextTableViewCell.m */; };
 		BE44B597209995C20001B143 /* PCLoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B596209995C20001B143 /* PCLoginViewModel.m */; };
 		BE44B59C20999C780001B143 /* PCBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B59B20999C780001B143 /* PCBaseRequest.m */; };
@@ -48,6 +48,8 @@
 		BE44B5B4209AE28C0001B143 /* JMUserLocalData.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5B2209AE28B0001B143 /* JMUserLocalData.m */; };
 		BE44B5B7209AE5450001B143 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5B6209AE5440001B143 /* UserInfo.m */; };
 		BE44B5BB209AFD630001B143 /* PCAlertControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5BA209AFD630001B143 /* PCAlertControllerViewController.m */; };
+		BE44B5C0209C40A90001B143 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5BF209C40A90001B143 /* Book.m */; };
+		BE44B5C5209C440E0001B143 /* PCRecommendBookViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5C4209C440E0001B143 /* PCRecommendBookViewModel.m */; };
 		BEDE52AF20897B9000D00A98 /* PCPromotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52AE20897B9000D00A98 /* PCPromotionView.m */; };
 		BEDE52B5208991E900D00A98 /* PCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52B4208991E900D00A98 /* PCTabBarController.m */; };
 		BEDE52B82089B31600D00A98 /* PCAnouncementTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52B72089B31600D00A98 /* PCAnouncementTableViewController.m */; };
@@ -72,8 +74,8 @@
 		BEDE5314208F65E100D00A98 /* LearningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE5313208F65E100D00A98 /* LearningViewController.m */; };
 		BEDE5318208F7FED00D00A98 /* OnlineTestCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE5317208F7FED00D00A98 /* OnlineTestCollectionViewCell.m */; };
 		BEDE531B208F81A200D00A98 /* OnlineTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE531A208F81A200D00A98 /* OnlineTestViewController.m */; };
-		BEDE532020900FEF00D00A98 /* CourseCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE531F20900FEF00D00A98 /* CourseCenterTableViewCell.m */; };
-		BEDE532320904CF200D00A98 /* CourseCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE532220904CF200D00A98 /* CourseCenterViewController.m */; };
+		BEDE532020900FEF00D00A98 /* BookCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE531F20900FEF00D00A98 /* BookCenterTableViewCell.m */; };
+		BEDE532320904CF200D00A98 /* BookCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE532220904CF200D00A98 /* BookCenterViewController.m */; };
 		BEDE532C20908A0300D00A98 /* ChannelCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE532B20908A0300D00A98 /* ChannelCollectionViewCell.m */; };
 		BEDE53302090C59D00D00A98 /* ChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE532F2090C59D00D00A98 /* ChannelView.m */; };
 		BEDE53362091670700D00A98 /* MoreChannelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE53352091670700D00A98 /* MoreChannelsViewController.m */; };
@@ -149,8 +151,8 @@
 		BE44B58620982B3F0001B143 /* SeasonSubview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeasonSubview.m; sourceTree = "<group>"; };
 		BE44B588209950150001B143 /* BackView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackView.h; sourceTree = "<group>"; };
 		BE44B589209950150001B143 /* BackView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BackView.m; sourceTree = "<group>"; };
-		BE44B58B209953440001B143 /* PCPromotionDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCPromotionDetailViewController.h; sourceTree = "<group>"; };
-		BE44B58C209953440001B143 /* PCPromotionDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCPromotionDetailViewController.m; sourceTree = "<group>"; };
+		BE44B58B209953440001B143 /* PCPromotionTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCPromotionTableViewController.h; sourceTree = "<group>"; };
+		BE44B58C209953440001B143 /* PCPromotionTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCPromotionTableViewController.m; sourceTree = "<group>"; };
 		BE44B58E209955890001B143 /* PCPromotionTextTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCPromotionTextTableViewCell.h; sourceTree = "<group>"; };
 		BE44B58F209955890001B143 /* PCPromotionTextTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCPromotionTextTableViewCell.m; sourceTree = "<group>"; };
 		BE44B595209995C20001B143 /* PCLoginViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCLoginViewModel.h; sourceTree = "<group>"; };
@@ -176,6 +178,10 @@
 		BE44B5B6209AE5440001B143 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		BE44B5B9209AFD630001B143 /* PCAlertControllerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCAlertControllerViewController.h; sourceTree = "<group>"; };
 		BE44B5BA209AFD630001B143 /* PCAlertControllerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCAlertControllerViewController.m; sourceTree = "<group>"; };
+		BE44B5BE209C40A90001B143 /* Book.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		BE44B5BF209C40A90001B143 /* Book.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+		BE44B5C3209C440E0001B143 /* PCRecommendBookViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCRecommendBookViewModel.h; sourceTree = "<group>"; };
+		BE44B5C4209C440E0001B143 /* PCRecommendBookViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCRecommendBookViewModel.m; sourceTree = "<group>"; };
 		BEDE52AD20897B9000D00A98 /* PCPromotionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCPromotionView.h; sourceTree = "<group>"; };
 		BEDE52AE20897B9000D00A98 /* PCPromotionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCPromotionView.m; sourceTree = "<group>"; };
 		BEDE52B3208991E900D00A98 /* PCTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCTabBarController.h; sourceTree = "<group>"; };
@@ -224,10 +230,10 @@
 		BEDE5317208F7FED00D00A98 /* OnlineTestCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnlineTestCollectionViewCell.m; sourceTree = "<group>"; };
 		BEDE5319208F81A200D00A98 /* OnlineTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnlineTestViewController.h; sourceTree = "<group>"; };
 		BEDE531A208F81A200D00A98 /* OnlineTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnlineTestViewController.m; sourceTree = "<group>"; };
-		BEDE531E20900FEF00D00A98 /* CourseCenterTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseCenterTableViewCell.h; sourceTree = "<group>"; };
-		BEDE531F20900FEF00D00A98 /* CourseCenterTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseCenterTableViewCell.m; sourceTree = "<group>"; };
-		BEDE532120904CF200D00A98 /* CourseCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseCenterViewController.h; sourceTree = "<group>"; };
-		BEDE532220904CF200D00A98 /* CourseCenterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseCenterViewController.m; sourceTree = "<group>"; };
+		BEDE531E20900FEF00D00A98 /* BookCenterTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookCenterTableViewCell.h; sourceTree = "<group>"; };
+		BEDE531F20900FEF00D00A98 /* BookCenterTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookCenterTableViewCell.m; sourceTree = "<group>"; };
+		BEDE532120904CF200D00A98 /* BookCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookCenterViewController.h; sourceTree = "<group>"; };
+		BEDE532220904CF200D00A98 /* BookCenterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookCenterViewController.m; sourceTree = "<group>"; };
 		BEDE532A20908A0300D00A98 /* ChannelCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChannelCollectionViewCell.h; sourceTree = "<group>"; };
 		BEDE532B20908A0300D00A98 /* ChannelCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelCollectionViewCell.m; sourceTree = "<group>"; };
 		BEDE532E2090C59D00D00A98 /* ChannelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChannelView.h; sourceTree = "<group>"; };
@@ -394,6 +400,7 @@
 		BE21DA99208731370086B8BA /* Promotion */ = {
 			isa = PBXGroup;
 			children = (
+				BE44B591209955970001B143 /* DetailPromotion */,
 				BE21DA9D208731790086B8BA /* View */,
 				BE21DAA920873F030086B8BA /* PCPromotionViewController.h */,
 				BE21DAAA20873F030086B8BA /* PCPromotionViewController.m */,
@@ -498,9 +505,10 @@
 		BE44B591209955970001B143 /* DetailPromotion */ = {
 			isa = PBXGroup;
 			children = (
+				BE44B5C6209C57AE0001B143 /* ViewModel */,
 				BE44B592209955AE0001B143 /* View */,
-				BE44B58B209953440001B143 /* PCPromotionDetailViewController.h */,
-				BE44B58C209953440001B143 /* PCPromotionDetailViewController.m */,
+				BE44B58B209953440001B143 /* PCPromotionTableViewController.h */,
+				BE44B58C209953440001B143 /* PCPromotionTableViewController.m */,
 			);
 			path = DetailPromotion;
 			sourceTree = "<group>";
@@ -591,6 +599,47 @@
 			path = AlertController;
 			sourceTree = "<group>";
 		};
+		BE44B5BC209C3F790001B143 /* BookCenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BookCenter;
+			sourceTree = "<group>";
+		};
+		BE44B5BD209C405B0001B143 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BE44B5BE209C40A90001B143 /* Book.h */,
+				BE44B5BF209C40A90001B143 /* Book.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BE44B5C1209C439E0001B143 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE44B588209950150001B143 /* BackView.h */,
+				BE44B589209950150001B143 /* BackView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE44B5C2209C43AA0001B143 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BE44B5C3209C440E0001B143 /* PCRecommendBookViewModel.h */,
+				BE44B5C4209C440E0001B143 /* PCRecommendBookViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BE44B5C6209C57AE0001B143 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		BEDE52AB20897AB800D00A98 /* CenterView */ = {
 			isa = PBXGroup;
 			children = (
@@ -615,7 +664,6 @@
 			isa = PBXGroup;
 			children = (
 				BE44B59320995D560001B143 /* Cell */,
-				BE44B591209955970001B143 /* DetailPromotion */,
 				BEDE52B62089B31600D00A98 /* PCAnouncementTableViewController.h */,
 				BEDE52B72089B31600D00A98 /* PCAnouncementTableViewController.m */,
 			);
@@ -768,6 +816,7 @@
 		BEDE530E208F44C400D00A98 /* Learning */ = {
 			isa = PBXGroup;
 			children = (
+				BE44B5BC209C3F790001B143 /* BookCenter */,
 				BEDE53572092D7FA00D00A98 /* VideoCenter */,
 				BEDE5315208F7FC400D00A98 /* OnlineTest */,
 				BEDE531D20900FC500D00A98 /* CourseCenter */,
@@ -825,11 +874,12 @@
 		BEDE53312091669C00D00A98 /* CourseCenterView */ = {
 			isa = PBXGroup;
 			children = (
+				BE44B5C2209C43AA0001B143 /* ViewModel */,
+				BE44B5C1209C439E0001B143 /* View */,
+				BE44B5BD209C405B0001B143 /* Model */,
 				BEDE5332209166B100D00A98 /* Cell */,
-				BEDE532120904CF200D00A98 /* CourseCenterViewController.h */,
-				BEDE532220904CF200D00A98 /* CourseCenterViewController.m */,
-				BE44B588209950150001B143 /* BackView.h */,
-				BE44B589209950150001B143 /* BackView.m */,
+				BEDE532120904CF200D00A98 /* BookCenterViewController.h */,
+				BEDE532220904CF200D00A98 /* BookCenterViewController.m */,
 			);
 			path = CourseCenterView;
 			sourceTree = "<group>";
@@ -837,8 +887,8 @@
 		BEDE5332209166B100D00A98 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				BEDE531E20900FEF00D00A98 /* CourseCenterTableViewCell.h */,
-				BEDE531F20900FEF00D00A98 /* CourseCenterTableViewCell.m */,
+				BEDE531E20900FEF00D00A98 /* BookCenterTableViewCell.h */,
+				BEDE531F20900FEF00D00A98 /* BookCenterTableViewCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1032,9 +1082,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PoliceCollege/Pods-PoliceCollege-resources.sh",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1064,7 +1117,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEDE534B2091B93B00D00A98 /* BookIntroductionTableViewCell.m in Sources */,
-				BEDE532320904CF200D00A98 /* CourseCenterViewController.m in Sources */,
+				BEDE532320904CF200D00A98 /* BookCenterViewController.m in Sources */,
 				BE44B57A209575400001B143 /* TestViewController.m in Sources */,
 				BEDE52C62089DB9C00D00A98 /* MePortraitTableViewCell.m in Sources */,
 				BEDE533920916A1A00D00A98 /* MyChannelsCollectionViewCell.m in Sources */,
@@ -1112,6 +1165,7 @@
 				BEDE53452091AF6B00D00A98 /* BookModel.m in Sources */,
 				BE21DAA0208732D40086B8BA /* PCCenterdView.m in Sources */,
 				BEDE5305208F355800D00A98 /* PushSettingTableViewCell.m in Sources */,
+				BE44B5C5209C440E0001B143 /* PCRecommendBookViewModel.m in Sources */,
 				BE44B571209468660001B143 /* PCTopView.m in Sources */,
 				BE44B5A320999DB40001B143 /* PCResponseSerializer.m in Sources */,
 				BE44B58A209950150001B143 /* BackView.m in Sources */,
@@ -1119,10 +1173,11 @@
 				BEDE52FA208DE65200D00A98 /* PushSettingViewController.m in Sources */,
 				BE44B58720982B3F0001B143 /* SeasonSubview.m in Sources */,
 				BE44B56A2094254E0001B143 /* PCPickerView.m in Sources */,
-				BEDE532020900FEF00D00A98 /* CourseCenterTableViewCell.m in Sources */,
+				BEDE532020900FEF00D00A98 /* BookCenterTableViewCell.m in Sources */,
 				BE21DAAE2087485D0086B8BA /* PCHotIssueView.m in Sources */,
 				BE21DA94208722680086B8BA /* PCLoginView.m in Sources */,
 				BEDE52BE2089D29500D00A98 /* PCNavigationController.m in Sources */,
+				BE44B5C0209C40A90001B143 /* Book.m in Sources */,
 				BEDE53362091670700D00A98 /* MoreChannelsViewController.m in Sources */,
 				BEDE53612092F28D00D00A98 /* SeasonRank.m in Sources */,
 				BEDE53422091AF2100D00A98 /* BookTableViewCell.m in Sources */,
@@ -1136,7 +1191,7 @@
 				BEDE5318208F7FED00D00A98 /* OnlineTestCollectionViewCell.m in Sources */,
 				BE44B567209410BD0001B143 /* SeasonCreditModel.m in Sources */,
 				BEDE52BB2089B36E00D00A98 /* AnouncementTableViewCell.m in Sources */,
-				BE44B58D209953440001B143 /* PCPromotionDetailViewController.m in Sources */,
+				BE44B58D209953440001B143 /* PCPromotionTableViewController.m in Sources */,
 				BE44B597209995C20001B143 /* PCLoginViewModel.m in Sources */,
 				BE44B5B1209A9F370001B143 /* User.m in Sources */,
 				BEDE5309208F388200D00A98 /* PublicCourseTableViewCell.m in Sources */,

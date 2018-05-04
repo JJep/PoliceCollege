@@ -2,5 +2,7 @@ target 'PoliceCollege' do
 pod 'Masonry'
 pod 'AFNetworking'
 pod 'YYModel'
+pod 'SVProgressHUD'
+pod 'SDWebImage'
 end
 

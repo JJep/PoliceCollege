@@ -8,7 +8,7 @@
 
 #import "PCAnouncementTableViewController.h"
 #import "AnouncementTableViewCell.h"
-#import "PCPromotionDetailViewController.h"
+#import "PCPromotionTableViewController.h"
 @interface PCAnouncementTableViewController ()
 
 @end
@@ -49,7 +49,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    PCPromotionDetailViewController *VC = [PCPromotionDetailViewController new];
+    PCPromotionTableViewController *VC = [PCPromotionTableViewController new];
     [self.navigationController pushViewController:VC animated:true];
 }
 

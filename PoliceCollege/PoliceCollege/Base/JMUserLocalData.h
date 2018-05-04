@@ -7,16 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "User.h"
 #import "UserInfo.h"
-
 @interface JMUserLocalData : NSObject
 
 @property(nonatomic,assign) BOOL isLogin;
 @property(nonatomic,retain) NSString *cookie;
-@property(nonatomic,strong) UserInfo *usermodel;
-@property(nonatomic,assign) NSInteger userid;
-@property(nonatomic,strong) NSString *account;
-
+@property(nonatomic,strong) User *user;
+@property(nonatomic,retain) UserInfo *userInfo;
 
 + (instancetype)sharedManager;
 + (void)removeAllLocalData;

@@ -10,4 +10,7 @@
 
 @interface PCAlertControllerViewController : UIAlertController
 - (instancetype)initWithMessage:(NSString *)message;
+- (instancetype)initWithTitle:(NSString *)title message:(NSString *)message;
+- (instancetype)initWithWarningMessage:(NSString *)message;
+- (instancetype)initWithWarningTitle:(NSString *)title message:(NSString *)message;
 @end

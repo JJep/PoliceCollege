@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "MeTableViewCell.h"
+#import "MePortrait.h"
 @interface MePortraitTableViewCell : MeTableViewCell
-@property (nonatomic,retain)UIImage *image;
+@property (nonatomic,retain)NSURL *imageURL;
 @property (nonatomic,copy)NSString *nameStr;
 @property (nonatomic)float totalTime;
 @property (nonatomic)float todayTime;

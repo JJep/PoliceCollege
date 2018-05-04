@@ -9,6 +9,7 @@
 #import "PCNetworkEngine.h"
 #import "PCResponseSerializer.h"
 #import "PCRequestSerializer.h"
+#import "JMUserLocalData.h"
 @implementation PCNetworkEngine
 
 + (PCNetworkEngine *)sharedEngine {
@@ -17,7 +18,10 @@
     sharedEngine.requestSerializer = [[PCRequestSerializer alloc] init];
     sharedEngine.requestSerializer.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
     sharedEngine.requestSerializer.timeoutInterval = 30.0;
-    [sharedEngine.requestSerializer setValue:@"1" forHTTPHeaderField:@"cookie"];
+    if ([JMUserLocalData sharedManager].cookie) {
+        NSLog(@"%@",[JMUserLocalData sharedManager].cookie);
+        [sharedEngine.requestSerializer setValue:[JMUserLocalData sharedManager].cookie forHTTPHeaderField:@"cookie"];
+    }
     sharedEngine.responseSerializer = [[PCResponseSerializer alloc] init];
     sharedEngine.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/javascript",@"text/html",@"text/plain",nil];
     return sharedEngine;
