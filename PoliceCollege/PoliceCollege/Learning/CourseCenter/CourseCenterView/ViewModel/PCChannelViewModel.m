@@ -9,5 +9,27 @@
 #import "PCChannelViewModel.h"
 
 @implementation PCChannelViewModel
+- (void)getMyChannelWithType:(NSNumber *)type success:(PCSuccessHandler)success fail:(PCFailedHandler)fail {
+    PCBaseRequest *request = [PCBaseRequest new];
+    request.requstType = @"post";
+    request.apiString = @"myParamset";
+    NSMutableDictionary *paraDic = [[NSMutableDictionary alloc]
+                                    initWithDictionary:@{
+                                                         @"type":type
+                                                         }];
+    request.paraDict = paraDic;
+    [request sendRequestSuccess:success error:fail];
+}
 
+- (void)getAllChannelsWithType:(NSNumber *)type success:(PCSuccessHandler)success fail:(PCFailedHandler)fail {
+    PCBaseRequest *request = [PCBaseRequest new];
+    request.requstType = @"post";
+    request.apiString = @"paramsetSearchByAjax";
+    NSMutableDictionary *paraDic = [[NSMutableDictionary alloc]
+                                    initWithDictionary:@{
+                                                         @"type":type
+                                                         }];
+    request.paraDict = paraDic;
+    [request sendRequestSuccess:success error:fail];
+}
 @end
