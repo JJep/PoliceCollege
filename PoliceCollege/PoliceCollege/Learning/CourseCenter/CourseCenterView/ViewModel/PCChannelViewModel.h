@@ -16,5 +16,5 @@
 //获取当前类别中的所有频道
 - (void)getAllChannelsWithType:(NSNumber *)type success:(PCSuccessHandler)success fail:(PCFailedHandler)fail;
 
-- (void)updateChannelWithType:(NSNumber *)type channelID:(NSNumber *)channelID 
+- (void)updateChannelWithType:(NSNumber *)type channelID:(NSNumber *)channelID ;
 @end

@@ -56,6 +56,7 @@
 		BE44B5D4209D809E0001B143 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5D3209D809E0001B143 /* Question.m */; };
 		BE44B5D8209D8CF20001B143 /* OnlineTestViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5D7209D8CF20001B143 /* OnlineTestViewModel.m */; };
 		BE44B5DB209D9D5B0001B143 /* PCChannelViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5DA209D9D5B0001B143 /* PCChannelViewModel.m */; };
+		BE44B5DE209E09280001B143 /* PCBookViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5DD209E09280001B143 /* PCBookViewModel.m */; };
 		BEDE52AF20897B9000D00A98 /* PCPromotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52AE20897B9000D00A98 /* PCPromotionView.m */; };
 		BEDE52B5208991E900D00A98 /* PCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52B4208991E900D00A98 /* PCTabBarController.m */; };
 		BEDE52B82089B31600D00A98 /* PCAnouncementTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52B72089B31600D00A98 /* PCAnouncementTableViewController.m */; };
@@ -200,6 +201,8 @@
 		BE44B5D7209D8CF20001B143 /* OnlineTestViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnlineTestViewModel.m; sourceTree = "<group>"; };
 		BE44B5D9209D9D5A0001B143 /* PCChannelViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCChannelViewModel.h; sourceTree = "<group>"; };
 		BE44B5DA209D9D5B0001B143 /* PCChannelViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCChannelViewModel.m; sourceTree = "<group>"; };
+		BE44B5DC209E09280001B143 /* PCBookViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCBookViewModel.h; sourceTree = "<group>"; };
+		BE44B5DD209E09280001B143 /* PCBookViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCBookViewModel.m; sourceTree = "<group>"; };
 		BEDE52AD20897B9000D00A98 /* PCPromotionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCPromotionView.h; sourceTree = "<group>"; };
 		BEDE52AE20897B9000D00A98 /* PCPromotionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCPromotionView.m; sourceTree = "<group>"; };
 		BEDE52B3208991E900D00A98 /* PCTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCTabBarController.h; sourceTree = "<group>"; };
@@ -647,6 +650,8 @@
 				BE44B5C4209C440E0001B143 /* PCRecommendBookViewModel.m */,
 				BE44B5D9209D9D5A0001B143 /* PCChannelViewModel.h */,
 				BE44B5DA209D9D5B0001B143 /* PCChannelViewModel.m */,
+				BE44B5DC209E09280001B143 /* PCBookViewModel.h */,
+				BE44B5DD209E09280001B143 /* PCBookViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1240,6 +1245,7 @@
 				BEDE53362091670700D00A98 /* MoreChannelsViewController.m in Sources */,
 				BEDE53612092F28D00D00A98 /* SeasonRank.m in Sources */,
 				BE44B5D4209D809E0001B143 /* Question.m in Sources */,
+				BE44B5DE209E09280001B143 /* PCBookViewModel.m in Sources */,
 				BEDE53422091AF2100D00A98 /* BookTableViewCell.m in Sources */,
 				BEDE52CF2089F03F00D00A98 /* MeItemTableViewCell.m in Sources */,
 				BE44B59C20999C780001B143 /* PCBaseRequest.m in Sources */,
