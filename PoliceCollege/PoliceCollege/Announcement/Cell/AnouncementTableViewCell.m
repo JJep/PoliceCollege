@@ -50,11 +50,13 @@
         lbCommentsNum.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:13];
         lbCommentsNum.textColor = [UIColor colorWithRed:203/255.0 green:204/255.0 blue:205/255.0 alpha:1/1.0];
 
+        [self layoutViews];
+        
     }
     return self;
 }
 
--(void)layoutSubviews {
+-(void)layoutViews {
     [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(20);
         make.bottom.equalTo(self).offset(-20);
@@ -121,6 +123,13 @@
     }
 }
 
+-(void)setModel:(PCAnnouncementModel *)model {
+    [imageView sd_setImageWithURL:[NSURL URLWithString:model.img] placeholderImage:[UIImage imageNamed:@"banner"]];
+    [lbTitle setText:model.title];
+    [lbTime setText:model.published];
+    
+}
+
 -(void)setImage:(UIImage *)image {
     if (image != _image) {
         _image = image;
@@ -147,17 +156,6 @@
         _commentsNum = commentsNum;
         [lbCommentsNum setText:[NSString stringWithFormat:@"%d",_commentsNum]];
     }
-}
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end

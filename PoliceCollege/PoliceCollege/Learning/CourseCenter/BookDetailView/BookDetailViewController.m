@@ -15,8 +15,6 @@
 @property (nonatomic,assign)int currentView;
 @end
 
-
-
 @implementation BookDetailViewController {
     UITableView *tableView;
     BookModel *bookModel;
@@ -41,6 +39,10 @@ static const int commentButtonTag = 1234;
     tableView.estimatedRowHeight = 205;
     tableView.rowHeight = UITableViewAutomaticDimension;
     
+    [tableView registerClass:[BookTableViewCell class] forCellReuseIdentifier:@"bookCell"];
+    [tableView registerClass:[CommentTableViewCell class] forCellReuseIdentifier:@"commentCell"];
+    [tableView registerClass:[BookIntroductionTableViewCell class] forCellReuseIdentifier:@"introductionCell"];
+    [tableView registerClass:[BookIntroductionTableViewCell class] forCellReuseIdentifier:@"chapterCell"];
     _currentView = introductionView;
 }
 
@@ -73,7 +75,6 @@ static const int commentButtonTag = 1234;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         BookTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bookCell"];
-        cell = [[BookTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"bookCell"];
         [cell.introductionBtn addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
         [cell.commentBtn addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
         [cell.introductionBtn setTag:introductionButtonTag];
@@ -98,19 +99,16 @@ static const int commentButtonTag = 1234;
             case commentView:
             {
                 CommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"commentCell"];
-                cell = [[CommentTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"commentCell"];
                 return cell;
             }
             case introductionView:
             {
                 if (indexPath.section == 1) {
                     BookIntroductionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"introductionCell"];
-                    cell = [[BookIntroductionTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"introductionCell"];
                     [cell setContent:bookModel.bookIntroduction];
                     return cell;
                 } else {
                     BookIntroductionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"chapterCell"];
-                    cell = [[BookIntroductionTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"chapterCell"];
                     [cell setContent:bookModel.bookChapters[indexPath.row]];
                     return cell;
                 }
@@ -118,7 +116,6 @@ static const int commentButtonTag = 1234;
             default:
             {
                 UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
                 return cell;
             }
         }
@@ -141,12 +138,4 @@ static const int commentButtonTag = 1234;
             break;
     }
 }
-
-//- (void)setCurrentView:(int)currentView {
-//    if (_currentView != currentView) {
-//        _currentView = currentView;
-//        [tableView reloadData];
-//    }
-//}
-
 @end

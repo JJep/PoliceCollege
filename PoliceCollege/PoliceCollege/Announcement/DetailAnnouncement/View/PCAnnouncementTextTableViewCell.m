@@ -6,9 +6,9 @@
 //  Copyright © 2018年 Jep Xia. All rights reserved.
 //
 
-#import "PCPromotionTextTableViewCell.h"
+#import "PCAnnouncementTextTableViewCell.h"
 
-@implementation PCPromotionTextTableViewCell {
+@implementation PCAnnouncementTextTableViewCell {
     UIImageView *imageView;
     UILabel *titleLabel;
     UILabel *publishTimeLabel;
@@ -47,6 +47,13 @@
         [self layoutViews];
     }
     return self;
+}
+
+- (void)setModel:(PCAnnouncementModel *)model {
+    [imageView sd_setImageWithURL:[NSURL URLWithString:model.img]];
+    [titleLabel setText:model.title];
+    [publishTimeLabel setText:model.published];
+    [contentLabel setText:model.content];
 }
 
 - (void)layoutViews {

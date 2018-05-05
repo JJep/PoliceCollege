@@ -63,18 +63,7 @@
     if ([self.requstType isEqualToString:@"get"]) {
         self.task = [[PCNetworkEngine sharedEngine] getWithAPI:actualUrl parameters:self.paraDict succeededBlock:^(id responseObject) {
             id json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-            if (self.modelName.length == 0) {
-                successBlock(json);
-                return ;
-            }
-            Class<JMResponseProtocol> class = NSClassFromString(self.modelName);
-            if ([json isKindOfClass:[NSArray class]]) {
-                NSArray *modelArray = [NSArray sp_modelArrayWithClass:class json:json];
-                successBlock(modelArray);
-            } else {
-                id<JMResponseProtocol> model = [class JM_modelWithJSON:json];
-                successBlock(model);
-            }
+            successBlock(json);
         } failBlock:^(NSError *error) {
             errorBlock(error);
         }];

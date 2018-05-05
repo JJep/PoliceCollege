@@ -11,4 +11,5 @@
 @interface LearningTableViewCell : UICollectionViewCell
 @property (nonatomic,retain)UIImage *image;
 @property (nonatomic,copy)NSString *title;
+
 @end

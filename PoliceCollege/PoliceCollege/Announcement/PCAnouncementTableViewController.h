@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PCAnouncementTableViewController : UITableViewController
+@interface PCAnouncementTableViewController : UIViewController
 
 @end

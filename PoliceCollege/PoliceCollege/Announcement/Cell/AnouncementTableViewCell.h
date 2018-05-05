@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "PCAnnouncementModel.h"
 @interface AnouncementTableViewCell : UITableViewCell
 @property (nonatomic,retain)UIImage *image;
 @property (nonatomic,copy)NSString *titleStr;
 @property (nonatomic,copy)NSString *timeStr;
 @property (nonatomic)int commentsNum;
+
+- (void)setModel:(PCAnnouncementModel *)model;
 @end

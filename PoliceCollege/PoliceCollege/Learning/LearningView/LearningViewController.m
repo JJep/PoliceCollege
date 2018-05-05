@@ -14,6 +14,8 @@
 #import "PCTopView.h"
 #import "LearningMainCollectionView.h"
 #import "TestViewController.h"
+#import "TestPaper.h"
+#import "OnlineTestViewModel.h"
 @interface LearningViewController () <UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @end
@@ -23,12 +25,32 @@
     NSArray *dataArray;
     PCTopView *topView;
     UITableView *tableView;
+    NSArray *testPapaerList;
+    OnlineTestViewModel *viewModel;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    [self initViews];
+    [self initData];
+    [self downloadData];
+}
+
+- (void)downloadData {
+    [viewModel getTestPapersAction:^(id responseObject) {
+        self->testPapaerList = [NSArray yy_modelArrayWithClass:[TestPaper class] json:[responseObject objectForKey:@"testpaperList"]];
+        [self->tableView reloadData];
+    } fail:^(NSError *error) {
+        
+    }];
+}
+
+- (void)initData {
+    viewModel = [OnlineTestViewModel new];
+}
+
+- (void)initViews {
     [self.view setBackgroundColor:MyWhiteBackgroundColor];
     self.title = @"党员学习";
     
@@ -39,7 +61,7 @@
     tableView.tableHeaderView = [self headView];
     //防止添加headview后tableview无法滑动到底部
     tableView.contentInset = UIEdgeInsetsMake(0, 0, 160, 0);
-
+    
     //利用systemLayoutSizeFittingSize:计算出真实高度
     CGFloat height = [tableView.tableHeaderView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
     CGRect headerFrame = tableView.tableHeaderView.frame;
@@ -87,20 +109,29 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    if (dataArray.count) {
+        return 1;
+    } else {
+        return 0;
+    }
+//    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+//    return 10;
+    return dataArray.count;
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellID = @"testCell";
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
-    cell.textLabel.text = @"HTML在线测试";
+    [cell.textLabel setText:((TestPaper *)dataArray[indexPath.row]).title];
+    
     return cell;
 }
 

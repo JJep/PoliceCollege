@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface PCPromotionTextTableViewCell : UITableViewCell
-
+#import "PCAnnouncementModel.h"
+@interface PCAnnouncementTextTableViewCell : UITableViewCell
+- (void)setModel:(PCAnnouncementModel *)model;
 @end
