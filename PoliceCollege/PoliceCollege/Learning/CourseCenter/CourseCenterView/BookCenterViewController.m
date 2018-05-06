@@ -13,26 +13,43 @@
 #import "BookDetailViewController.h"
 #import "MoreChannelsViewController.h"
 #import "BackView.h"
-#import "PCRecommendBookViewModel.h"
+#import "Channel.h"
+#import "PCBookViewModel.h"
+#import "PCChannelViewModel.h"
 @interface BookCenterViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end
+
+static const int courseType = 3;
+static const int bookType = 4;
+static const int videoType = 5;
+static const int noType = -1;
 
 @implementation BookCenterViewController {
     UITableView *tableView;
     ChannelView *channelView;
     ChannelCollectionViewCell *tempCell;
     BackView *backView;
-    PCRecommendBookViewModel *viewModel;
     NSMutableArray *dataArray;
+    PCBookViewModel *bookViewModel;
+    PCChannelViewModel *channelViewModel;
+    NSMutableArray *channelsArray;
+    int currentType ;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    viewModel = [PCRecommendBookViewModel new];
+    bookViewModel = [PCBookViewModel new];
+    channelViewModel = [PCChannelViewModel new];
+    channelsArray = [NSMutableArray new];
+    [self initData];
     [self createUI];
     [self getData];
+}
+
+- (void)initData {
+    currentType = noType;
 }
 
 - (void)createUI {
@@ -66,10 +83,29 @@
 }
 
 - (void)getData {
-    [viewModel getRecommendBooksAction:10 success:^(id responseObject) {
+    [self getMyChannel];
+    if (currentType == noType) {
+        [self getRecommendedBookList];
+    }
+}
+
+- (void)getRecommendedBookList {
+    [bookViewModel getRecommendBookListAction:@10 success:^(id responseObject) {
         
     } fail:^(NSError *error) {
-        NSLog(@"fail");
+        
+    }];
+}
+
+- (void)getMyChannel {
+    //获取我的频道
+    [channelViewModel getMyChannelWithType:[NSNumber numberWithInt:bookType] success:^(id responseObject) {
+        if ([[responseObject objectForKey:@"state"] isEqualToString:@"1"]) {
+            self->channelsArray = [[NSMutableArray alloc] initWithArray:[NSArray yy_modelArrayWithClass:[Channel class] json:[responseObject objectForKey:@"params"]]];
+            [self->channelView.collectionView reloadData];
+        }
+    } fail:^(NSError *error) {
+        
     }];
 }
 
@@ -78,11 +114,13 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 5;
+    //还有一个推荐频道，属于自带的频道
+    return channelsArray.count + 1;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ChannelCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"channelCell" forIndexPath:indexPath];
+    [cell setModel:channelsArray[indexPath.row]];
     if (!tempCell) {
         [cell setIsSelected:true];
         tempCell = cell;

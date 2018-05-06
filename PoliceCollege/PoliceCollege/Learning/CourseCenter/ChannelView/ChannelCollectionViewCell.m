@@ -25,6 +25,10 @@
     return self;
 }
 
+- (void)setModel:(Channel *)model {
+    [self setChannelName:model.name];
+}
+
 -(void)setChannelName:(NSString *)channelName {
     if (_channelName != channelName) {
         _channelName = channelName;

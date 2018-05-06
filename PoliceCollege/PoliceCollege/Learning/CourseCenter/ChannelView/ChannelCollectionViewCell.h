@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Channel.h"
 @interface ChannelCollectionViewCell : UICollectionViewCell
 @property (nonatomic,copy)NSString *channelName;
 @property (nonatomic,assign)BOOL isSelected;
+
+- (void)setModel:(Channel *)model;
 @end
