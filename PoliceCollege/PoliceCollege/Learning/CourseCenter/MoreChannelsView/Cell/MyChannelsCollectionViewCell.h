@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ChannelModel.h"
+#import "Channel.h"
 
 @interface MyChannelsCollectionViewCell : UICollectionViewCell
-@property (nonatomic,retain)ChannelModel *channelModel;
+@property (nonatomic,retain)Channel *channelModel;
 @end

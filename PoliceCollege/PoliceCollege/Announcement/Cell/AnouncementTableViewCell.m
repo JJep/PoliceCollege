@@ -7,7 +7,7 @@
 //
 
 #import "AnouncementTableViewCell.h"
-
+#import "NSURL+PCURL.h"
 @implementation AnouncementTableViewCell {
     UIImageView *imageView;
     UILabel *lbTitle;
@@ -74,20 +74,7 @@
     [lbTime mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(15);
         make.bottom.equalTo(self).offset(-20);
-        make.height.mas_equalTo(18);
         make.right.equalTo(self->commentImageView.mas_left).offset(-20);
-    }];
-    
-    [commentImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo([UIImage imageNamed:@"comment"].size);
-        make.centerY.equalTo(self->lbTime);
-        make.right.equalTo(self->lbCommentsNum.mas_left).offset(-13.7);
-    }];
-    
-    [lbCommentsNum mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self->imageView.mas_left).offset(-10);
-        make.centerY.equalTo(self->lbTime);
-        make.height.mas_equalTo(18);
     }];
 }
 
@@ -124,7 +111,8 @@
 }
 
 -(void)setModel:(PCAnnouncementModel *)model {
-    [imageView sd_setImageWithURL:[NSURL URLWithString:model.img] placeholderImage:[UIImage imageNamed:@"banner"]];
+    [imageView sd_setImageWithURL:[NSURL pc_imageURLWithString:model.img] placeholderImage:[UIImage imageNamed:@"banner"]];
+    
     [lbTitle setText:model.title];
     [lbTime setText:model.published];
     

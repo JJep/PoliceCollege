@@ -10,7 +10,7 @@
 
 #define localLogin @"isLogin"
 #define localUser @"user"
-#define localCookie @"cookie"
+#define localAuthorization @"Authorization"
 #define localUserInfo @"userInfo"
 @implementation JMUserLocalData
 
@@ -24,14 +24,14 @@
     return instance;
 }
 
--(void)setCookie:(NSString *)cookie
+-(void)setAuthorization:(NSString *)authorization
 {
-    [[NSUserDefaults standardUserDefaults] setObject:cookie forKey:localCookie];
+    [[NSUserDefaults standardUserDefaults] setObject:authorization forKey:localAuthorization];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (NSString *)cookie {
-    return [[NSUserDefaults standardUserDefaults] objectForKey:localCookie] ;
+    return [[NSUserDefaults standardUserDefaults] objectForKey:localAuthorization] ;
 }
 
 -(void)setIsLogin:(BOOL)isLogin

@@ -10,14 +10,14 @@
 
 @implementation PCBookViewModel
 
-- (void)getRecommendBookListAction:(NSNumber *)num success:(PCSuccessHandler)success fail:(PCFailedHandler)fail
+- (void)getRecommendBookListAction:(NSNumber *)currentPage success:(PCSuccessHandler)success fail:(PCFailedHandler)fail
 {
     PCBaseRequest *request = [PCBaseRequest new];
     request.requstType = @"post";
     request.apiString = @"bookSearchByRecommended";
     NSMutableDictionary *paraDict = [[NSMutableDictionary alloc]
                                      initWithDictionary:@{
-                                                          @"page.currentPage":num
+                                                          @"page.currentPage":currentPage
                                                           }];
     request.paraDict = paraDict;
     [request sendRequestSuccess:success error:fail];

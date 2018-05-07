@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Book.h"
 @interface BookDetailViewController : UIViewController
-
+@property (nonatomic,retain)Book *model;
 @end

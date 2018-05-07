@@ -48,6 +48,7 @@
             //将账户信息保存到本地
             [[JMUserLocalData sharedManager] setIsLogin:true];
             [[JMUserLocalData sharedManager] setUser:self->user];
+            
             NSLog(@"%@",self->user);
             NSLog(@"%@",[JMUserLocalData sharedManager].user);
             //弹出消息框

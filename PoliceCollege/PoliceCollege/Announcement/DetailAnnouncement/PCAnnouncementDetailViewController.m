@@ -9,26 +9,49 @@
 #import "PCAnnouncementDetailViewController.h"
 #import "PCAnnouncementTextTableViewCell.h"
 #import "PCAnnouncementModel.h"
+#import "PCAnnouncementViewModel.h"
+#import <WebKit/WebKit.h>
 @interface PCAnnouncementDetailViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @end
 
 @implementation PCAnnouncementDetailViewController {
     UITableView *tableView;
-    PCAnnouncementModel *model;
+    PCAnnouncementViewModel *viewModel;
+    WKWebView *webView;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+   
+    [self initViews];
+}
+
+- (void)initViews {
     
-    tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
-    tableView.delegate = self;
-    tableView.dataSource = self;
-    [self.view addSubview:tableView];
-    
+    if (self.model.isLink) {
+        webView = [[WKWebView alloc] initWithFrame:self.view.bounds];
+        [self.view addSubview:webView];
+//        webView.UIDelegate = self;
+//        webView.navigationDelegate = self;
+        [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.model.content]]];
+    } else {
+        tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+        viewModel = [PCAnnouncementViewModel new];
+        tableView.delegate = self;
+        tableView.dataSource = self;
+        [self.view addSubview:tableView];
+    }
     [self.navigationController setNavigationBarHidden:true animated:true];
-    
+}
+
+- (void)getDetailAnnouncement {
+    [viewModel getDetailAnnouncementActionWithID:[NSNumber numberWithInteger:_announcementID] success:^(id responseObject) {
+        
+    } fail:^(NSError *error) {
+        
+    }];
 }
 
 
@@ -50,7 +73,7 @@
     [cancelButton addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
     [cell addSubview:cancelButton];
     
-    [cell setModel:model];
+    [cell setModel:self.model];
     
     return cell;
 }

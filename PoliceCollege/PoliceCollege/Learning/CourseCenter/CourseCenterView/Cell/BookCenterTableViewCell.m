@@ -10,9 +10,9 @@
 
 @implementation BookCenterTableViewCell {
     UIImageView *imageView;
-    UILabel *courseNameLabel;
-    UILabel *teacherNameLabel;
-    UILabel *courseTimeLabel;
+    UILabel *bookNameLabel;
+    UILabel *authorNameLabel;
+    UILabel *bookTimeLabel;
     UILabel *creditLabel;
     UILabel *scoreLabel;
     UILabel *clicksLabel;
@@ -28,9 +28,9 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         imageView = [UIImageView new];
-        courseNameLabel = [UILabel new];
-        teacherNameLabel = [UILabel new];
-        courseTimeLabel = [UILabel new];
+        bookNameLabel = [UILabel new];
+        authorNameLabel = [UILabel new];
+        bookTimeLabel = [UILabel new];
         creditLabel = [UILabel new];
         scoreLabel = [UILabel new];
         clicksLabel = [UILabel new];
@@ -38,9 +38,9 @@
         startLearningBtn = [UIButton new];
         
         [self addSubview:imageView];
-        [self addSubview:courseTimeLabel];
-        [self addSubview:teacherNameLabel];
-        [self addSubview:courseNameLabel];
+        [self addSubview:bookTimeLabel];
+        [self addSubview:authorNameLabel];
+        [self addSubview:bookNameLabel];
         [self addSubview:creditLabel];
         [self addSubview:scoreLabel];
         [self addSubview:clicksLabel];
@@ -48,17 +48,17 @@
         [self addSubview:startLearningBtn];
         
         [imageView setImage:[UIImage imageNamed:@"banner"]];
-        courseNameLabel.text = @"中国震憾入门课";
-        courseNameLabel.font = [UIFont fontWithName:@"PingFang-SC-Semibold" size:18];
-        courseNameLabel.textColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:1/1.0];
+        bookNameLabel.text = @"中国震憾入门课";
+        bookNameLabel.font = [UIFont fontWithName:@"PingFang-SC-Semibold" size:18];
+        bookNameLabel.textColor = [UIColor colorWithRed:11/255.0 green:11/255.0 blue:11/255.0 alpha:1/1.0];
 
-        teacherNameLabel.text = @"张维维";
-        teacherNameLabel.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:13];
-        teacherNameLabel.textColor = [UIColor colorWithRed:110/255.0 green:110/255.0 blue:110/255.0 alpha:1/1.0];
+        authorNameLabel.text = @"张维维";
+        authorNameLabel.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:13];
+        authorNameLabel.textColor = [UIColor colorWithRed:110/255.0 green:110/255.0 blue:110/255.0 alpha:1/1.0];
         
-        courseTimeLabel.text = @"2018-04-07 2:30";
-        courseTimeLabel.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:13];
-        courseTimeLabel.textColor = [UIColor colorWithRed:110/255.0 green:110/255.0 blue:110/255.0 alpha:1/1.0];
+        bookTimeLabel.text = @"2018-04-07 2:30";
+        bookTimeLabel.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:13];
+        bookTimeLabel.textColor = [UIColor colorWithRed:110/255.0 green:110/255.0 blue:110/255.0 alpha:1/1.0];
 
         creditStr = [[NSMutableAttributedString alloc] initWithString:@"学分 0.5分"];
         NSDictionary *attributeDict = @{NSForegroundColorAttributeName : rgb(95,157,230)};
@@ -99,6 +99,27 @@
     return self;
 }
 
+- (void)setModel:(Book *)model {
+//    UIImageView *imageView;
+//    UILabel *bookNameLabel;
+//    UILabel *authorNameLabel;
+//    UILabel *bookTimeLabel;
+//    UILabel *creditLabel;
+//    UILabel *scoreLabel;
+//    UILabel *clicksLabel;
+//    UILabel *commentsQuantityLabel;
+//    NSMutableAttributedString *creditStr;
+//    NSMutableAttributedString *scoreStr;
+//    NSMutableAttributedString *clicksStr;
+//    NSMutableAttributedString *commentsQuantityStr;
+//    UIButton *startLearningBtn;
+    [imageView sd_setImageWithURL:[NSURL URLWithString:model.img]];
+    [bookNameLabel setText:model.title];
+    [authorNameLabel setText:model.author];
+    [bookTimeLabel setText:model.published];
+    
+}
+
 - (void)layoutViews {
     [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(15);
@@ -109,21 +130,21 @@
         make.width.mas_equalTo(82);
     }];
     
-    [courseNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [bookNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self->imageView.mas_right).offset(15);
         make.top.equalTo(self).offset(15);
         make.right.equalTo(self->startLearningBtn.mas_left).offset(-15);
     }];
     
-    [teacherNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [authorNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self->imageView.mas_right).offset(15);
-        make.top.equalTo(self->courseNameLabel.mas_bottom).offset(4);
+        make.top.equalTo(self->bookNameLabel.mas_bottom).offset(4);
         make.right.equalTo(self).offset(-20);
     }];
     
-    [courseTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [bookTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self->imageView.mas_right).offset(15);
-        make.top.equalTo(self->teacherNameLabel.mas_bottom).offset(3);
+        make.top.equalTo(self->authorNameLabel.mas_bottom).offset(3);
         make.right.equalTo(self).offset(-15);
     }];
     
@@ -159,15 +180,4 @@
     }];
 
 }
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-    // Configure the view for the selected state
-}
-
 @end

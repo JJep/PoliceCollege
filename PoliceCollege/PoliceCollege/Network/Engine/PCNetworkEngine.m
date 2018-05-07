@@ -18,10 +18,12 @@
     sharedEngine.requestSerializer = [[PCRequestSerializer alloc] init];
     sharedEngine.requestSerializer.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
     sharedEngine.requestSerializer.timeoutInterval = 30.0;
-    if ([JMUserLocalData sharedManager].cookie) {
-        NSLog(@"%@",[JMUserLocalData sharedManager].cookie);
-        [sharedEngine.requestSerializer setValue:[JMUserLocalData sharedManager].cookie forHTTPHeaderField:@"cookie"];
+    if ([JMUserLocalData sharedManager].authorization) {
+        NSLog(@"%@",[JMUserLocalData sharedManager].authorization);
+        [sharedEngine.requestSerializer setValue:[JMUserLocalData sharedManager].authorization forHTTPHeaderField:@"Authorization"];
     }
+//    NSDictionary *requestDict =(NSDictionary *)sharedEngine.requestSerializer;
+//    NSLog(@"%@",sharedEngine.requestSerializer.);
     sharedEngine.responseSerializer = [[PCResponseSerializer alloc] init];
     sharedEngine.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/javascript",@"text/html",@"text/plain",nil];
     return sharedEngine;
@@ -43,6 +45,9 @@
 - (NSURLSessionDataTask *)postWithAPI:(NSString *)api parameters:(id)parameters succeededBlock:(NetworkSuccessHandler)succeededBlock failedBlock:(NetworkFailedHandler)failedBlock {
     NSURLSessionDataTask *task = [self POST:api parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",task.currentRequest.allHTTPHeaderFields);
+//        task.originalRequest.allHTTPHeaderFields;
+        NSLog(@"%@",task.originalRequest.allHTTPHeaderFields);
         succeededBlock(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failedBlock(error);

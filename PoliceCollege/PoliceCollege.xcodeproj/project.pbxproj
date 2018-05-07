@@ -57,6 +57,9 @@
 		BE44B5DB209D9D5B0001B143 /* PCChannelViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5DA209D9D5B0001B143 /* PCChannelViewModel.m */; };
 		BE44B5DE209E09280001B143 /* PCBookViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5DD209E09280001B143 /* PCBookViewModel.m */; };
 		BE44B5E1209EA1FA0001B143 /* Channel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5E0209EA1FA0001B143 /* Channel.m */; };
+		BE44B5E520A0252C0001B143 /* NSURL+PCURL.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5E420A0252C0001B143 /* NSURL+PCURL.m */; };
+		BE44B5E820A0321C0001B143 /* PCAnnouncementViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5E720A0321C0001B143 /* PCAnnouncementViewModel.m */; };
+		BE44B5EF20A0536E0001B143 /* Chapter.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5EE20A0536E0001B143 /* Chapter.m */; };
 		BEDE52AF20897B9000D00A98 /* PCPromotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52AE20897B9000D00A98 /* PCPromotionView.m */; };
 		BEDE52B5208991E900D00A98 /* PCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52B4208991E900D00A98 /* PCTabBarController.m */; };
 		BEDE52B82089B31600D00A98 /* PCAnouncementTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52B72089B31600D00A98 /* PCAnouncementTableViewController.m */; };
@@ -202,6 +205,12 @@
 		BE44B5DD209E09280001B143 /* PCBookViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCBookViewModel.m; sourceTree = "<group>"; };
 		BE44B5DF209EA1FA0001B143 /* Channel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Channel.h; sourceTree = "<group>"; };
 		BE44B5E0209EA1FA0001B143 /* Channel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Channel.m; sourceTree = "<group>"; };
+		BE44B5E320A0252C0001B143 /* NSURL+PCURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURL+PCURL.h"; sourceTree = "<group>"; };
+		BE44B5E420A0252C0001B143 /* NSURL+PCURL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURL+PCURL.m"; sourceTree = "<group>"; };
+		BE44B5E620A0321C0001B143 /* PCAnnouncementViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCAnnouncementViewModel.h; sourceTree = "<group>"; };
+		BE44B5E720A0321C0001B143 /* PCAnnouncementViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCAnnouncementViewModel.m; sourceTree = "<group>"; };
+		BE44B5ED20A0536D0001B143 /* Chapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Chapter.h; sourceTree = "<group>"; };
+		BE44B5EE20A0536E0001B143 /* Chapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Chapter.m; sourceTree = "<group>"; };
 		BEDE52AD20897B9000D00A98 /* PCPromotionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCPromotionView.h; sourceTree = "<group>"; };
 		BEDE52AE20897B9000D00A98 /* PCPromotionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCPromotionView.m; sourceTree = "<group>"; };
 		BEDE52B3208991E900D00A98 /* PCTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCTabBarController.h; sourceTree = "<group>"; };
@@ -378,6 +387,7 @@
 		BE21DA862086F08D0086B8BA /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				BE44B5E220A024F80001B143 /* Category */,
 				BE44B5B3209AE28C0001B143 /* JMUserLocalData.h */,
 				BE44B5B2209AE28B0001B143 /* JMUserLocalData.m */,
 				BE44B594209987180001B143 /* View */,
@@ -631,6 +641,8 @@
 				BE44B5BF209C40A90001B143 /* Book.m */,
 				BE44B5DF209EA1FA0001B143 /* Channel.h */,
 				BE44B5E0209EA1FA0001B143 /* Channel.m */,
+				BE44B5ED20A0536D0001B143 /* Chapter.h */,
+				BE44B5EE20A0536E0001B143 /* Chapter.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -656,6 +668,8 @@
 		BE44B5C6209C57AE0001B143 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				BE44B5E620A0321C0001B143 /* PCAnnouncementViewModel.h */,
+				BE44B5E720A0321C0001B143 /* PCAnnouncementViewModel.m */,
 				BE44B5C7209C590B0001B143 /* PCAnouncementListViewModel.h */,
 				BE44B5C8209C590B0001B143 /* PCAnouncementListViewModel.m */,
 			);
@@ -691,6 +705,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		BE44B5E220A024F80001B143 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				BE44B5E320A0252C0001B143 /* NSURL+PCURL.h */,
+				BE44B5E420A0252C0001B143 /* NSURL+PCURL.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		BEDE52AB20897AB800D00A98 /* CenterView */ = {
 			isa = PBXGroup;
 			children = (
@@ -714,12 +737,12 @@
 		BEDE52B1208991A300D00A98 /* Announcement */ = {
 			isa = PBXGroup;
 			children = (
-				BE44B591209955970001B143 /* DetailAnnouncement */,
 				BE44B5CA209C59120001B143 /* Model */,
 				BE44B5C6209C57AE0001B143 /* ViewModel */,
 				BE44B59320995D560001B143 /* Cell */,
 				BEDE52B62089B31600D00A98 /* PCAnouncementTableViewController.h */,
 				BEDE52B72089B31600D00A98 /* PCAnouncementTableViewController.m */,
+				BE44B591209955970001B143 /* DetailAnnouncement */,
 			);
 			path = Announcement;
 			sourceTree = "<group>";
@@ -1199,6 +1222,7 @@
 				BEDE52E9208D784500D00A98 /* PersonalInfoTableViewCell.m in Sources */,
 				BE21DA8E2086F11E0086B8BA /* PCViewModel.m in Sources */,
 				BE44B57420946C790001B143 /* LearningMainCollectionView.m in Sources */,
+				BE44B5E520A0252C0001B143 /* NSURL+PCURL.m in Sources */,
 				BEDE52ED208D820C00D00A98 /* PersonalInformationViewController.m in Sources */,
 				BEDE52F6208DDB8D00D00A98 /* ChangePasswordViewController.m in Sources */,
 				BEDE532C20908A0300D00A98 /* ChannelCollectionViewCell.m in Sources */,
@@ -1212,6 +1236,7 @@
 				BE21DA892086F09F0086B8BA /* PCBaseViewController.m in Sources */,
 				BE21DA652086DE3C0086B8BA /* AppDelegate.m in Sources */,
 				BE21DAB22087815A0086B8BA /* HotIssueTableViewCell.m in Sources */,
+				BE44B5EF20A0536E0001B143 /* Chapter.m in Sources */,
 				BE44B5CD209C61490001B143 /* PCAnnouncementModel.m in Sources */,
 				BEDE536D20940CD700D00A98 /* SeasonTableViewCell.m in Sources */,
 				BE44B5AE2099C1B60001B143 /* PCUserModel.m in Sources */,
@@ -1236,6 +1261,7 @@
 				BE44B5D1209D808F0001B143 /* TestPaper.m in Sources */,
 				BEDE52BE2089D29500D00A98 /* PCNavigationController.m in Sources */,
 				BE44B5C0209C40A90001B143 /* Book.m in Sources */,
+				BE44B5E820A0321C0001B143 /* PCAnnouncementViewModel.m in Sources */,
 				BEDE53362091670700D00A98 /* MoreChannelsViewController.m in Sources */,
 				BEDE53612092F28D00D00A98 /* SeasonRank.m in Sources */,
 				BE44B5D4209D809E0001B143 /* Question.m in Sources */,

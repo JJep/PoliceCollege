@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Book.h"
 @interface BookCenterTableViewCell : UITableViewCell
 @property (nonatomic,retain)UIImage *image;
 @property (nonatomic,copy)NSString *courseName;
@@ -17,4 +17,5 @@
 @property (nonatomic,assign)int score;
 @property (nonatomic,assign)int clicks;
 @property (nonatomic,assign)int commentsQuantity;
+- (void)setModel:(Book *)model;
 @end

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "PCAnnouncementModel.h"
 @interface PCAnnouncementDetailViewController : UIViewController
-
+@property (nonatomic,assign)NSInteger announcementID;
+@property (nonatomic,retain)PCAnnouncementModel *model;
 @end

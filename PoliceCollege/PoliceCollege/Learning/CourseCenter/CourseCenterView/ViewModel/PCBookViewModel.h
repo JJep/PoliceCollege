@@ -10,8 +10,8 @@
 
 @interface PCBookViewModel : PCViewModel
 
-#warning 获取推荐图书 该接口不稳定
--(void)getRecommendBookListAction:(NSNumber *)num success:(PCSuccessHandler)success fail:(PCFailedHandler)fail ;
+//根据当前页码获取推荐图书
+-(void)getRecommendBookListAction:(NSNumber *)currentPage success:(PCSuccessHandler)success fail:(PCFailedHandler)fail ;
 
 //跟据图书的id获取图书的介绍
 - (void)getBookIntroductionAction:(NSNumber *)bookID success:(PCSuccessHandler)success fail:(PCFailedHandler)fail ;

@@ -16,6 +16,7 @@
 #import "Channel.h"
 #import "PCBookViewModel.h"
 #import "PCChannelViewModel.h"
+#import "Book.h"
 @interface BookCenterViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end
@@ -24,7 +25,7 @@ static const int courseType = 3;
 static const int bookType = 4;
 static const int videoType = 5;
 static const int noType = -1;
-
+static NSString *bookCellID = @"BookCenterTableViewCell";
 @implementation BookCenterViewController {
     UITableView *tableView;
     ChannelView *channelView;
@@ -34,28 +35,42 @@ static const int noType = -1;
     PCBookViewModel *bookViewModel;
     PCChannelViewModel *channelViewModel;
     NSMutableArray *channelsArray;
+    NSMutableArray *booksArray;
     int currentType ;
+    int currentPage ;
+}
+- (instancetype)init {
+    if (self = [super init]) {
+        
+    }
+    return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    bookViewModel = [PCBookViewModel new];
-    channelViewModel = [PCChannelViewModel new];
-    channelsArray = [NSMutableArray new];
+
     [self initData];
     [self createUI];
     [self getData];
 }
 
 - (void)initData {
+    bookViewModel = [PCBookViewModel new];
+    channelViewModel = [PCChannelViewModel new];
+    booksArray = [NSMutableArray new];
+    channelsArray = [NSMutableArray new];
     currentType = noType;
+    currentPage = 1;
+    Channel *channel = [[Channel alloc] init];
+    channel.name = @"推荐";
+    [booksArray addObject:channel];
 }
 
 - (void)createUI {
     
     [self.view setBackgroundColor:MyWhiteBackgroundColor];
-    self.title = @"课程中心";
+    self.title = @"图书中心";
     
     tableView = [[UITableView alloc] initWithFrame:self.view.bounds ];
     [self.view addSubview:tableView];
@@ -70,6 +85,7 @@ static const int noType = -1;
     
     //注册Cell
     [channelView.collectionView registerClass:[ChannelCollectionViewCell class] forCellWithReuseIdentifier:@"channelCell"];
+    [tableView registerClass:[BookCenterTableViewCell class] forCellReuseIdentifier:bookCellID];
     
     [channelView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(self.view);
@@ -80,6 +96,7 @@ static const int noType = -1;
         make.left.right.bottom.equalTo(self.view);
         make.top.equalTo(self->channelView.mas_bottom).offset(5);
     }];
+
 }
 
 - (void)getData {
@@ -90,8 +107,13 @@ static const int noType = -1;
 }
 
 - (void)getRecommendedBookList {
-    [bookViewModel getRecommendBookListAction:@10 success:^(id responseObject) {
-        
+    [bookViewModel getRecommendBookListAction:[NSNumber numberWithInt:currentPage] success:^(id responseObject) {
+        if ([[responseObject objectForKey:@"state"] isEqualToString:@"1"]) {
+            NSArray *tempAry = [NSArray yy_modelArrayWithClass:[Book class] json:[responseObject objectForKey:@"bookList"]];
+            [self->booksArray addObjectsFromArray:tempAry];
+            self->currentPage++;
+            [self->tableView reloadData];
+        }
     } fail:^(NSError *error) {
         
     }];
@@ -133,19 +155,18 @@ static const int noType = -1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 8;
+    return booksArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellID = @"BookCenterTableViewCell";
-    BookCenterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    cell = [[BookCenterTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-    
+    BookCenterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:bookCellID];
+    [cell setModel:booksArray[indexPath.row]];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     BookDetailViewController *newVC = [BookDetailViewController new];
+    newVC.model = booksArray[indexPath.row];
     [self.navigationController pushViewController:newVC animated:true];
 }
 

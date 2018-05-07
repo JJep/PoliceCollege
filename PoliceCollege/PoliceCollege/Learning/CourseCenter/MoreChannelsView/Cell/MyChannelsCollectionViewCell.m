@@ -28,22 +28,6 @@
     return self;
 }
 
--(void)setChannelModel:(ChannelModel *)channelModel {
-    if (_channelModel != channelModel) {
-        _channelModel = channelModel;
-        if (_channelModel.isMy) {
-            [channelNameLabel setText:_channelModel.channelName];
-            [self setBackgroundColor:rgb(245, 245, 245)];
-            if ([_channelModel.channelName isEqualToString:@"关注"] || [_channelModel.channelName isEqualToString:@"推荐"]) {
-                [channelNameLabel setTextColor:rgb(152, 152, 152)];
-            }
-        } else {
-            [channelNameLabel setText:[NSString stringWithFormat:@"+%@", _channelModel.channelName]];
-            [self setBackgroundColor:[UIColor whiteColor]];
-        }
-    }
-}
-
 @end
 
 

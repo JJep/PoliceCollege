@@ -19,9 +19,11 @@
     self = [super init];
     if(self) {
 #if DEBUG
-        self.baseUrl = @"http://139.224.208.224/NetworkCollege-app";
+//        self.baseUrl = @"http://139.224.208.224/NetworkCollege-app";
+        self.baseUrl = @"http://192.168.0.108/NetworkCollege-app";
 #else
-        self.baseUrl = @"http://139.224.208.224/NetworkCollege-app";
+//        self.baseUrl = @"http://139.224.208.224/NetworkCollege-app";
+        self.baseUrl = @"http://192.168.0.108/NetworkCollege-app";
 #endif
     }
     return self;
@@ -59,7 +61,7 @@
 - (void)sendRequestSuccess:(NetworkSuccessHandler)successBlock error:(NetworkFailedHandler)errorBlock {
     //确认最终的url为actual url
     NSString *actualUrl = [self.apiString hasPrefix:@"http://"] ? self.apiString : [NSString stringWithFormat:@"%@/%@", self.baseUrl, self.apiString];
-
+    
     if ([self.requstType isEqualToString:@"get"]) {
         self.task = [[PCNetworkEngine sharedEngine] getWithAPI:actualUrl parameters:self.paraDict succeededBlock:^(id responseObject) {
             id json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
@@ -70,12 +72,14 @@
     } else if ([self.requstType isEqualToString:@"post"]) {
         self.task = [[PCNetworkEngine sharedEngine] postWithAPI:actualUrl parameters:self.paraDict succeededBlock:^(id responseObject) {
             
-            if ([self.modelName isEqualToString:@"User"]) {
+            if ([self.modelName isEqualToString:@"User"] ) {
                 NSHTTPURLResponse *response = (NSHTTPURLResponse *)self.task.response;
                 NSDictionary *allHeaders = response.allHeaderFields;
-                [[JMUserLocalData sharedManager] setCookie:[allHeaders objectForKey:@"Set-Cookie"]];
+                NSString *setCookie = [allHeaders objectForKey:@"Authorization"];
+                if (setCookie) {
+                    [[JMUserLocalData sharedManager] setAuthorization:setCookie];
+                }
             }
-
             id jsonS = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
             successBlock(jsonS);
         } failedBlock:^(NSError *error) {

@@ -15,7 +15,7 @@
 @interface PCAnouncementTableViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @end
-int currentPage = 0;
+int currentPage = 1;
 int totalPage = 0;
 @implementation PCAnouncementTableViewController {
     UITableView *tableView;
@@ -68,18 +68,13 @@ int totalPage = 0;
     [viewModel getPromotionListActionWithCurrentPage:[NSNumber numberWithInt:currentPage] success:^(id responseObject) {
         totalPage = [[responseObject objectForKey:@"sumPage"] intValue];
         
-        NSArray *modelArray = [NSArray yy_modelArrayWithClass:[PCAnnouncementModel class] json:[responseObject objectForKey:@"newList"]];
+        NSArray *modelArray = [NSArray yy_modelArrayWithClass:[PCAnnouncementModel class] json:[responseObject objectForKey:@"newsList"]];
         
         [self->promotionArray addObjectsFromArray:modelArray];
         [self updateUI];
     } fail:^(NSError *error) {
         
     }];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -106,12 +101,9 @@ int totalPage = 0;
     return promotionArray.count;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 130;
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     PCAnnouncementDetailViewController *VC = [PCAnnouncementDetailViewController new];
+    VC.model = promotionArray[indexPath.row];
     [self.navigationController pushViewController:VC animated:true];
 }
 
