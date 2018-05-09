@@ -15,6 +15,8 @@
 @property(nonatomic,retain) NSString *authorization;
 @property(nonatomic,strong) User *user;
 @property(nonatomic,retain) UserInfo *userInfo;
+@property(nonatomic,retain) NSString *userName;
+@property(nonatomic,retain) NSString *userPassword;
 
 + (instancetype)sharedManager;
 + (void)removeAllLocalData;

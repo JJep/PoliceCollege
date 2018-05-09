@@ -8,17 +8,19 @@
 
 #import "BookDetailViewController.h"
 #import "BookIntroductionTableViewCell.h"
-#import "BookModel.h"
+#import "PCChapterViewModel.h"
 #import "BookTableViewCell.h"
 #import "CommentTableViewCell.h"
+#import "Chapter.h"
 @interface BookDetailViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic,assign)int currentView;
 @end
 
 @implementation BookDetailViewController {
     UITableView *tableView;
-    BookModel *bookModel;
+    PCChapterViewModel *chapterViewModel;
     CommentTableViewCell *commentCell;
+    NSArray *chapterArray;
 }
 
 static const int introductionView = 12;
@@ -29,7 +31,22 @@ static const int commentButtonTag = 1234;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    [self initViews];
+    [self getData];
+}
+
+- (void)getData {
+    [chapterViewModel getChapterListWithBookIDAction:[NSNumber numberWithInteger:self.model.idField] success:^(id responseObject) {
+        if ([[responseObject objectForKey:@"state"] isEqualToString:@"1"] ) {
+            self->chapterArray = [NSArray yy_modelArrayWithClass:[Chapter class] json:[responseObject objectForKey:@"sectionList"]];
+            [self->tableView reloadData];
+        }
+    } fail:^(NSError *error) {
+        
+    }];
+}
+
+- (void)initViews {
     self.title = @"图书详情";
     
     tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
@@ -44,11 +61,8 @@ static const int commentButtonTag = 1234;
     [tableView registerClass:[BookIntroductionTableViewCell class] forCellReuseIdentifier:@"introductionCell"];
     [tableView registerClass:[BookIntroductionTableViewCell class] forCellReuseIdentifier:@"chapterCell"];
     _currentView = introductionView;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    chapterViewModel = [PCChapterViewModel new];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -57,7 +71,7 @@ static const int commentButtonTag = 1234;
     } else if (section == 1) {
         return 1;
     } else {
-        return bookModel.bookChapters.count;
+        return chapterArray.count;
     }
 }
 
@@ -105,11 +119,11 @@ static const int commentButtonTag = 1234;
             {
                 if (indexPath.section == 1) {
                     BookIntroductionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"introductionCell"];
-                    [cell setContent:bookModel.bookIntroduction];
+                    [cell setContent:self.model.content];
                     return cell;
                 } else {
                     BookIntroductionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"chapterCell"];
-                    [cell setContent:bookModel.bookChapters[indexPath.row]];
+                    [cell setContent:chapterArray[indexPath.row]];
                     return cell;
                 }
             }

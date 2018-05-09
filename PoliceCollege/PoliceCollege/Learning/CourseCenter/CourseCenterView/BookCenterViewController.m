@@ -103,7 +103,13 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
     [self getMyChannel];
     if (currentType == noType) {
         [self getRecommendedBookList];
+    } else {
+        [self getBookListWithType:currentType];
     }
+}
+
+- (void)getBookListWithType:(int)type {
+//    bookViewModel getBookListAction:[NSNumber numberWithInt:type] serchText:<#(NSString *)#> typeID:<#(NSNumber *)#> currentPage:<#(NSNumber *)#> success:<#^(id responseObject)success#> fail:<#^(NSError *error)fail#>
 }
 
 - (void)getRecommendedBookList {

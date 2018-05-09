@@ -12,43 +12,34 @@
     UIImageView *imageView;
     UILabel *lbTitle;
     UILabel *lbTime;
-    UILabel *lbCommentsNum;
-    UIImageView *commentImageView;
 }
 
 @synthesize image = _image;
 @synthesize titleStr = _titleStr;
 @synthesize timeStr = _timeStr;
-@synthesize commentsNum = _commentsNum;
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        
         imageView = [UIImageView new];
         lbTitle = [UILabel new];
         lbTime = [UILabel new];
-        lbCommentsNum = [UILabel new];
-        commentImageView = [UIImageView new];
         [self addSubview:imageView];
         [self addSubview:lbTitle];
         [self addSubview:lbTime];
-        [self addSubview:lbCommentsNum];
-        [self addSubview:commentImageView];
-        [commentImageView setImage:[UIImage imageNamed:@"comment"]];
+
         [imageView setImage:self.image];
         [lbTitle setText:self.titleStr];
         [lbTime setText:self.timeStr];
-        [lbCommentsNum setText:[NSString stringWithFormat:@"%d",self.commentsNum]];
         
         lbTitle.font = [UIFont fontWithName:@"PingFang-SC-Semibold" size:18];
         lbTitle.textColor = [UIColor colorWithRed:60/255.0 green:60/255.0 blue:60/255.0 alpha:1/1.0];
-        [lbTitle setNumberOfLines:0];
+        [lbTitle setNumberOfLines:2];
         
         lbTime.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:13];
         lbTime.textColor = [UIColor colorWithRed:203/255.0 green:204/255.0 blue:205/255.0 alpha:1/1.0];
-        
-        lbCommentsNum.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:13];
-        lbCommentsNum.textColor = [UIColor colorWithRed:203/255.0 green:204/255.0 blue:205/255.0 alpha:1/1.0];
+        [lbTime setNumberOfLines:1];
 
         [self layoutViews];
         
@@ -58,8 +49,8 @@
 
 -(void)layoutViews {
     [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(20);
-        make.bottom.equalTo(self).offset(-20);
+        make.top.equalTo(self->lbTitle);
+        make.bottom.equalTo(self->lbTime);
         make.right.equalTo(self).offset(-15);
         make.width.mas_equalTo(125);
     }];
@@ -68,13 +59,15 @@
         make.left.equalTo(self).offset(15);
         make.top.equalTo(self).offset(20);
         make.right.equalTo(self->imageView.mas_left).offset(-20);
-        make.bottom.equalTo(self->lbTime.mas_top).offset(-20);
+//        make.bottom.equalTo(self->lbTime.mas_top).offset(-20);
+        make.height.mas_equalTo(52);
     }];
     
     [lbTime mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(20);
         make.left.equalTo(self).offset(15);
         make.bottom.equalTo(self).offset(-20);
-        make.right.equalTo(self->commentImageView.mas_left).offset(-20);
+        make.right.equalTo(self->lbTitle);
     }];
 }
 
@@ -102,19 +95,31 @@
     }
 }
 
-- (int)commentsNum {
-    if (!_commentsNum) {
-        return 20;
-    } else {
-        return _commentsNum;
-    }
-}
-
 -(void)setModel:(PCAnnouncementModel *)model {
     [imageView sd_setImageWithURL:[NSURL pc_imageURLWithString:model.img] placeholderImage:[UIImage imageNamed:@"banner"]];
     
     [lbTitle setText:model.title];
     [lbTime setText:model.published];
+    
+    [imageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self->lbTitle);
+        make.bottom.equalTo(self->lbTime);
+        make.right.equalTo(self).offset(-15);
+        make.width.mas_equalTo(125);
+    }];
+    
+    [lbTitle mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(15);
+        make.top.equalTo(self).offset(20);
+        make.right.equalTo(self->imageView.mas_left).offset(-20);
+        make.bottom.equalTo(self->lbTime.mas_top).offset(-20);
+    }];
+    
+    [lbTime mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(15);
+        make.bottom.equalTo(self).offset(-20);
+        make.right.equalTo(self->lbTitle);
+    }];
     
 }
 
@@ -136,13 +141,6 @@
     if (timeStr != _timeStr) {
         _timeStr = timeStr;
         [lbTime setText:_timeStr];
-    }
-}
-
--(void)setCommentsNum:(int)commentsNum {
-    if (commentsNum != _commentsNum) {
-        _commentsNum = commentsNum;
-        [lbCommentsNum setText:[NSString stringWithFormat:@"%d",_commentsNum]];
     }
 }
 

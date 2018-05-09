@@ -12,11 +12,12 @@
 #import "PCAnnouncementModel.h"
 #import "PCAnouncementListViewModel.h"
 #import "BackView.h"
+#import <MJRefresh.h>
 @interface PCAnouncementTableViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @end
-int currentPage = 1;
-int totalPage = 0;
+int currentPage ;
+int totalPage ;
 @implementation PCAnouncementTableViewController {
     UITableView *tableView;
     PCAnouncementListViewModel *viewModel;
@@ -31,7 +32,7 @@ int totalPage = 0;
     
     viewModel = [PCAnouncementListViewModel new];
     promotionArray = [NSMutableArray new];
-    [self downloadData];
+    [self getFirstList];
     
 }
 
@@ -44,11 +45,21 @@ int totalPage = 0;
     [backView setName:@"暂无通知公告"];
     [self.view addSubview:backView];
     
-    
-    tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    tableView = [UITableView new];
     tableView.delegate = self;
     tableView.dataSource = self;
+    tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [self getMoreList];
+    }];
     [backView addSubview:tableView];
+    
+    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    
+    currentPage = 1;
+    totalPage = 1;
+    
     //没有数据的时候显示背景图
     [tableView setHidden:true];
 
@@ -63,14 +74,31 @@ int totalPage = 0;
     [tableView reloadData];
 }
 
-
-- (void)downloadData {
-    [viewModel getPromotionListActionWithCurrentPage:[NSNumber numberWithInt:currentPage] success:^(id responseObject) {
+- (void)getFirstList {
+    [viewModel getFirstPromotionListAction:^(id responseObject) {
         totalPage = [[responseObject objectForKey:@"sumPage"] intValue];
-        
         NSArray *modelArray = [NSArray yy_modelArrayWithClass:[PCAnnouncementModel class] json:[responseObject objectForKey:@"newsList"]];
         
         [self->promotionArray addObjectsFromArray:modelArray];
+        currentPage = 2;
+        [self updateUI];
+    } fail:^(NSError *error) {
+        
+    }];
+}
+
+- (void)getMoreList {
+    [viewModel getPromotionListActionWithCurrentPage:[NSNumber numberWithInt:currentPage] success:^(id responseObject) {
+        NSArray *modelArray = [NSArray yy_modelArrayWithClass:[PCAnnouncementModel class] json:[responseObject objectForKey:@"newsList"]];
+        
+        [self->promotionArray addObjectsFromArray:modelArray];
+
+        if (currentPage == totalPage) {
+            [self->tableView.mj_footer endRefreshingWithNoMoreData];
+        } else {
+            [self->tableView.mj_footer endRefreshing];
+            currentPage ++;
+        }
         [self updateUI];
     } fail:^(NSError *error) {
         
@@ -105,11 +133,16 @@ int totalPage = 0;
     PCAnnouncementDetailViewController *VC = [PCAnnouncementDetailViewController new];
     VC.model = promotionArray[indexPath.row];
     [self.navigationController pushViewController:VC animated:true];
+    AnouncementTableViewCell *cell = (AnouncementTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    cell.selected = NO;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 130;
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-
     [self.navigationController setNavigationBarHidden:false animated:animated];
 }
 

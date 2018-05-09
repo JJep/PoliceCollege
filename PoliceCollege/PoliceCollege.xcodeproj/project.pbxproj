@@ -60,6 +60,7 @@
 		BE44B5E520A0252C0001B143 /* NSURL+PCURL.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5E420A0252C0001B143 /* NSURL+PCURL.m */; };
 		BE44B5E820A0321C0001B143 /* PCAnnouncementViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5E720A0321C0001B143 /* PCAnnouncementViewModel.m */; };
 		BE44B5EF20A0536E0001B143 /* Chapter.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5EE20A0536E0001B143 /* Chapter.m */; };
+		BEB609B720A2A51100473BC5 /* PCChapterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609B620A2A51100473BC5 /* PCChapterViewModel.m */; };
 		BEDE52AF20897B9000D00A98 /* PCPromotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52AE20897B9000D00A98 /* PCPromotionView.m */; };
 		BEDE52B5208991E900D00A98 /* PCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52B4208991E900D00A98 /* PCTabBarController.m */; };
 		BEDE52B82089B31600D00A98 /* PCAnouncementTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52B72089B31600D00A98 /* PCAnouncementTableViewController.m */; };
@@ -91,7 +92,6 @@
 		BEDE53362091670700D00A98 /* MoreChannelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE53352091670700D00A98 /* MoreChannelsViewController.m */; };
 		BEDE533920916A1A00D00A98 /* MyChannelsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE533820916A1A00D00A98 /* MyChannelsCollectionViewCell.m */; };
 		BEDE53422091AF2100D00A98 /* BookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE53412091AF2100D00A98 /* BookTableViewCell.m */; };
-		BEDE53452091AF6B00D00A98 /* BookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE53442091AF6B00D00A98 /* BookModel.m */; };
 		BEDE534B2091B93B00D00A98 /* BookIntroductionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE534A2091B93B00D00A98 /* BookIntroductionTableViewCell.m */; };
 		BEDE534E2091BFF700D00A98 /* BookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE534D2091BFF700D00A98 /* BookDetailViewController.m */; };
 		BEDE53512091DB1400D00A98 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE53502091DB1400D00A98 /* CommentTableViewCell.m */; };
@@ -211,6 +211,8 @@
 		BE44B5E720A0321C0001B143 /* PCAnnouncementViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCAnnouncementViewModel.m; sourceTree = "<group>"; };
 		BE44B5ED20A0536D0001B143 /* Chapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Chapter.h; sourceTree = "<group>"; };
 		BE44B5EE20A0536E0001B143 /* Chapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Chapter.m; sourceTree = "<group>"; };
+		BEB609B520A2A51100473BC5 /* PCChapterViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCChapterViewModel.h; sourceTree = "<group>"; };
+		BEB609B620A2A51100473BC5 /* PCChapterViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCChapterViewModel.m; sourceTree = "<group>"; };
 		BEDE52AD20897B9000D00A98 /* PCPromotionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCPromotionView.h; sourceTree = "<group>"; };
 		BEDE52AE20897B9000D00A98 /* PCPromotionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCPromotionView.m; sourceTree = "<group>"; };
 		BEDE52B3208991E900D00A98 /* PCTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCTabBarController.h; sourceTree = "<group>"; };
@@ -273,8 +275,6 @@
 		BEDE533820916A1A00D00A98 /* MyChannelsCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyChannelsCollectionViewCell.m; sourceTree = "<group>"; };
 		BEDE53402091AF2100D00A98 /* BookTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookTableViewCell.h; sourceTree = "<group>"; };
 		BEDE53412091AF2100D00A98 /* BookTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookTableViewCell.m; sourceTree = "<group>"; };
-		BEDE53432091AF6B00D00A98 /* BookModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookModel.h; sourceTree = "<group>"; };
-		BEDE53442091AF6B00D00A98 /* BookModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookModel.m; sourceTree = "<group>"; };
 		BEDE53492091B93B00D00A98 /* BookIntroductionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookIntroductionTableViewCell.h; sourceTree = "<group>"; };
 		BEDE534A2091B93B00D00A98 /* BookIntroductionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookIntroductionTableViewCell.m; sourceTree = "<group>"; };
 		BEDE534C2091BFF700D00A98 /* BookDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookDetailViewController.h; sourceTree = "<group>"; };
@@ -714,6 +714,22 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		BEB609B420A2A4FC00473BC5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BEB609B520A2A51100473BC5 /* PCChapterViewModel.h */,
+				BEB609B620A2A51100473BC5 /* PCChapterViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BEB609BB20A2FF9500473BC5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		BEDE52AB20897AB800D00A98 /* CenterView */ = {
 			isa = PBXGroup;
 			children = (
@@ -874,6 +890,7 @@
 		BEDE5306208F385000D00A98 /* PublicCourse */ = {
 			isa = PBXGroup;
 			children = (
+				BEB609BB20A2FF9500473BC5 /* ViewModel */,
 				BEDE530D208F40F500D00A98 /* Cell */,
 				BEDE530A208F40EF00D00A98 /* PublicCourseViewController.h */,
 				BEDE530B208F40EF00D00A98 /* PublicCourseViewController.m */,
@@ -1002,6 +1019,7 @@
 		BEDE533F2091835100D00A98 /* BookDetailView */ = {
 			isa = PBXGroup;
 			children = (
+				BEB609B420A2A4FC00473BC5 /* ViewModel */,
 				BEDE53532092B6E100D00A98 /* Model */,
 				BEDE53522092B6CB00D00A98 /* Cell */,
 				BEDE534C2091BFF700D00A98 /* BookDetailViewController.h */,
@@ -1026,8 +1044,6 @@
 		BEDE53532092B6E100D00A98 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BEDE53432091AF6B00D00A98 /* BookModel.h */,
-				BEDE53442091AF6B00D00A98 /* BookModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1160,10 +1176,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PoliceCollege/Pods-PoliceCollege-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1199,6 +1217,7 @@
 				BEDE52C62089DB9C00D00A98 /* MePortraitTableViewCell.m in Sources */,
 				BEDE533920916A1A00D00A98 /* MyChannelsCollectionViewCell.m in Sources */,
 				BE44B5D8209D8CF20001B143 /* OnlineTestViewModel.m in Sources */,
+				BEB609B720A2A51100473BC5 /* PCChapterViewModel.m in Sources */,
 				BEDE536420930A1F00D00A98 /* PersonViewController.m in Sources */,
 				BE44B5C9209C590B0001B143 /* PCAnouncementListViewModel.m in Sources */,
 				BEDE52DB208B2BBC00D00A98 /* MePortrait.m in Sources */,
@@ -1245,7 +1264,6 @@
 				BEDE5314208F65E100D00A98 /* LearningViewController.m in Sources */,
 				BE44B5AA2099BD340001B143 /* JMBaseResponseModel.m in Sources */,
 				BE44B5A020999CF50001B143 /* PCNetworkEngine.m in Sources */,
-				BEDE53452091AF6B00D00A98 /* BookModel.m in Sources */,
 				BE21DAA0208732D40086B8BA /* PCCenterdView.m in Sources */,
 				BEDE5305208F355800D00A98 /* PushSettingTableViewCell.m in Sources */,
 				BE44B571209468660001B143 /* PCTopView.m in Sources */,

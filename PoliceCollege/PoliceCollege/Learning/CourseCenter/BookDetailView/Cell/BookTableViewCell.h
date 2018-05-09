@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BookModel.h"
 @interface BookTableViewCell : UITableViewCell
 @property(nonatomic,retain)UIButton *readBtn;
 @property(nonatomic,retain)UIButton *downloadBtn;
-@property(nonatomic,retain)BookModel *bookModel;
+//@property(nonatomic,retain)BookModel *bookModel;
 @property(nonatomic,retain)UIButton *introductionBtn;
 @property(nonatomic,retain)UIButton *commentBtn;
 @property(nonatomic,retain)UIView *leftView;

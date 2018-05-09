@@ -48,6 +48,9 @@
             //将账户信息保存到本地
             [[JMUserLocalData sharedManager] setIsLogin:true];
             [[JMUserLocalData sharedManager] setUser:self->user];
+            [[JMUserLocalData sharedManager] setAuthorization:[responseObject objectForKey:@"token"]];
+            [[JMUserLocalData sharedManager] setUserName:self->loginView.userNameTextField.text];
+            [[JMUserLocalData sharedManager] setUserPassword:self->loginView.passwordTextField.text];
             
             NSLog(@"%@",self->user);
             NSLog(@"%@",[JMUserLocalData sharedManager].user);

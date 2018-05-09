@@ -9,6 +9,11 @@
 #import "PCAnouncementListViewModel.h"
 
 @implementation PCAnouncementListViewModel
+
+- (void)getFirstPromotionListAction:(PCSuccessHandler)success fail:(PCFailedHandler)fail {
+    [self getPromotionListActionWithCurrentPage:[NSNumber numberWithInt:1] success:success fail:fail];
+}
+
 - (void)getPromotionListActionWithCurrentPage:(NSNumber *)currentPage success:(PCSuccessHandler)success fail:(PCFailedHandler)fail {
     //设置相关网络请求
     PCBaseRequest *request = [[PCBaseRequest alloc] init];

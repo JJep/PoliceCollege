@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BookModel.h"
 @interface BookIntroductionTableViewCell : UITableViewCell
 - (void)setContent:(NSString *)content;
 @end

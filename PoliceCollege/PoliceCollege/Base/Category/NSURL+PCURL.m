@@ -11,7 +11,7 @@
 @implementation NSURL (PCURL)
 + (NSURL *)pc_imageURLWithString:(NSString *)string {
     NSURL *url = [[NSURL alloc] init];
-    NSString *baseURL = @"http://192.168.0.108/NetworkCollege-app";
+    NSString *baseURL = @"http://139.224.208.224/NetworkCollege-app";
     url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", [baseURL substringWithRange:NSMakeRange(0, baseURL.length - 5)], string]];
     return url;
 }

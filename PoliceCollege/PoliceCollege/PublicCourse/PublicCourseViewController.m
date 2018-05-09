@@ -20,10 +20,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"公开课程";
-    tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    tableView = [[UITableView alloc] init];
     tableView.delegate = self;
     tableView.dataSource = self;
     [self.view addSubview:tableView];
+    
+    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

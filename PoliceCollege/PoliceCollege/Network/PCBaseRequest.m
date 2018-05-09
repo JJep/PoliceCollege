@@ -9,6 +9,7 @@
 #import "PCBaseRequest.h"
 #import "JMBaseResponseModel.h"
 #import "JMUserLocalData.h"
+#import "PCLoginViewModel.h"
 @interface PCBaseRequest()
 @property (nonatomic, strong) NSURLSessionTask *task;
 @property (nonatomic, strong) NSString *baseUrl;
@@ -19,11 +20,11 @@
     self = [super init];
     if(self) {
 #if DEBUG
-//        self.baseUrl = @"http://139.224.208.224/NetworkCollege-app";
-        self.baseUrl = @"http://192.168.0.108/NetworkCollege-app";
+        self.baseUrl = @"http://139.224.208.224/NetworkCollege-app";
+//        self.baseUrl = @"http://192.168.0.108/NetworkCollege-app";
 #else
-//        self.baseUrl = @"http://139.224.208.224/NetworkCollege-app";
-        self.baseUrl = @"http://192.168.0.108/NetworkCollege-app";
+        self.baseUrl = @"http://139.224.208.224/NetworkCollege-app";
+//        self.baseUrl = @"http://192.168.0.108/NetworkCollege-app";
 #endif
     }
     return self;
@@ -64,29 +65,35 @@
     
     if ([self.requstType isEqualToString:@"get"]) {
         self.task = [[PCNetworkEngine sharedEngine] getWithAPI:actualUrl parameters:self.paraDict succeededBlock:^(id responseObject) {
-            id json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-            successBlock(json);
+            id jsonS = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+            if ([[jsonS objectForKey:@"state"] isEqualToString:@"toLogin"]) {
+                //登录过期
+                NSLog(@"提醒用户重新登录");
+                [JMUserLocalData removeAllLocalData];
+            } else {
+                successBlock(jsonS);
+            }
         } failBlock:^(NSError *error) {
             errorBlock(error);
         }];
     } else if ([self.requstType isEqualToString:@"post"]) {
         self.task = [[PCNetworkEngine sharedEngine] postWithAPI:actualUrl parameters:self.paraDict succeededBlock:^(id responseObject) {
+            //登录过期
             
-            if ([self.modelName isEqualToString:@"User"] ) {
-                NSHTTPURLResponse *response = (NSHTTPURLResponse *)self.task.response;
-                NSDictionary *allHeaders = response.allHeaderFields;
-                NSString *setCookie = [allHeaders objectForKey:@"Authorization"];
-                if (setCookie) {
-                    [[JMUserLocalData sharedManager] setAuthorization:setCookie];
-                }
-            }
             id jsonS = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-            successBlock(jsonS);
+            if ([[jsonS objectForKey:@"state"] isEqualToString:@"toLogin"]) {
+                //登录过期
+                NSLog(@"提醒用户重新登录");
+                [JMUserLocalData removeAllLocalData];
+            } else {
+                successBlock(jsonS);
+            }
         } failedBlock:^(NSError *error) {
             errorBlock(error);
         }];
     } else if ([self.requstType isEqualToString:@"put"]) {
         self.task = [[PCNetworkEngine sharedEngine] putWithAPI:actualUrl parameters:self.paraDict succeededBlock:^(id responseObject) {
+
             id json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
             if (self.modelName.length == 0) {
                 successBlock(json);
@@ -105,6 +112,7 @@
         }];
     } else if ([self.requstType isEqualToString:@"del"]) {
         self.task = [[PCNetworkEngine sharedEngine] delWithAPI:actualUrl parameters:self.paraDict succeededBlock:^(id responseObject) {
+
             id json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
             if (self.modelName.length == 0) {
                 successBlock(json);

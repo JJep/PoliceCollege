@@ -12,6 +12,8 @@
 #define localUser @"user"
 #define localAuthorization @"Authorization"
 #define localUserInfo @"userInfo"
+#define localUserName @"userName"
+#define localUserPassword @"userPassword"
 @implementation JMUserLocalData
 
 + (instancetype)sharedManager {
@@ -24,13 +26,31 @@
     return instance;
 }
 
+- (void)setUserPassword:(NSString *)userPassword {
+    [[NSUserDefaults standardUserDefaults] setObject:userPassword forKey:localUserPassword];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (NSString *)userPassword {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:localUserPassword];
+}
+
+-(void)setUserName:(NSString *)userName {
+    [[NSUserDefaults standardUserDefaults] setObject:userName forKey:localUserName];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (NSString *)userName {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:localUserName];
+}
+
 -(void)setAuthorization:(NSString *)authorization
 {
     [[NSUserDefaults standardUserDefaults] setObject:authorization forKey:localAuthorization];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-- (NSString *)cookie {
+- (NSString *)authorization {
     return [[NSUserDefaults standardUserDefaults] objectForKey:localAuthorization] ;
 }
 

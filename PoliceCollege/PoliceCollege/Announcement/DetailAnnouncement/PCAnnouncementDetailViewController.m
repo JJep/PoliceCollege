@@ -11,7 +11,7 @@
 #import "PCAnnouncementModel.h"
 #import "PCAnnouncementViewModel.h"
 #import <WebKit/WebKit.h>
-@interface PCAnnouncementDetailViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface PCAnnouncementDetailViewController () <WKUIDelegate, WKNavigationDelegate>
 
 @end
 
@@ -30,20 +30,27 @@
 
 - (void)initViews {
     
-    if (self.model.isLink) {
-        webView = [[WKWebView alloc] initWithFrame:self.view.bounds];
-        [self.view addSubview:webView];
-//        webView.UIDelegate = self;
-//        webView.navigationDelegate = self;
-        [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.model.content]]];
+    webView = [[WKWebView alloc] init];
+    webView.navigationDelegate = self;
+    webView.UIDelegate = self;
+    [self.view addSubview:webView];
+    
+    [webView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view);
+        make.left.equalTo(self.view);
+        make.right.equalTo(self.view);
+        make.bottom.equalTo(self.view);
+    }];
+    
+    if ([self.model.isLink isEqualToString:@"0"]) {
+        
+        NSString *headerString = @"<header><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'></header>";
+        [webView loadHTMLString:[headerString stringByAppendingString:self.model.content] baseURL:nil];
     } else {
-        tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
-        viewModel = [PCAnnouncementViewModel new];
-        tableView.delegate = self;
-        tableView.dataSource = self;
-        [self.view addSubview:tableView];
+        NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.model.content]];
+        [webView loadRequest:request];
     }
-    [self.navigationController setNavigationBarHidden:true animated:true];
+
 }
 
 - (void)getDetailAnnouncement {
@@ -54,42 +61,9 @@
     }];
 }
 
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellID = @"promotionDetailCell";
-    PCAnnouncementTextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    cell = [[PCAnnouncementTextTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-    UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [cancelButton setImage:[UIImage imageNamed:@"cancel"] forState:UIControlStateNormal];
-    [cancelButton setFrame:CGRectMake(15, 5, 30, 30)];
-    [cancelButton addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
-    [cell addSubview:cancelButton];
-    
-    [cell setModel:self.model];
-    
-    return cell;
-}
-
 - (void)cancel {
     [self.navigationController popViewControllerAnimated:true];
 }
-
-
-
-
-
-
-
-
-
 
 
 

@@ -201,18 +201,18 @@
 //    }
 //}
 
--(void)setBookModel:(BookModel *)bookModel {
-    if (_bookModel != bookModel) {
-        
-        _bookModel = bookModel;
-        [bookImageView setImage:_bookModel.bookImage];
-        [bookWriterLabel setText:[NSString stringWithFormat:@"作者：%@",_bookModel.bookWriter]];
-        [bookCategoryLabel setText:[NSString stringWithFormat:@"分类：%@",_bookModel.bookCategory]];
-        [bookStatusLabel setText:[NSString stringWithFormat:@"状态：%@",_bookModel.bookStatus]];
-        [bookNameLabel setText:_bookModel.bookName];
-        
-    }
-}
+//-(void)setBookModel:(BookModel *)bookModel {
+//    if (_bookModel != bookModel) {
+//
+//        _bookModel = bookModel;
+//        [bookImageView setImage:_bookModel.bookImage];
+//        [bookWriterLabel setText:[NSString stringWithFormat:@"作者：%@",_bookModel.bookWriter]];
+//        [bookCategoryLabel setText:[NSString stringWithFormat:@"分类：%@",_bookModel.bookCategory]];
+//        [bookStatusLabel setText:[NSString stringWithFormat:@"状态：%@",_bookModel.bookStatus]];
+//        [bookNameLabel setText:_bookModel.bookName];
+//
+//    }
+//}
 
 @end
 
