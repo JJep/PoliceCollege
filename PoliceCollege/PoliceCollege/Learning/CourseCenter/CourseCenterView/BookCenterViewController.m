@@ -64,7 +64,7 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
     currentPage = 1;
     Channel *channel = [[Channel alloc] init];
     channel.name = @"推荐";
-    [booksArray addObject:channel];
+    [channelsArray addObject:channel];
 }
 
 - (void)createUI {
@@ -129,7 +129,16 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
     //获取我的频道
     [channelViewModel getMyChannelWithType:[NSNumber numberWithInt:bookType] success:^(id responseObject) {
         if ([[responseObject objectForKey:@"state"] isEqualToString:@"1"]) {
-            self->channelsArray = [[NSMutableArray alloc] initWithArray:[NSArray yy_modelArrayWithClass:[Channel class] json:[responseObject objectForKey:@"params"]]];
+            NSArray *ary = [NSArray yy_modelArrayWithClass:[Channel class] json:[responseObject objectForKey:@"params"]];
+            //移除之前的频道
+            [self->channelsArray removeAllObjects];
+            //添加从服务器获取的频道
+            [self->channelsArray addObjectsFromArray:ary];
+            Channel *recommendedChannel = [[Channel alloc] init];
+            [recommendedChannel setName:@"推荐"];
+            //在数组最前端添加“推荐”频道，作为固定的频道
+            [self->channelsArray insertObject:recommendedChannel atIndex:0] ;
+            //重绘
             [self->channelView.collectionView reloadData];
         }
     } fail:^(NSError *error) {
@@ -143,7 +152,7 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     //还有一个推荐频道，属于自带的频道
-    return channelsArray.count + 1;
+    return channelsArray.count ;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -183,11 +192,12 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
         [cell setIsSelected:true];
         tempCell = cell;
     }
-    
 }
 
 - (void)didTouchBtn:(UIButton *)button {
     MoreChannelsViewController *newVC = [MoreChannelsViewController new];
+    newVC.type = bookType;
+    newVC.channelsArray = channelsArray;
     [self.navigationController pushViewController:newVC animated:true];
 }
 @end

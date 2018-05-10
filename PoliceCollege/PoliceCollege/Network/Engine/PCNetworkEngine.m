@@ -18,12 +18,6 @@
     sharedEngine.requestSerializer = [[PCRequestSerializer alloc] init];
     sharedEngine.requestSerializer.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
     sharedEngine.requestSerializer.timeoutInterval = 30.0;
-    if ([JMUserLocalData sharedManager].authorization) {
-        NSLog(@"%@",[JMUserLocalData sharedManager].authorization);
-        [sharedEngine.requestSerializer setValue:[JMUserLocalData sharedManager].authorization forHTTPHeaderField:@"Authorization"];
-    }
-//    NSDictionary *requestDict =(NSDictionary *)sharedEngine.requestSerializer;
-//    NSLog(@"%@",sharedEngine.requestSerializer.);
     sharedEngine.responseSerializer = [[PCResponseSerializer alloc] init];
     sharedEngine.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/javascript",@"text/html",@"text/plain",nil];
     return sharedEngine;

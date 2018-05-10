@@ -1,30 +1,31 @@
 //
-//  PublicCourseViewController.m
+//  PublicVideoViewController.m
 //  PoliceCollege
 //
-//  Created by Jep Xia on 2018/4/24.
+//  Created by Jep Xia on 2018/5/10.
 //  Copyright © 2018年 Jep Xia. All rights reserved.
 //
 
-#import "PublicCourseViewController.h"
-#import "PublicCourseTableViewCell.h"
-#import "PCCourseViewModel.h"
-#import "Course.h"
-#import <MJRefresh.h>
+#import "PublicVideoViewController.h"
+#import "VideoViewModel.h"
 #import "BackView.h"
-#import "DetailCourseViewController.h"
-@interface PublicCourseViewController () <UITableViewDelegate, UITableViewDataSource>
+#import "Video.h"
+#import <MJRefresh.h>
+#import "PublicVideoTableViewCell.h"
+#import "DetailVideoViewController.h"
+@interface PublicVideoViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @end
-
-@implementation PublicCourseViewController {
+static NSString *cellID = @"videoCell";
+@implementation PublicVideoViewController {
     UITableView *tableView;
-    NSMutableArray *courseArray;
+    NSMutableArray *videoArray;
     int currentPage;
     int totalPage;
-    PCCourseViewModel *courseViewModel;
+    VideoViewModel *videoViewModel;
     BackView *backView;
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,18 +33,18 @@
     [self initViews];
     [self initData];
     [self getFirstCourseList];
-
+    
 }
 
 - (void)getMoreCourseList {
-    [courseViewModel getMoreREcommendedCourseListAction:[NSNumber numberWithInt:currentPage] success:^(id responseObject) {
-//        NSArray *tempArray = [NSArray yy_modelArrayWithClass:[Course class] json:[responseObject objectForKey:@"courseList"]];
-        NSArray *ary = [responseObject objectForKey:@"courseList"];
-        [ary enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            Course *course = [[Course alloc] initWithDictionary:obj];
-            [self->courseArray addObject:course];
-        }];
-//        [self->courseArray addObjectsFromArray:tempArray];
+    [videoViewModel getMoreREcommendedVideoListAction:[NSNumber numberWithInt:currentPage] success:^(id responseObject) {
+                NSArray *tempArray = [NSArray yy_modelArrayWithClass:[Video class] json:[responseObject objectForKey:@"videoList"]];
+//        NSArray *ary = [responseObject objectForKey:@"courseList"];
+//        [ary enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//            Video *video = [[Video alloc] initWithDictionary:obj];
+//            [self->videoArray addObject:video];
+//        }];
+                [self->videoArray addObjectsFromArray:tempArray];
         
         self->totalPage = [[responseObject objectForKey:@"sumPage"] intValue];
         if (self->currentPage == self->totalPage) {
@@ -59,15 +60,15 @@
 }
 
 - (void)getFirstCourseList {
-    [courseViewModel getFirstRecommendedCourseListAction:^(id responseObject) {
+    [videoViewModel getFirstRecommendedVideoListAction:^(id responseObject) {
         if ([[responseObject objectForKey:@"state"] isEqualToString:@"1"]) {
-//            NSArray *tempArray = [NSArray yy_modelArrayWithClass:[Course class] json:[responseObject objectForKey:@"courseList"]];
-//            [self->courseArray addObjectsFromArray:tempArray];
-            NSArray *ary = [responseObject objectForKey:@"courseList"];
-            [ary enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                Course *course = [[Course alloc] initWithDictionary:obj];
-                [self->courseArray addObject:course];
-            }];
+                        NSArray *tempArray = [NSArray yy_modelArrayWithClass:[Video class] json:[responseObject objectForKey:@"videoList"]];
+                        [self->videoArray addObjectsFromArray:tempArray];
+//            NSArray *ary = [responseObject objectForKey:@"courseList"];
+//            [ary enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//                Course *course = [[Course alloc] initWithDictionary:obj];
+//                [self->courseArray addObject:course];
+//            }];
             self->totalPage = [[responseObject objectForKey:@"sumPage"] intValue];
             self->currentPage = 2;
             [self updateUI];
@@ -80,7 +81,7 @@
 }
 
 - (void)updateUI {
-    if (courseArray.count == 0) {
+    if (videoArray.count == 0) {
         [tableView setHidden:true];
     } else {
         [tableView setHidden:false];
@@ -89,9 +90,9 @@
 }
 
 - (void)initData {
-    courseArray = [NSMutableArray new];
+    videoArray = [NSMutableArray new];
     currentPage = 1;
-    courseViewModel = [PCCourseViewModel new];
+    videoViewModel = [VideoViewModel new];
 }
 
 - (void)initViews {
@@ -100,10 +101,10 @@
     
     backView = [[BackView alloc] initWithFrame:self.view.bounds];
     [backView setImage:[UIImage imageNamed:@"video"]];
-    [backView setName:@"暂无公开课程"];
+    [backView setName:@"暂无公开视频"];
     [self.view addSubview:backView];
     
-    self.title = @"公开课程";
+    self.title = @"公开视频";
     tableView = [[UITableView alloc] init];
     tableView.delegate = self;
     tableView.dataSource = self;
@@ -114,7 +115,7 @@
     
     [tableView setHidden:true];
     
-    [tableView registerClass:[PublicCourseTableViewCell class] forCellReuseIdentifier:@"publicCourseCell"];
+    [tableView registerClass:[PublicVideoTableViewCell class] forCellReuseIdentifier:cellID];
     
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
@@ -126,13 +127,12 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return courseArray.count;
+    return videoArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellID = @"publicCourseCell";
-    PublicCourseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    [cell setModel:courseArray[indexPath.row]];
+    PublicVideoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    [cell setModel:videoArray[indexPath.row]];
     return cell;
 }
 
@@ -141,10 +141,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    DetailCourseViewController *detailCourseViewController = [DetailCourseViewController new];
-    detailCourseViewController.idField = ((Course *)courseArray[indexPath.row]).idField;
-    NSLog(@"%ld", (long)((Course *)courseArray[indexPath.row]).idField);
-    [self.navigationController pushViewController:detailCourseViewController animated:true];
+    DetailVideoViewController *detailVideoViewController = [DetailVideoViewController new];
+    detailVideoViewController.idField = ((Video *)videoArray[indexPath.row]).idField;
+    NSLog(@"%ld", (long)((Video *)videoArray[indexPath.row]).idField);
+    [self.navigationController pushViewController:detailVideoViewController animated:true];
 }
 
 -(void)viewWillAppear:(BOOL)animated {

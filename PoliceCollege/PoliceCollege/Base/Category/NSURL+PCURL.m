@@ -11,8 +11,17 @@
 @implementation NSURL (PCURL)
 + (NSURL *)pc_imageURLWithString:(NSString *)string {
     NSURL *url = [[NSURL alloc] init];
-    NSString *baseURL = @"http://139.224.208.224/NetworkCollege-app";
-    url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", [baseURL substringWithRange:NSMakeRange(0, baseURL.length - 5)], string]];
+    NSString *baseURL = @"http://139.224.208.224/NetworkCollege/";
+    url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",baseURL,  string]];
+    return url;
+}
+
++(NSURL *)pc_videoURLWithString:(NSString *)string {
+    NSString *baseURL = @"http://139.224.208.224/NetworkCollege/";
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@", baseURL, string];
+    urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    urlStr = [urlStr stringByAddingPercentEncodingWithAllowedCharacters:URLPathAllowedCharacterSet]
+    NSURL *url = [NSURL URLWithString:urlStr];
     return url;
 }
 @end

@@ -100,20 +100,7 @@
 }
 
 - (void)setModel:(Book *)model {
-//    UIImageView *imageView;
-//    UILabel *bookNameLabel;
-//    UILabel *authorNameLabel;
-//    UILabel *bookTimeLabel;
-//    UILabel *creditLabel;
-//    UILabel *scoreLabel;
-//    UILabel *clicksLabel;
-//    UILabel *commentsQuantityLabel;
-//    NSMutableAttributedString *creditStr;
-//    NSMutableAttributedString *scoreStr;
-//    NSMutableAttributedString *clicksStr;
-//    NSMutableAttributedString *commentsQuantityStr;
-//    UIButton *startLearningBtn;
-    [imageView sd_setImageWithURL:[NSURL URLWithString:model.img]];
+    [imageView sd_setImageWithURL:[NSURL pc_imageURLWithString:model.img] placeholderImage:[UIImage imageNamed:@"banner"]];
     [bookNameLabel setText:model.title];
     [authorNameLabel setText:model.author];
     [bookTimeLabel setText:model.published];

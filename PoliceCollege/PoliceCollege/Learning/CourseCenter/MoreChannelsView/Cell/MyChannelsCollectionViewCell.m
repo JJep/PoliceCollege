@@ -28,6 +28,10 @@
     return self;
 }
 
+- (void)setModel:(Channel *)model {
+    [channelNameLabel setText:model.name];
+}
+
 @end
 
 

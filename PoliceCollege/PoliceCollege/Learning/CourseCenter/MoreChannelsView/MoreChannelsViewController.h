@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class ChannelsModel;
 @interface MoreChannelsViewController : UIViewController
-@property (nonatomic,retain)ChannelsModel *channelsModel;
+@property (nonatomic,retain)NSArray *channelsArray;
+@property (nonatomic,assign)int type;
 @end

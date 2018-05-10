@@ -1,14 +1,14 @@
 //
-//  PublicCourseTableViewCell.m
+//  PublicVideoTableViewCell.m
 //  PoliceCollege
 //
-//  Created by Jep Xia on 2018/4/24.
+//  Created by Jep Xia on 2018/5/10.
 //  Copyright © 2018年 Jep Xia. All rights reserved.
 //
 
-#import "PublicCourseTableViewCell.h"
+#import "PublicVideoTableViewCell.h"
 
-@implementation PublicCourseTableViewCell {
+@implementation PublicVideoTableViewCell {
     UIImageView *imageView;
     UILabel *titleLabel;
     UILabel *subTitleLabel;
@@ -42,7 +42,7 @@
         subTitleLabel.text = @"与往年不同，随着去年西成高铁的开通，今年一列列高铁穿越在油彩画";
         subTitleLabel.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:10];
         subTitleLabel.textColor = [UIColor colorWithRed:203/255.0 green:204/255.0 blue:205/255.0 alpha:1/1.0];
-
+        
         [imageView setImage:[UIImage imageNamed:@"banner"]];
         
         timeLabel.text = @"03 月 26 日更新";
@@ -102,11 +102,11 @@
     
 }
 
-- (void)setModel:(Course *)model {
-
+- (void)setModel:(Video *)model {
+    
     [imageView sd_setImageWithURL:[NSURL pc_imageURLWithString:model.img]];
     [titleLabel setText:model.title];
-    [subTitleLabel setText:model.content];
+//    [subTitleLabel setText:model.content];
     [timeLabel setText:model.published];
     [commentsNumLabel setText:[NSString stringWithFormat:@"%lu",(unsigned long)model.commentNum ]];
     

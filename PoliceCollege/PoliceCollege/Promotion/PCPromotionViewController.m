@@ -12,6 +12,7 @@
 #import "PCCenterdViewButton.h"
 #import "PCAnouncementTableViewController.h"
 #import "PublicCourseViewController.h"
+#import "PublicVideoViewController.h"
 #define leftBtnTag 123
 #define centerBtnTag 1234
 #define rightBtnTag 12345
@@ -54,11 +55,15 @@
             break;
         }
         case centerBtnTag:
-        
-        
-        case rightBtnTag:
         {
             PublicCourseViewController *newVC = [PublicCourseViewController new];
+            newVC.hidesBottomBarWhenPushed = true;
+            [self.navigationController pushViewController:newVC animated:true];
+        }
+            break;
+        case rightBtnTag:
+        {
+            PublicVideoViewController *newVC = [PublicVideoViewController new];
             newVC.hidesBottomBarWhenPushed = true;
             [self.navigationController pushViewController:newVC animated:true];
         }

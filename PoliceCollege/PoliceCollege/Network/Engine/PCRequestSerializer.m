@@ -22,7 +22,7 @@
 //    //设置HTTPHeader
 //    [request setValue:content forHTTPHeaderField:@"Content-Type"];
     if ([JMUserLocalData sharedManager].authorization) {
-        NSLog(@"%@",[JMUserLocalData sharedManager].authorization);
+//        NSLog(@"%@",[JMUserLocalData sharedManager].authorization);
         [request setValue:[JMUserLocalData sharedManager].authorization forHTTPHeaderField:@"Authorization"];
     }
     

@@ -10,4 +10,5 @@
 
 @interface NSURL (PCURL)
 + (NSURL *)pc_imageURLWithString:(NSString *)string;
++ (NSURL *)pc_videoURLWithString:(NSString *)string;
 @end

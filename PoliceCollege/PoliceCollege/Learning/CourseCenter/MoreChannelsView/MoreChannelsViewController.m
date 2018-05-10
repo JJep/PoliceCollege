@@ -8,6 +8,7 @@
 
 #import "MoreChannelsViewController.h"
 #import "MyChannelsCollectionViewCell.h"
+#import "PCChannelViewModel.h"
 @interface MoreChannelsViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @end
@@ -22,17 +23,30 @@
     UIButton *editBtn;
     UILabel *recommendedChannelsLabel;
     UILabel *recommendedChannelsSubLabel;
+    PCChannelViewModel *channelViewModel;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self.view setBackgroundColor:MyWhiteBackgroundColor];
 
-    [self initMyChannelsCollectionView];
-    [self initRecommendedChannelsCollectionView];
-    [self initSubViews];
+    [self initViews];
     [self initData];
+    [self getRecommendedChannels];
+}
+
+- (void)getRecommendedChannels {
+    [channelViewModel getAllChannelsWithType:[NSNumber numberWithInt:self.type] success:^(id responseObject) {
+        NSArray *ary = [NSArray yy_modelArrayWithClass:[Channel class] json:[responseObject objectForKey:@"paramsetList"]];
+        self->recommendedChannelDataArray = [NSMutableArray arrayWithArray:ary];
+        [self updateUI];
+    } fail:^(NSError *error) {
+        NSLog(@"%@", error);
+    }];
+}
+
+- (void)updateUI {
+    [recommendedChannelsCollectionView reloadData];
+    [myChannelsCollectionView reloadData];
 }
 
 
@@ -41,22 +55,20 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-//    if ([collectionView isEqual:myChannelsCollectionView]) {
-//        return myChannelDataArray.count;
-//    } else {
-//        return recommendedChannelDataArray.count;
-//    }
-    
-    return 8;
+    if ([collectionView isEqual:myChannelsCollectionView]) {
+        return myChannelDataArray.count;
+    } else {
+        return recommendedChannelDataArray.count;
+    }
 }
 
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     MyChannelsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-//    if ([collectionView isEqual:myChannelsCollectionView])
-//        [cell setChannelModel:myChannelDataArray[indexPath.row]];
-//    else
-//        [cell setChannelModel:recommendedChannelDataArray[indexPath.row]];
+    if ([collectionView isEqual:myChannelsCollectionView])
+        [cell setModel:myChannelDataArray[indexPath.row]];
+    else
+        [cell setModel:recommendedChannelDataArray[indexPath.row]];
     return cell;
 }
 
@@ -71,10 +83,15 @@
 - (void)initData {
     myChannelDataArray = [NSMutableArray new];
     recommendedChannelDataArray = [NSMutableArray new];
+    channelViewModel = [PCChannelViewModel new];
 }
 
-- (void)initSubViews {
+- (void)initViews {
+    [self.view setBackgroundColor:MyWhiteBackgroundColor];
     
+    [self initMyChannelsCollectionView];
+    [self initRecommendedChannelsCollectionView];
+
     myChannelsLabel = [UILabel new];
     myChannelsSubLabel = [UILabel new];
     editBtn = [UIButton new];
@@ -151,10 +168,10 @@
 - (void)initMyChannelsCollectionView {
     // 流水布局
     UICollectionViewFlowLayout *myChannelsLayout = [[UICollectionViewFlowLayout alloc] init];
-    myChannelsLayout.itemSize = CGSizeMake(60, 40);
+    myChannelsLayout.itemSize = CGSizeMake(90, 40);
     myChannelsLayout.minimumLineSpacing = 10;
     myChannelsLayout.minimumInteritemSpacing = 10;
-    myChannelsLayout.sectionInset = UIEdgeInsetsMake(20, 20, 20, 20);
+    myChannelsLayout.sectionInset = UIEdgeInsetsMake(20, 0, 20, 0);
 
     myChannelsCollectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:myChannelsLayout];
     [myChannelsCollectionView setBackgroundColor:MyWhiteBackgroundColor];
@@ -166,10 +183,10 @@
 
 - (void)initRecommendedChannelsCollectionView {
     UICollectionViewFlowLayout *recomendedChannelLayout = [[UICollectionViewFlowLayout alloc] init];
-    recomendedChannelLayout.itemSize = CGSizeMake(60, 40);
+    recomendedChannelLayout.itemSize = CGSizeMake(90, 40);
     recomendedChannelLayout.minimumLineSpacing = 10;
     recomendedChannelLayout.minimumInteritemSpacing = 10;
-    recomendedChannelLayout.sectionInset = UIEdgeInsetsMake(20, 20, 20, 20);
+    recomendedChannelLayout.sectionInset = UIEdgeInsetsMake(20, 0, 20, 0);
     
     recommendedChannelsCollectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:recomendedChannelLayout];
     [recommendedChannelsCollectionView setBackgroundColor:MyWhiteBackgroundColor];

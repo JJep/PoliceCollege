@@ -61,6 +61,19 @@
 		BE44B5E820A0321C0001B143 /* PCAnnouncementViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5E720A0321C0001B143 /* PCAnnouncementViewModel.m */; };
 		BE44B5EF20A0536E0001B143 /* Chapter.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5EE20A0536E0001B143 /* Chapter.m */; };
 		BEB609B720A2A51100473BC5 /* PCChapterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609B620A2A51100473BC5 /* PCChapterViewModel.m */; };
+		BEB609BE20A302BD00473BC5 /* PCCourseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609BD20A302BD00473BC5 /* PCCourseViewModel.m */; };
+		BEB609C220A3E17100473BC5 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609C120A3E17100473BC5 /* Course.m */; };
+		BEB609C620A3FE0700473BC5 /* DetailCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609C520A3FE0700473BC5 /* DetailCourseViewController.m */; };
+		BEB609CA20A3FEAE00473BC5 /* PCDetailCourseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609C920A3FEAE00473BC5 /* PCDetailCourseTableViewCell.m */; };
+		BEB609CD20A4033400473BC5 /* WebVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609CC20A4033400473BC5 /* WebVideoViewController.m */; };
+		BEB609D020A4167300473BC5 /* DetailCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609CF20A4167300473BC5 /* DetailCourse.m */; };
+		BEB609D420A429BF00473BC5 /* PublicVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609D320A429BF00473BC5 /* PublicVideoViewController.m */; };
+		BEB609D920A42A2E00473BC5 /* VideoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609D820A42A2E00473BC5 /* VideoViewModel.m */; };
+		BEB609DC20A42BCF00473BC5 /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609DB20A42BCF00473BC5 /* Video.m */; };
+		BEB609E020A42E1100473BC5 /* PublicVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609DF20A42E1100473BC5 /* PublicVideoTableViewCell.m */; };
+		BEB609E420A4317900473BC5 /* DetailVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609E320A4317900473BC5 /* DetailVideo.m */; };
+		BEB609E720A431AA00473BC5 /* DetailVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609E620A431AA00473BC5 /* DetailVideoViewController.m */; };
+		BEB609EB20A4325B00473BC5 /* DetailVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609EA20A4325B00473BC5 /* DetailVideoTableViewCell.m */; };
 		BEDE52AF20897B9000D00A98 /* PCPromotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52AE20897B9000D00A98 /* PCPromotionView.m */; };
 		BEDE52B5208991E900D00A98 /* PCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52B4208991E900D00A98 /* PCTabBarController.m */; };
 		BEDE52B82089B31600D00A98 /* PCAnouncementTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52B72089B31600D00A98 /* PCAnouncementTableViewController.m */; };
@@ -213,6 +226,32 @@
 		BE44B5EE20A0536E0001B143 /* Chapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Chapter.m; sourceTree = "<group>"; };
 		BEB609B520A2A51100473BC5 /* PCChapterViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCChapterViewModel.h; sourceTree = "<group>"; };
 		BEB609B620A2A51100473BC5 /* PCChapterViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCChapterViewModel.m; sourceTree = "<group>"; };
+		BEB609BC20A302BD00473BC5 /* PCCourseViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCCourseViewModel.h; sourceTree = "<group>"; };
+		BEB609BD20A302BD00473BC5 /* PCCourseViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCCourseViewModel.m; sourceTree = "<group>"; };
+		BEB609C020A3E17100473BC5 /* Course.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
+		BEB609C120A3E17100473BC5 /* Course.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
+		BEB609C420A3FE0700473BC5 /* DetailCourseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailCourseViewController.h; sourceTree = "<group>"; };
+		BEB609C520A3FE0700473BC5 /* DetailCourseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailCourseViewController.m; sourceTree = "<group>"; };
+		BEB609C820A3FEAE00473BC5 /* PCDetailCourseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCDetailCourseTableViewCell.h; sourceTree = "<group>"; };
+		BEB609C920A3FEAE00473BC5 /* PCDetailCourseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCDetailCourseTableViewCell.m; sourceTree = "<group>"; };
+		BEB609CB20A4033400473BC5 /* WebVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebVideoViewController.h; sourceTree = "<group>"; };
+		BEB609CC20A4033400473BC5 /* WebVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebVideoViewController.m; sourceTree = "<group>"; };
+		BEB609CE20A4167300473BC5 /* DetailCourse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailCourse.h; sourceTree = "<group>"; };
+		BEB609CF20A4167300473BC5 /* DetailCourse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailCourse.m; sourceTree = "<group>"; };
+		BEB609D220A429BF00473BC5 /* PublicVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicVideoViewController.h; sourceTree = "<group>"; };
+		BEB609D320A429BF00473BC5 /* PublicVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicVideoViewController.m; sourceTree = "<group>"; };
+		BEB609D720A42A2E00473BC5 /* VideoViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoViewModel.h; sourceTree = "<group>"; };
+		BEB609D820A42A2E00473BC5 /* VideoViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoViewModel.m; sourceTree = "<group>"; };
+		BEB609DA20A42BCF00473BC5 /* Video.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
+		BEB609DB20A42BCF00473BC5 /* Video.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Video.m; sourceTree = "<group>"; };
+		BEB609DE20A42E1100473BC5 /* PublicVideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicVideoTableViewCell.h; sourceTree = "<group>"; };
+		BEB609DF20A42E1100473BC5 /* PublicVideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicVideoTableViewCell.m; sourceTree = "<group>"; };
+		BEB609E220A4317900473BC5 /* DetailVideo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailVideo.h; sourceTree = "<group>"; };
+		BEB609E320A4317900473BC5 /* DetailVideo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailVideo.m; sourceTree = "<group>"; };
+		BEB609E520A431AA00473BC5 /* DetailVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailVideoViewController.h; sourceTree = "<group>"; };
+		BEB609E620A431AA00473BC5 /* DetailVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailVideoViewController.m; sourceTree = "<group>"; };
+		BEB609E920A4325B00473BC5 /* DetailVideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailVideoTableViewCell.h; sourceTree = "<group>"; };
+		BEB609EA20A4325B00473BC5 /* DetailVideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailVideoTableViewCell.m; sourceTree = "<group>"; };
 		BEDE52AD20897B9000D00A98 /* PCPromotionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCPromotionView.h; sourceTree = "<group>"; };
 		BEDE52AE20897B9000D00A98 /* PCPromotionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCPromotionView.m; sourceTree = "<group>"; };
 		BEDE52B3208991E900D00A98 /* PCTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCTabBarController.h; sourceTree = "<group>"; };
@@ -343,6 +382,7 @@
 				BE44B59920999C3C0001B143 /* Network */,
 				BEDE535E2092F26F00D00A98 /* PersonCenter */,
 				BEDE530E208F44C400D00A98 /* Learning */,
+				BEB609D120A4299B00473BC5 /* PublicVideo */,
 				BEDE5306208F385000D00A98 /* PublicCourse */,
 				BEDE52C32089DB5400D00A98 /* Me */,
 				BEDE52B2208991D300D00A98 /* Main */,
@@ -726,8 +766,103 @@
 		BEB609BB20A2FF9500473BC5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				BEB609BC20A302BD00473BC5 /* PCCourseViewModel.h */,
+				BEB609BD20A302BD00473BC5 /* PCCourseViewModel.m */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BEB609BF20A3034A00473BC5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BEB609C020A3E17100473BC5 /* Course.h */,
+				BEB609C120A3E17100473BC5 /* Course.m */,
+				BEB609CE20A4167300473BC5 /* DetailCourse.h */,
+				BEB609CF20A4167300473BC5 /* DetailCourse.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BEB609C320A3FDDE00473BC5 /* DetailCoursse */ = {
+			isa = PBXGroup;
+			children = (
+				BEB609C720A3FE9300473BC5 /* Cell */,
+				BEB609C420A3FE0700473BC5 /* DetailCourseViewController.h */,
+				BEB609C520A3FE0700473BC5 /* DetailCourseViewController.m */,
+				BEB609CB20A4033400473BC5 /* WebVideoViewController.h */,
+				BEB609CC20A4033400473BC5 /* WebVideoViewController.m */,
+			);
+			path = DetailCoursse;
+			sourceTree = "<group>";
+		};
+		BEB609C720A3FE9300473BC5 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BEB609C820A3FEAE00473BC5 /* PCDetailCourseTableViewCell.h */,
+				BEB609C920A3FEAE00473BC5 /* PCDetailCourseTableViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		BEB609D120A4299B00473BC5 /* PublicVideo */ = {
+			isa = PBXGroup;
+			children = (
+				BEB609E120A42EF500473BC5 /* DetailVideo */,
+				BEB609DD20A42DF700473BC5 /* Cell */,
+				BEB609D620A429CB00473BC5 /* ViewModel */,
+				BEB609D520A429C600473BC5 /* Model */,
+				BEB609D220A429BF00473BC5 /* PublicVideoViewController.h */,
+				BEB609D320A429BF00473BC5 /* PublicVideoViewController.m */,
+			);
+			path = PublicVideo;
+			sourceTree = "<group>";
+		};
+		BEB609D520A429C600473BC5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BEB609DA20A42BCF00473BC5 /* Video.h */,
+				BEB609DB20A42BCF00473BC5 /* Video.m */,
+				BEB609E220A4317900473BC5 /* DetailVideo.h */,
+				BEB609E320A4317900473BC5 /* DetailVideo.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BEB609D620A429CB00473BC5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BEB609D720A42A2E00473BC5 /* VideoViewModel.h */,
+				BEB609D820A42A2E00473BC5 /* VideoViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BEB609DD20A42DF700473BC5 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BEB609DE20A42E1100473BC5 /* PublicVideoTableViewCell.h */,
+				BEB609DF20A42E1100473BC5 /* PublicVideoTableViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		BEB609E120A42EF500473BC5 /* DetailVideo */ = {
+			isa = PBXGroup;
+			children = (
+				BEB609E820A4324B00473BC5 /* Cell */,
+				BEB609E520A431AA00473BC5 /* DetailVideoViewController.h */,
+				BEB609E620A431AA00473BC5 /* DetailVideoViewController.m */,
+			);
+			path = DetailVideo;
+			sourceTree = "<group>";
+		};
+		BEB609E820A4324B00473BC5 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BEB609E920A4325B00473BC5 /* DetailVideoTableViewCell.h */,
+				BEB609EA20A4325B00473BC5 /* DetailVideoTableViewCell.m */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		BEDE52AB20897AB800D00A98 /* CenterView */ = {
@@ -890,6 +1025,8 @@
 		BEDE5306208F385000D00A98 /* PublicCourse */ = {
 			isa = PBXGroup;
 			children = (
+				BEB609C320A3FDDE00473BC5 /* DetailCoursse */,
+				BEB609BF20A3034A00473BC5 /* Model */,
 				BEB609BB20A2FF9500473BC5 /* ViewModel */,
 				BEDE530D208F40F500D00A98 /* Cell */,
 				BEDE530A208F40EF00D00A98 /* PublicCourseViewController.h */,
@@ -951,7 +1088,6 @@
 				BEDE533F2091835100D00A98 /* BookDetailView */,
 				BEDE5333209166E300D00A98 /* MoreChannelsView */,
 				BEDE53312091669C00D00A98 /* CourseCenterView */,
-				BEDE532D2090C58A00D00A98 /* ChannelView */,
 			);
 			path = CourseCenter;
 			sourceTree = "<group>";
@@ -970,6 +1106,7 @@
 		BEDE53312091669C00D00A98 /* CourseCenterView */ = {
 			isa = PBXGroup;
 			children = (
+				BEDE532D2090C58A00D00A98 /* ChannelView */,
 				BE44B5C2209C43AA0001B143 /* ViewModel */,
 				BE44B5C1209C439E0001B143 /* View */,
 				BE44B5BD209C405B0001B143 /* Model */,
@@ -1211,17 +1348,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEB609C220A3E17100473BC5 /* Course.m in Sources */,
 				BEDE534B2091B93B00D00A98 /* BookIntroductionTableViewCell.m in Sources */,
 				BEDE532320904CF200D00A98 /* BookCenterViewController.m in Sources */,
 				BE44B57A209575400001B143 /* TestViewController.m in Sources */,
 				BEDE52C62089DB9C00D00A98 /* MePortraitTableViewCell.m in Sources */,
 				BEDE533920916A1A00D00A98 /* MyChannelsCollectionViewCell.m in Sources */,
 				BE44B5D8209D8CF20001B143 /* OnlineTestViewModel.m in Sources */,
+				BEB609E420A4317900473BC5 /* DetailVideo.m in Sources */,
 				BEB609B720A2A51100473BC5 /* PCChapterViewModel.m in Sources */,
+				BEB609CD20A4033400473BC5 /* WebVideoViewController.m in Sources */,
 				BEDE536420930A1F00D00A98 /* PersonViewController.m in Sources */,
+				BEB609E020A42E1100473BC5 /* PublicVideoTableViewCell.m in Sources */,
 				BE44B5C9209C590B0001B143 /* PCAnouncementListViewModel.m in Sources */,
+				BEB609CA20A3FEAE00473BC5 /* PCDetailCourseTableViewCell.m in Sources */,
 				BEDE52DB208B2BBC00D00A98 /* MePortrait.m in Sources */,
 				BEDE534E2091BFF700D00A98 /* BookDetailViewController.m in Sources */,
+				BEB609EB20A4325B00473BC5 /* DetailVideoTableViewCell.m in Sources */,
 				BEDE536720930E9100D00A98 /* SelectedCoursesView.m in Sources */,
 				BE21DA822086E0700086B8BA /* UITextfieldView.m in Sources */,
 				BE44B5E1209EA1FA0001B143 /* Channel.m in Sources */,
@@ -1231,7 +1374,9 @@
 				BEDE52D8208B2AFD00D00A98 /* MeTableViewModel.m in Sources */,
 				BE21DA732086DE460086B8BA /* main.m in Sources */,
 				BE44B57E209576B70001B143 /* QuestionView.m in Sources */,
+				BEB609DC20A42BCF00473BC5 /* Video.m in Sources */,
 				BEDE52AF20897B9000D00A98 /* PCPromotionView.m in Sources */,
+				BEB609D420A429BF00473BC5 /* PublicVideoViewController.m in Sources */,
 				BEDE536A2094091200D00A98 /* PersonMoreViewController.m in Sources */,
 				BEDE52F0208DC5A300D00A98 /* PersonalInfoModel.m in Sources */,
 				BEDE52B82089B31600D00A98 /* PCAnouncementTableViewController.m in Sources */,
@@ -1239,6 +1384,7 @@
 				BEDE52DE208B2BC800D00A98 /* MeItem.m in Sources */,
 				BE44B5A620999DE70001B143 /* PCRequestSerializer.m in Sources */,
 				BEDE52E9208D784500D00A98 /* PersonalInfoTableViewCell.m in Sources */,
+				BEB609D920A42A2E00473BC5 /* VideoViewModel.m in Sources */,
 				BE21DA8E2086F11E0086B8BA /* PCViewModel.m in Sources */,
 				BE44B57420946C790001B143 /* LearningMainCollectionView.m in Sources */,
 				BE44B5E520A0252C0001B143 /* NSURL+PCURL.m in Sources */,
@@ -1264,6 +1410,7 @@
 				BEDE5314208F65E100D00A98 /* LearningViewController.m in Sources */,
 				BE44B5AA2099BD340001B143 /* JMBaseResponseModel.m in Sources */,
 				BE44B5A020999CF50001B143 /* PCNetworkEngine.m in Sources */,
+				BEB609E720A431AA00473BC5 /* DetailVideoViewController.m in Sources */,
 				BE21DAA0208732D40086B8BA /* PCCenterdView.m in Sources */,
 				BEDE5305208F355800D00A98 /* PushSettingTableViewCell.m in Sources */,
 				BE44B571209468660001B143 /* PCTopView.m in Sources */,
@@ -1285,6 +1432,7 @@
 				BE44B5D4209D809E0001B143 /* Question.m in Sources */,
 				BE44B5DE209E09280001B143 /* PCBookViewModel.m in Sources */,
 				BEDE53422091AF2100D00A98 /* BookTableViewCell.m in Sources */,
+				BEB609D020A4167300473BC5 /* DetailCourse.m in Sources */,
 				BEDE52CF2089F03F00D00A98 /* MeItemTableViewCell.m in Sources */,
 				BE44B59C20999C780001B143 /* PCBaseRequest.m in Sources */,
 				BE44B5BB209AFD630001B143 /* PCAlertControllerViewController.m in Sources */,
@@ -1293,6 +1441,7 @@
 				BEDE530C208F40EF00D00A98 /* PublicCourseViewController.m in Sources */,
 				BE44B5842095BBB70001B143 /* OptionView.m in Sources */,
 				BEDE5318208F7FED00D00A98 /* OnlineTestCollectionViewCell.m in Sources */,
+				BEB609BE20A302BD00473BC5 /* PCCourseViewModel.m in Sources */,
 				BE44B567209410BD0001B143 /* SeasonCreditModel.m in Sources */,
 				BEDE52BB2089B36E00D00A98 /* AnouncementTableViewCell.m in Sources */,
 				BE44B58D209953440001B143 /* PCAnnouncementDetailViewController.m in Sources */,
@@ -1301,6 +1450,7 @@
 				BEDE5309208F388200D00A98 /* PublicCourseTableViewCell.m in Sources */,
 				BEDE53302090C59D00D00A98 /* ChannelView.m in Sources */,
 				BEDE52E2208B2C5700D00A98 /* MeTableViewCell.m in Sources */,
+				BEB609C620A3FE0700473BC5 /* DetailCourseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

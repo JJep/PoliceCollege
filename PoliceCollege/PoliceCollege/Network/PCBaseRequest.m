@@ -81,12 +81,18 @@
             //登录过期
             
             id jsonS = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-            if ([[jsonS objectForKey:@"state"] isEqualToString:@"toLogin"]) {
+            if ([[jsonS objectForKey:@"state"] isEqualToString:@"toLogin"])
+            {
                 //登录过期
                 NSLog(@"提醒用户重新登录");
-                [JMUserLocalData removeAllLocalData];
-            } else {
+//                [JMUserLocalData removeAllLocalData];
+            } else if ([[jsonS objectForKey:@"state"] isEqualToString:@"1"] || [[jsonS objectForKey:@"state"] isEqualToString:@"2"])
+            {
                 successBlock(jsonS);
+            } else
+            {
+                NSError *error = [NSError errorWithDomain:[jsonS objectForKey:@"state"] code:[[jsonS objectForKey:@"state"] integerValue] userInfo:@{@"error":[jsonS objectForKey:@"err"]}];
+                errorBlock(error);
             }
         } failedBlock:^(NSError *error) {
             errorBlock(error);

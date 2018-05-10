@@ -10,5 +10,5 @@
 #import "Channel.h"
 
 @interface MyChannelsCollectionViewCell : UICollectionViewCell
-@property (nonatomic,retain)Channel *channelModel;
+- (void)setModel:(Channel *)model;
 @end

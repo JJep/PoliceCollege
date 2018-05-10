@@ -76,14 +76,18 @@ int totalPage ;
 
 - (void)getFirstList {
     [viewModel getFirstPromotionListAction:^(id responseObject) {
-        totalPage = [[responseObject objectForKey:@"sumPage"] intValue];
-        NSArray *modelArray = [NSArray yy_modelArrayWithClass:[PCAnnouncementModel class] json:[responseObject objectForKey:@"newsList"]];
-        
-        [self->promotionArray addObjectsFromArray:modelArray];
-        currentPage = 2;
-        [self updateUI];
+        if ([[responseObject objectForKey:@"state"] isEqualToString:@"1"]) {
+            totalPage = [[responseObject objectForKey:@"sumPage"] intValue];
+            NSArray *modelArray = [NSArray yy_modelArrayWithClass:[PCAnnouncementModel class] json:[responseObject objectForKey:@"newsList"]];
+            
+            [self->promotionArray addObjectsFromArray:modelArray];
+            currentPage = 2;
+            [self updateUI];
+        } else {
+            NSLog(@"服务器出错");
+        }
     } fail:^(NSError *error) {
-        
+        NSLog(@"网络错误");
     }];
 }
 
