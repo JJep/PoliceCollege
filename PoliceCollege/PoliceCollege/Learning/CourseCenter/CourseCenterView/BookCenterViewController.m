@@ -17,6 +17,7 @@
 #import "PCBookViewModel.h"
 #import "PCChannelViewModel.h"
 #import "Book.h"
+#import "MyChannel.h"
 @interface BookCenterViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end
@@ -38,12 +39,7 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
     NSMutableArray *booksArray;
     int currentType ;
     int currentPage ;
-}
-- (instancetype)init {
-    if (self = [super init]) {
-        
-    }
-    return self;
+    MyChannel *myChannel;
 }
 
 - (void)viewDidLoad {
@@ -109,7 +105,7 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
 }
 
 - (void)getBookListWithType:(int)type {
-//    bookViewModel getBookListAction:[NSNumber numberWithInt:type] serchText:<#(NSString *)#> typeID:<#(NSNumber *)#> currentPage:<#(NSNumber *)#> success:<#^(id responseObject)success#> fail:<#^(NSError *error)fail#>
+    
 }
 
 - (void)getRecommendedBookList {
@@ -129,11 +125,14 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
     //获取我的频道
     [channelViewModel getMyChannelWithType:[NSNumber numberWithInt:bookType] success:^(id responseObject) {
         if ([[responseObject objectForKey:@"state"] isEqualToString:@"1"]) {
-            NSArray *ary = [NSArray yy_modelArrayWithClass:[Channel class] json:[responseObject objectForKey:@"params"]];
+            self->myChannel = [MyChannel yy_modelWithJSON:[responseObject objectForKey:@"myParamset"]];
             //移除之前的频道
             [self->channelsArray removeAllObjects];
             //添加从服务器获取的频道
-            [self->channelsArray addObjectsFromArray:ary];
+            [self->channelsArray addObjectsFromArray:self->myChannel.params];
+            for (int i = 0; i < self->channelsArray.count; i ++) {
+                self->channelsArray[i] = [Channel yy_modelWithDictionary:self->channelsArray[i]];
+            }
             Channel *recommendedChannel = [[Channel alloc] init];
             [recommendedChannel setName:@"推荐"];
             //在数组最前端添加“推荐”频道，作为固定的频道
@@ -190,6 +189,7 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
         ChannelCollectionViewCell *cell = (ChannelCollectionViewCell *)[channelView.collectionView cellForItemAtIndexPath:indexPath];
         [tempCell setIsSelected:false];
         [cell setIsSelected:true];
+        [self getBookListWithType:<#(int)#>]
         tempCell = cell;
     }
 }
@@ -197,6 +197,7 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
 - (void)didTouchBtn:(UIButton *)button {
     MoreChannelsViewController *newVC = [MoreChannelsViewController new];
     newVC.type = bookType;
+    newVC.idField = myChannel.idField;
     newVC.channelsArray = channelsArray;
     [self.navigationController pushViewController:newVC animated:true];
 }

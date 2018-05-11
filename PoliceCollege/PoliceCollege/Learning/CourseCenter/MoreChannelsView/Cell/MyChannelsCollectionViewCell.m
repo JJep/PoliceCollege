@@ -24,12 +24,28 @@
         [channelNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.top.bottom.equalTo(self.contentView);
         }];
+        
+        _clearButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_clearButton setImage:[UIImage imageNamed:@"clear"] forState:UIControlStateNormal];
+        [_clearButton setHidden:true];
+        [self.contentView addSubview:_clearButton];
+        
+        [_clearButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(self->channelNameLabel).offset(10);
+            make.top.equalTo(self->channelNameLabel).offset(-10);
+            make.width.height.mas_equalTo(20);
+        }];
+
     }
     return self;
 }
 
 - (void)setModel:(Channel *)model {
     [channelNameLabel setText:model.name];
+}
+
+- (void)setEditing:(BOOL)isEditing {
+    [_clearButton setHidden:!isEditing];
 }
 
 @end

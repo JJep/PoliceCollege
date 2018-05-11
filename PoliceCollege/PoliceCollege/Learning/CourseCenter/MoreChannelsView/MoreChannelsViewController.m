@@ -24,6 +24,7 @@
     UILabel *recommendedChannelsLabel;
     UILabel *recommendedChannelsSubLabel;
     PCChannelViewModel *channelViewModel;
+    BOOL isEditing;
 }
 
 - (void)viewDidLoad {
@@ -44,6 +45,21 @@
     }];
 }
 
+- (void)updateMyChannels:(PCSuccessHandler)success fail:(PCFailedHandler)fail {
+    __block NSString *newChannelsIDString = @"";
+    if (myChannelDataArray.count > 0) {
+        [myChannelDataArray enumerateObjectsUsingBlock:^(Channel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([obj isEqual:self->myChannelDataArray.lastObject]) {
+                newChannelsIDString = [newChannelsIDString stringByAppendingString:[NSString stringWithFormat:@"%lu",obj.idField]];
+            } else {
+                newChannelsIDString = [newChannelsIDString stringByAppendingString:[NSString stringWithFormat:@"%lu,",obj.idField]];
+
+            }
+        }];
+    }
+    [channelViewModel updateChannelWithType:[NSNumber numberWithInt:self.type] channelID:[NSNumber numberWithInteger:self.idField] newChannelsID:newChannelsIDString success:success fail:fail];
+}
+
 - (void)updateUI {
     [recommendedChannelsCollectionView reloadData];
     [myChannelsCollectionView reloadData];
@@ -62,25 +78,32 @@
     }
 }
 
-
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     MyChannelsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    if ([collectionView isEqual:myChannelsCollectionView])
+    if ([collectionView isEqual:myChannelsCollectionView]) {
         [cell setModel:myChannelDataArray[indexPath.row]];
-    else
+        [cell setEditing:isEditing];
+        [cell.clearButton setTag:indexPath.row];
+        [cell.clearButton addTarget:self action:@selector(clear:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    else {
         [cell setModel:recommendedChannelDataArray[indexPath.row]];
+
+    }
     return cell;
 }
 
-
-- (void)viewWillLayoutSubviews {
-//    myChannelsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//
-//    }
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (isEditing && [collectionView isEqual:recommendedChannelsCollectionView]) {
+        Channel *selectedChannel = recommendedChannelDataArray[indexPath.row];
+        [recommendedChannelDataArray removeObject:selectedChannel];
+        [myChannelDataArray addObject:selectedChannel];
+        [self updateUI];
+    }
 }
 
-
 - (void)initData {
+    isEditing = NO;
     myChannelDataArray = [NSMutableArray new];
     recommendedChannelDataArray = [NSMutableArray new];
     channelViewModel = [PCChannelViewModel new];
@@ -118,6 +141,7 @@
     editBtn.layer.masksToBounds = true;
     editBtn.layer.borderWidth = 1;
     editBtn.layer.borderColor = rgb(234, 74, 77).CGColor;
+    [editBtn addTarget:self action:@selector(setEdit:) forControlEvents:UIControlEventTouchUpInside];
     
     [myChannelsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view).offset(20);
@@ -139,7 +163,7 @@
     }];
     
     [myChannelsCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self->myChannelsLabel.mas_bottom);
+        make.top.equalTo(self->myChannelsLabel.mas_bottom).offset(10);
         make.left.equalTo(self.view).offset(20);
         make.right.equalTo(self.view).offset(-20);
         make.height.mas_equalTo(200);
@@ -160,9 +184,34 @@
     [recommendedChannelsCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view).offset(20);
         make.right.equalTo(self.view).offset(-20);
-        make.top.equalTo(self->recommendedChannelsLabel.mas_bottom);
+        make.top.equalTo(self->recommendedChannelsLabel.mas_bottom).offset(10);
         make.bottom.equalTo(self.view);
     }];
+}
+
+- (void)clear:(UIButton *)button {
+    Channel *taggedChannel = myChannelDataArray[button.tag];
+    [myChannelDataArray removeObject:taggedChannel];
+    [recommendedChannelDataArray addObject:taggedChannel];
+    [self updateUI];
+}
+
+- (void)setEdit:(UIButton *)button {
+    isEditing = !isEditing;
+    if (isEditing) {
+        [button setTitle:@"完成" forState:UIControlStateNormal];
+        [self updateUI];
+    } else {
+        [SVProgressHUD show];
+        [self updateMyChannels:^(id responseObject) {
+            [SVProgressHUD dismiss];
+        } fail:^(NSError *error) {
+            NSLog(@"添加频道失败");
+            [SVProgressHUD dismissWithDelay:2];
+        }];
+        [button setTitle:@"编辑" forState:UIControlStateNormal];
+        [self updateUI];
+    }
 }
 
 - (void)initMyChannelsCollectionView {
@@ -171,7 +220,7 @@
     myChannelsLayout.itemSize = CGSizeMake(90, 40);
     myChannelsLayout.minimumLineSpacing = 10;
     myChannelsLayout.minimumInteritemSpacing = 10;
-    myChannelsLayout.sectionInset = UIEdgeInsetsMake(20, 0, 20, 0);
+    myChannelsLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
 
     myChannelsCollectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:myChannelsLayout];
     [myChannelsCollectionView setBackgroundColor:MyWhiteBackgroundColor];
@@ -186,7 +235,7 @@
     recomendedChannelLayout.itemSize = CGSizeMake(90, 40);
     recomendedChannelLayout.minimumLineSpacing = 10;
     recomendedChannelLayout.minimumInteritemSpacing = 10;
-    recomendedChannelLayout.sectionInset = UIEdgeInsetsMake(20, 0, 20, 0);
+    recomendedChannelLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
     
     recommendedChannelsCollectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:recomendedChannelLayout];
     [recommendedChannelsCollectionView setBackgroundColor:MyWhiteBackgroundColor];
@@ -195,38 +244,4 @@
     [self.view addSubview:recommendedChannelsCollectionView];
     [recommendedChannelsCollectionView registerClass:[MyChannelsCollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @end

@@ -35,5 +35,7 @@
  */
 - (void)getBookListAction:(NSNumber *)sortType serchText:(NSString *)searchText typeID:(NSNumber *)typeID currentPage:(NSNumber *)currentPage success:(PCSuccessHandler)success fail:(PCFailedHandler)fail ;
 
+
+- (void)getBookListActionWithTypeID:(NSNumber *)typeID currentPage:(NSNumber *)currentPage success:(PCSuccessHandler)success fail:(PCFailedHandler)fail ;
 #warning 图书下载 接口未定
 @end

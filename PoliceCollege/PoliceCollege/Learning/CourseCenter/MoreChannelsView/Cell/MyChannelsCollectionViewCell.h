@@ -10,5 +10,7 @@
 #import "Channel.h"
 
 @interface MyChannelsCollectionViewCell : UICollectionViewCell
+@property (nonatomic,retain)UIButton *clearButton;
 - (void)setModel:(Channel *)model;
+- (void)setEditing:(BOOL)isEditing;
 @end

@@ -10,4 +10,5 @@
 @interface MoreChannelsViewController : UIViewController
 @property (nonatomic,retain)NSArray *channelsArray;
 @property (nonatomic,assign)int type;
+@property (nonatomic,assign)NSInteger idField;
 @end

@@ -32,4 +32,19 @@
     request.paraDict = paraDic;
     [request sendRequestSuccess:success error:fail];
 }
+
+- (void)updateChannelWithType:(NSNumber *)type channelID:(NSNumber *)channelID newChannelsID:(NSString *)newChannelsID success:(PCSuccessHandler)success fail:(PCFailedHandler)fail
+{
+    PCBaseRequest *request = [PCBaseRequest new];
+    request.requstType = @"post";
+    request.apiString = @"updateMyParamset";
+    NSMutableDictionary *paraDic = [[NSMutableDictionary alloc]
+                                    initWithDictionary:@{
+                                                         @"type":type,
+                                                         @"id":channelID,
+                                                         @"pids":newChannelsID
+                                                         }];
+    request.paraDict = paraDic;
+    [request sendRequestSuccess:success error:fail];
+}
 @end

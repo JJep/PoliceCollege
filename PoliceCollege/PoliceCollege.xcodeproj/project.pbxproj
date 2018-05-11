@@ -74,6 +74,8 @@
 		BEB609E420A4317900473BC5 /* DetailVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609E320A4317900473BC5 /* DetailVideo.m */; };
 		BEB609E720A431AA00473BC5 /* DetailVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609E620A431AA00473BC5 /* DetailVideoViewController.m */; };
 		BEB609EB20A4325B00473BC5 /* DetailVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609EA20A4325B00473BC5 /* DetailVideoTableViewCell.m */; };
+		BEB609EE20A53E8800473BC5 /* MyChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609ED20A53E8800473BC5 /* MyChannel.m */; };
+		BEB609F420A56A9400473BC5 /* NSObject+PropertyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609F320A56A9400473BC5 /* NSObject+PropertyMapper.m */; };
 		BEDE52AF20897B9000D00A98 /* PCPromotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52AE20897B9000D00A98 /* PCPromotionView.m */; };
 		BEDE52B5208991E900D00A98 /* PCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52B4208991E900D00A98 /* PCTabBarController.m */; };
 		BEDE52B82089B31600D00A98 /* PCAnouncementTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52B72089B31600D00A98 /* PCAnouncementTableViewController.m */; };
@@ -252,6 +254,10 @@
 		BEB609E620A431AA00473BC5 /* DetailVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailVideoViewController.m; sourceTree = "<group>"; };
 		BEB609E920A4325B00473BC5 /* DetailVideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailVideoTableViewCell.h; sourceTree = "<group>"; };
 		BEB609EA20A4325B00473BC5 /* DetailVideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailVideoTableViewCell.m; sourceTree = "<group>"; };
+		BEB609EC20A53E8800473BC5 /* MyChannel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyChannel.h; sourceTree = "<group>"; };
+		BEB609ED20A53E8800473BC5 /* MyChannel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyChannel.m; sourceTree = "<group>"; };
+		BEB609F220A56A9400473BC5 /* NSObject+PropertyMapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+PropertyMapper.h"; sourceTree = "<group>"; };
+		BEB609F320A56A9400473BC5 /* NSObject+PropertyMapper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PropertyMapper.m"; sourceTree = "<group>"; };
 		BEDE52AD20897B9000D00A98 /* PCPromotionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCPromotionView.h; sourceTree = "<group>"; };
 		BEDE52AE20897B9000D00A98 /* PCPromotionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCPromotionView.m; sourceTree = "<group>"; };
 		BEDE52B3208991E900D00A98 /* PCTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCTabBarController.h; sourceTree = "<group>"; };
@@ -683,6 +689,8 @@
 				BE44B5E0209EA1FA0001B143 /* Channel.m */,
 				BE44B5ED20A0536D0001B143 /* Chapter.h */,
 				BE44B5EE20A0536E0001B143 /* Chapter.m */,
+				BEB609EC20A53E8800473BC5 /* MyChannel.h */,
+				BEB609ED20A53E8800473BC5 /* MyChannel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -750,6 +758,8 @@
 			children = (
 				BE44B5E320A0252C0001B143 /* NSURL+PCURL.h */,
 				BE44B5E420A0252C0001B143 /* NSURL+PCURL.m */,
+				BEB609F220A56A9400473BC5 /* NSObject+PropertyMapper.h */,
+				BEB609F320A56A9400473BC5 /* NSObject+PropertyMapper.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1417,6 +1427,7 @@
 				BE44B5A320999DB40001B143 /* PCResponseSerializer.m in Sources */,
 				BE44B58A209950150001B143 /* BackView.m in Sources */,
 				BE44B5B7209AE5450001B143 /* UserInfo.m in Sources */,
+				BEB609EE20A53E8800473BC5 /* MyChannel.m in Sources */,
 				BEDE52FA208DE65200D00A98 /* PushSettingViewController.m in Sources */,
 				BE44B58720982B3F0001B143 /* SeasonSubview.m in Sources */,
 				BE44B56A2094254E0001B143 /* PCPickerView.m in Sources */,
@@ -1445,6 +1456,7 @@
 				BE44B567209410BD0001B143 /* SeasonCreditModel.m in Sources */,
 				BEDE52BB2089B36E00D00A98 /* AnouncementTableViewCell.m in Sources */,
 				BE44B58D209953440001B143 /* PCAnnouncementDetailViewController.m in Sources */,
+				BEB609F420A56A9400473BC5 /* NSObject+PropertyMapper.m in Sources */,
 				BE44B597209995C20001B143 /* PCLoginViewModel.m in Sources */,
 				BE44B5B1209A9F370001B143 /* User.m in Sources */,
 				BEDE5309208F388200D00A98 /* PublicCourseTableViewCell.m in Sources */,
