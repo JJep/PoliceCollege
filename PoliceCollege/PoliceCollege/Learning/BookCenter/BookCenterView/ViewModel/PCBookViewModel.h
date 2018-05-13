@@ -28,14 +28,18 @@
 /**
  根据图书的分类以及查找字段来查找图书
 
- @param sortType 找到图书之后的排序顺序， 0：published DESC，1：published，2：HIT DESC,3：HIT， 默认为0
  @param searchText 查找的字段
  @param typeID 图书的类型ID
  @param currentPage 当前页
  */
-- (void)getBookListAction:(NSNumber *)sortType serchText:(NSString *)searchText typeID:(NSNumber *)typeID currentPage:(NSNumber *)currentPage success:(PCSuccessHandler)success fail:(PCFailedHandler)fail ;
+- (void)getBookListActionWithSearchText:(NSString *)searchText typeID:(NSNumber *)typeID currentPage:(NSNumber *)currentPage success:(PCSuccessHandler)success fail:(PCFailedHandler)fail ;
 
-
+/**
+ 根据图书的分类来查找图书
+ 
+ @param typeID 图书的类型ID
+ @param currentPage 当前页
+ */
 - (void)getBookListActionWithTypeID:(NSNumber *)typeID currentPage:(NSNumber *)currentPage success:(PCSuccessHandler)success fail:(PCFailedHandler)fail ;
 #warning 图书下载 接口未定
 @end

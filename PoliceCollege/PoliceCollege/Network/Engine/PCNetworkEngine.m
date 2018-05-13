@@ -39,9 +39,9 @@
 - (NSURLSessionDataTask *)postWithAPI:(NSString *)api parameters:(id)parameters succeededBlock:(NetworkSuccessHandler)succeededBlock failedBlock:(NetworkFailedHandler)failedBlock {
     NSURLSessionDataTask *task = [self POST:api parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@",task.currentRequest.allHTTPHeaderFields);
-//        task.originalRequest.allHTTPHeaderFields;
-        NSLog(@"%@",task.originalRequest.allHTTPHeaderFields);
+//        NSLog(@"%@",task.currentRequest.allHTTPHeaderFields);
+////        task.originalRequest.allHTTPHeaderFields;
+//        NSLog(@"%@",task.originalRequest.allHTTPHeaderFields);
         succeededBlock(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failedBlock(error);

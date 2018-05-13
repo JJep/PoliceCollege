@@ -18,6 +18,7 @@
 #import "PCChannelViewModel.h"
 #import "Book.h"
 #import "MyChannel.h"
+#import <MJRefresh.h>
 @interface BookCenterViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end
@@ -37,8 +38,9 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
     PCChannelViewModel *channelViewModel;
     NSMutableArray *channelsArray;
     NSMutableArray *booksArray;
-    int currentType ;
+    Channel *currentChannel;
     int currentPage ;
+    int totalPage ;
     MyChannel *myChannel;
 }
 
@@ -56,11 +58,10 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
     channelViewModel = [PCChannelViewModel new];
     booksArray = [NSMutableArray new];
     channelsArray = [NSMutableArray new];
-    currentType = noType;
+    Channel *recommendChannel = [Channel new];
+    [recommendChannel setName:@"推荐"];
+    [channelsArray addObject:recommendChannel];
     currentPage = 1;
-    Channel *channel = [[Channel alloc] init];
-    channel.name = @"推荐";
-    [channelsArray addObject:channel];
 }
 
 - (void)createUI {
@@ -68,10 +69,23 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
     [self.view setBackgroundColor:MyWhiteBackgroundColor];
     self.title = @"图书中心";
     
-    tableView = [[UITableView alloc] initWithFrame:self.view.bounds ];
-    [self.view addSubview:tableView];
+    backView = [[BackView alloc] init];
+    [backView setName:@"暂无图书"];
+    [backView setImage:[UIImage imageNamed:@"bookBackIcon"]];
+    [self.view addSubview:backView];
+    
+    tableView = [[UITableView alloc] init];
+    [backView addSubview:tableView];
+    tableView.mj_footer = [MJRefreshFooter footerWithRefreshingBlock:^{
+        if ([self->currentChannel.name isEqualToString:@"推荐"]) {
+            [self getMoreRecommendedBookList];
+        } else {
+            [self getMoreBooklist];
+        }
+    }];
     tableView.delegate = self;
     tableView.dataSource = self;
+    [tableView setHidden:true];
     
     channelView = [[ChannelView alloc] init];
     [self.view addSubview:channelView];
@@ -88,36 +102,94 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
         make.height.mas_equalTo(45);
     }];
     
+    [backView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.top.equalTo(self->channelView.mas_bottom);
+    }];
+    
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.view);
         make.top.equalTo(self->channelView.mas_bottom).offset(5);
     }];
+}
 
+- (void)updateUI {
+    if (booksArray.count == 0) {
+        [tableView setHidden:true];
+    } else {
+        [tableView setHidden:false];
+    }
+//    [channelView.collectionView reloadData];
+    [tableView reloadData];
 }
 
 - (void)getData {
     [self getMyChannel];
-    if (currentType == noType) {
+    if (channelsArray.count == 1) {
         [self getRecommendedBookList];
     } else {
-        [self getBookListWithType:currentType];
+        [self getBookList];
     }
 }
 
-- (void)getBookListWithType:(int)type {
-    
+- (void)getMoreBooklist {
+    [bookViewModel getBookListActionWithTypeID:[NSNumber numberWithInteger:currentChannel.idField] currentPage:[NSNumber numberWithInt:currentPage] success:^(id responseObject) {
+        NSArray *tempAry = [NSArray yy_modelArrayWithClass:[Book class] json:[responseObject objectForKey:@"bookList"]];
+        [self->booksArray addObjectsFromArray:tempAry];
+        //
+        self->totalPage = [[responseObject objectForKey:@"sumPage"] intValue];
+        if (self->currentPage == self->totalPage) {
+            [self->tableView.mj_footer endRefreshingWithNoMoreData];
+        } else {
+            [self->tableView.mj_footer endRefreshing];
+            self->currentPage ++;
+        }
+        [self updateUI];
+    } fail:^(NSError *error) {
+        
+    }];
+}
+
+- (void)getBookList {
+    [bookViewModel getBookListActionWithTypeID:[NSNumber numberWithInteger:currentChannel.idField] currentPage:[NSNumber numberWithInt:1] success:^(id responseObject) {
+        [self->booksArray removeAllObjects];
+        NSArray *tempAry = [NSArray yy_modelArrayWithClass:[Book class] json:[responseObject objectForKey:@"bookList"]];
+        [self->booksArray addObjectsFromArray:tempAry];
+        self->currentPage = 2;
+        [self updateUI];
+        [SVProgressHUD dismiss];
+    } fail:^(NSError *error) {
+        [SVProgressHUD dismiss];
+    }];
+}
+
+- (void)getMoreRecommendedBookList {
+    [bookViewModel getRecommendBookListAction:[NSNumber numberWithInt:currentPage] success:^(id responseObject) {
+        NSArray *tempAry = [NSArray yy_modelArrayWithClass:[Book class] json:[responseObject objectForKey:@"bookList"]];
+        [self->booksArray addObjectsFromArray:tempAry];
+        self->totalPage = [[responseObject objectForKey:@"sumPage"] intValue];
+        if (self->currentPage == self->totalPage) {
+            [self->tableView.mj_footer endRefreshingWithNoMoreData];
+        } else {
+            [self->tableView.mj_footer endRefreshing];
+            self->currentPage ++;
+        }
+        [self updateUI];
+    } fail:^(NSError *error) {
+        
+    }];
 }
 
 - (void)getRecommendedBookList {
-    [bookViewModel getRecommendBookListAction:[NSNumber numberWithInt:currentPage] success:^(id responseObject) {
-        if ([[responseObject objectForKey:@"state"] isEqualToString:@"1"]) {
-            NSArray *tempAry = [NSArray yy_modelArrayWithClass:[Book class] json:[responseObject objectForKey:@"bookList"]];
-            [self->booksArray addObjectsFromArray:tempAry];
-            self->currentPage++;
-            [self->tableView reloadData];
-        }
+    [bookViewModel getRecommendBookListAction:[NSNumber numberWithInt:1] success:^(id responseObject) {
+        [self->booksArray removeAllObjects];
+        NSArray *tempAry = [NSArray yy_modelArrayWithClass:[Book class] json:[responseObject objectForKey:@"bookList"]];
+        [self->booksArray addObjectsFromArray:tempAry];
+        self->currentPage = 2;
+        [self updateUI];
+        [SVProgressHUD dismiss];
     } fail:^(NSError *error) {
-        
+        [SVProgressHUD dismiss];
     }];
 }
 
@@ -138,6 +210,7 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
             //在数组最前端添加“推荐”频道，作为固定的频道
             [self->channelsArray insertObject:recommendedChannel atIndex:0] ;
             //重绘
+//            [self updateUI];
             [self->channelView.collectionView reloadData];
         }
     } fail:^(NSError *error) {
@@ -150,7 +223,6 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    //还有一个推荐频道，属于自带的频道
     return channelsArray.count ;
 }
 
@@ -186,11 +258,18 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (tempCell) {
+        [SVProgressHUD show];
         ChannelCollectionViewCell *cell = (ChannelCollectionViewCell *)[channelView.collectionView cellForItemAtIndexPath:indexPath];
         [tempCell setIsSelected:false];
         [cell setIsSelected:true];
-        [self getBookListWithType:<#(int)#>]
         tempCell = cell;
+        currentChannel = ((Channel *)channelsArray[indexPath.row]);
+        if ([currentChannel.name isEqualToString:@"推荐"]) {
+            [self getRecommendedBookList];
+        } else {
+            [self getBookList];
+        }
+
     }
 }
 
@@ -198,7 +277,7 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
     MoreChannelsViewController *newVC = [MoreChannelsViewController new];
     newVC.type = bookType;
     newVC.idField = myChannel.idField;
-    newVC.channelsArray = channelsArray;
+    newVC.myChannelDataArray = channelsArray;
     [self.navigationController pushViewController:newVC animated:true];
 }
 @end

@@ -15,6 +15,7 @@
 #import "LearningMainCollectionView.h"
 #import "TestViewController.h"
 #import "TestPaper.h"
+#import "CourseCenterViewController.h"
 #import "OnlineTestViewModel.h"
 @interface LearningViewController () <UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -22,7 +23,6 @@
 
 @implementation LearningViewController {
     LearningMainCollectionView *collectionView;
-    NSArray *dataArray;
     PCTopView *topView;
     UITableView *tableView;
     NSArray *testPapaerList;
@@ -54,13 +54,11 @@
     [self.view setBackgroundColor:MyWhiteBackgroundColor];
     self.title = @"党员学习";
     
-    tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    tableView = [[UITableView alloc] init];
     tableView.delegate = self;
     tableView.dataSource = self;
     
     tableView.tableHeaderView = [self headView];
-    //防止添加headview后tableview无法滑动到底部
-    tableView.contentInset = UIEdgeInsetsMake(0, 0, 160, 0);
     
     //利用systemLayoutSizeFittingSize:计算出真实高度
     CGFloat height = [tableView.tableHeaderView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
@@ -70,6 +68,10 @@
     tableView.tableHeaderView.frame = headerFrame;
     
     [self.view addSubview:tableView];
+    
+    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
 }
 
 - (UIView *)headView {
@@ -109,18 +111,15 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if (dataArray.count) {
+    if (testPapaerList.count) {
         return 1;
     } else {
         return 0;
     }
-//    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return 10;
-    return dataArray.count;
-    
+    return testPapaerList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -130,7 +129,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
-    [cell.textLabel setText:((TestPaper *)dataArray[indexPath.row]).title];
+    [cell.textLabel setText:((TestPaper *)testPapaerList[indexPath.row]).title];
     
     return cell;
 }
@@ -147,7 +146,7 @@
         newVC.hidesBottomBarWhenPushed = true;
         [self.navigationController pushViewController:newVC animated:true];
     } else if (indexPath.row == 1) {
-        BookCenterViewController *newVC = [BookCenterViewController new];
+        CourseCenterViewController *newVC = [CourseCenterViewController new];
         newVC.hidesBottomBarWhenPushed = true;
         [self.navigationController pushViewController:newVC animated:true];
     } else if (indexPath.row == 2) {

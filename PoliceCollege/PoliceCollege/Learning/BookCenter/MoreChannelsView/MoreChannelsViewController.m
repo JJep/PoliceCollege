@@ -16,7 +16,7 @@
 @implementation MoreChannelsViewController {
     UICollectionView *myChannelsCollectionView;
     UICollectionView *recommendedChannelsCollectionView;
-    NSMutableArray *myChannelDataArray;
+
     NSMutableArray *recommendedChannelDataArray;
     UILabel *myChannelsLabel;
     UILabel *myChannelsSubLabel;
@@ -37,8 +37,22 @@
 
 - (void)getRecommendedChannels {
     [channelViewModel getAllChannelsWithType:[NSNumber numberWithInt:self.type] success:^(id responseObject) {
-        NSArray *ary = [NSArray yy_modelArrayWithClass:[Channel class] json:[responseObject objectForKey:@"paramsetList"]];
-        self->recommendedChannelDataArray = [NSMutableArray arrayWithArray:ary];
+//        NSArray *ary = [NSArray yy_modelArrayWithClass:[Channel class] json:[responseObject objectForKey:@"paramsetList"]];
+        
+        NSMutableArray *ary = [NSMutableArray new];
+        ary = [NSMutableArray arrayWithArray:[NSArray yy_modelArrayWithClass:[Channel class] json:[responseObject objectForKey:@"paramsetList"]]];
+        [ary removeObjectsInArray:self.myChannelDataArray];
+        NSMutableArray *mutableAry = [NSMutableArray new];
+        [ary enumerateObjectsUsingBlock:^(Channel *channel, NSUInteger idx, BOOL * _Nonnull stop) {
+            for (int i = 0; i < self.myChannelDataArray.count; i++) {
+                if ([channel.name isEqualToString:((Channel *)self.myChannelDataArray[i]).name]) {
+                    [mutableAry addObject:channel];
+                    break;
+                }
+            }
+        }];
+        [ary removeObjectsInArray:mutableAry];
+        self->recommendedChannelDataArray = ary;
         [self updateUI];
     } fail:^(NSError *error) {
         NSLog(@"%@", error);
@@ -47,9 +61,9 @@
 
 - (void)updateMyChannels:(PCSuccessHandler)success fail:(PCFailedHandler)fail {
     __block NSString *newChannelsIDString = @"";
-    if (myChannelDataArray.count > 0) {
-        [myChannelDataArray enumerateObjectsUsingBlock:^(Channel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if ([obj isEqual:self->myChannelDataArray.lastObject]) {
+    if (_myChannelDataArray.count > 0) {
+        [_myChannelDataArray enumerateObjectsUsingBlock:^(Channel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([obj isEqual:self.myChannelDataArray.lastObject]) {
                 newChannelsIDString = [newChannelsIDString stringByAppendingString:[NSString stringWithFormat:@"%lu",obj.idField]];
             } else {
                 newChannelsIDString = [newChannelsIDString stringByAppendingString:[NSString stringWithFormat:@"%lu,",obj.idField]];
@@ -72,7 +86,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if ([collectionView isEqual:myChannelsCollectionView]) {
-        return myChannelDataArray.count;
+        return _myChannelDataArray.count;
     } else {
         return recommendedChannelDataArray.count;
     }
@@ -81,8 +95,13 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     MyChannelsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     if ([collectionView isEqual:myChannelsCollectionView]) {
-        [cell setModel:myChannelDataArray[indexPath.row]];
-        [cell setEditing:isEditing];
+        [cell setModel:_myChannelDataArray[indexPath.row]];
+        //推荐频道为固定频道不能设置为编辑状态
+        if (indexPath.row == 0) {
+            [cell setEditing:NO];
+        } else {
+            [cell setEditing:isEditing];
+        }
         [cell.clearButton setTag:indexPath.row];
         [cell.clearButton addTarget:self action:@selector(clear:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -97,14 +116,16 @@
     if (isEditing && [collectionView isEqual:recommendedChannelsCollectionView]) {
         Channel *selectedChannel = recommendedChannelDataArray[indexPath.row];
         [recommendedChannelDataArray removeObject:selectedChannel];
-        [myChannelDataArray addObject:selectedChannel];
+        [_myChannelDataArray addObject:selectedChannel];
         [self updateUI];
     }
 }
 
 - (void)initData {
     isEditing = NO;
-    myChannelDataArray = [NSMutableArray new];
+    if (!_myChannelDataArray) {
+        _myChannelDataArray = [NSMutableArray new];
+    }
     recommendedChannelDataArray = [NSMutableArray new];
     channelViewModel = [PCChannelViewModel new];
 }
@@ -190,8 +211,8 @@
 }
 
 - (void)clear:(UIButton *)button {
-    Channel *taggedChannel = myChannelDataArray[button.tag];
-    [myChannelDataArray removeObject:taggedChannel];
+    Channel *taggedChannel = _myChannelDataArray[button.tag];
+    [_myChannelDataArray removeObject:taggedChannel];
     [recommendedChannelDataArray addObject:taggedChannel];
     [self updateUI];
 }

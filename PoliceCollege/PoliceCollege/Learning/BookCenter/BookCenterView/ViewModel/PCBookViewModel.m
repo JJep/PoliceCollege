@@ -76,7 +76,7 @@
     [request sendRequestSuccess:success error:fail];
 }
 
-- (void)getBookListAction:(NSNumber *)sortType serchText:(NSString *)searchText typeID:(NSNumber *)typeID currentPage:(NSNumber *)currentPage success:(PCSuccessHandler)success fail:(PCFailedHandler)fail
+- (void)getBookListActionWithSearchText:(NSString *)searchText typeID:(NSNumber *)typeID currentPage:(NSNumber *)currentPage success:(PCSuccessHandler)success fail:(PCFailedHandler)fail
 {
     PCBaseRequest *request = [PCBaseRequest new];
     request.requstType = @"post";
@@ -90,6 +90,10 @@
                                                           }];
     request.paraDict = paraDict;
     [request sendRequestSuccess:success error:fail];
+}
+
+-(void)getBookListActionWithTypeID:(NSNumber *)typeID currentPage:(NSNumber *)currentPage success:(PCSuccessHandler)success fail:(PCFailedHandler)fail {
+    [self getBookListActionWithSearchText:@"" typeID:typeID currentPage:currentPage success:success fail:fail];
 }
 
 @end

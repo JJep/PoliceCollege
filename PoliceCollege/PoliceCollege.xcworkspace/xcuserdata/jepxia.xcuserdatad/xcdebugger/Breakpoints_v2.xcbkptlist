@@ -249,11 +249,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Learning/OnlineTest/OnlineTestViewController.m"
-            timestampString = "546687781.031419"
+            timestampString = "547869294.261029"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -329,7 +329,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Learning/CourseCenter/BookDetailView/Cell/BookTableViewCell.m"
-            timestampString = "547714772.027218"
+            timestampString = "547804004.02872"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "87"
@@ -361,7 +361,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Login/Controllers/PCLoginViewController.m"
-            timestampString = "547714772.033986"
+            timestampString = "547869294.268778"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
@@ -457,7 +457,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Learning/LearningView/LearningViewController.m"
-            timestampString = "547198433.121336"
+            timestampString = "547869294.269336"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "41"
@@ -473,7 +473,7 @@
                   moduleName = "PoliceCollege"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jepxia/Desktop/Developer/PoliceCollege/PoliceCollege/PoliceCollege/Learning/LearningView/LearningViewController.m"
-                  timestampString = "547198433.1666861"
+                  timestampString = "547803572.870753"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "41"
@@ -488,7 +488,7 @@
                   moduleName = "PoliceCollege"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jepxia/Desktop/Developer/PoliceCollege/PoliceCollege/PoliceCollege/Learning/LearningView/LearningViewController.m"
-                  timestampString = "547198433.1714849"
+                  timestampString = "547803572.875064"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "41"
@@ -503,7 +503,7 @@
                   moduleName = "PoliceCollege"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jepxia/Desktop/Developer/PoliceCollege/PoliceCollege/PoliceCollege/Learning/LearningView/LearningViewController.m"
-                  timestampString = "547198433.175015"
+                  timestampString = "547803572.878582"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "41"
@@ -519,24 +519,8 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PoliceCollege/Network/Engine/PCNetworkEngine.m"
-            timestampString = "547714772.0374399"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "-postWithAPI:parameters:succeededBlock:failedBlock:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Network/PCBaseRequest.m"
-            timestampString = "547714772.03818"
+            timestampString = "547869294.26955"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "64"
@@ -552,7 +536,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Base/Category/NSURL+PCURL.m"
-            timestampString = "547714772.039084"
+            timestampString = "547869294.2701581"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "14"
@@ -568,7 +552,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Network/PCBaseRequest.m"
-            timestampString = "547714772.039525"
+            timestampString = "547869294.270467"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "82"
@@ -584,7 +568,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Announcement/Cell/AnouncementTableViewCell.m"
-            timestampString = "547714772.040804"
+            timestampString = "547869294.271265"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "99"
@@ -600,7 +584,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Announcement/DetailAnnouncement/PCAnnouncementDetailViewController.m"
-            timestampString = "547714772.041751"
+            timestampString = "547869294.272368"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
@@ -616,7 +600,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Announcement/PCAnouncementTableViewController.m"
-            timestampString = "547714772.042496"
+            timestampString = "547869294.272771"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "95"
@@ -632,7 +616,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Announcement/PCAnouncementTableViewController.m"
-            timestampString = "547714772.0433379"
+            timestampString = "547869294.273088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "95"
@@ -695,7 +679,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Announcement/PCAnouncementTableViewController.m"
-            timestampString = "547714772.0442899"
+            timestampString = "547869294.273458"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "52"
@@ -711,7 +695,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Network/Engine/PCRequestSerializer.m"
-            timestampString = "547714772.045216"
+            timestampString = "547869294.273895"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "17"
@@ -727,7 +711,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/PublicCourse/PublicCourseViewController.m"
-            timestampString = "547714772.04609"
+            timestampString = "547869294.274181"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
@@ -743,7 +727,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/PublicCourse/PublicCourseViewController.m"
-            timestampString = "547714772.047263"
+            timestampString = "547869294.2747149"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
@@ -759,7 +743,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/PublicCourse/PublicCourseViewController.m"
-            timestampString = "547714772.0483249"
+            timestampString = "547869294.275146"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "61"
@@ -775,7 +759,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Base/Category/NSURL+PCURL.m"
-            timestampString = "547714772.049072"
+            timestampString = "547869294.275739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "15"
@@ -791,7 +775,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/PublicCourse/DetailCoursse/WebVideoViewController.m"
-            timestampString = "547714772.049634"
+            timestampString = "547869294.276191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "37"
@@ -807,7 +791,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/PublicCourse/DetailCoursse/WebVideoViewController.m"
-            timestampString = "547714772.050226"
+            timestampString = "547869294.276572"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
@@ -823,7 +807,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/PublicCourse/DetailCoursse/DetailCourseViewController.m"
-            timestampString = "547714772.050683"
+            timestampString = "547869294.276974"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "35"
@@ -886,7 +870,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/PublicCourse/DetailCoursse/DetailCourseViewController.m"
-            timestampString = "547714772.051531"
+            timestampString = "547869294.2774431"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "36"
@@ -902,7 +886,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/PublicCourse/PublicCourseViewController.m"
-            timestampString = "547714772.052145"
+            timestampString = "547869294.27774"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "41"
@@ -918,7 +902,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/PublicCourse/PublicCourseViewController.m"
-            timestampString = "547714772.0529931"
+            timestampString = "547869294.2780451"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "66"
@@ -934,7 +918,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/PublicCourse/ViewModel/PCCourseViewModel.m"
-            timestampString = "547714772.054723"
+            timestampString = "547869294.278491"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "37"
@@ -950,7 +934,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/PublicCourse/DetailCoursse/WebVideoViewController.m"
-            timestampString = "547714772.0552191"
+            timestampString = "547869294.2786421"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "36"
@@ -966,7 +950,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/PublicCourse/DetailCoursse/WebVideoViewController.m"
-            timestampString = "547714772.0555789"
+            timestampString = "547869294.278792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
@@ -982,7 +966,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/PublicVideo/ViewModel/VideoViewModel.m"
-            timestampString = "547714772.055938"
+            timestampString = "547869294.279494"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "14"
@@ -998,11 +982,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Learning/CourseCenter/CourseCenterView/BookCenterViewController.m"
-            timestampString = "547714772.056362"
+            timestampString = "547804004.035565"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -1014,7 +998,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Learning/CourseCenter/CourseCenterView/ViewModel/PCBookViewModel.m"
-            timestampString = "547633106.56023"
+            timestampString = "547804004.037426"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "23"
@@ -1030,12 +1014,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Learning/CourseCenter/CourseCenterView/BookCenterViewController.m"
-            timestampString = "547714772.097502"
+            timestampString = "547804004.037619"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "-getBookListWithType:"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "-getRecommendedBookList"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1046,7 +1030,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Learning/CourseCenter/CourseCenterView/ChannelView/ChannelView.m"
-            timestampString = "547714772.1014709"
+            timestampString = "547804004.043263"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
@@ -1061,56 +1045,8 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PoliceCollege/Learning/CourseCenter/CourseCenterView/BookCenterViewController.m"
-            timestampString = "547714772.102034"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
-            landmarkName = "-numberOfSectionsInTableView:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PoliceCollege/Learning/CourseCenter/CourseCenterView/BookCenterViewController.m"
-            timestampString = "547714772.1038671"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
-            landmarkName = "-collectionView:cellForItemAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PoliceCollege/Learning/CourseCenter/CourseCenterView/BookCenterViewController.m"
-            timestampString = "547714772.106598"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
-            landmarkName = "-tableView:numberOfRowsInSection:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Base/Category/NSURL+PCURL.m"
-            timestampString = "547714772.108041"
+            timestampString = "547869294.280393"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "16"
@@ -1126,11 +1062,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Learning/CourseCenter/MoreChannelsView/MoreChannelsViewController.m"
-            timestampString = "547714772.108381"
+            timestampString = "547804004.043916"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
             landmarkName = "-clear:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1142,11 +1078,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Learning/CourseCenter/MoreChannelsView/MoreChannelsViewController.m"
-            timestampString = "547714772.108945"
+            timestampString = "547804004.044367"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "-collectionView:cellForItemAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1158,11 +1094,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Learning/CourseCenter/MoreChannelsView/MoreChannelsViewController.m"
-            timestampString = "547714772.1094429"
+            timestampString = "547804004.044776"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "-collectionView:didSelectItemAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1174,11 +1110,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Learning/CourseCenter/MoreChannelsView/MoreChannelsViewController.m"
-            timestampString = "547714772.110039"
+            timestampString = "547804004.045141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
             landmarkName = "-setEdit:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1190,11 +1126,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Learning/CourseCenter/MoreChannelsView/MoreChannelsViewController.m"
-            timestampString = "547714772.110611"
+            timestampString = "547804004.045541"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "-updateMyChannels:fail:"
             landmarkType = "7">
             <Locations>
@@ -1253,7 +1189,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Learning/CourseCenter/CourseCenterView/ViewModel/PCChannelViewModel.m"
-            timestampString = "547714772.111281"
+            timestampString = "547804004.0459861"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "48"
@@ -1269,11 +1205,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Learning/CourseCenter/MoreChannelsView/MoreChannelsViewController.m"
-            timestampString = "547714772.111865"
+            timestampString = "547804004.046321"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "-updateMyChannels:fail:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1285,11 +1221,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Learning/CourseCenter/MoreChannelsView/MoreChannelsViewController.m"
-            timestampString = "547714772.112558"
+            timestampString = "547804004.0466371"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "-getRecommendedChannels"
             landmarkType = "7">
          </BreakpointContent>
@@ -1300,28 +1236,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PoliceCollege/Learning/CourseCenter/CourseCenterView/BookCenterViewController.m"
-            timestampString = "547714772.113157"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "-getMyChannel"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Learning/CourseCenter/MoreChannelsView/MoreChannelsViewController.m"
-            timestampString = "547714772.114122"
+            timestampString = "547804004.0469199"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
             landmarkName = "-setEdit:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1333,12 +1253,252 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Learning/CourseCenter/CourseCenterView/BookCenterViewController.m"
-            timestampString = "547714772.114416"
+            timestampString = "547804004.047202"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "-getBookList"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PoliceCollege/Learning/CourseCenter/CourseCenterView/ViewModel/PCBookViewModel.m"
+            timestampString = "547804004.047611"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "-getBookListActionWithSearchText:typeID:currentPage:success:fail:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PoliceCollege/Learning/CourseCenter/CourseCenterView/BookCenterViewController.m"
+            timestampString = "547804004.047815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "158"
             endingLineNumber = "158"
+            landmarkName = "-getBookList"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PoliceCollege/Learning/CourseCenter/CourseCenterView/BookCenterViewController.m"
+            timestampString = "547804004.048043"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "-updateUI"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PoliceCollege/Learning/CourseCenter/CourseCenterView/BookCenterViewController.m"
+            timestampString = "547804004.0482399"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
+            landmarkName = "-collectionView:cellForItemAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PoliceCollege/Learning/CourseCenter/CourseCenterView/ChannelView/ChannelCollectionViewCell.m"
+            timestampString = "547801412.4372801"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "-setIsSelected:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PoliceCollege/Learning/CourseCenter/CourseCenterView/BookCenterViewController.m"
+            timestampString = "547804004.048562"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
+            landmarkName = "-didTouchBtn:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PoliceCollege/Learning/CourseCenter/MoreChannelsView/MoreChannelsViewController.m"
+            timestampString = "547804004.048674"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "-collectionView:numberOfItemsInSection:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PoliceCollege/Learning/CourseCenter/MoreChannelsView/MoreChannelsViewController.m"
+            timestampString = "547804004.0488"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "-collectionView:cellForItemAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PoliceCollege/Learning/LearningView/LearningViewController.m"
+            timestampString = "547869294.281307"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "-downloadData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PoliceCollege/Learning/LearningView/LearningViewController.m"
+            timestampString = "547869294.281478"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "-downloadData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PoliceCollege/Learning/LearningView/ViewModel/OnlineTestViewModel.m"
+            timestampString = "547804004.049841"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "-getTestPapersAction:fail:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PoliceCollege/Network/PCBaseRequest.m"
+            timestampString = "547869294.2816401"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "-sendRequestSuccess:error:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PoliceCollege/Learning/LearningView/LearningViewController.m"
+            timestampString = "547869294.281805"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "-numberOfSectionsInTableView:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PoliceCollege/Learning/LearningView/LearningViewController.m"
+            timestampString = "547869294.282066"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "-tableView:numberOfRowsInSection:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PoliceCollege/Learning/LearningView/LearningViewController.m"
+            timestampString = "547869294.282218"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

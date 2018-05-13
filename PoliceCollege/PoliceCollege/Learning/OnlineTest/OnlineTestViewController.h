@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface OnlineTestViewController : UIViewController
-
+@property (nonatomic, retain)NSArray *paperArray;
 @end

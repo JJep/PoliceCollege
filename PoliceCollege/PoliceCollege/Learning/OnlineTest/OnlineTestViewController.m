@@ -9,6 +9,7 @@
 #import "OnlineTestViewController.h"
 #import "OnlineTestCollectionViewCell.h"
 #import "TestViewController.h"
+#import "TestPaper.h"
 @interface OnlineTestViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @end
@@ -34,7 +35,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.paperArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -43,7 +44,7 @@
     if ( cell == nil )  {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
-    cell.textLabel.text = @"HTML入门测试";
+    cell.textLabel.text = ((TestPaper *)self.paperArray[indexPath.row]).title;
     return cell;
 }
 

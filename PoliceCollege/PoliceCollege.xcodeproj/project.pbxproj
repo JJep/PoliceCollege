@@ -76,6 +76,7 @@
 		BEB609EB20A4325B00473BC5 /* DetailVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609EA20A4325B00473BC5 /* DetailVideoTableViewCell.m */; };
 		BEB609EE20A53E8800473BC5 /* MyChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609ED20A53E8800473BC5 /* MyChannel.m */; };
 		BEB609F420A56A9400473BC5 /* NSObject+PropertyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609F320A56A9400473BC5 /* NSObject+PropertyMapper.m */; };
+		BEB609F720A6DBC200473BC5 /* CourseCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609F620A6DBC200473BC5 /* CourseCenterViewController.m */; };
 		BEDE52AF20897B9000D00A98 /* PCPromotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52AE20897B9000D00A98 /* PCPromotionView.m */; };
 		BEDE52B5208991E900D00A98 /* PCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52B4208991E900D00A98 /* PCTabBarController.m */; };
 		BEDE52B82089B31600D00A98 /* PCAnouncementTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52B72089B31600D00A98 /* PCAnouncementTableViewController.m */; };
@@ -258,6 +259,8 @@
 		BEB609ED20A53E8800473BC5 /* MyChannel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyChannel.m; sourceTree = "<group>"; };
 		BEB609F220A56A9400473BC5 /* NSObject+PropertyMapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+PropertyMapper.h"; sourceTree = "<group>"; };
 		BEB609F320A56A9400473BC5 /* NSObject+PropertyMapper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PropertyMapper.m"; sourceTree = "<group>"; };
+		BEB609F520A6DBC200473BC5 /* CourseCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseCenterViewController.h; sourceTree = "<group>"; };
+		BEB609F620A6DBC200473BC5 /* CourseCenterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseCenterViewController.m; sourceTree = "<group>"; };
 		BEDE52AD20897B9000D00A98 /* PCPromotionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCPromotionView.h; sourceTree = "<group>"; };
 		BEDE52AE20897B9000D00A98 /* PCPromotionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCPromotionView.m; sourceTree = "<group>"; };
 		BEDE52B3208991E900D00A98 /* PCTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCTabBarController.h; sourceTree = "<group>"; };
@@ -673,11 +676,13 @@
 			path = AlertController;
 			sourceTree = "<group>";
 		};
-		BE44B5BC209C3F790001B143 /* BookCenter */ = {
+		BE44B5BC209C3F790001B143 /* CourseCenter */ = {
 			isa = PBXGroup;
 			children = (
+				BEB609F520A6DBC200473BC5 /* CourseCenterViewController.h */,
+				BEB609F620A6DBC200473BC5 /* CourseCenterViewController.m */,
 			);
-			path = BookCenter;
+			path = CourseCenter;
 			sourceTree = "<group>";
 		};
 		BE44B5BD209C405B0001B143 /* Model */ = {
@@ -1057,10 +1062,10 @@
 		BEDE530E208F44C400D00A98 /* Learning */ = {
 			isa = PBXGroup;
 			children = (
-				BE44B5BC209C3F790001B143 /* BookCenter */,
+				BE44B5BC209C3F790001B143 /* CourseCenter */,
 				BEDE53572092D7FA00D00A98 /* VideoCenter */,
 				BEDE5315208F7FC400D00A98 /* OnlineTest */,
-				BEDE531D20900FC500D00A98 /* CourseCenter */,
+				BEDE531D20900FC500D00A98 /* BookCenter */,
 				BEDE531C20900FAD00D00A98 /* LearningView */,
 			);
 			path = Learning;
@@ -1092,14 +1097,14 @@
 			path = LearningView;
 			sourceTree = "<group>";
 		};
-		BEDE531D20900FC500D00A98 /* CourseCenter */ = {
+		BEDE531D20900FC500D00A98 /* BookCenter */ = {
 			isa = PBXGroup;
 			children = (
 				BEDE533F2091835100D00A98 /* BookDetailView */,
 				BEDE5333209166E300D00A98 /* MoreChannelsView */,
-				BEDE53312091669C00D00A98 /* CourseCenterView */,
+				BEDE53312091669C00D00A98 /* BookCenterView */,
 			);
-			path = CourseCenter;
+			path = BookCenter;
 			sourceTree = "<group>";
 		};
 		BEDE532D2090C58A00D00A98 /* ChannelView */ = {
@@ -1113,7 +1118,7 @@
 			path = ChannelView;
 			sourceTree = "<group>";
 		};
-		BEDE53312091669C00D00A98 /* CourseCenterView */ = {
+		BEDE53312091669C00D00A98 /* BookCenterView */ = {
 			isa = PBXGroup;
 			children = (
 				BEDE532D2090C58A00D00A98 /* ChannelView */,
@@ -1124,7 +1129,7 @@
 				BEDE532120904CF200D00A98 /* BookCenterViewController.h */,
 				BEDE532220904CF200D00A98 /* BookCenterViewController.m */,
 			);
-			path = CourseCenterView;
+			path = BookCenterView;
 			sourceTree = "<group>";
 		};
 		BEDE5332209166B100D00A98 /* Cell */ = {
@@ -1398,6 +1403,7 @@
 				BE21DA8E2086F11E0086B8BA /* PCViewModel.m in Sources */,
 				BE44B57420946C790001B143 /* LearningMainCollectionView.m in Sources */,
 				BE44B5E520A0252C0001B143 /* NSURL+PCURL.m in Sources */,
+				BEB609F720A6DBC200473BC5 /* CourseCenterViewController.m in Sources */,
 				BEDE52ED208D820C00D00A98 /* PersonalInformationViewController.m in Sources */,
 				BEDE52F6208DDB8D00D00A98 /* ChangePasswordViewController.m in Sources */,
 				BEDE532C20908A0300D00A98 /* ChannelCollectionViewCell.m in Sources */,
