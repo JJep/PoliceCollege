@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Video.h"
 @interface VideoTableViewCell : UITableViewCell
-
+- (void)setModel:(Video *)model;
 @end

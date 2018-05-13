@@ -41,7 +41,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 8;
+    return 5;
 }
 
 - (void) initData {
@@ -63,20 +63,8 @@
                       @"title":@"视频中心"
                       },
                   @{
-                      @"image":[UIImage imageNamed:@"onlineTest"],
-                      @"title":@"在线测试"
-                      },
-                  @{
-                      @"image":[UIImage imageNamed:@"courseCenter"],
-                      @"title":@"课程中心"
-                      },
-                  @{
-                      @"image":[UIImage imageNamed:@"bookCenter"],
-                      @"title":@"图书中心"
-                      },
-                  @{
-                      @"image":[UIImage imageNamed:@"videoCenter"],
-                      @"title":@"视频中心"
+                      @"image":[UIImage imageNamed:@"course"],
+                      @"title":@"专题课程"
                       }
                   ];
 }

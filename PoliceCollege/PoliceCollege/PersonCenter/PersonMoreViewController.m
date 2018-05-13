@@ -52,6 +52,7 @@ static const int calenderButtonTag = 12345;
     seasonTableView = [UITableView new];
     seasonTableView.delegate = self;
     seasonTableView.dataSource = self;
+    [seasonTableView registerClass:[SeasonTableViewCell class] forCellReuseIdentifier:@"seasonCell"];
     
     pickerView = [PCPickerView new];
     pickerView.pickerView.delegate = self;
@@ -97,7 +98,6 @@ static const int calenderButtonTag = 12345;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellID = @"seasonCell";
     SeasonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    cell = [[SeasonTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     if ([selectedArray[indexPath.row] isEqual:@false]) {
         [cell.seasonSubview setHidden:true];
     } else {

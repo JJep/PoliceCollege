@@ -9,7 +9,6 @@
 #import "SelectedCoursesView.h"
 
 @implementation SelectedCoursesView {
-    UILabel *selectedCoursesTitleLabel;
     UILabel *lastTimeLabel;
     UIView *view;
     UILabel *learningProgressTitleLabel;
@@ -22,7 +21,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        selectedCoursesTitleLabel = [UILabel new];
+        _selectedCoursesTitleLabel = [UILabel new];
         lastTimeLabel = [UILabel new];
         view = [UIView new];
         learningProgressTitleLabel = [UILabel new];
@@ -32,7 +31,7 @@
         commentTitleLabel = [UILabel new];
         commentLabel = [UILabel new];
         
-        [self addSubview:selectedCoursesTitleLabel];
+        [self addSubview:_selectedCoursesTitleLabel];
         [self addSubview:lastTimeLabel];
         [self addSubview:view];
         [self addSubview:learningProgressLabel];
@@ -47,10 +46,11 @@
         self.layer.cornerRadius = 5;
         self.layer.masksToBounds = true;
         
-        selectedCoursesTitleLabel.text = @"已选课程";
-        selectedCoursesTitleLabel.font = [UIFont fontWithName:@"PingFang-SC-Semibold" size:15];
-        selectedCoursesTitleLabel.textColor = [UIColor colorWithRed:18/255.0 green:18/255.0 blue:18/255.0 alpha:1/1.0];
+        _selectedCoursesTitleLabel.text = @"已选课程";
+        _selectedCoursesTitleLabel.font = [UIFont fontWithName:@"PingFang-SC-Semibold" size:15];
+        _selectedCoursesTitleLabel.textColor = [UIColor colorWithRed:18/255.0 green:18/255.0 blue:18/255.0 alpha:1/1.0];
         
+        [lastTimeLabel setTextAlignment:NSTextAlignmentRight];
         lastTimeLabel.text = @"最近上课时间 2018-04-08 10:30";
         lastTimeLabel.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:13];
         lastTimeLabel.textColor = [UIColor colorWithRed:203/255.0 green:204/255.0 blue:205/255.0 alpha:1/1.0];
@@ -91,7 +91,7 @@
 }
 
 - (void)layoutViews {
-    [selectedCoursesTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_selectedCoursesTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(20);
         make.top.equalTo(self).offset(15);
         make.width.mas_equalTo(70);
@@ -100,13 +100,14 @@
     
     [lastTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).offset(-20);
-        make.top.equalTo(self).offset(17);
-        make.left.equalTo(self->selectedCoursesTitleLabel.mas_right).offset(20);
+//        make.bottom.equalTo(self.selectedCoursesTitleLabel);
+        make.center.equalTo(self.selectedCoursesTitleLabel);
+        make.left.equalTo(self->_selectedCoursesTitleLabel.mas_right).offset(20);
         make.height.mas_equalTo(20);
     }];
     
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self->selectedCoursesTitleLabel.mas_bottom).offset(11);
+        make.top.equalTo(self->_selectedCoursesTitleLabel.mas_bottom).offset(11);
         make.left.equalTo(self).offset(20);
         make.right.equalTo(self).offset(-20);
         make.height.mas_equalTo(1);

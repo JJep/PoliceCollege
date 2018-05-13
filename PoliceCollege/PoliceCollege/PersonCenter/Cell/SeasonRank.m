@@ -10,13 +10,9 @@
 
 @implementation SeasonRank {
     UILabel *rankTitleLabel;
-    UILabel *rankLabel;
     UILabel *creditTitleLabel;
     UILabel *compulsoryTitleLabel;
     UILabel *commentTitleLabel;
-    UILabel *creditLabel;
-    UILabel *compulsoryLabel;
-    UILabel *commentLabel;
     UIImageView *backImage;
     UIView *view;
 }
@@ -24,50 +20,50 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         rankTitleLabel = [UILabel new];
-        rankLabel = [UILabel new];
+        _rankLabel = [UILabel new];
         creditTitleLabel = [UILabel new];
         compulsoryTitleLabel = [UILabel new];
         commentTitleLabel = [UILabel new];
-        creditLabel = [UILabel new];
-        compulsoryLabel = [UILabel new];
-        commentLabel = [UILabel new];
+        _creditLabel = [UILabel new];
+        _compulsoryLabel = [UILabel new];
+        _commentLabel = [UILabel new];
         backImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"personBackImage"]];
         view = [UIView new];
         
         [self addSubview:backImage];
         [self addSubview:view];
         [self addSubview:rankTitleLabel];
-        [self addSubview:rankLabel];
+        [self addSubview:_rankLabel];
         [self addSubview:creditTitleLabel];
-        [self addSubview:creditLabel];
+        [self addSubview:_creditLabel];
         [self addSubview:compulsoryTitleLabel];
-        [self addSubview:compulsoryLabel];
+        [self addSubview:_compulsoryLabel];
         [self addSubview:commentTitleLabel];
-        [self addSubview:commentLabel];
+        [self addSubview:_commentLabel];
 
         
         rankTitleLabel.text = @"本季度总排名";
         rankTitleLabel.font = [UIFont fontWithName:@"PingFang-SC-Semibold" size:13];
         rankTitleLabel.textColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1/1.0];
 
-        rankLabel.text = @"300";
-        rankLabel.font = [UIFont fontWithName:@"PingFang-SC-Semibold" size:40];
-        rankLabel.textColor = [UIColor colorWithRed:100/255.0 green:255/255.0 blue:0/255.0 alpha:1/1.0];
+        _rankLabel.text = @"300";
+        _rankLabel.font = [UIFont fontWithName:@"PingFang-SC-Semibold" size:40];
+        _rankLabel.textColor = [UIColor colorWithRed:100/255.0 green:255/255.0 blue:0/255.0 alpha:1/1.0];
         
-        creditLabel.text = @"300";
-        creditLabel.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:15];
-        creditLabel.textColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1/1.0];
-        [creditLabel setTextAlignment:NSTextAlignmentCenter];
+        _creditLabel.text = @"300";
+        _creditLabel.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:15];
+        _creditLabel.textColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1/1.0];
+        [_creditLabel setTextAlignment:NSTextAlignmentCenter];
         
-        commentLabel.text = @"300";
-        commentLabel.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:15];
-        commentLabel.textColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1/1.0];
-        [commentLabel setTextAlignment:NSTextAlignmentCenter];
+        _commentLabel.text = @"300";
+        _commentLabel.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:15];
+        _commentLabel.textColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1/1.0];
+        [_commentLabel setTextAlignment:NSTextAlignmentCenter];
         
-        compulsoryLabel.text = @"300";
-        compulsoryLabel.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:15];
-        compulsoryLabel.textColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1/1.0];
-        [compulsoryLabel setTextAlignment:NSTextAlignmentCenter];
+        _compulsoryLabel.text = @"300";
+        _compulsoryLabel.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:15];
+        _compulsoryLabel.textColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1/1.0];
+        [_compulsoryLabel setTextAlignment:NSTextAlignmentCenter];
         
         creditTitleLabel.text = @"总学分";
         creditTitleLabel.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:10];
@@ -105,7 +101,7 @@
 //        make.height.mas_equalTo(20);
     }];
     
-    [rankLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_rankLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self->rankTitleLabel.mas_bottom).offset(4);
         make.left.equalTo(self).offset(28);
         make.right.equalTo(self).offset(-28);
@@ -115,44 +111,44 @@
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(28);
         make.right.equalTo(self).offset(-28);
-        make.top.equalTo(self->rankLabel.mas_bottom).offset(10);
+        make.top.equalTo(self->_rankLabel.mas_bottom).offset(10);
         make.height.mas_equalTo(1);
     }];
     
-    [creditLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_creditLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(25);
         make.top.equalTo(self->view.mas_bottom).offset(9);
-        make.right.equalTo(self->compulsoryLabel.mas_left).offset(-50);
-        make.width.equalTo(self->compulsoryLabel);
+        make.right.equalTo(self->_compulsoryLabel.mas_left).offset(-50);
+        make.width.equalTo(self->_compulsoryLabel);
 //        make.height.mas_equalTo(30);
     }];
     
-    [compulsoryLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self->commentLabel.mas_left).offset(-50);
-        make.height.top.equalTo(self->creditLabel);
-        make.width.equalTo(self->commentLabel);
+    [_compulsoryLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self->_commentLabel.mas_left).offset(-50);
+        make.height.top.equalTo(self->_creditLabel);
+        make.width.equalTo(self->_commentLabel);
     }];
     
-    [commentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_commentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).offset(-25);
-        make.height.top.equalTo(self->compulsoryLabel);
+        make.height.top.equalTo(self->_compulsoryLabel);
     }];
     
     [creditTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self->creditLabel.mas_bottom);
-        make.left.right.height.equalTo(self->creditLabel);
+        make.top.equalTo(self->_creditLabel.mas_bottom);
+        make.left.right.height.equalTo(self->_creditLabel);
         make.bottom.equalTo(self).offset(-16);
     }];
     
     [compulsoryTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self->compulsoryLabel.mas_bottom);
-        make.left.right.height.equalTo(self->compulsoryLabel);
+        make.top.equalTo(self->_compulsoryLabel.mas_bottom);
+        make.left.right.height.equalTo(self->_compulsoryLabel);
         make.bottom.equalTo(self).offset(-16);
     }];
     
     [commentTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self->commentLabel.mas_bottom);
-        make.left.right.height.equalTo(self->commentLabel);
+        make.top.equalTo(self->_commentLabel.mas_bottom);
+        make.left.right.height.equalTo(self->_commentLabel);
         make.bottom.equalTo(self).offset(-16);
     }];
     

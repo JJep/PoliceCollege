@@ -143,4 +143,16 @@
     
 }
 
+- (void)setModel:(Video *)model {
+#warning 差一个教师label
+    [imageView sd_setImageWithURL:[NSURL pc_imageURLWithString:model.img] placeholderImage:[UIImage imageNamed:@"banner"]];
+    [courseNameLabel setText:model.title];
+    [courseNameLabel setText:model.published];
+    [creditLabel setText: [NSString stringWithFormat:@"学分 %lf",model.credit]];
+    [scoreLabel setText: [NSString stringWithFormat:@"评分 %lf",model.ccredit]];
+    [clicksLabel setText:[NSString stringWithFormat:@"点击量 %lu", model.hit]];
+    [commentsQuantityLabel setText:[NSString stringWithFormat:@"评论 %lu", model.commentNum]];
+    
+}
+
 @end

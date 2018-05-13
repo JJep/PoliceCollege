@@ -25,7 +25,6 @@
 
 static const int courseType = 3;
 static const int bookType = 4;
-static const int videoType = 5;
 static const int noType = -1;
 static NSString *bookCellID = @"BookCenterTableViewCell";
 @implementation BookCenterViewController {

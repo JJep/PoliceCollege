@@ -25,7 +25,7 @@
     LearningMainCollectionView *collectionView;
     PCTopView *topView;
     UITableView *tableView;
-    NSArray *testPapaerList;
+    NSArray *testPaperList;
     OnlineTestViewModel *viewModel;
 }
 
@@ -39,7 +39,7 @@
 
 - (void)downloadData {
     [viewModel getTestPapersAction:^(id responseObject) {
-        self->testPapaerList = [NSArray yy_modelArrayWithClass:[TestPaper class] json:[responseObject objectForKey:@"testpaperList"]];
+        self->testPaperList = [NSArray yy_modelArrayWithClass:[TestPaper class] json:[responseObject objectForKey:@"testpaperList"]];
         [self->tableView reloadData];
     } fail:^(NSError *error) {
         
@@ -111,7 +111,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if (testPapaerList.count) {
+    if (testPaperList.count) {
         return 1;
     } else {
         return 0;
@@ -119,7 +119,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return testPapaerList.count;
+    return testPaperList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -129,7 +129,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
-    [cell.textLabel setText:((TestPaper *)testPapaerList[indexPath.row]).title];
+    [cell.textLabel setText:((TestPaper *)testPaperList[indexPath.row]).title];
     
     return cell;
 }
@@ -143,6 +143,7 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
         OnlineTestViewController *newVC = [[OnlineTestViewController alloc] init];
+        newVC.paperArray = testPaperList;
         newVC.hidesBottomBarWhenPushed = true;
         [self.navigationController pushViewController:newVC animated:true];
     } else if (indexPath.row == 1) {

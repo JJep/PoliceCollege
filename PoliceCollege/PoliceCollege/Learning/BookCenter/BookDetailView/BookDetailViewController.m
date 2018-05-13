@@ -12,6 +12,7 @@
 #import "BookTableViewCell.h"
 #import "CommentTableViewCell.h"
 #import "Chapter.h"
+#import "ChapterTableViewCell.h"
 @interface BookDetailViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic,assign)int currentView;
 @end
@@ -49,17 +50,21 @@ static const int commentButtonTag = 1234;
 - (void)initViews {
     self.title = @"图书详情";
     
-    tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    tableView = [[UITableView alloc] init];
     tableView.delegate = self;
     tableView.dataSource = self;
     [self.view addSubview:tableView];
     tableView.estimatedRowHeight = 205;
     tableView.rowHeight = UITableViewAutomaticDimension;
     
+    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    
     [tableView registerClass:[BookTableViewCell class] forCellReuseIdentifier:@"bookCell"];
     [tableView registerClass:[CommentTableViewCell class] forCellReuseIdentifier:@"commentCell"];
     [tableView registerClass:[BookIntroductionTableViewCell class] forCellReuseIdentifier:@"introductionCell"];
-    [tableView registerClass:[BookIntroductionTableViewCell class] forCellReuseIdentifier:@"chapterCell"];
+    [tableView registerClass:[ChapterTableViewCell class] forCellReuseIdentifier:@"chapterCell"];
     _currentView = introductionView;
     
     chapterViewModel = [PCChapterViewModel new];
@@ -106,6 +111,7 @@ static const int commentButtonTag = 1234;
             [cell.commentBtn setSelected:true];
             [cell.introductionBtn setSelected:false];
         }
+        [cell setModel:self.model];
         return cell;
 
     } else {
@@ -122,8 +128,8 @@ static const int commentButtonTag = 1234;
                     [cell setContent:self.model.content];
                     return cell;
                 } else {
-                    BookIntroductionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"chapterCell"];
-                    [cell setContent:chapterArray[indexPath.row]];
+                    ChapterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"chapterCell"];
+                    [cell setModel:chapterArray[indexPath.row]];
                     return cell;
                 }
             }

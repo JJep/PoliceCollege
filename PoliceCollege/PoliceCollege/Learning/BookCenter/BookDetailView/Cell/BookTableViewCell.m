@@ -182,37 +182,20 @@
     return self;
 }
 
-//- (void)didTouchBtn:(UIButton *)button {
-//    long tag = button.tag;
-//    switch (tag) {
-//        case introductionBtnTag:
-//            [_introductionBtn setSelected:true];
-//            [_commentBtn setSelected:false];
-//            [_leftView setHidden:false];
-//            [_rightView setHidden:true];
-//            break;
-//        case commentBtnTag:
-//            [_introductionBtn setSelected:false];
-//            [_commentBtn setSelected:true];
-//            [_leftView setHidden:true];
-//            [_rightView setHidden:false];
-//        default:
-//            break;
-//    }
-//}
+- (void)setModel:(Book *)book {
+//
+//    bookImageView = [UIImageView new];
+//    bookNameLabel = [UILabel new];
+//    bookCategoryLabel = [UILabel new];
+//    bookStatusLabel = [UILabel new];
+//    bookWriterLabel = [UILabel new];
 
-//-(void)setBookModel:(BookModel *)bookModel {
-//    if (_bookModel != bookModel) {
-//
-//        _bookModel = bookModel;
-//        [bookImageView setImage:_bookModel.bookImage];
-//        [bookWriterLabel setText:[NSString stringWithFormat:@"作者：%@",_bookModel.bookWriter]];
-//        [bookCategoryLabel setText:[NSString stringWithFormat:@"分类：%@",_bookModel.bookCategory]];
-//        [bookStatusLabel setText:[NSString stringWithFormat:@"状态：%@",_bookModel.bookStatus]];
-//        [bookNameLabel setText:_bookModel.bookName];
-//
-//    }
-//}
+    [bookImageView sd_setImageWithURL:[NSURL pc_imageURLWithString:book.img] placeholderImage:[UIImage imageNamed:@"banner"]];
+    [bookNameLabel setText:book.title];
+//    [bookCategoryLabel setText:book.typeName];
+    [bookWriterLabel setText:book.author];
+
+}
 
 @end
 

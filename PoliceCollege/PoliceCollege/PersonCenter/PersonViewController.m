@@ -10,6 +10,8 @@
 #import "SeasonRank.h"
 #import "SelectedCoursesView.h"
 #import "PersonMoreViewController.h"
+#import "PersonCenterViewModel.h"
+#import "Situation.h"
 @interface PersonViewController ()
 
 @end
@@ -18,11 +20,50 @@
     SeasonRank *seasonRankView;
     SelectedCoursesView *selectedCoursesView;
     SelectedCoursesView *selectedVideoView;
+    PersonCenterViewModel *personCenterViewModel;
+    NSUInteger myRanking;
+    Situation *currentSeasonSituation;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self initViews];
+    [self initData];
+    [self downloadData];
+}
+
+- (void)downloadData {
+    [personCenterViewModel getRankingAction:^(id responseObject) {
+        self->myRanking = [[responseObject objectForKey:@"num"] unsignedIntegerValue];
+        [self updateUI];
+    } fail:^(NSError *error) {
+        
+    }];
+    
+    [personCenterViewModel getCurrentSeasonCreditInfoAction:^(id responseObject) {
+        self->currentSeasonSituation = [Situation yy_modelWithJSON:[responseObject objectForKey:@"situation"]];
+        [self updateUI];
+    } fail:^(NSError *error) {
+        
+    }];
+    
+    
+}
+
+- (void)updateUI {
+    [seasonRankView.rankLabel setText:[NSString stringWithFormat:@"%lu", myRanking]];
+    [seasonRankView.creditLabel setText:[NSString stringWithFormat:@"%.2lf", currentSeasonSituation.quarterScore]];
+    [seasonRankView.compulsoryLabel setText:[NSString stringWithFormat:@"%lu", currentSeasonSituation.quarterScorebx]];
+    [seasonRankView.commentLabel setText:[NSString stringWithFormat:@"%lu", currentSeasonSituation.quarterCommentn]];
+}
+
+- (void)initData {
+    personCenterViewModel = [PersonCenterViewModel new];
+}
+
+- (void)initViews {
     
     self.title = @"个人中心";
     
@@ -39,6 +80,7 @@
     selectedCoursesView = [SelectedCoursesView new];
     selectedVideoView = [SelectedCoursesView new];
     
+    [selectedVideoView.selectedCoursesTitleLabel setText:@"已选视频"];
     [self.view addSubview:selectedVideoView];
     [self.view addSubview:selectedCoursesView];
     [self.view addSubview:seasonRankView];

@@ -11,20 +11,57 @@
 #import "ChannelView.h"
 #import "VideoTableViewCell.h"
 #import "BackView.h"
+#import "VideoViewModel.h"
+#import "Video.h"
+#import "Channel.h"
+#import "PCChannelViewModel.h"
+#import "MyChannel.h"
+#import "DetailVideoViewController.h"
 @interface  VideoCenterViewController() <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end
-
+static const int videoType = 5;
 @implementation VideoCenterViewController {
     UITableView *tableView;
     ChannelView *channelView;
     ChannelCollectionViewCell *tempCell;
     BackView *backView;
+    NSMutableArray *videoArray;
+    NSUInteger currentPage;
+    NSUInteger totalPage;
+    VideoViewModel *videoViewModel;
+    PCChannelViewModel *channelViewModel;
+    MyChannel *myChannel;
+    Channel *currentChannel;
+    NSMutableArray *channelsArray;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self initViews];
+    [self initData];
+    [self downloadRecommendedVideo];
+    
+}
+
+- (void)updateUI  {
+    [channelView.collectionView reloadData];
+    [tableView reloadData];
+}
+
+- (void)downloadRecommendedVideo {
+    [videoViewModel getRecommendedVideoListActionWithCurrentPage:[NSNumber numberWithUnsignedInteger:currentPage] success:^(id responseObject) {
+        NSArray *ary = [NSArray yy_modelArrayWithClass:[Video class] json:[responseObject objectForKey:@"videoList"]];
+        [self->videoArray addObjectsFromArray:ary];
+        [self updateUI];
+    } fail:^(NSError *error) {
+        
+    }];
+}
+
+- (void)initViews {
     
     [self.view setBackgroundColor:MyWhiteBackgroundColor];
     self.title = @"视频中心";
@@ -37,6 +74,7 @@
     [self.view addSubview:tableView];
     tableView.delegate = self;
     tableView.dataSource = self;
+    [tableView registerClass:[VideoTableViewCell class] forCellReuseIdentifier:@"videoCell"];
     
     channelView = [[ChannelView alloc] init];
     [self.view addSubview:channelView];
@@ -57,9 +95,40 @@
     }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)initData {
+    videoArray = [NSMutableArray new];
+    channelsArray = [NSMutableArray new];
+    currentPage = 1;
+    totalPage = 1;
+    videoViewModel = [VideoViewModel new];
+    channelViewModel = [PCChannelViewModel new];
+    [self downloadRecommendedVideo];
+    [self getMyChannel];
+}
+
+- (void)getMyChannel {
+    //获取我的频道
+    [channelViewModel getMyChannelWithType:[NSNumber numberWithInt:videoType] success:^(id responseObject) {
+        if ([[responseObject objectForKey:@"state"] isEqualToString:@"1"]) {
+            self->myChannel = [MyChannel yy_modelWithJSON:[responseObject objectForKey:@"myParamset"]];
+            //移除之前的频道
+            [self->channelsArray removeAllObjects];
+            //添加从服务器获取的频道
+            [self->channelsArray addObjectsFromArray:self->myChannel.params];
+            for (int i = 0; i < self->channelsArray.count; i ++) {
+                self->channelsArray[i] = [Channel yy_modelWithDictionary:self->channelsArray[i]];
+            }
+            Channel *recommendedChannel = [[Channel alloc] init];
+            [recommendedChannel setName:@"推荐"];
+            //在数组最前端添加“推荐”频道，作为固定的频道
+            [self->channelsArray insertObject:recommendedChannel atIndex:0] ;
+            //重绘
+            //            [self updateUI];
+            [self->channelView.collectionView reloadData];
+        }
+    } fail:^(NSError *error) {
+        
+    }];
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -67,7 +136,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 5;
+    return channelsArray.count;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -76,6 +145,7 @@
         [cell setIsSelected:true];
         tempCell = cell;
     }
+    [cell setModel:channelsArray[indexPath.row]];
     return cell;
 }
 
@@ -84,20 +154,21 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 8;
+    return videoArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellID = @"courseCenterTableViewCell";
+    static NSString *cellID = @"videoCell";
     VideoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    cell = [[VideoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-    
+//    cell = [[VideoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    [cell setModel:videoArray[indexPath.row]];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    BookDetailViewController *newVC = [BookDetailViewController new];
-//    [self.navigationController pushViewController:newVC animated:true];
+    DetailVideoViewController *detailVideoViewController = [DetailVideoViewController new];
+    detailVideoViewController.idField = ((Video *)videoArray[indexPath.row]).idField;
+    [self.navigationController pushViewController:detailVideoViewController animated:true];
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

@@ -12,5 +12,7 @@
 - (void)getFirstRecommendedVideoListAction:(PCSuccessHandler)success fail:(PCFailedHandler)fail ;
 - (void)getMoreREcommendedVideoListAction:(NSNumber *)currentPage success:(PCSuccessHandler)success fail:(PCFailedHandler)fail ;
 - (void)getDetailVideoAction:(NSNumber *)courseID success:(PCSuccessHandler)success fail:(PCFailedHandler)fail ;
+- (void)getRecommendedVideoListActionWithCurrentPage:(NSNumber *)currentPage success:(PCSuccessHandler)success fail:(PCFailedHandler)fail;
 
+-(void)getVideoListActionWithType:(NSNumber *)typeID currentPage:(NSNumber *)currentPage success:(PCSuccessHandler)success fail:(PCFailedHandler)fail ;
 @end

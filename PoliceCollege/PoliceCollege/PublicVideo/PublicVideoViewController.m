@@ -143,7 +143,6 @@ static NSString *cellID = @"videoCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DetailVideoViewController *detailVideoViewController = [DetailVideoViewController new];
     detailVideoViewController.idField = ((Video *)videoArray[indexPath.row]).idField;
-    NSLog(@"%ld", (long)((Video *)videoArray[indexPath.row]).idField);
     [self.navigationController pushViewController:detailVideoViewController animated:true];
 }
 

@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface SeasonRank : UIView
-
+@property (nonatomic,retain)UILabel *creditLabel;
+@property (nonatomic,retain)UILabel *compulsoryLabel;
+@property (nonatomic,retain)UILabel *commentLabel;
+@property (nonatomic,retain)UILabel *rankLabel;
 @end

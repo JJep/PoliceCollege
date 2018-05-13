@@ -99,7 +99,7 @@
                   selectedImageName:@"learningSelected"];
     
     
-    [self addOneChildViewController:[[UINavigationController alloc]initWithRootViewController:[[PCLoginViewController alloc]init]]
+    [self addOneChildViewController:[[UINavigationController alloc]initWithRootViewController:[[PersonViewController alloc]init]]
                           WithTitle:@"个人中心"
                           imageName:@"personalCenterUnselected"
                   selectedImageName:@"personalCenterSelected"];
