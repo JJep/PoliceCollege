@@ -11,5 +11,5 @@
 @interface PersonCenterViewModel : PCViewModel
 - (void)getRankingAction:(PCSuccessHandler)success fail:(PCFailedHandler)fail;
 - (void)getCurrentSeasonCreditInfoAction:(PCSuccessHandler)success fail:(PCFailedHandler)fail ;
-- (void)getCourseRecordActionWith
+//- (void)getCourseRecordActionWith
 @end

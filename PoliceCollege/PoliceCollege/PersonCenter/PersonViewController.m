@@ -54,9 +54,7 @@
 
 - (void)updateUI {
     [seasonRankView.rankLabel setText:[NSString stringWithFormat:@"%lu", myRanking]];
-    [seasonRankView.creditLabel setText:[NSString stringWithFormat:@"%.2lf", currentSeasonSituation.quarterScore]];
-    [seasonRankView.compulsoryLabel setText:[NSString stringWithFormat:@"%lu", currentSeasonSituation.quarterScorebx]];
-    [seasonRankView.commentLabel setText:[NSString stringWithFormat:@"%lu", currentSeasonSituation.quarterCommentn]];
+    [seasonRankView setModel:currentSeasonSituation];
 }
 
 - (void)initData {
@@ -108,6 +106,8 @@
 - (void)didTouchBtn:(UIButton *)button {
     PersonMoreViewController *newVC = [PersonMoreViewController new];
     newVC.hidesBottomBarWhenPushed = true;
+    newVC.currentSeasonSituation = currentSeasonSituation;
+    newVC.myRanking = myRanking;
     [self.navigationController pushViewController:newVC animated:true];
 }
 

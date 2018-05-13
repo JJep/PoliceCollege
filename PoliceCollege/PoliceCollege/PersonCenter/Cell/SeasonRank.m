@@ -155,6 +155,12 @@
     
 }
 
+- (void)setModel:(Situation *)model {
+    [self.creditLabel setText:[NSString stringWithFormat:@"%.2lf", model.quarterScore]];
+    [self.compulsoryLabel setText:[NSString stringWithFormat:@"%lu", model.quarterScorebx]];
+    [self.commentLabel setText:[NSString stringWithFormat:@"%lu", model.quarterCommentn]];
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

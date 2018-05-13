@@ -80,6 +80,7 @@
 		BEB60A0620A7F96200473BC5 /* ChapterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB60A0520A7F96200473BC5 /* ChapterTableViewCell.m */; };
 		BEB60A0A20A81E9000473BC5 /* PersonCenterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB60A0920A81E9000473BC5 /* PersonCenterViewModel.m */; };
 		BEB60A1020A8338500473BC5 /* Situation.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB60A0F20A8338500473BC5 /* Situation.m */; };
+		BEB60A1320A83BB000473BC5 /* PCCurrentDate.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB60A1220A83BB000473BC5 /* PCCurrentDate.m */; };
 		BEDE52AF20897B9000D00A98 /* PCPromotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52AE20897B9000D00A98 /* PCPromotionView.m */; };
 		BEDE52B5208991E900D00A98 /* PCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52B4208991E900D00A98 /* PCTabBarController.m */; };
 		BEDE52B82089B31600D00A98 /* PCAnouncementTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52B72089B31600D00A98 /* PCAnouncementTableViewController.m */; };
@@ -270,6 +271,8 @@
 		BEB60A0920A81E9000473BC5 /* PersonCenterViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonCenterViewModel.m; sourceTree = "<group>"; };
 		BEB60A0E20A8338500473BC5 /* Situation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Situation.h; sourceTree = "<group>"; };
 		BEB60A0F20A8338500473BC5 /* Situation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Situation.m; sourceTree = "<group>"; };
+		BEB60A1120A83BB000473BC5 /* PCCurrentDate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCCurrentDate.h; sourceTree = "<group>"; };
+		BEB60A1220A83BB000473BC5 /* PCCurrentDate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCCurrentDate.m; sourceTree = "<group>"; };
 		BEDE52AD20897B9000D00A98 /* PCPromotionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCPromotionView.h; sourceTree = "<group>"; };
 		BEDE52AE20897B9000D00A98 /* PCPromotionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCPromotionView.m; sourceTree = "<group>"; };
 		BEDE52B3208991E900D00A98 /* PCTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCTabBarController.h; sourceTree = "<group>"; };
@@ -445,6 +448,8 @@
 		BE21DA862086F08D0086B8BA /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				BEB60A1120A83BB000473BC5 /* PCCurrentDate.h */,
+				BEB60A1220A83BB000473BC5 /* PCCurrentDate.m */,
 				BE44B5B3209AE28C0001B143 /* JMUserLocalData.h */,
 				BE44B5B2209AE28B0001B143 /* JMUserLocalData.m */,
 				BE44B5E220A024F80001B143 /* Category */,
@@ -956,10 +961,10 @@
 		BEDE52C32089DB5400D00A98 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				BEDE52E4208D780A00D00A98 /* PersonalInfo */,
 				BEDE52F7208DE63B00D00A98 /* PushSetting */,
 				BEDE52F3208DDB7400D00A98 /* ChangePassword */,
 				BEDE52F2208DDACF00D00A98 /* MeView */,
-				BEDE52E4208D780A00D00A98 /* PersonalInfo */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -1494,6 +1499,7 @@
 				BEDE5318208F7FED00D00A98 /* OnlineTestCollectionViewCell.m in Sources */,
 				BEB609BE20A302BD00473BC5 /* PCCourseViewModel.m in Sources */,
 				BE44B567209410BD0001B143 /* SeasonCreditModel.m in Sources */,
+				BEB60A1320A83BB000473BC5 /* PCCurrentDate.m in Sources */,
 				BEDE52BB2089B36E00D00A98 /* AnouncementTableViewCell.m in Sources */,
 				BE44B58D209953440001B143 /* PCAnnouncementDetailViewController.m in Sources */,
 				BEB609F420A56A9400473BC5 /* NSObject+PropertyMapper.m in Sources */,

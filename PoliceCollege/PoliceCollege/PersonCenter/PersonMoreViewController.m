@@ -11,6 +11,7 @@
 #import "SeasonTableViewCell.h"
 #import "PCPickerView.h"
 #import "SeasonSubview.h"
+#import "PCCurrentDate.h"
 @interface PersonMoreViewController () <UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource>
 
 @end
@@ -22,16 +23,31 @@ static const int calenderButtonTag = 12345;
     UITableView *seasonTableView;
     PCPickerView *pickerView;
     NSMutableArray *selectedArray;
+    NSMutableArray *yearArray;
+    NSUInteger selectedYear;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initViews];
+    [self initData];
+   
+}
+
+- (void)getData {
+    
+}
+
+- (void)initData {
     selectedArray = [[NSMutableArray alloc] initWithArray:@ [@false,
                                                              @false,
                                                              @false,
                                                              @false]];
+    PCCurrentDate *currentDate = [PCCurrentDate new];
+    yearArray = [NSMutableArray new];
+    for (int i = 0; i < 10 ; i ++)
+        [yearArray addObject:[NSString stringWithFormat:@"%lu", currentDate.year - i]];
 }
 
 - (void)initViews {
@@ -48,6 +64,10 @@ static const int calenderButtonTag = 12345;
     
     //设置子view
     seasonRankView = [SeasonRank new];
+    [seasonRankView.rankLabel setText:[NSString stringWithFormat:@"%lu", self.myRanking]];
+    [seasonRankView setModel:self.currentSeasonSituation];
+    
+
     
     seasonTableView = [UITableView new];
     seasonTableView.delegate = self;
@@ -126,7 +146,7 @@ static const int calenderButtonTag = 12345;
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UILabel *headerLabel = [[UILabel alloc] init];
     headerLabel.font = [UIFont fontWithName:@"PingFang-SC-Semibold" size:18];
-    [headerLabel setText:@"2018年"];
+    [headerLabel setText:[NSString stringWithFormat:@"%lu 年", selectedYear]];
     [headerLabel setTextAlignment:NSTextAlignmentCenter];
     return headerLabel;
 }
@@ -138,6 +158,7 @@ static const int calenderButtonTag = 12345;
             break;
         case confirmButtonTag:
             [pickerView setHidden:true];
+            
             break;
         case calenderButtonTag:
             [pickerView setHidden:false];
@@ -151,10 +172,19 @@ static const int calenderButtonTag = 12345;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return 6;
+    return yearArray.count;
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return @"2018";
+    return yearArray[row];
 }
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    selectedYear = [yearArray[row] integerValue];
+    [seasonTableView reloadData];
+}
+
+
+
 @end

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Situation.h"
 @interface PersonMoreViewController : UIViewController
-
+@property(nonatomic,assign) NSUInteger myRanking;
+@property(nonatomic,retain) Situation *currentSeasonSituation;
 @end
