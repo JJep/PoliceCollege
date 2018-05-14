@@ -17,6 +17,7 @@
 #import "TestPaper.h"
 #import "CourseCenterViewController.h"
 #import "OnlineTestViewModel.h"
+#import "PublicCourseViewController.h"
 @interface LearningViewController () <UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @end
@@ -156,6 +157,10 @@
         [self.navigationController pushViewController:newVC animated:true];
     } else if (indexPath.row == 3) {
         VideoCenterViewController *newVC = [VideoCenterViewController new];
+        newVC.hidesBottomBarWhenPushed = true;
+        [self.navigationController pushViewController:newVC animated:true];
+    } else if (indexPath.row == 4){
+        PublicCourseViewController *newVC = [PublicCourseViewController new];
         newVC.hidesBottomBarWhenPushed = true;
         [self.navigationController pushViewController:newVC animated:true];
     }

@@ -46,18 +46,19 @@
     return self;
 }
 
-- (void)setModel:(SeasonCreditModel *)model {
-    if (!_model || _model != model  ) {
-        _model = model;
-        [titleLabel setText:[NSString stringWithFormat:@"第%d季度", _model.season]];
-        [contentLabel setText:[NSString stringWithFormat:@"%d",_model.credit]];
-    }
+- (void)setModelWithSeason:(NSInteger)season model:(SeasonCredit *)model {
+    [titleLabel setText:[NSString stringWithFormat:@"第%lu季度",season+1]];
+    NSString *quarterName = [NSString stringWithFormat:@"quarter%lu",season+1];
+    [contentLabel setText:[NSString stringWithFormat:@"%@", [[model valueForKey:quarterName] valueForKey:@"sum"]]];
+    [_seasonSubview.commentCreditLabel setText:[NSString stringWithFormat:@"%@",[[model valueForKey:quarterName] valueForKey:@"comment"]]];
+    [_seasonSubview.compusoryCreditLabel setText:[NSString stringWithFormat:@"%@",[[model valueForKey:quarterName] valueForKey:@"must"]]];
+    
 }
 
 - (void)layoutViews {
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(15);
-        make.right.equalTo(self).offset(-280);
+        make.right.equalTo(self->contentLabel.mas_left).offset(-100);
         make.top.equalTo(self).offset(15);
         make.height.mas_equalTo(21);
     }];

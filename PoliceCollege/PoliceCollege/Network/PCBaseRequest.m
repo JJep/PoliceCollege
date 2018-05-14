@@ -66,6 +66,7 @@
     if ([self.requstType isEqualToString:@"get"]) {
         self.task = [[PCNetworkEngine sharedEngine] getWithAPI:actualUrl parameters:self.paraDict succeededBlock:^(id responseObject) {
             id jsonS = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        
             if ([[jsonS objectForKey:@"state"] isEqualToString:@"toLogin"]) {
                 //登录过期
                 NSLog(@"提醒用户重新登录");

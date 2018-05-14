@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SeasonCreditModel.h"
+#import "SeasonCredit.h"
 @class SeasonSubview;
 @interface SeasonTableViewCell : UITableViewCell
-@property (nonatomic,retain)SeasonCreditModel *model;
 @property (nonatomic,assign)BOOL isSelected;
 @property (nonatomic,retain)SeasonSubview *seasonSubview;
+- (void)setModelWithSeason:(NSInteger)season model:(SeasonCredit *)model;
 
 @end

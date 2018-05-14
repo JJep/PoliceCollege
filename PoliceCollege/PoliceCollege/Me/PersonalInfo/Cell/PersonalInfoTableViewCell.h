@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PersonalInfoModel.h"
 @interface PersonalInfoTableViewCell : UITableViewCell
 @property (nonatomic,retain)UIImage *image;
 @property (nonatomic,copy)NSString *title;
 @property (nonatomic,copy)NSString *content;
--(void)setModel:(PersonalInfoModel *)model;
+- (void)setImageURL:(NSString *)string;
 
 @end

@@ -7,7 +7,8 @@
 //
 
 #import "SelectedCoursesView.h"
-
+#import "CourseOverview.h"
+#import "VideoOverview.h"
 @implementation SelectedCoursesView {
     UILabel *lastTimeLabel;
     UIView *view;
@@ -115,20 +116,20 @@
     
     [learningProgressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self->view).offset(11);
-        make.left.equalTo(self).offset(20);
+        make.left.equalTo(self);
         make.width.equalTo(self->creditLabel);
-        make.right.equalTo(self->creditLabel.mas_left).offset(-20);
+        make.right.equalTo(self->creditLabel.mas_left);
     }];
     
     [creditLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self->learningProgressLabel);
         make.width.equalTo(self->commentLabel);
-        make.right.equalTo(self->commentLabel.mas_left).offset(-20);
+        make.right.equalTo(self->commentLabel.mas_left);
     }];
     
     [commentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self->creditLabel);
-        make.right.equalTo(self).offset(-20);
+        make.right.equalTo(self);
     }];
     
     [learningProgressTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -147,4 +148,51 @@
     }];
 }
 
+- (void)setModel:(Overview *)model withStyle:(OverviewStyle)style {
+    switch (style) {
+        case OverviewVideoStyle:
+        {
+            VideoOverview *videoOverview = [VideoOverview new];
+            videoOverview = (VideoOverview *)model;
+            [creditLabel setText:[NSString stringWithFormat:@"%.1lf/%.1lf",videoOverview.creditHave,videoOverview.credit]];
+            [commentLabel setText:[NSString stringWithFormat:@"%.1lf/%.1lf",videoOverview.ccreditHave,videoOverview.ccredit]];
+            [learningProgressLabel setText:[NSString stringWithFormat:@"%lu/%lu", videoOverview.over,videoOverview.have]];
+            [lastTimeLabel setText: [NSString stringWithFormat:@"最近上课时间 %@",[self getDateStringWithTime:videoOverview.lastTime]]];
+            break;
+        }
+        case OverviewCourseStyle:
+        {
+            CourseOverview *courseOverview = [CourseOverview new];
+            courseOverview = (CourseOverview *)model;
+            [creditLabel setText:[NSString stringWithFormat:@"%.1lf/%.1lf",courseOverview.creditHave,courseOverview.credit]];
+            [commentLabel setText:[NSString stringWithFormat:@"%.1lf/%.1lf",courseOverview.ccreditHave,courseOverview.ccredit]];
+            [learningProgressLabel setText:[NSString stringWithFormat:@"%lu/%lu", courseOverview.over,courseOverview.have]];
+            [lastTimeLabel setText: [NSString stringWithFormat:@"最近上课时间 %@",[self getDateStringWithTime:courseOverview.lastTime]]];
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+- (NSString *)getDateStringWithTime:(NSTimeInterval)time {
+    NSDate *detailDate=[NSDate dateWithTimeIntervalSince1970:time];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init]; //实例化一个NSDateFormatter对象
+    //设定时间格式,这里可以设置成自己需要的格式
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+    NSString *currentDateStr = [dateFormatter stringFromDate: detailDate];
+    return currentDateStr;
+}
+
+- (NSString *)getDateStringWithTimeStr:(NSString *)str{
+    NSTimeInterval time=[str doubleValue];//传入的时间戳str如果是精确到毫秒的记得要/1000
+    NSDate *detailDate=[NSDate dateWithTimeIntervalSince1970:time];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init]; //实例化一个NSDateFormatter对象
+    //设定时间格式,这里可以设置成自己需要的格式
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+    NSString *currentDateStr = [dateFormatter stringFromDate: detailDate];
+    return currentDateStr;
+}
+
 @end
+

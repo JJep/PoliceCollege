@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Overview.h"
+typedef NS_ENUM(NSInteger, OverviewStyle) {
+    OverviewVideoStyle,
+    OverviewCourseStyle
+};
 @interface SelectedCoursesView : UIView
 @property(nonatomic,retain)UILabel *selectedCoursesTitleLabel;
+- (void)setModel:(Overview *)model withStyle:(OverviewStyle)style;
 @end

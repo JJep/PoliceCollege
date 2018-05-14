@@ -13,6 +13,8 @@
 #import "CommentTableViewCell.h"
 #import "Chapter.h"
 #import "ChapterTableViewCell.h"
+#import "PCBookViewModel.h"
+#import "Comment.h"
 @interface BookDetailViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic,assign)int currentView;
 @end
@@ -22,6 +24,10 @@
     PCChapterViewModel *chapterViewModel;
     CommentTableViewCell *commentCell;
     NSArray *chapterArray;
+    NSMutableArray *commentArray;
+    PCBookViewModel *bookViewModel;
+    NSInteger currentPage;
+    NSInteger totalPage;
 }
 
 static const int introductionView = 12;
@@ -45,6 +51,15 @@ static const int commentButtonTag = 1234;
     } fail:^(NSError *error) {
         
     }];
+    
+    [bookViewModel getBookCommentListActionWithBookID:[NSNumber numberWithInteger:self.model.idField] currentPage:[NSNumber numberWithInteger:currentPage] success:^(id responseObject) {
+        NSArray *ary =  [NSArray yy_modelArrayWithClass:[Comment class] json:[responseObject objectForKey:@"commentList"]];
+        [self->commentArray addObjectsFromArray:ary];
+        [self->tableView reloadData];
+    } fail:^(NSError *error) {
+        
+    }];
+    
 }
 
 - (void)initViews {
@@ -68,12 +83,20 @@ static const int commentButtonTag = 1234;
     _currentView = introductionView;
     
     chapterViewModel = [PCChapterViewModel new];
+    commentArray = [NSMutableArray new];
+    bookViewModel = [PCBookViewModel new];
+    currentPage = 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
         return 1;
     } else if (section == 1) {
+        if (_currentView == introductionView) {
+            return 1;
+        } else {
+            return commentArray.count;
+        }
         return 1;
     } else {
         return chapterArray.count;
@@ -119,6 +142,7 @@ static const int commentButtonTag = 1234;
             case commentView:
             {
                 CommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"commentCell"];
+                [cell setModel:commentArray[indexPath.row]];
                 return cell;
             }
             case introductionView:

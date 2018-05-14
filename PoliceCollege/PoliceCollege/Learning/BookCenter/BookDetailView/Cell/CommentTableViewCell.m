@@ -71,6 +71,13 @@
     return self;
 }
 
+- (void)setModel:(Comment *)model {
+    [portraitImageView sd_setImageWithURL:[NSURL pc_imageURLWithString:model.imgComment]];
+    [userNameLabel setText:model.nameComment];
+    [contentLabel setText:model.content];
+    [timeLabel setText:model.published];
+}
+
 
 
 

@@ -76,10 +76,19 @@
     }];
 }
 
--(void)setModel:(PersonalInfoModel *)model{
-    
+- (void)setContent:(NSString *)content {
+    [contentLabel setText:content];
 }
 
+- (void)setTitle:(NSString *)title {
+    [titleLabel setText:title];
+}
+
+- (void)setImageURL:(NSString *)string {
+    [contentLabel setHidden:true];
+    [imageView setHidden:false];
+    [imageView sd_setImageWithURL:[NSURL pc_imageURLWithString:string] placeholderImage:[UIImage imageNamed:@"portrait"]];
+}
 
 - (void)setImage:(UIImage *)image {
     if (_image != image) {

@@ -11,5 +11,6 @@
 @interface PersonCenterViewModel : PCViewModel
 - (void)getRankingAction:(PCSuccessHandler)success fail:(PCFailedHandler)fail;
 - (void)getCurrentSeasonCreditInfoAction:(PCSuccessHandler)success fail:(PCFailedHandler)fail ;
-//- (void)getCourseRecordActionWith
+- (void)getFourSeasonsCreditActionWithYear:(NSNumber *)year success:(PCSuccessHandler)success fail:(PCFailedHandler)fail ;
+- (void)getLearningOverviewAction:(PCSuccessHandler)success fail:(PCFailedHandler)fail ;
 @end

@@ -12,6 +12,9 @@
 #import "PCPickerView.h"
 #import "SeasonSubview.h"
 #import "PCCurrentDate.h"
+#import "PersonCenterViewModel.h"
+#import "SeasonCredit.h"
+#import "Season.h"
 @interface PersonMoreViewController () <UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource>
 
 @end
@@ -24,19 +27,31 @@ static const int calenderButtonTag = 12345;
     PCPickerView *pickerView;
     NSMutableArray *selectedArray;
     NSMutableArray *yearArray;
+    SeasonCredit *seasonCredit;
     NSUInteger selectedYear;
+    NSUInteger currentYear;
+    PersonCenterViewModel *personCenterViewModel;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self initViews];
     [self initData];
-   
+    [self initViews];
+    [self getData];
 }
 
 - (void)getData {
-    
+    [personCenterViewModel getFourSeasonsCreditActionWithYear:[NSNumber numberWithInteger:currentYear] success:^(id responseObject) {
+
+        NSDictionary *dict = (NSDictionary *)[responseObject objectForKey:@"quarterScore"];
+        NSLog(@"%@",dict);
+        self->seasonCredit = [SeasonCredit new];
+        self->seasonCredit = [self->seasonCredit initWithDictionary:dict];
+        [self->seasonTableView reloadData];
+    } fail:^(NSError *error) {
+        
+    }];
 }
 
 - (void)initData {
@@ -46,8 +61,10 @@ static const int calenderButtonTag = 12345;
                                                              @false]];
     PCCurrentDate *currentDate = [PCCurrentDate new];
     yearArray = [NSMutableArray new];
+    currentYear = selectedYear = currentDate.year;
     for (int i = 0; i < 10 ; i ++)
         [yearArray addObject:[NSString stringWithFormat:@"%lu", currentDate.year - i]];
+    personCenterViewModel = [PersonCenterViewModel new];
 }
 
 - (void)initViews {
@@ -123,6 +140,7 @@ static const int calenderButtonTag = 12345;
     } else {
         [cell.seasonSubview setHidden:false];
     }
+    [cell setModelWithSeason:indexPath.row model:seasonCredit];
     return cell;
 }
 
@@ -146,7 +164,7 @@ static const int calenderButtonTag = 12345;
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UILabel *headerLabel = [[UILabel alloc] init];
     headerLabel.font = [UIFont fontWithName:@"PingFang-SC-Semibold" size:18];
-    [headerLabel setText:[NSString stringWithFormat:@"%lu 年", selectedYear]];
+    [headerLabel setText:[NSString stringWithFormat:@"%lu 年", currentYear]];
     [headerLabel setTextAlignment:NSTextAlignmentCenter];
     return headerLabel;
 }
@@ -154,11 +172,15 @@ static const int calenderButtonTag = 12345;
 - (void)didTouchBtn:(UIButton *)button {
     switch (button.tag) {
         case cancelButtonTag:
+        {
             [pickerView setHidden:true];
             break;
+        }
         case confirmButtonTag:
             [pickerView setHidden:true];
-            
+            currentYear = selectedYear;
+            [self getData];
+            [seasonTableView reloadData];
             break;
         case calenderButtonTag:
             [pickerView setHidden:false];
@@ -182,7 +204,6 @@ static const int calenderButtonTag = 12345;
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     selectedYear = [yearArray[row] integerValue];
-    [seasonTableView reloadData];
 }
 
 

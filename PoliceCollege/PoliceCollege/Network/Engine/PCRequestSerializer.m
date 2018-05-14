@@ -15,7 +15,7 @@
     NSMutableURLRequest *request = [super requestWithMethod:method URLString:URLString parameters:parameters error:error];
     //在请求头添加token
     if ([JMUserLocalData sharedManager].authorization) {
-//        NSLog(@"%@",[JMUserLocalData sharedManager].authorization);
+        NSLog(@"---------/n%@/n---------",[JMUserLocalData sharedManager].authorization);
         [request setValue:[JMUserLocalData sharedManager].authorization forHTTPHeaderField:@"Authorization"];
     }
     

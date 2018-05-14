@@ -12,6 +12,9 @@
 #import "PersonMoreViewController.h"
 #import "PersonCenterViewModel.h"
 #import "Situation.h"
+#import "CourseOverview.h"
+#import "VideoOverview.h"
+#import "Overview.h"
 @interface PersonViewController ()
 
 @end
@@ -23,6 +26,8 @@
     PersonCenterViewModel *personCenterViewModel;
     NSUInteger myRanking;
     Situation *currentSeasonSituation;
+    VideoOverview *videoOverview;
+    CourseOverview *courseOverview;
 }
 
 - (void)viewDidLoad {
@@ -32,6 +37,11 @@
     [self initViews];
     [self initData];
     [self downloadData];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+//    [self downloadData];
 }
 
 - (void)downloadData {
@@ -49,12 +59,24 @@
         
     }];
     
+    [personCenterViewModel getLearningOverviewAction:^(id responseObject) {
+
+        id overview = [responseObject objectForKey:@"overview"];
+        self->courseOverview = [CourseOverview yy_modelWithJSON:[overview objectForKey:@"course"]];
+        self->videoOverview = [VideoOverview yy_modelWithJSON:[overview objectForKey:@"video"]];
+        [self updateUI];
+    } fail:^(NSError *error) {
+        
+    }];
+    
     
 }
 
 - (void)updateUI {
     [seasonRankView.rankLabel setText:[NSString stringWithFormat:@"%lu", myRanking]];
     [seasonRankView setModel:currentSeasonSituation];
+    [selectedCoursesView setModel:courseOverview withStyle:OverviewCourseStyle];
+    [selectedVideoView setModel:videoOverview withStyle:OverviewVideoStyle];
 }
 
 - (void)initData {

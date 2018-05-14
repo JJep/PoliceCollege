@@ -11,21 +11,19 @@
 @implementation SeasonSubview {
     UILabel *compusoryCreditTitleLabel;
     UILabel *commentCreditTitleLabel;
-    UILabel *compusoryCreditLabel;
-    UILabel *commentCreditLabel;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        compusoryCreditLabel = [UILabel new];
-        commentCreditLabel = [UILabel new];
+        _compusoryCreditLabel = [UILabel new];
+        _commentCreditLabel = [UILabel new];
         compusoryCreditTitleLabel = [UILabel new];
         commentCreditTitleLabel = [UILabel new];
     
         [self addSubview:compusoryCreditTitleLabel];
-        [self addSubview:compusoryCreditLabel];
+        [self addSubview:_compusoryCreditLabel];
         [self addSubview:commentCreditTitleLabel];
-        [self addSubview:commentCreditLabel];
+        [self addSubview:_commentCreditLabel];
         
         [compusoryCreditTitleLabel setText:@"季度必须学分"];
         compusoryCreditTitleLabel.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:13];
@@ -35,15 +33,15 @@
         commentCreditTitleLabel.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:13];
         commentCreditTitleLabel.textColor = [UIColor colorWithRed:140/255.0 green:140/255.0 blue:140/255.0 alpha:1/1.0];
         
-        [compusoryCreditLabel setText:@"150"];
-        compusoryCreditLabel.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:13];
-        compusoryCreditLabel.textColor = [UIColor colorWithRed:140/255.0 green:140/255.0 blue:140/255.0 alpha:1/1.0];
-        [compusoryCreditLabel setTextAlignment:NSTextAlignmentRight];
+        [_compusoryCreditLabel setText:@"150"];
+        _compusoryCreditLabel.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:13];
+        _compusoryCreditLabel.textColor = [UIColor colorWithRed:140/255.0 green:140/255.0 blue:140/255.0 alpha:1/1.0];
+        [_compusoryCreditLabel setTextAlignment:NSTextAlignmentRight];
         
-        [commentCreditLabel setText:@"150"];
-        commentCreditLabel.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:13];
-        commentCreditLabel.textColor = [UIColor colorWithRed:140/255.0 green:140/255.0 blue:140/255.0 alpha:1/1.0];
-        [commentCreditLabel setTextAlignment:NSTextAlignmentRight];
+        [_commentCreditLabel setText:@"150"];
+        _commentCreditLabel.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:13];
+        _commentCreditLabel.textColor = [UIColor colorWithRed:140/255.0 green:140/255.0 blue:140/255.0 alpha:1/1.0];
+        [_commentCreditLabel setTextAlignment:NSTextAlignmentRight];
         
         [self layoutViews];
     }
@@ -66,15 +64,15 @@
         make.right.equalTo(self->compusoryCreditTitleLabel);
     }];
     
-    [compusoryCreditLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_compusoryCreditLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(100);
         make.right.equalTo(self).offset(-33);
         make.top.bottom.equalTo(self->compusoryCreditTitleLabel);
     }];
     
-    [commentCreditLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_commentCreditLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(100);
-        make.right.equalTo(self->compusoryCreditLabel);
+        make.right.equalTo(self->_compusoryCreditLabel);
         make.top.bottom.equalTo(self->commentCreditTitleLabel);
     }];
 }

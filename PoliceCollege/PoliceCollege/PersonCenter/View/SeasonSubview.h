@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SeasonSubview : UIView
-
+@property(nonatomic,retain)UILabel *compusoryCreditLabel;
+@property(nonatomic,retain)UILabel *commentCreditLabel;
 @end

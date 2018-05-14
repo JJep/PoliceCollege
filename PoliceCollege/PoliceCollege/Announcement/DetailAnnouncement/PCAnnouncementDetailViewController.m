@@ -28,12 +28,20 @@
     [self initViews];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [SVProgressHUD dismiss];
+}
+
 - (void)initViews {
+    [SVProgressHUD show];
     
     webView = [[WKWebView alloc] init];
     webView.navigationDelegate = self;
     webView.UIDelegate = self;
+
     [self.view addSubview:webView];
+    
     
     [webView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view);
@@ -51,6 +59,27 @@
         [webView loadRequest:request];
     }
 
+}
+//开始加载
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
+    NSLog(@"开始加载网页");
+}
+
+//加载完成
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+    NSLog(@"加载完成");
+    [SVProgressHUD dismiss];
+    //加载完成后隐藏progressView
+    //self.progressView.hidden = YES;
+}
+
+//加载失败
+- (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation withError:(NSError *)error {
+    NSLog(@"加载失败");
+    [SVProgressHUD dismiss];
+    [SVProgressHUD showErrorWithStatus:@"网络连接错误"];
+    //加载失败同样需要隐藏progressView
+    //self.progressView.hidden = YES;
 }
 
 - (void)getDetailAnnouncement {
