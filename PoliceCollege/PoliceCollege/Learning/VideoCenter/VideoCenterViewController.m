@@ -47,6 +47,11 @@ static const int videoType = 5;
 }
 
 - (void)updateUI  {
+    if (videoArray.count == 0) {
+        [tableView setHidden:true];
+    } else {
+        [tableView setHidden:false];
+    }
     [channelView.collectionView reloadData];
     [tableView reloadData];
 }
@@ -67,13 +72,16 @@ static const int videoType = 5;
     self.title = @"视频中心";
     
     backView = [[BackView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:backView];
+    
     [backView setImage:[UIImage imageNamed:@"video"]];
-    [backView setName:@"暂无公开课程"];
+    [backView setName:@"暂无公开视频"];
     
     tableView = [[UITableView alloc] initWithFrame:self.view.bounds ];
-    [self.view addSubview:tableView];
+    [backView addSubview:tableView];
     tableView.delegate = self;
     tableView.dataSource = self;
+    [tableView setHidden:true];
     [tableView registerClass:[VideoTableViewCell class] forCellReuseIdentifier:@"videoCell"];
     
     channelView = [[ChannelView alloc] init];

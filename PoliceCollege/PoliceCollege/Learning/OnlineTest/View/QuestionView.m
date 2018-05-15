@@ -10,24 +10,23 @@
 #import "OptionView.h"
 @implementation QuestionView {
     UILabel *questionNameLabel;
-    UILabel *topLabel;
     int currentQuestionID;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         questionNameLabel = [UILabel new];
-        topLabel = [UILabel new];
+        _topLabel = [UILabel new];
         
         [questionNameLabel setText:@"用户是否能接受路边的问答"];
         [questionNameLabel setNumberOfLines:0];
-        [topLabel setText:@"1/3"];
-        [topLabel setBackgroundColor:rgb(74, 144, 226)];
-        [topLabel setTextColor:[UIColor whiteColor]];
-        [topLabel setTextAlignment:NSTextAlignmentCenter];
+        [_topLabel setText:@"1/3"];
+        [_topLabel setBackgroundColor:rgb(74, 144, 226)];
+        [_topLabel setTextColor:[UIColor whiteColor]];
+        [_topLabel setTextAlignment:NSTextAlignmentCenter];
         
         [self addSubview:questionNameLabel];
-        [self addSubview:topLabel];
+        [self addSubview:_topLabel];
         [self loadNextQuestion];
         [self layoutViews];
     }
@@ -36,16 +35,16 @@
 }
 
 - (void)layoutViews {
-    [topLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_topLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self);
         make.top.equalTo(self).offset(15);
-        make.width.mas_equalTo(60);
+        make.width.mas_equalTo(90);
         make.height.mas_equalTo(30);
     }];
     
     [questionNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(20);
-        make.top.equalTo(self->topLabel.mas_bottom).offset(20);
+        make.top.equalTo(self->_topLabel.mas_bottom).offset(20);
         make.right.equalTo(self);
     }];
     

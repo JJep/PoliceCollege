@@ -7,9 +7,11 @@
 //
 
 #import "PCViewModel.h"
-
+@class QuestionTO;
 @interface TestViewModel : PCViewModel
 - (void)readyToStartActionWithTestID:(NSNumber *)testID success:(PCSuccessHandler)success fail:(PCFailedHandler)fail;
 
 - (void)getQuestionsActionwithTestID:(NSNumber *)testID success:(PCSuccessHandler)success fail:(PCFailedHandler)fail;
+
+- (void)uploadQuestionWithQuestionTO:(QuestionTO *)questionTO testID:(NSNumber *)testID success:(PCSuccessHandler)success fail:(PCFailedHandler)fail ;
 @end

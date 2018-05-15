@@ -12,6 +12,7 @@
 @interface QuestionView : UIView
 @property (nonatomic,copy)NSString *questionName;
 @property (nonatomic,retain)NSArray *questionContentArray;
+@property (nonatomic,retain)UILabel *topLabel;
 - (void)loadNextQuestion;
-- (void)setModel:(Question *)model;
+- (void)setModel:(Question *)model ;
 @end

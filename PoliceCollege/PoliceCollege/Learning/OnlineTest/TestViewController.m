@@ -11,6 +11,8 @@
 #import "TestBottomView.h"
 #import "TestViewModel.h"
 #import "Question.h"
+#import "QuestionTO.h"
+#import "OptionButton.h"
 @interface TestViewController ()
 
 @end
@@ -35,15 +37,41 @@
     [testViewModel getQuestionsActionwithTestID:[NSNumber numberWithInteger:self.testID] success:^(id responseObject) {
         self->questionArray = [NSArray yy_modelArrayWithClass:[Question class] json:[responseObject objectForKey:@"questionList"]];
         NSLog(@"%@",self->questionArray);
-        self->currentIndex = 1;
+        self->currentIndex = 0;
         [self updateUI];
     } fail:^(NSError *error) {
         
     }];
 }
 
+- (void)uploadAnswer {
+//    QuestionTO *questionTO = [QuestionTO new];
+//    questionTO.idField = ((Question *)questionArray[currentIndex-1]).idField;
+//
+//    NSMutableString *optionIndexString = [[NSMutableString alloc] initWithString:@""];
+//    for (__strong UIView *subView in self.view.subviews) {
+//        int index = 1;
+//        if ([[subView class] isEqual:[OptionButton class]]) {
+//
+//            OptionButton *button = (OptionButton *)subView;
+//            if (button.selected) {
+//                [optionIndexString appendString:[NSString stringWithFormat:@"%d,", index]];
+//            }
+//            index++;
+//        }
+//    }
+//    questionTO.optionIndex = optionIndexString;
+//
+//    [testViewModel uploadQuestionWithQuestionTO:questionTO testID:[NSNumber numberWithInteger:self.testID] success:^(id responseObject) {
+//
+//    } fail:^(NSError *error) {
+//
+//    }];
+}
+
 - (void)updateUI {
-    [questionView setModel:questionArray[currentIndex]];
+    [questionView setModel:questionArray[currentIndex] ];
+    [questionView.topLabel setText:[NSString stringWithFormat:@"%lu/%lu",currentIndex+1,questionArray.count]];
 }
 
 - (void)initViews {
@@ -69,12 +97,18 @@
 }
 
 - (void)nextQuestion {
-    if (currentIndex++ == questionArray.count) {
-        [bottomView.nextButton setTitle:@"没有题目了" forState:UIControlStateNormal];
+    if (currentIndex++ == questionArray.count-1) {
+        [bottomView.nextButton setTitle:@"完成" forState:UIControlStateNormal];
         [bottomView.nextButton removeTarget:self action:@selector(nextButton) forControlEvents:UIControlEventTouchUpInside];
+        [bottomView.nextButton addTarget:self action:@selector(complete) forControlEvents:UIControlEventTouchUpInside];
     } else {
+        [self uploadAnswer];
         [self updateUI];
     }
+}
+
+- (void)complete {
+    
 }
 
 @end

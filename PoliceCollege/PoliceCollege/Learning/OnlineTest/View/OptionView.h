@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class OptionButton;
 @interface OptionView : UIView
-@property (nonatomic,retain)UIButton *optionButton;
+@property (nonatomic,retain)OptionButton *optionButton;
 @property (nonatomic,retain)UILabel *optionLabel;
 @end

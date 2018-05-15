@@ -7,7 +7,7 @@
 //
 
 #import "TestViewModel.h"
-
+#import "QuestionTO.h"
 @implementation TestViewModel
 - (void)readyToStartActionWithTestID:(NSNumber *)testID success:(PCSuccessHandler)success fail:(PCFailedHandler)fail
 {
@@ -28,6 +28,22 @@
     request.apiString = @"examStart";
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:@{
                                                                                   @"id":testID
+                                                                                  }];
+    request.paraDict = dict;
+    [request sendRequestSuccess:success error:fail];
+}
+
+- (void)uploadQuestionWithQuestionTO:(QuestionTO *)questionTO testID:(NSNumber *)testID success:(PCSuccessHandler)success fail:(PCFailedHandler)fail
+{
+    PCBaseRequest *request = [PCBaseRequest new];
+    request.requstType = @"post";
+    request.apiString = @"addRecord";
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:@{
+                                                                                  @"examrecord.id":testID,
+                                                                                  @"questionTO.answered":questionTO.answered,
+                                                                                  @"questionTO.answerIndex":questionTO.answerIndex,
+                                                                                  @"questionTO.id":[NSNumber numberWithInteger:questionTO.idField],
+                                                                                  @"questionTO.optionIndex":questionTO.optionIndex
                                                                                   }];
     request.paraDict = dict;
     [request sendRequestSuccess:success error:fail];
