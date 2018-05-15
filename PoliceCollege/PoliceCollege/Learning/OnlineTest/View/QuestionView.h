@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "TestBottomView.h"
-
+#import "Question.h"
 @interface QuestionView : UIView
 @property (nonatomic,copy)NSString *questionName;
 @property (nonatomic,retain)NSArray *questionContentArray;
 - (void)loadNextQuestion;
-
+- (void)setModel:(Question *)model;
 @end

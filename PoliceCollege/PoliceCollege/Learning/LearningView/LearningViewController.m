@@ -18,6 +18,7 @@
 #import "CourseCenterViewController.h"
 #import "OnlineTestViewModel.h"
 #import "PublicCourseViewController.h"
+#import "TestViewModel.h"
 @interface LearningViewController () <UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @end
@@ -28,6 +29,7 @@
     UITableView *tableView;
     NSArray *testPaperList;
     OnlineTestViewModel *viewModel;
+    TestViewModel *testViewModel;
 }
 
 - (void)viewDidLoad {
@@ -35,6 +37,11 @@
     // Do any additional setup after loading the view.
     [self initViews];
     [self initData];
+    [self downloadData];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self downloadData];
 }
 
@@ -49,6 +56,7 @@
 
 - (void)initData {
     viewModel = [OnlineTestViewModel new];
+    testViewModel = [TestViewModel new];
 }
 
 - (void)initViews {
@@ -136,9 +144,21 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    TestViewController *testViewController = [TestViewController new];
-    testViewController.hidesBottomBarWhenPushed = true;
-    [self.navigationController pushViewController:testViewController animated:true];
+    [SVProgressHUD show];
+    [testViewModel readyToStartActionWithTestID:[NSNumber numberWithInteger:((TestPaper *)testPaperList[indexPath.row]).idField] success:^(id responseObject) {
+        if ([[responseObject objectForKey:@"testpaper"] objectForKey:@"begin"]) {
+            [SVProgressHUD dismiss];
+            TestViewController *newVC = [TestViewController new];
+            newVC.testID = ((TestPaper *)self->testPaperList[indexPath.row]).idField;
+            newVC.hidesBottomBarWhenPushed = true;
+            [self.navigationController pushViewController:newVC animated:true];
+        } else {
+            [SVProgressHUD showErrorWithStatus:@"暂时无法测试"];
+        }
+        
+    } fail:^(NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"暂时无法测试"];
+    }];
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

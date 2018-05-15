@@ -107,6 +107,7 @@
     [imageView sd_setImageWithURL:[NSURL pc_imageURLWithString:model.img]];
     [titleLabel setText:model.title];
 //    [subTitleLabel setText:model.content];
+    
     [timeLabel setText:model.published];
     [commentsNumLabel setText:[NSString stringWithFormat:@"%lu",(unsigned long)model.commentNum ]];
     

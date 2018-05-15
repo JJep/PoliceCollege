@@ -21,8 +21,10 @@
         [_optionLabel setTextColor:rgb(72, 72, 72)];
         _optionButton.layer.borderWidth = 1.0f;
         _optionButton.layer.borderColor = MyLightGrayColor.CGColor;
-        _optionButton.layer.cornerRadius = 10;
+        _optionButton.layer.cornerRadius = 15;
         _optionButton.layer.masksToBounds = true;
+        
+        
         [self layoutViews];
     }
     return self;
@@ -32,7 +34,7 @@
     [_optionButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.equalTo(self);
         make.left.equalTo(self).offset(15);
-        make.width.mas_equalTo(20);
+        make.width.equalTo(self.optionButton.mas_height);
     }];
     
     [_optionLabel mas_makeConstraints:^(MASConstraintMaker *make) {

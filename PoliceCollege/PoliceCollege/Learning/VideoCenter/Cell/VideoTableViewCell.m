@@ -144,7 +144,7 @@
 }
 
 - (void)setModel:(Video *)model {
-#warning 差一个教师label
+    [teacherNameLabel setText:model.teacher];
     [imageView sd_setImageWithURL:[NSURL pc_imageURLWithString:model.img] placeholderImage:[UIImage imageNamed:@"banner"]];
     [courseNameLabel setText:model.title];
     [courseNameLabel setText:model.published];

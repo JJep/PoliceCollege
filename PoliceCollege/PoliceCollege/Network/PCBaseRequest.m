@@ -71,8 +71,14 @@
                 //登录过期
                 NSLog(@"提醒用户重新登录");
                 [JMUserLocalData removeAllLocalData];
-            } else {
+            } else if ([[jsonS objectForKey:@"state"] isEqualToString:@"1"] || [[jsonS objectForKey:@"state"] isEqualToString:@"2"])
+            {
+                NSLog(@"%@",jsonS);
                 successBlock(jsonS);
+            } else
+            {
+                NSError *error = [NSError errorWithDomain:[jsonS objectForKey:@"state"] code:[[jsonS objectForKey:@"state"] integerValue] userInfo:@{@"error":[jsonS objectForKey:@"err"]}];
+                errorBlock(error);
             }
         } failBlock:^(NSError *error) {
             errorBlock(error);

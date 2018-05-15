@@ -10,12 +10,14 @@
 #import "OnlineTestCollectionViewCell.h"
 #import "TestViewController.h"
 #import "TestPaper.h"
+#import "TestViewModel.h"
 @interface OnlineTestViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @end
 
 @implementation OnlineTestViewController {
     UITableView *tableView;
+    TestViewModel *testViewModel;
 }
 
 - (void)viewDidLoad {
@@ -31,6 +33,8 @@
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+    
+    testViewModel = [TestViewModel new];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -52,8 +56,24 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    TestViewController *newVC = [TestViewController new];
-    [self.navigationController pushViewController:newVC animated:true];
+    [SVProgressHUD show];
+    [testViewModel readyToStartActionWithTestID:[NSNumber numberWithInteger:((TestPaper *)self.paperArray[indexPath.row]).idField] success:^(id responseObject) {
+        
+        if ([[responseObject objectForKey:@"testpaper"] objectForKey:@"begin"]) {
+//            [SVProgressHUD showErrorWithStatus:@"暂时无法测试"];
+//            [self dismissViewControllerAnimated:true completion:nil];
+            [SVProgressHUD dismiss];
+            TestViewController *newVC = [TestViewController new];
+            newVC.testID = ((TestPaper *)self.paperArray[indexPath.row]).idField;
+            [self.navigationController pushViewController:newVC animated:true];
+        } else {
+            [SVProgressHUD showErrorWithStatus:@"暂时无法测试"];
+        }
+        
+    } fail:^(NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"暂时无法测试"];
+    }];
+    
 }
     
 

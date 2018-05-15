@@ -51,7 +51,6 @@
 		BE44B5C9209C590B0001B143 /* PCAnouncementListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5C8209C590B0001B143 /* PCAnouncementListViewModel.m */; };
 		BE44B5CD209C61490001B143 /* PCAnnouncementModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5CC209C61490001B143 /* PCAnnouncementModel.m */; };
 		BE44B5D1209D808F0001B143 /* TestPaper.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5D0209D808F0001B143 /* TestPaper.m */; };
-		BE44B5D4209D809E0001B143 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5D3209D809E0001B143 /* Question.m */; };
 		BE44B5D8209D8CF20001B143 /* OnlineTestViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5D7209D8CF20001B143 /* OnlineTestViewModel.m */; };
 		BE44B5DB209D9D5B0001B143 /* PCChannelViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5DA209D9D5B0001B143 /* PCChannelViewModel.m */; };
 		BE44B5DE209E09280001B143 /* PCBookViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5DD209E09280001B143 /* PCBookViewModel.m */; };
@@ -89,6 +88,8 @@
 		BEB60A2920A9218900473BC5 /* VideoOverview.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB60A2820A9218900473BC5 /* VideoOverview.m */; };
 		BEB60A2C20A9223300473BC5 /* CourseOverview.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB60A2B20A9223300473BC5 /* CourseOverview.m */; };
 		BEB60A2F20A92A5100473BC5 /* Overview.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB60A2E20A92A5100473BC5 /* Overview.m */; };
+		BEB60A3320A9698200473BC5 /* TestViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB60A3220A9698200473BC5 /* TestViewModel.m */; };
+		BEB60A3720A975E000473BC5 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB60A3620A975E000473BC5 /* Question.m */; };
 		BEDE52AF20897B9000D00A98 /* PCPromotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52AE20897B9000D00A98 /* PCPromotionView.m */; };
 		BEDE52B5208991E900D00A98 /* PCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52B4208991E900D00A98 /* PCTabBarController.m */; };
 		BEDE52B82089B31600D00A98 /* PCAnouncementTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDE52B72089B31600D00A98 /* PCAnouncementTableViewController.m */; };
@@ -220,8 +221,6 @@
 		BE44B5CC209C61490001B143 /* PCAnnouncementModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCAnnouncementModel.m; sourceTree = "<group>"; };
 		BE44B5CF209D808F0001B143 /* TestPaper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestPaper.h; sourceTree = "<group>"; };
 		BE44B5D0209D808F0001B143 /* TestPaper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestPaper.m; sourceTree = "<group>"; };
-		BE44B5D2209D809E0001B143 /* Question.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
-		BE44B5D3209D809E0001B143 /* Question.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 		BE44B5D6209D8CF20001B143 /* OnlineTestViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnlineTestViewModel.h; sourceTree = "<group>"; };
 		BE44B5D7209D8CF20001B143 /* OnlineTestViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnlineTestViewModel.m; sourceTree = "<group>"; };
 		BE44B5D9209D9D5A0001B143 /* PCChannelViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCChannelViewModel.h; sourceTree = "<group>"; };
@@ -296,6 +295,10 @@
 		BEB60A2B20A9223300473BC5 /* CourseOverview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseOverview.m; sourceTree = "<group>"; };
 		BEB60A2D20A92A5100473BC5 /* Overview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Overview.h; sourceTree = "<group>"; };
 		BEB60A2E20A92A5100473BC5 /* Overview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Overview.m; sourceTree = "<group>"; };
+		BEB60A3120A9698200473BC5 /* TestViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewModel.h; sourceTree = "<group>"; };
+		BEB60A3220A9698200473BC5 /* TestViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewModel.m; sourceTree = "<group>"; };
+		BEB60A3520A975E000473BC5 /* Question.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		BEB60A3620A975E000473BC5 /* Question.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 		BEDE52AD20897B9000D00A98 /* PCPromotionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCPromotionView.h; sourceTree = "<group>"; };
 		BEDE52AE20897B9000D00A98 /* PCPromotionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCPromotionView.m; sourceTree = "<group>"; };
 		BEDE52B3208991E900D00A98 /* PCTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCTabBarController.h; sourceTree = "<group>"; };
@@ -788,8 +791,6 @@
 			children = (
 				BE44B5CF209D808F0001B143 /* TestPaper.h */,
 				BE44B5D0209D808F0001B143 /* TestPaper.m */,
-				BE44B5D2209D809E0001B143 /* Question.h */,
-				BE44B5D3209D809E0001B143 /* Question.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -952,6 +953,24 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		BEB60A3020A9696C00473BC5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BEB60A3120A9698200473BC5 /* TestViewModel.h */,
+				BEB60A3220A9698200473BC5 /* TestViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BEB60A3420A975CA00473BC5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BEB60A3520A975E000473BC5 /* Question.h */,
+				BEB60A3620A975E000473BC5 /* Question.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		BEDE52AB20897AB800D00A98 /* CenterView */ = {
 			isa = PBXGroup;
 			children = (
@@ -975,12 +994,12 @@
 		BEDE52B1208991A300D00A98 /* Announcement */ = {
 			isa = PBXGroup;
 			children = (
+				BE44B591209955970001B143 /* DetailAnnouncement */,
 				BE44B5CA209C59120001B143 /* Model */,
 				BE44B5C6209C57AE0001B143 /* ViewModel */,
 				BE44B59320995D560001B143 /* Cell */,
 				BEDE52B62089B31600D00A98 /* PCAnouncementTableViewController.h */,
 				BEDE52B72089B31600D00A98 /* PCAnouncementTableViewController.m */,
-				BE44B591209955970001B143 /* DetailAnnouncement */,
 			);
 			path = Announcement;
 			sourceTree = "<group>";
@@ -1149,6 +1168,8 @@
 		BEDE5315208F7FC400D00A98 /* OnlineTest */ = {
 			isa = PBXGroup;
 			children = (
+				BEB60A3420A975CA00473BC5 /* Model */,
+				BEB60A3020A9696C00473BC5 /* ViewModel */,
 				BE44B57B209575570001B143 /* View */,
 				BE44B577209574760001B143 /* Cell */,
 				BEDE5319208F81A200D00A98 /* OnlineTestViewController.h */,
@@ -1480,6 +1501,7 @@
 				BEB60A2C20A9223300473BC5 /* CourseOverview.m in Sources */,
 				BEDE531B208F81A200D00A98 /* OnlineTestViewController.m in Sources */,
 				BEDE52DE208B2BC800D00A98 /* MeItem.m in Sources */,
+				BEB60A3320A9698200473BC5 /* TestViewModel.m in Sources */,
 				BE44B5A620999DE70001B143 /* PCRequestSerializer.m in Sources */,
 				BEB60A2620A8A33B00473BC5 /* Comment.m in Sources */,
 				BEB60A1620A8725400473BC5 /* SeasonCredit.m in Sources */,
@@ -1508,6 +1530,7 @@
 				BE44B5EF20A0536E0001B143 /* Chapter.m in Sources */,
 				BE44B5CD209C61490001B143 /* PCAnnouncementModel.m in Sources */,
 				BEDE536D20940CD700D00A98 /* SeasonTableViewCell.m in Sources */,
+				BEB60A3720A975E000473BC5 /* Question.m in Sources */,
 				BE44B5AE2099C1B60001B143 /* PCUserModel.m in Sources */,
 				BEDE52B5208991E900D00A98 /* PCTabBarController.m in Sources */,
 				BE21DAAB20873F030086B8BA /* PCPromotionViewController.m in Sources */,
@@ -1536,7 +1559,6 @@
 				BEDE53362091670700D00A98 /* MoreChannelsViewController.m in Sources */,
 				BEDE53612092F28D00D00A98 /* SeasonRank.m in Sources */,
 				BEB60A1C20A8859F00473BC5 /* Quarter.m in Sources */,
-				BE44B5D4209D809E0001B143 /* Question.m in Sources */,
 				BE44B5DE209E09280001B143 /* PCBookViewModel.m in Sources */,
 				BEDE53422091AF2100D00A98 /* BookTableViewCell.m in Sources */,
 				BEB609D020A4167300473BC5 /* DetailCourse.m in Sources */,

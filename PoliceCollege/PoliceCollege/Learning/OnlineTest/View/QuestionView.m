@@ -20,11 +20,11 @@
         topLabel = [UILabel new];
         
         [questionNameLabel setText:@"用户是否能接受路边的问答"];
+        [questionNameLabel setNumberOfLines:0];
         [topLabel setText:@"1/3"];
         [topLabel setBackgroundColor:rgb(74, 144, 226)];
         [topLabel setTextColor:[UIColor whiteColor]];
         [topLabel setTextAlignment:NSTextAlignmentCenter];
-        
         
         [self addSubview:questionNameLabel];
         [self addSubview:topLabel];
@@ -72,6 +72,32 @@
             make.height.mas_equalTo(20);
         }];
         
+    }
+}
+
+- (void)setModel:(Question *)model {
+    [questionNameLabel setText:model.stem];
+    
+    CGFloat optionViewHeight = 30;
+    NSArray *optionArray = [NSArray arrayWithArray:[model.options componentsSeparatedByString:@" "]];
+    
+    for (UIView *subview in self.subviews) {
+        if ([[subview class] isEqual:[OptionView class]]) {
+            [subview removeFromSuperview];
+        }
+    }
+    
+    
+    
+    for (int i = 0; i < optionArray.count; i++) {
+        OptionView *optionView = [OptionView new];
+        [self addSubview:optionView];
+        [optionView.optionLabel setText:optionArray[i]];
+        [optionView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.equalTo(self);
+            make.top.equalTo(self->questionNameLabel.mas_bottom).offset((15 + optionViewHeight) * i + 15);
+            make.height.mas_equalTo(30);
+        }];
     }
 }
 
