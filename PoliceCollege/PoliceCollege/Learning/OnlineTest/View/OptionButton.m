@@ -42,6 +42,7 @@
 
 - (void)setSelected:(BOOL)selected {
     [super setSelected:selected];
+    self.choosed = selected;
     [fillView setHidden:!selected];
 }
 /*

@@ -15,6 +15,7 @@
 #import "ChapterTableViewCell.h"
 #import "PCBookViewModel.h"
 #import "Comment.h"
+#import "LSYReadPageViewController.h"
 @interface BookDetailViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic,assign)int currentView;
 @end
@@ -28,18 +29,56 @@
     PCBookViewModel *bookViewModel;
     NSInteger currentPage;
     NSInteger totalPage;
+    NSString *documentsDirectory;
+    NSString *fileName;
 }
 
 static const int introductionView = 12;
 static const int commentView = 13;
 static const int introductionButtonTag = 123;
 static const int commentButtonTag = 1234;
+static const int readButtonTag = 12345;
+static const int downloadButtonTag = 123456;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initViews];
+    [self initData];
     [self getData];
+}
+
+- (void)downloadBook {
+    [bookViewModel downloadBookWithBookID:[NSNumber numberWithInteger:self.model.idField] success:^(id responseObject) {
+        self.model = [Book yy_modelWithJSON:[responseObject objectForKey:@"book"]];
+        NSLog(@"%@",self.model.sections);
+        self->chapterArray = [NSArray yy_modelArrayWithClass:[Chapter class] json:self.model.sections];
+        NSMutableString *fileString = [NSMutableString stringWithFormat:@"%@\n",self.model.title];
+
+        if ([self createFile:self->documentsDirectory fileName:self->fileName]) {
+            NSLog(@"文件创建成功");
+            [self->chapterArray enumerateObjectsUsingBlock:^(Chapter* chapter, NSUInteger idx, BOOL * _Nonnull stop) {
+                [fileString appendString:[NSString stringWithFormat:@"%@\n",chapter.content]];
+                if (idx == self->chapterArray.count-1) {
+                    NSLog(@"文本字符串创建完成");
+                    if ([self writeFile:self->documentsDirectory fileString:fileString  fileName:self->fileName]) {
+                        NSLog(@"文本写入成功");
+                        [SVProgressHUD showErrorWithStatus:@"文件写入失败"];
+                    } else {
+                        [SVProgressHUD showErrorWithStatus:@"文件写入失败"];
+                        NSLog(@"文本写入失败");
+                    }
+                    
+                }
+            }];
+        } else {
+            NSLog(@"文件创建失败");
+        }
+        
+        
+    } fail:^(NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"下载失败"];
+    }];
 }
 
 - (void)getData {
@@ -81,11 +120,19 @@ static const int commentButtonTag = 1234;
     [tableView registerClass:[BookIntroductionTableViewCell class] forCellReuseIdentifier:@"introductionCell"];
     [tableView registerClass:[ChapterTableViewCell class] forCellReuseIdentifier:@"chapterCell"];
     _currentView = introductionView;
-    
+}
+
+- (void)initData {
     chapterViewModel = [PCChapterViewModel new];
     commentArray = [NSMutableArray new];
     bookViewModel = [PCBookViewModel new];
     currentPage = 1;
+    
+    fileName = [NSString stringWithFormat:@"%@.txt",self.model.title];
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    documentsDirectory = [paths objectAtIndex:0];
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -119,6 +166,10 @@ static const int commentButtonTag = 1234;
         BookTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bookCell"];
         [cell.introductionBtn addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
         [cell.commentBtn addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.readBtn addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.downloadBtn addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.readBtn setTag: readButtonTag];
+        [cell.downloadBtn setTag:downloadButtonTag];
         [cell.introductionBtn setTag:introductionButtonTag];
         [cell.commentBtn setTag:commentButtonTag];
         [cell.introductionBtn setSelected:true];
@@ -178,8 +229,45 @@ static const int commentButtonTag = 1234;
             _currentView = commentView;
             [tableView reloadData];
             break;
+        case readButtonTag:
+            [self pushToReadBook];
+            break;
+        case downloadButtonTag:
+            [SVProgressHUD showWithStatus:@"开始下载"];
+            [self downloadBook];
+            break;
         default:
             break;
     }
 }
+
+- (void)pushToReadBook {
+    LSYReadPageViewController *pageView = [[LSYReadPageViewController alloc] init];
+    NSURL *fileURL = [[NSURL alloc] initFileURLWithPath:[self getLocalFilePath:fileName]];
+    pageView.resourceURL = fileURL;    //文件位置
+    pageView.model = [LSYReadModel getLocalModelWithURL:fileURL];  //阅读模型
+    [self presentViewController:pageView animated:YES completion:nil];
+}
+
+- (NSString *)getLocalFilePath:(NSString *) fileName
+{
+    NSString * path = [NSHomeDirectory() stringByAppendingPathComponent:@"/Documents"];
+    return [NSString stringWithFormat:@"%@/%@",path,fileName];
+}
+
+
+-(BOOL)createFile:(NSString *)path fileName:(NSString *)fileName{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *testPath = [path stringByAppendingPathComponent:fileName];//在传入的路径下创建文件
+    BOOL res=[fileManager createFileAtPath:testPath contents:nil attributes:nil];
+    //通过data创建数据
+    return res;
+}
+
+-(BOOL)writeFile:(NSString *)path fileString:(NSString *)fileString fileName:(NSString *)fileName{
+    NSString *testPath = [path stringByAppendingPathComponent:fileName];
+    BOOL res=[fileString writeToFile:testPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    return res;
+}
+
 @end

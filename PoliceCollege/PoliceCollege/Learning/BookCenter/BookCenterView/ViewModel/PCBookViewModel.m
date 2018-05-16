@@ -110,4 +110,17 @@
     [self getBookListActionWithSearchText:@"" typeID:typeID currentPage:currentPage success:success fail:fail];
 }
 
+- (void)downloadBookWithBookID:(NSNumber *)bookID success:(PCSuccessHandler)success fail:(PCFailedHandler)fail
+{
+    PCBaseRequest *request = [PCBaseRequest new];
+    request.requstType = @"post";
+    request.apiString = @"download";
+    NSMutableDictionary *paraDict = [[NSMutableDictionary alloc]
+                                     initWithDictionary:@{
+                                                          @"id":bookID
+                                                          }];
+    request.paraDict = paraDict;
+    [request sendRequestSuccess:success error:fail];
+}
+
 @end

@@ -17,8 +17,9 @@
 @property (nonatomic, strong) NSString * isdelete;
 @property (nonatomic, strong) NSString * options;
 @property (nonatomic, strong) NSString * stem; //题目
-@property (nonatomic, assign) NSInteger rscore;
+@property (nonatomic, assign) NSInteger score;
 @property (nonatomic, strong) NSString *optionIndex;
+
 
 
 @end

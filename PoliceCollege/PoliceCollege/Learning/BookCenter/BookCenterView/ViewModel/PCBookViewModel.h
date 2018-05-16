@@ -43,5 +43,8 @@
  @param currentPage 当前页
  */
 - (void)getBookListActionWithTypeID:(NSNumber *)typeID currentPage:(NSNumber *)currentPage success:(PCSuccessHandler)success fail:(PCFailedHandler)fail ;
-#warning 图书下载 接口未定
+
+
+- (void)downloadBookWithBookID:(NSNumber *)bookID success:(PCSuccessHandler)success fail:(PCFailedHandler)fail;
+
 @end

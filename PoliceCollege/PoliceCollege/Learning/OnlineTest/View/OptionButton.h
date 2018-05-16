@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface OptionButton : UIButton
-
+@property (nonatomic,assign)BOOL choosed;
+@property (nonatomic,assign)NSInteger index;
 @end

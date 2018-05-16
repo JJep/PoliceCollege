@@ -7,6 +7,7 @@
 //
 
 #import "QuestionView.h"
+#import "OptionButton.h"
 #import "OptionView.h"
 @implementation QuestionView {
     UILabel *questionNameLabel;
@@ -92,6 +93,7 @@
         OptionView *optionView = [OptionView new];
         [self addSubview:optionView];
         [optionView.optionLabel setText:optionArray[i]];
+        optionView.optionButton.index = i+1;
         [optionView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self);
             make.top.equalTo(self->questionNameLabel.mas_bottom).offset((15 + optionViewHeight) * i + 15);
