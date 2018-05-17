@@ -43,7 +43,8 @@
                                                                                   @"questionTO.answered":questionTO.answered,
                                                                                   @"questionTO.answerIndex":questionTO.answerIndex,
                                                                                   @"questionTO.id":[NSNumber numberWithInteger:questionTO.idField],
-                                                                                  @"questionTO.optionIndex":questionTO.optionIndex
+                                                                                  @"questionTO.optionIndex":questionTO.optionIndex,
+                                                                                  @"questionTO.rscore":[NSNumber numberWithFloat:questionTO.rscore]
                                                                                   }];
     request.paraDict = dict;
     [request sendRequestSuccess:success error:fail];

@@ -63,7 +63,7 @@ static const int downloadButtonTag = 123456;
                     NSLog(@"文本字符串创建完成");
                     if ([self writeFile:self->documentsDirectory fileString:fileString  fileName:self->fileName]) {
                         NSLog(@"文本写入成功");
-                        [SVProgressHUD showErrorWithStatus:@"文件写入失败"];
+                        [SVProgressHUD showErrorWithStatus:@"文件写入成功"];
                     } else {
                         [SVProgressHUD showErrorWithStatus:@"文件写入失败"];
                         NSLog(@"文本写入失败");

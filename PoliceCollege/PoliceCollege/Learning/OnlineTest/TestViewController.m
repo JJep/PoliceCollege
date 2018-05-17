@@ -13,6 +13,7 @@
 #import "QuestionTO.h"
 #import "OptionButton.h"
 #import "OptionView.h"
+#import "PCCurrentDate.h"
 @interface TestViewController ()
 
 @end
@@ -25,7 +26,8 @@
     UILabel *questionNameLabel;
     UILabel *topLabel ;
     NSInteger currentScore;
-    NSMutableArray *optionsArray;
+    NSMutableArray *selectedOptionsArray;
+    NSArray *optionsArray;
 }
 
 - (void)viewDidLoad {
@@ -39,6 +41,7 @@
     currentScore = 0;
     testViewModel = [TestViewModel new];
     optionsArray = [NSMutableArray new];
+    selectedOptionsArray = [NSMutableArray new];
     [testViewModel getQuestionsActionwithTestID:[NSNumber numberWithInteger:self.testID] success:^(id responseObject) {
         self->questionArray = [NSArray yy_modelArrayWithClass:[Question class] json:[responseObject objectForKey:@"questionList"]];
         NSLog(@"%@",self->questionArray);
@@ -50,35 +53,54 @@
 }
 
 - (void)uploadAnswer:(Question *)question {
+    //处理接口中的参数
     QuestionTO *questionTO = [QuestionTO new];
-    questionTO.idField = question.idField;
-    questionTO.answerIndex = question.answer;
-//    NSMutableString *answerString = [[NSMutableString alloc] initWithString:@""];
-//    for (__strong UIView *subView in self.view.subviews) {
-//        int index = 1;
-//        if ([[subView class] isEqual:[OptionView class]]) {
-//            OptionButton *button = (OptionButton *)subView;
-//            if (button.selected) {
-//                [answerString appendString:[NSString stringWithFormat:@"%d,", index]];
-//            }
-//            index++;
-//        }
-//    }
-    NSString *answered = [[NSString alloc] init];
-    [optionsArray enumerateObjectsUsingBlock:^(NSNumber *optionIndex, NSUInteger idx, BOOL * _Nonnull stop) {
-        [answered stringByAppendingString:[NSString stringWithFormat:@"%@,", optionIndex]];
-        if (idx == self->optionsArray.count-1) {
-            [answered substringWithRange:NSMakeRange(0, self->optionsArray.count-1)];
+    PCCurrentDate *currentDate = [PCCurrentDate new];
+    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init ];
+    [dateFormatter setDateFormat:@"yyyyMMddHHmmss"];
+    NSString * currentDateString = [dateFormatter stringFromDate:currentDate];
+    questionTO.time = currentDateString;//回答问题的时间
+    questionTO.idField = question.idField;//问题的id
+    questionTO.answerIndex = question.answer;//问题的正确答案
+    questionTO.score = question.score;//问题dadui
+    __block NSString *answered = [[NSString alloc] init];
+    [selectedOptionsArray enumerateObjectsUsingBlock:^(NSNumber *optionIndex, NSUInteger idx, BOOL * _Nonnull stop) {
+//        [answered stringByAppendingString:[NSString stringWithFormat:@"%@,", optionIndex]];
+        answered = [answered stringByAppendingString:[NSString stringWithFormat:@"%@,",optionIndex]];
+        if (idx == self->selectedOptionsArray.count-1) {
+            answered = [answered substringWithRange:NSMakeRange(0, answered.length-1)];
         }
     }];
-    questionTO.answered = answered;
-    questionTO.optionIndex = question.optionIndex;
-
-    [testViewModel uploadQuestionWithQuestionTO:questionTO testID:[NSNumber numberWithInteger:self.testID] success:^(id responseObject) {
-
-    } fail:^(NSError *error) {
-
+    questionTO.answered = answered; //用户选择的答案
+    
+    __block NSString *optionIndexString = [NSString new];
+    [optionsArray enumerateObjectsUsingBlock:^(NSNumber *optionIndex, NSUInteger idx, BOOL * _Nonnull stop) {
+        optionIndexString = [optionIndexString stringByAppendingString:[NSString stringWithFormat:@"%@,", optionIndex]];
+        if (idx == self->optionsArray.count-1) {
+            optionIndexString = [optionIndexString substringWithRange:NSMakeRange(0, optionIndexString.length-1)];
+        }
     }];
+    questionTO.optionIndex = optionIndexString;//用户看到的题目顺序
+    if ([self selectedOptionIsEqualToAnswer:question]) {//判断用户回答是否正确
+        questionTO.rscore = question.score;//回答正确
+    } else {
+        questionTO.rscore = 0; //回答错误
+    }
+
+    currentScore += questionTO.rscore;
+    //回到到最后一道题目时，发送请求
+    if (self->currentIndex == self->questionArray.count) {
+        [testViewModel uploadQuestionWithQuestionTO:questionTO testID:[NSNumber numberWithInteger:self.testID] success:^(id responseObject) {
+            //判断所有问题是否已经回答完毕
+            if (self->currentIndex == self->questionArray.count) {
+                
+            } else {
+                
+            }
+        } fail:^(NSError *error) {
+
+        }];
+    }
 }
 
 - (NSArray *)unRepeatRandomNumber:(NSInteger)count number:(NSInteger)number {
@@ -104,7 +126,7 @@
 - (void)updateUI {
     
     //清理上一题所记录的内容
-    [optionsArray removeAllObjects];
+    [selectedOptionsArray removeAllObjects];
     
     Question *question = [Question new];
     question = questionArray[currentIndex];
@@ -119,12 +141,12 @@
         }
     }
     
-    NSArray *ary = [NSArray arrayWithArray:[self unRepeatRandomNumber:optionArray.count number:optionArray.count]];
+    optionsArray = [NSArray arrayWithArray:[self unRepeatRandomNumber:optionArray.count number:optionArray.count]];
     
     for (int i = 0; i < optionArray.count; i++) {
         OptionView *optionView = [OptionView new];
         [self.view addSubview:optionView];
-        NSInteger index = ((NSNumber *)ary[i]).integerValue;
+        NSInteger index = ((NSNumber *)optionsArray[i]).integerValue;
         [optionView.optionLabel setText:optionArray[index-1]];
         optionView.optionButton.index = index;
         [optionView.optionButton addTarget:self action:@selector(didTouchOptionButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -181,9 +203,9 @@
 - (void)didTouchOptionButton:(OptionButton *)button {
     //对用户点击每个选项进行操作，将选中的选项保存或将不选的选项清除
     if (button.choosed) {
-        [optionsArray addObject:[NSNumber numberWithInteger:button.index]];
+        [selectedOptionsArray addObject:[NSNumber numberWithInteger:button.index-1]];
     } else {
-        [optionsArray removeObject:[NSNumber numberWithInteger:button.index]];
+        [selectedOptionsArray removeObject:[NSNumber numberWithInteger:button.index-1]];
     }
 }
 
@@ -197,6 +219,39 @@
         [self updateUI];
     }
 }
+
+- (BOOL)selectedOptionIsEqualToAnswer:(Question *)question {
+    
+    NSArray *selectedResultArray = [selectedOptionsArray sortedArrayUsingComparator: ^(id obj1, id obj2) {
+        
+        if ([obj1 integerValue] > [obj2 integerValue]) {
+            return (NSComparisonResult)NSOrderedDescending;
+        }
+        
+        if ([obj1 integerValue] < [obj2 integerValue]) {
+            return (NSComparisonResult)NSOrderedAscending;
+        }
+        return (NSComparisonResult)NSOrderedSame;
+    }];
+
+    
+    NSArray *answerArray = [question.answer componentsSeparatedByString:@","];
+    
+    NSArray *answerResultArray = [answerArray sortedArrayUsingComparator: ^(id obj1, id obj2) {
+        
+        if ([obj1 integerValue] > [obj2 integerValue]) {
+            return (NSComparisonResult)NSOrderedDescending;
+        }
+        
+        if ([obj1 integerValue] < [obj2 integerValue]) {
+            return (NSComparisonResult)NSOrderedAscending;
+        }
+        return (NSComparisonResult)NSOrderedSame;
+    }];
+    
+    return [selectedResultArray isEqualToArray:answerResultArray];
+}
+
 
 - (void)complete {
     [self uploadAnswer:(Question *)questionArray[currentIndex-1]];
