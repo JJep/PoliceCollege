@@ -23,19 +23,7 @@
     [request sendRequestSuccess:success error:fail];
 }
 
-- (void)getBookCommentListActionWithBookID:(NSNumber *)bookID currentPage:(NSNumber *)currentPage success:(PCSuccessHandler)success fail:(PCFailedHandler)fail
-{
-    PCBaseRequest *request = [PCBaseRequest new];
-    request.requstType = @"post";
-    request.apiString = @"selectCommentByPage";
-    NSMutableDictionary *paraDict = [[NSMutableDictionary alloc]
-                                     initWithDictionary:@{
-                                                          @"type":@2, @"page.currentPage":currentPage,
-                                                          @"id":bookID
-                                                          }];
-    request.paraDict = paraDict;
-    [request sendRequestSuccess:success error:fail];
-}
+
 
 - (void)getBookIntroductionAction:(NSNumber *)bookID success:(PCSuccessHandler)success fail:(PCFailedHandler)fail
 {

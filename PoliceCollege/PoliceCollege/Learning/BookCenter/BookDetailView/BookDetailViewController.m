@@ -16,7 +16,10 @@
 #import "PCBookViewModel.h"
 #import "Comment.h"
 #import "LSYReadPageViewController.h"
-@interface BookDetailViewController () <UITableViewDataSource, UITableViewDelegate>
+#import "CommentViewController.h"
+#import "CommentViewModel.h"
+#import "SendCommentView.h"
+@interface BookDetailViewController () <UITableViewDataSource, UITableViewDelegate, UITextViewDelegate>
 @property (nonatomic,assign)int currentView;
 @end
 
@@ -27,19 +30,27 @@
     NSArray *chapterArray;
     NSMutableArray *commentArray;
     PCBookViewModel *bookViewModel;
-    NSInteger currentPage;
+    NSInteger currentCommentPage;
     NSInteger totalPage;
     NSString *documentsDirectory;
     NSString *fileName;
+    UIButton *commentButton;
+    SendCommentView *sendCommentView;
+    CommentViewModel *commentViewModel;
 }
 
 static const int introductionView = 12;
 static const int commentView = 13;
 static const int introductionButtonTag = 123;
-static const int commentButtonTag = 1234;
+static const int commentViewButtonTag = 1234;
 static const int readButtonTag = 12345;
 static const int downloadButtonTag = 123456;
-
+static const int commentButtonTag = 333321;
+//1-成功，2-参数问题，3-已评论，4-未完成学习
+static const int commentSuccessStatus = 1;
+static const int commentParaErrStatus = 2;
+static const int commentCommentedErrStatus = 3;
+static const int commentLearningCompletionErrStatus = 4;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -68,7 +79,6 @@ static const int downloadButtonTag = 123456;
                         [SVProgressHUD showErrorWithStatus:@"文件写入失败"];
                         NSLog(@"文本写入失败");
                     }
-                    
                 }
             }];
         } else {
@@ -81,7 +91,18 @@ static const int downloadButtonTag = 123456;
     }];
 }
 
-- (void)getData {
+- (void)downloadCommentList {
+    
+    [commentViewModel downloadCommentListActionWithBookID:[NSNumber numberWithInteger:self.model.idField] currentPage:[NSNumber numberWithInteger:currentCommentPage] success:^(id responseObject) {
+        NSArray *ary =  [NSArray yy_modelArrayWithClass:[Comment class] json:[responseObject objectForKey:@"commentList"]];
+        [self->commentArray addObjectsFromArray:ary];
+        [self->tableView reloadData];
+    } fail:^(NSError *error) {
+        
+    }];
+}
+
+- (void)downloadChapterList {
     [chapterViewModel getChapterListWithBookIDAction:[NSNumber numberWithInteger:self.model.idField] success:^(id responseObject) {
         if ([[responseObject objectForKey:@"state"] isEqualToString:@"1"] ) {
             self->chapterArray = [NSArray yy_modelArrayWithClass:[Chapter class] json:[responseObject objectForKey:@"sectionList"]];
@@ -90,15 +111,53 @@ static const int downloadButtonTag = 123456;
     } fail:^(NSError *error) {
         
     }];
+}
+
+- (void)getData {
+
+    [self downloadChapterList];
+    [self downloadCommentList];
+}
+
+- (void)uploadComment {
     
-    [bookViewModel getBookCommentListActionWithBookID:[NSNumber numberWithInteger:self.model.idField] currentPage:[NSNumber numberWithInteger:currentPage] success:^(id responseObject) {
-        NSArray *ary =  [NSArray yy_modelArrayWithClass:[Comment class] json:[responseObject objectForKey:@"commentList"]];
-        [self->commentArray addObjectsFromArray:ary];
-        [self->tableView reloadData];
-    } fail:^(NSError *error) {
-        
-    }];
+    if (sendCommentView.textView.text.length >= 200) {
+        [commentViewModel uploadCommentWithBookID:[NSNumber numberWithInteger:self.model.idField] commentContent:sendCommentView.textView.text success:^(id responseObject) {
+            NSInteger status = [[responseObject objectForKey:@"status"] integerValue];
+            switch (status) {
+                case commentSuccessStatus:
+                {
+                    [SVProgressHUD showWithStatus:@"评论成功"];
+                    self->currentCommentPage = 1;
+                    [self downloadCommentList];
+                    break;
+                }
+                case commentParaErrStatus:
+                {
+                    [SVProgressHUD showErrorWithStatus:@"参数错误,请重试"];
+                break;
+                }
+                case commentCommentedErrStatus:
+                {
+                    [SVProgressHUD showErrorWithStatus:@"你已经评论过啦"];
+                    break;
+                }
+                case commentLearningCompletionErrStatus:
+                {
+                    [SVProgressHUD showErrorWithStatus:@"学习未完成无法评论"];
+                    break;
+                }
+                default:
+                    break;
+            }
+        } fail:^(NSError *error) {
+            
+        }];
+    } else {
+        [SVProgressHUD showWithStatus:@"评论字数必须大于200字"];
+    }
     
+   
 }
 
 - (void)initViews {
@@ -120,19 +179,92 @@ static const int downloadButtonTag = 123456;
     [tableView registerClass:[BookIntroductionTableViewCell class] forCellReuseIdentifier:@"introductionCell"];
     [tableView registerClass:[ChapterTableViewCell class] forCellReuseIdentifier:@"chapterCell"];
     _currentView = introductionView;
+    
+    commentButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [self.view addSubview:commentButton];
+    [commentButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.top.equalTo(self->tableView.mas_bottom);
+    }];
+    [commentButton setTitle:@"评论" forState:UIControlStateNormal];
+    [commentButton addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [commentButton setTag:commentButtonTag];
+    UIImage *image = [UIImage imageNamed:@"comment"];
+    image = [self scaleToSize:image size:CGSizeMake(15, 15)];
+    [commentButton setImage:image forState:UIControlStateNormal];
+    sendCommentView = [SendCommentView new];
+    [self.view addSubview:sendCommentView];
+    sendCommentView.textView.delegate = self;
+    [sendCommentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.view);
+        make.top.equalTo(self.view.mas_bottom);
+        make.height.mas_equalTo(180);
+    }];
+    [sendCommentView.commentButton addTarget:self action:@selector(uploadComment) forControlEvents:UIControlEventTouchUpInside];
+    
+    //注册键盘弹出通知
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    //注册键盘隐藏通知
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
+//图片缩放到指定大小尺寸
+- (UIImage *)scaleToSize:(UIImage *)img size:(CGSize)size{
+    // 创建一个bitmap的context
+    // 并把它设置成为当前正在使用的context
+    UIGraphicsBeginImageContext(size);
+    // 绘制改变大小的图片
+    [img drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    // 从当前context中创建一个改变大小后的图片
+    UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    // 使当前的context出堆栈
+    UIGraphicsEndImageContext();
+    // 返回新的改变大小后的图片
+    return scaledImage;
 }
 
 - (void)initData {
     chapterViewModel = [PCChapterViewModel new];
     commentArray = [NSMutableArray new];
     bookViewModel = [PCBookViewModel new];
-    currentPage = 1;
+    commentViewModel = [CommentViewModel new];
+    currentCommentPage = 1;
     
     fileName = [NSString stringWithFormat:@"%@.txt",self.model.title];
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     documentsDirectory = [paths objectAtIndex:0];
     
+}
+
+- (void)updateUI {
+    switch (_currentView) {
+        case commentView:
+        {
+            [tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.left.top.right.equalTo(self.view);
+                make.bottom.equalTo(self.view).offset(-50);
+            }];
+            break;
+        }
+        case introductionView:
+        {
+            [tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.edges.equalTo(self.view);
+            }];
+            break;
+        }
+        default:
+            break;
+    }
+    [tableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -171,7 +303,7 @@ static const int downloadButtonTag = 123456;
         [cell.readBtn setTag: readButtonTag];
         [cell.downloadBtn setTag:downloadButtonTag];
         [cell.introductionBtn setTag:introductionButtonTag];
-        [cell.commentBtn setTag:commentButtonTag];
+        [cell.commentBtn setTag:commentViewButtonTag];
         [cell.introductionBtn setSelected:true];
         [cell.commentBtn setSelected:false];
         if (_currentView == introductionView) {
@@ -218,16 +350,21 @@ static const int downloadButtonTag = 123456;
     }
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [sendCommentView.textView resignFirstResponder];
+}
+
+
 - (void)didTouchBtn:(UIButton *)button {
     long tag = button.tag;
     switch (tag) {
         case introductionButtonTag:
             _currentView = introductionView;
-            [tableView reloadData];
+            [self updateUI];
             break;
-        case commentButtonTag:
+        case commentViewButtonTag:
             _currentView = commentView;
-            [tableView reloadData];
+            [self updateUI];
             break;
         case readButtonTag:
             [self pushToReadBook];
@@ -236,9 +373,66 @@ static const int downloadButtonTag = 123456;
             [SVProgressHUD showWithStatus:@"开始下载"];
             [self downloadBook];
             break;
+        case commentButtonTag: {
+            [commentButton setHidden:true];
+            [sendCommentView.textView becomeFirstResponder];
+            
+            break;
+        }
         default:
             break;
     }
+}
+
+//键盘弹出后将视图向上移动
+
+-(void)keyboardWillShow:(NSNotification *)note
+
+{
+    
+    NSDictionary *info = [note userInfo];
+    
+    CGSize keyboardSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    
+    //目标视图UITextField
+    
+    CGRect frame = sendCommentView.frame;
+    
+    int y = frame.size.height + keyboardSize.height;
+    
+    NSTimeInterval animationDuration = 0.30f;
+    
+    [UIView beginAnimations:@"ResizeView" context:nil];
+    
+    [UIView setAnimationDuration:animationDuration];
+    
+    if(y > 0)
+        
+    {
+        
+        self.view.frame = CGRectMake(0, -y+self.navigationController.navigationBar.bounds.size.height, self.view.frame.size.width, self.view.frame.size.height);
+        
+    }
+    
+    [UIView commitAnimations];
+    
+}
+//键盘隐藏后将视图恢复到原始状态
+
+-(void)keyboardWillHide:(NSNotification *)note
+
+{
+    
+    NSTimeInterval animationDuration = 0.30f;
+    
+    [UIView beginAnimations:@"ResizeView" context:nil];
+    
+    [UIView setAnimationDuration:animationDuration];
+    
+    self.view.frame =CGRectMake(0, self.navigationController.navigationBar.frame.origin.y + self.navigationController.navigationBar.bounds.size.height, self.view.frame.size.width, self.view.frame.size.height);
+    
+    [UIView commitAnimations];
+    
 }
 
 - (void)pushToReadBook {
@@ -254,7 +448,6 @@ static const int downloadButtonTag = 123456;
     NSString * path = [NSHomeDirectory() stringByAppendingPathComponent:@"/Documents"];
     return [NSString stringWithFormat:@"%@/%@",path,fileName];
 }
-
 
 -(BOOL)createFile:(NSString *)path fileName:(NSString *)fileName{
     NSFileManager *fileManager = [NSFileManager defaultManager];

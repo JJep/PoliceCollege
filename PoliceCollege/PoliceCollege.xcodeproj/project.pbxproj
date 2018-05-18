@@ -25,6 +25,9 @@
 		BE21DAAB20873F030086B8BA /* PCPromotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE21DAAA20873F030086B8BA /* PCPromotionViewController.m */; };
 		BE21DAAE2087485D0086B8BA /* PCHotIssueView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE21DAAD2087485D0086B8BA /* PCHotIssueView.m */; };
 		BE21DAB22087815A0086B8BA /* HotIssueTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE21DAB12087815A0086B8BA /* HotIssueTableViewCell.m */; };
+		BE3A23B120AE7A1400FAEE18 /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3A23B020AE7A1400FAEE18 /* CommentViewController.m */; };
+		BE3A23B620AE7E4600FAEE18 /* CommentViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3A23B520AE7E4600FAEE18 /* CommentViewModel.m */; };
+		BE3A23BA20AE9BD600FAEE18 /* SendCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3A23B920AE9BD600FAEE18 /* SendCommentView.m */; };
 		BE44B56A2094254E0001B143 /* PCPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5692094254E0001B143 /* PCPickerView.m */; };
 		BE44B571209468660001B143 /* PCTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B570209468660001B143 /* PCTopView.m */; };
 		BE44B57420946C790001B143 /* LearningMainCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B57320946C790001B143 /* LearningMainCollectionView.m */; };
@@ -224,6 +227,12 @@
 		BE21DAAD2087485D0086B8BA /* PCHotIssueView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCHotIssueView.m; sourceTree = "<group>"; };
 		BE21DAB02087815A0086B8BA /* HotIssueTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HotIssueTableViewCell.h; sourceTree = "<group>"; };
 		BE21DAB12087815A0086B8BA /* HotIssueTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotIssueTableViewCell.m; sourceTree = "<group>"; };
+		BE3A23AF20AE7A1400FAEE18 /* CommentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
+		BE3A23B020AE7A1400FAEE18 /* CommentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
+		BE3A23B420AE7E4600FAEE18 /* CommentViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentViewModel.h; sourceTree = "<group>"; };
+		BE3A23B520AE7E4600FAEE18 /* CommentViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentViewModel.m; sourceTree = "<group>"; };
+		BE3A23B820AE9BD600FAEE18 /* SendCommentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SendCommentView.h; sourceTree = "<group>"; };
+		BE3A23B920AE9BD600FAEE18 /* SendCommentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SendCommentView.m; sourceTree = "<group>"; };
 		BE44B5682094254E0001B143 /* PCPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCPickerView.h; sourceTree = "<group>"; };
 		BE44B5692094254E0001B143 /* PCPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCPickerView.m; sourceTree = "<group>"; };
 		BE44B56F209468660001B143 /* PCTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCTopView.h; sourceTree = "<group>"; };
@@ -707,6 +716,45 @@
 				BE21DAB12087815A0086B8BA /* HotIssueTableViewCell.m */,
 			);
 			path = HotIssueView;
+			sourceTree = "<group>";
+		};
+		BE3A23AE20AE79EE00FAEE18 /* CommentView */ = {
+			isa = PBXGroup;
+			children = (
+				BE3A23B720AE9BC500FAEE18 /* View */,
+				BE3A23B320AE7E2C00FAEE18 /* ViewModel */,
+				BE3A23B220AE7A2F00FAEE18 /* Cell */,
+				BE3A23AF20AE7A1400FAEE18 /* CommentViewController.h */,
+				BE3A23B020AE7A1400FAEE18 /* CommentViewController.m */,
+			);
+			path = CommentView;
+			sourceTree = "<group>";
+		};
+		BE3A23B220AE7A2F00FAEE18 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BEDE534F2091DB1400D00A98 /* CommentTableViewCell.h */,
+				BEDE53502091DB1400D00A98 /* CommentTableViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		BE3A23B320AE7E2C00FAEE18 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BE3A23B420AE7E4600FAEE18 /* CommentViewModel.h */,
+				BE3A23B520AE7E4600FAEE18 /* CommentViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BE3A23B720AE9BC500FAEE18 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE3A23B820AE9BD600FAEE18 /* SendCommentView.h */,
+				BE3A23B920AE9BD600FAEE18 /* SendCommentView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		BE44B56B209448B00001B143 /* Cell */ = {
@@ -1562,6 +1610,7 @@
 		BEDE531D20900FC500D00A98 /* BookCenter */ = {
 			isa = PBXGroup;
 			children = (
+				BE3A23AE20AE79EE00FAEE18 /* CommentView */,
 				BEDE533F2091835100D00A98 /* BookDetailView */,
 				BEDE5333209166E300D00A98 /* MoreChannelsView */,
 				BEDE53312091669C00D00A98 /* BookCenterView */,
@@ -1647,8 +1696,6 @@
 			children = (
 				BEDE53492091B93B00D00A98 /* BookIntroductionTableViewCell.h */,
 				BEDE534A2091B93B00D00A98 /* BookIntroductionTableViewCell.m */,
-				BEDE534F2091DB1400D00A98 /* CommentTableViewCell.h */,
-				BEDE53502091DB1400D00A98 /* CommentTableViewCell.m */,
 				BEDE53402091AF2100D00A98 /* BookTableViewCell.h */,
 				BEDE53412091AF2100D00A98 /* BookTableViewCell.m */,
 				BEB60A0420A7F96200473BC5 /* ChapterTableViewCell.h */,
@@ -1888,6 +1935,7 @@
 				BEDE52B82089B31600D00A98 /* PCAnouncementTableViewController.m in Sources */,
 				BEB60A2C20A9223300473BC5 /* CourseOverview.m in Sources */,
 				BEDE531B208F81A200D00A98 /* OnlineTestViewController.m in Sources */,
+				BE3A23BA20AE9BD600FAEE18 /* SendCommentView.m in Sources */,
 				BEB60D5A20AB4AE100473BC5 /* LSYReadPageViewController.m in Sources */,
 				BEDE52DE208B2BC800D00A98 /* MeItem.m in Sources */,
 				BEB60A3320A9698200473BC5 /* TestViewModel.m in Sources */,
@@ -1993,7 +2041,9 @@
 				BEB60D5520AB4AE100473BC5 /* NSString+HTML.m in Sources */,
 				BEB609BE20A302BD00473BC5 /* PCCourseViewModel.m in Sources */,
 				BEB60A1320A83BB000473BC5 /* PCCurrentDate.m in Sources */,
+				BE3A23B620AE7E4600FAEE18 /* CommentViewModel.m in Sources */,
 				BEDE52BB2089B36E00D00A98 /* AnouncementTableViewCell.m in Sources */,
+				BE3A23B120AE7A1400FAEE18 /* CommentViewController.m in Sources */,
 				BE44B58D209953440001B143 /* PCAnnouncementDetailViewController.m in Sources */,
 				BEB609F420A56A9400473BC5 /* NSObject+PropertyMapper.m in Sources */,
 				BE44B597209995C20001B143 /* PCLoginViewModel.m in Sources */,
