@@ -13,5 +13,5 @@
 
 - (void)getQuestionsActionwithTestID:(NSNumber *)testID success:(PCSuccessHandler)success fail:(PCFailedHandler)fail;
 
-- (void)uploadQuestionWithQuestionTO:(QuestionTO *)questionTO testID:(NSNumber *)testID success:(PCSuccessHandler)success fail:(PCFailedHandler)fail ;
+- (void)uploadQuestionWithQuestionTO:(NSArray *)questionTOArray testID:(NSNumber *)testID totalScore:(NSNumber *)totalScore success:(PCSuccessHandler)success fail:(PCFailedHandler)fail ;
 @end

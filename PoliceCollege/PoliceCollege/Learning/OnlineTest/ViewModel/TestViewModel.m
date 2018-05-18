@@ -33,18 +33,17 @@
     [request sendRequestSuccess:success error:fail];
 }
 
-- (void)uploadQuestionWithQuestionTO:(QuestionTO *)questionTO testID:(NSNumber *)testID success:(PCSuccessHandler)success fail:(PCFailedHandler)fail
+- (void)uploadQuestionWithQuestionTO:(NSArray *)questionTOArray testID:(NSNumber *)testID totalScore:(NSNumber *)totalScore success:(PCSuccessHandler)success fail:(PCFailedHandler)fail
 {
     PCBaseRequest *request = [PCBaseRequest new];
     request.requstType = @"post";
     request.apiString = @"addRecord";
+    NSString *questionTOArrayJSONString = [questionTOArray yy_modelToJSONString];
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:@{
                                                                                   @"examrecord.id":testID,
-                                                                                  @"questionTO.answered":questionTO.answered,
-                                                                                  @"questionTO.answerIndex":questionTO.answerIndex,
-                                                                                  @"questionTO.id":[NSNumber numberWithInteger:questionTO.idField],
-                                                                                  @"questionTO.optionIndex":questionTO.optionIndex,
-                                                                                  @"questionTO.rscore":[NSNumber numberWithFloat:questionTO.rscore]
+                                                                                  @"tscore":totalScore,
+                                                                                  @"question":questionTOArrayJSONString
+                                                                                
                                                                                   }];
     request.paraDict = dict;
     [request sendRequestSuccess:success error:fail];

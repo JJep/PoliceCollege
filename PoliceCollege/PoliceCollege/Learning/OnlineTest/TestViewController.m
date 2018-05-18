@@ -28,6 +28,7 @@
     NSInteger currentScore;
     NSMutableArray *selectedOptionsArray;
     NSArray *optionsArray;
+    NSMutableArray *questionTOArray;
 }
 
 - (void)viewDidLoad {
@@ -41,6 +42,7 @@
     currentScore = 0;
     testViewModel = [TestViewModel new];
     optionsArray = [NSMutableArray new];
+    questionTOArray = [NSMutableArray new];
     selectedOptionsArray = [NSMutableArray new];
     [testViewModel getQuestionsActionwithTestID:[NSNumber numberWithInteger:self.testID] success:^(id responseObject) {
         self->questionArray = [NSArray yy_modelArrayWithClass:[Question class] json:[responseObject objectForKey:@"questionList"]];
@@ -55,17 +57,16 @@
 - (void)uploadAnswer:(Question *)question {
     //处理接口中的参数
     QuestionTO *questionTO = [QuestionTO new];
-    PCCurrentDate *currentDate = [PCCurrentDate new];
+    NSDate *currentDate = [NSDate date];
     NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init ];
     [dateFormatter setDateFormat:@"yyyyMMddHHmmss"];
     NSString * currentDateString = [dateFormatter stringFromDate:currentDate];
     questionTO.time = currentDateString;//回答问题的时间
     questionTO.idField = question.idField;//问题的id
     questionTO.answerIndex = question.answer;//问题的正确答案
-    questionTO.score = question.score;//问题dadui
+    questionTO.score = question.score;//问题的分数
     __block NSString *answered = [[NSString alloc] init];
     [selectedOptionsArray enumerateObjectsUsingBlock:^(NSNumber *optionIndex, NSUInteger idx, BOOL * _Nonnull stop) {
-//        [answered stringByAppendingString:[NSString stringWithFormat:@"%@,", optionIndex]];
         answered = [answered stringByAppendingString:[NSString stringWithFormat:@"%@,",optionIndex]];
         if (idx == self->selectedOptionsArray.count-1) {
             answered = [answered substringWithRange:NSMakeRange(0, answered.length-1)];
@@ -88,17 +89,14 @@
     }
 
     currentScore += questionTO.rscore;
-    //回到到最后一道题目时，发送请求
+    [questionTOArray addObject:questionTO];
+    //回答到最后一道题目时，发送请求
     if (self->currentIndex == self->questionArray.count) {
-        [testViewModel uploadQuestionWithQuestionTO:questionTO testID:[NSNumber numberWithInteger:self.testID] success:^(id responseObject) {
+        [testViewModel uploadQuestionWithQuestionTO:questionTOArray testID:[NSNumber numberWithInteger:self.testID] totalScore:[NSNumber numberWithInteger:currentScore] success:^(id responseObject) {
             //判断所有问题是否已经回答完毕
-            if (self->currentIndex == self->questionArray.count) {
-                
-            } else {
-                
-            }
+            
         } fail:^(NSError *error) {
-
+            
         }];
     }
 }
@@ -210,8 +208,8 @@
 }
 
 - (void)nextQuestion {
-    if (currentIndex++ == questionArray.count-1) {
-        [bottomView.nextButton setTitle:@"完成" forState:UIControlStateNormal];
+    if (currentIndex++ == questionArray.count-2) {
+        [bottomView.nextButton setTitle:@"提交" forState:UIControlStateNormal];
         [bottomView.nextButton removeTarget:self action:@selector(nextButton) forControlEvents:UIControlEventTouchUpInside];
         [bottomView.nextButton addTarget:self action:@selector(complete) forControlEvents:UIControlEventTouchUpInside];
     } else {
