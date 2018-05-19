@@ -19,6 +19,7 @@
 #import "CommentViewController.h"
 #import "CommentViewModel.h"
 #import "SendCommentView.h"
+
 @interface BookDetailViewController () <UITableViewDataSource, UITableViewDelegate, UITextViewDelegate>
 @property (nonatomic,assign)int currentView;
 @end
@@ -122,6 +123,7 @@ static const int commentLearningCompletionErrStatus = 4;
 - (void)uploadComment {
     
     if (sendCommentView.textView.text.length >= 200) {
+        
         [commentViewModel uploadCommentWithBookID:[NSNumber numberWithInteger:self.model.idField] commentContent:sendCommentView.textView.text success:^(id responseObject) {
             NSInteger status = [[responseObject objectForKey:@"status"] integerValue];
             switch (status) {

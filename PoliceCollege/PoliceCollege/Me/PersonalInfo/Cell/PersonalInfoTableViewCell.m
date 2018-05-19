@@ -87,7 +87,9 @@
 - (void)setImageURL:(NSString *)string {
     [contentLabel setHidden:true];
     [imageView setHidden:false];
-    [imageView sd_setImageWithURL:[NSURL pc_imageURLWithString:string] placeholderImage:[UIImage imageNamed:@"portrait"]];
+#warning 这里的用户头像链接不需要进行字符串拼接，正式版应该会修改
+//    [imageView sd_setImageWithURL:[NSURL pc_imageURLWithString:string] placeholderImage:[UIImage imageNamed:@"portrait"]];
+    [imageView sd_setImageWithURL:string];
 }
 
 - (void)setImage:(UIImage *)image {

@@ -60,6 +60,18 @@
 		BE44B5E520A0252C0001B143 /* NSURL+PCURL.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5E420A0252C0001B143 /* NSURL+PCURL.m */; };
 		BE44B5E820A0321C0001B143 /* PCAnnouncementViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5E720A0321C0001B143 /* PCAnnouncementViewModel.m */; };
 		BE44B5EF20A0536E0001B143 /* Chapter.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5EE20A0536E0001B143 /* Chapter.m */; };
+		BEAE2FEE20B02049008E4569 /* ELCAssetTablePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAE2FD720B02049008E4569 /* ELCAssetTablePicker.m */; };
+		BEAE2FEF20B02049008E4569 /* ELCOverlayImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAE2FD820B02049008E4569 /* ELCOverlayImageView.m */; };
+		BEAE2FF020B02049008E4569 /* ELCImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAE2FD920B02049008E4569 /* ELCImagePickerController.m */; };
+		BEAE2FF120B02049008E4569 /* ELCAlbumPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEAE2FE120B02049008E4569 /* ELCAlbumPickerController.xib */; };
+		BEAE2FF220B02049008E4569 /* ELCAssetPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEAE2FE220B02049008E4569 /* ELCAssetPicker.xib */; };
+		BEAE2FF320B02049008E4569 /* Overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = BEAE2FE320B02049008E4569 /* Overlay.png */; };
+		BEAE2FF420B02049008E4569 /* ELCAssetTablePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEAE2FE420B02049008E4569 /* ELCAssetTablePicker.xib */; };
+		BEAE2FF520B02049008E4569 /* Overlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BEAE2FE520B02049008E4569 /* Overlay@2x.png */; };
+		BEAE2FF620B02049008E4569 /* ELCAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAE2FE920B02049008E4569 /* ELCAssetCell.m */; };
+		BEAE2FF720B02049008E4569 /* ELCConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAE2FEB20B02049008E4569 /* ELCConsole.m */; };
+		BEAE2FF820B02049008E4569 /* ELCAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAE2FEC20B02049008E4569 /* ELCAsset.m */; };
+		BEAE2FF920B02049008E4569 /* ELCAlbumPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAE2FED20B02049008E4569 /* ELCAlbumPickerController.m */; };
 		BEB609B720A2A51100473BC5 /* PCChapterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609B620A2A51100473BC5 /* PCChapterViewModel.m */; };
 		BEB609BE20A302BD00473BC5 /* PCCourseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609BD20A302BD00473BC5 /* PCCourseViewModel.m */; };
 		BEB609C220A3E17100473BC5 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609C120A3E17100473BC5 /* Course.m */; };
@@ -298,6 +310,28 @@
 		BE44B5E720A0321C0001B143 /* PCAnnouncementViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCAnnouncementViewModel.m; sourceTree = "<group>"; };
 		BE44B5ED20A0536D0001B143 /* Chapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Chapter.h; sourceTree = "<group>"; };
 		BE44B5EE20A0536E0001B143 /* Chapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Chapter.m; sourceTree = "<group>"; };
+		BEAE2FD720B02049008E4569 /* ELCAssetTablePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAssetTablePicker.m; sourceTree = "<group>"; };
+		BEAE2FD820B02049008E4569 /* ELCOverlayImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCOverlayImageView.m; sourceTree = "<group>"; };
+		BEAE2FD920B02049008E4569 /* ELCImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCImagePickerController.m; sourceTree = "<group>"; };
+		BEAE2FDA20B02049008E4569 /* ELCConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCConsole.h; sourceTree = "<group>"; };
+		BEAE2FDB20B02049008E4569 /* ELCAssetPickerFilterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetPickerFilterDelegate.h; sourceTree = "<group>"; };
+		BEAE2FDC20B02049008E4569 /* ELCImagePickerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCImagePickerHeader.h; sourceTree = "<group>"; };
+		BEAE2FDD20B02049008E4569 /* ELCAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetCell.h; sourceTree = "<group>"; };
+		BEAE2FDE20B02049008E4569 /* ELCAlbumPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAlbumPickerController.h; sourceTree = "<group>"; };
+		BEAE2FDF20B02049008E4569 /* ELCAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAsset.h; sourceTree = "<group>"; };
+		BEAE2FE120B02049008E4569 /* ELCAlbumPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ELCAlbumPickerController.xib; sourceTree = "<group>"; };
+		BEAE2FE220B02049008E4569 /* ELCAssetPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ELCAssetPicker.xib; sourceTree = "<group>"; };
+		BEAE2FE320B02049008E4569 /* Overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Overlay.png; sourceTree = "<group>"; };
+		BEAE2FE420B02049008E4569 /* ELCAssetTablePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ELCAssetTablePicker.xib; sourceTree = "<group>"; };
+		BEAE2FE520B02049008E4569 /* Overlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Overlay@2x.png"; sourceTree = "<group>"; };
+		BEAE2FE620B02049008E4569 /* ELCImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCImagePickerController.h; sourceTree = "<group>"; };
+		BEAE2FE720B02049008E4569 /* ELCOverlayImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCOverlayImageView.h; sourceTree = "<group>"; };
+		BEAE2FE820B02049008E4569 /* ELCAssetTablePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetTablePicker.h; sourceTree = "<group>"; };
+		BEAE2FE920B02049008E4569 /* ELCAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAssetCell.m; sourceTree = "<group>"; };
+		BEAE2FEA20B02049008E4569 /* ELCAssetSelectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetSelectionDelegate.h; sourceTree = "<group>"; };
+		BEAE2FEB20B02049008E4569 /* ELCConsole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCConsole.m; sourceTree = "<group>"; };
+		BEAE2FEC20B02049008E4569 /* ELCAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAsset.m; sourceTree = "<group>"; };
+		BEAE2FED20B02049008E4569 /* ELCAlbumPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAlbumPickerController.m; sourceTree = "<group>"; };
 		BEB609B520A2A51100473BC5 /* PCChapterViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCChapterViewModel.h; sourceTree = "<group>"; };
 		BEB609B620A2A51100473BC5 /* PCChapterViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCChapterViewModel.m; sourceTree = "<group>"; };
 		BEB609BC20A302BD00473BC5 /* PCCourseViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCCourseViewModel.h; sourceTree = "<group>"; };
@@ -596,6 +630,7 @@
 		BE21DA622086DE3C0086B8BA /* PoliceCollege */ = {
 			isa = PBXGroup;
 			children = (
+				BEAE2FD620B02049008E4569 /* ELCImagePicker */,
 				BEB60CD020AB4AE000473BC5 /* Reader */,
 				BE44B59920999C3C0001B143 /* Network */,
 				BEDE535E2092F26F00D00A98 /* PersonCenter */,
@@ -1025,6 +1060,43 @@
 				BEB609F320A56A9400473BC5 /* NSObject+PropertyMapper.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		BEAE2FD620B02049008E4569 /* ELCImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				BEAE2FD720B02049008E4569 /* ELCAssetTablePicker.m */,
+				BEAE2FD820B02049008E4569 /* ELCOverlayImageView.m */,
+				BEAE2FD920B02049008E4569 /* ELCImagePickerController.m */,
+				BEAE2FDA20B02049008E4569 /* ELCConsole.h */,
+				BEAE2FDB20B02049008E4569 /* ELCAssetPickerFilterDelegate.h */,
+				BEAE2FDC20B02049008E4569 /* ELCImagePickerHeader.h */,
+				BEAE2FDD20B02049008E4569 /* ELCAssetCell.h */,
+				BEAE2FDE20B02049008E4569 /* ELCAlbumPickerController.h */,
+				BEAE2FDF20B02049008E4569 /* ELCAsset.h */,
+				BEAE2FE020B02049008E4569 /* Resources */,
+				BEAE2FE620B02049008E4569 /* ELCImagePickerController.h */,
+				BEAE2FE720B02049008E4569 /* ELCOverlayImageView.h */,
+				BEAE2FE820B02049008E4569 /* ELCAssetTablePicker.h */,
+				BEAE2FE920B02049008E4569 /* ELCAssetCell.m */,
+				BEAE2FEA20B02049008E4569 /* ELCAssetSelectionDelegate.h */,
+				BEAE2FEB20B02049008E4569 /* ELCConsole.m */,
+				BEAE2FEC20B02049008E4569 /* ELCAsset.m */,
+				BEAE2FED20B02049008E4569 /* ELCAlbumPickerController.m */,
+			);
+			path = ELCImagePicker;
+			sourceTree = "<group>";
+		};
+		BEAE2FE020B02049008E4569 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BEAE2FE120B02049008E4569 /* ELCAlbumPickerController.xib */,
+				BEAE2FE220B02049008E4569 /* ELCAssetPicker.xib */,
+				BEAE2FE320B02049008E4569 /* Overlay.png */,
+				BEAE2FE420B02049008E4569 /* ELCAssetTablePicker.xib */,
+				BEAE2FE520B02049008E4569 /* Overlay@2x.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		BEB609B420A2A4FC00473BC5 /* ViewModel */ = {
@@ -1811,13 +1883,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEAE2FF120B02049008E4569 /* ELCAlbumPickerController.xib in Resources */,
 				BEB60D6720AB4AE100473BC5 /* 细说明朝.epub in Resources */,
 				BE21DA702086DE460086B8BA /* LaunchScreen.storyboard in Resources */,
 				BEB60D6D20AB4AE100473BC5 /* reader_more@2x.png in Resources */,
 				BEB60D6920AB4AE100473BC5 /* bg_back_white@2x.png in Resources */,
+				BEAE2FF220B02049008E4569 /* ELCAssetPicker.xib in Resources */,
+				BEAE2FF420B02049008E4569 /* ELCAssetTablePicker.xib in Resources */,
 				BEB60D6220AB4AE100473BC5 /* bt_tjcp_no@2x.png in Resources */,
 				BEB60D6A20AB4AE100473BC5 /* reader_cover@2x.png in Resources */,
+				BEAE2FF520B02049008E4569 /* Overlay@2x.png in Resources */,
 				BEB60D6C20AB4AE100473BC5 /* r_drag-dot@2x.png in Resources */,
+				BEAE2FF320B02049008E4569 /* Overlay.png in Resources */,
 				BEB60D6B20AB4AE100473BC5 /* 每天懂一点好玩心理学.epub in Resources */,
 				BE21DA6D2086DE460086B8BA /* Assets.xcassets in Resources */,
 				BEB60D6820AB4AE100473BC5 /* ic_add.png in Resources */,
@@ -1892,6 +1969,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEB609C220A3E17100473BC5 /* Course.m in Sources */,
+				BEAE2FF020B02049008E4569 /* ELCImagePickerController.m in Sources */,
 				BEDE534B2091B93B00D00A98 /* BookIntroductionTableViewCell.m in Sources */,
 				BEB60A3A20AB126B00473BC5 /* OptionButton.m in Sources */,
 				BEB60A1020A8338500473BC5 /* Situation.m in Sources */,
@@ -1933,14 +2011,17 @@
 				BEB609D420A429BF00473BC5 /* PublicVideoViewController.m in Sources */,
 				BEDE536A2094091200D00A98 /* PersonMoreViewController.m in Sources */,
 				BEDE52B82089B31600D00A98 /* PCAnouncementTableViewController.m in Sources */,
+				BEAE2FF820B02049008E4569 /* ELCAsset.m in Sources */,
 				BEB60A2C20A9223300473BC5 /* CourseOverview.m in Sources */,
 				BEDE531B208F81A200D00A98 /* OnlineTestViewController.m in Sources */,
 				BE3A23BA20AE9BD600FAEE18 /* SendCommentView.m in Sources */,
 				BEB60D5A20AB4AE100473BC5 /* LSYReadPageViewController.m in Sources */,
+				BEAE2FEF20B02049008E4569 /* ELCOverlayImageView.m in Sources */,
 				BEDE52DE208B2BC800D00A98 /* MeItem.m in Sources */,
 				BEB60A3320A9698200473BC5 /* TestViewModel.m in Sources */,
 				BE44B5A620999DE70001B143 /* PCRequestSerializer.m in Sources */,
 				BEB60A2620A8A33B00473BC5 /* Comment.m in Sources */,
+				BEAE2FF920B02049008E4569 /* ELCAlbumPickerController.m in Sources */,
 				BEB60A1620A8725400473BC5 /* SeasonCredit.m in Sources */,
 				BEDE52E9208D784500D00A98 /* PersonalInfoTableViewCell.m in Sources */,
 				BEB609D920A42A2E00473BC5 /* VideoViewModel.m in Sources */,
@@ -1966,6 +2047,7 @@
 				BEB60A2320A89EB400473BC5 /* ChangeTextViewController.m in Sources */,
 				BE21DAA62087352C0086B8BA /* PCCenterdViewButton.m in Sources */,
 				BEB60D5820AB4AE100473BC5 /* LSYCatalogViewController.m in Sources */,
+				BEAE2FF620B02049008E4569 /* ELCAssetCell.m in Sources */,
 				BE21DA912086F2BC0086B8BA /* PCLoginViewController.m in Sources */,
 				BEB60A0320A7EF3100473BC5 /* MyChannel.m in Sources */,
 				BEDE53512091DB1400D00A98 /* CommentTableViewCell.m in Sources */,
@@ -2000,6 +2082,7 @@
 				BEB60A1920A8771E00473BC5 /* Season.m in Sources */,
 				BEDE5305208F355800D00A98 /* PushSettingTableViewCell.m in Sources */,
 				BEB60D4F20AB4AE100473BC5 /* CTidy.m in Sources */,
+				BEAE2FEE20B02049008E4569 /* ELCAssetTablePicker.m in Sources */,
 				BEB60D6120AB4AE100473BC5 /* LSYTopMenuView.m in Sources */,
 				BE44B571209468660001B143 /* PCTopView.m in Sources */,
 				BE44B5A320999DB40001B143 /* PCResponseSerializer.m in Sources */,
@@ -2028,6 +2111,7 @@
 				BEDE53422091AF2100D00A98 /* BookTableViewCell.m in Sources */,
 				BEB60D3F20AB4AE100473BC5 /* LSYReadParser.m in Sources */,
 				BEB609D020A4167300473BC5 /* DetailCourse.m in Sources */,
+				BEAE2FF720B02049008E4569 /* ELCConsole.m in Sources */,
 				BEDE52CF2089F03F00D00A98 /* MeItemTableViewCell.m in Sources */,
 				BEB60D4720AB4AE100473BC5 /* CXMLNode.m in Sources */,
 				BE44B59C20999C780001B143 /* PCBaseRequest.m in Sources */,
@@ -2211,10 +2295,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = PoliceCollege/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Jep-.PoliceCollege";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2242,10 +2323,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = PoliceCollege/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Jep-.PoliceCollege";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

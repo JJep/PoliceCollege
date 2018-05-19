@@ -11,7 +11,8 @@
 #import "UserInfo.h"
 #import "UserViewModel.h"
 #import "ChangeTextViewController.h"
-@interface PersonalInformationViewController () <UITableViewDelegate, UITableViewDataSource>
+#import "ELCImagePickerController.h"
+@interface PersonalInformationViewController () <UITableViewDelegate, UITableViewDataSource, ELCImagePickerControllerDelegate>
 
 @end
 
@@ -101,18 +102,43 @@
         return 106;
     } else {
         return 50;
-        
     }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    ChangeTextViewController *changeTextVC = [[ChangeTextViewController alloc] init];
-    NSString *keyString =[((NSDictionary *)dataArray[indexPath.row]) allKeys][0];
-    changeTextVC.name = keyString;
-    [self.navigationController pushViewController:changeTextVC animated:true];
     PersonalInfoTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+
+    NSString *keyString =[((NSDictionary *)dataArray[indexPath.row]) allKeys][0];
+    static NSString *pickerIndexString = @"居住地家乡出生日期性别";
+    if ([keyString isEqualToString:@"头像"]) {
+        //点击头像，从相册选择图片或者拍照
+        // Create the image picker
+        ELCImagePickerController *elcPicker = [[ELCImagePickerController alloc] initImagePicker];
+        elcPicker.maximumImagesCount = 1; //Set the maximum number of images to select, defaults to 4
+        elcPicker.returnsOriginalImage = NO; //Only return the fullScreenImage, not the fullResolutionImage
+        elcPicker.returnsImage = YES; //Return UIimage if YES. If NO, only return asset location information
+        elcPicker.onOrder = YES; //For multiple image selection, display and return selected order of images
+        elcPicker.imagePickerDelegate = self;
+        //Present modally
+        [self presentViewController:elcPicker animated:YES completion:nil];
+    } else if ([pickerIndexString containsString:keyString]) {
+        
+    } else {
+        ChangeTextViewController *changeTextVC = [[ChangeTextViewController alloc] init];
+        [self.navigationController pushViewController:changeTextVC animated:true];
+        changeTextVC.name = keyString;
+    }
     cell.selected = NO;
 }
+
+- (void)elcImagePickerController:(ELCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info {
+    [picker dismissViewControllerAnimated:true completion:nil];
+}
+
+- (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:true completion:nil];
+}
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:false];
