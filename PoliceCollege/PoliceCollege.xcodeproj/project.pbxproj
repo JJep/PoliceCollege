@@ -72,6 +72,8 @@
 		BEAE2FF720B02049008E4569 /* ELCConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAE2FEB20B02049008E4569 /* ELCConsole.m */; };
 		BEAE2FF820B02049008E4569 /* ELCAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAE2FEC20B02049008E4569 /* ELCAsset.m */; };
 		BEAE2FF920B02049008E4569 /* ELCAlbumPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAE2FED20B02049008E4569 /* ELCAlbumPickerController.m */; };
+		BEAE2FFD20B1C5C9008E4569 /* AnnouncementDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAE2FFC20B1C5C8008E4569 /* AnnouncementDataSource.m */; };
+		BEAE300020B1C744008E4569 /* AnouncementTableViewCell+ConfigureForAnnouncement.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAE2FFF20B1C744008E4569 /* AnouncementTableViewCell+ConfigureForAnnouncement.m */; };
 		BEB609B720A2A51100473BC5 /* PCChapterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609B620A2A51100473BC5 /* PCChapterViewModel.m */; };
 		BEB609BE20A302BD00473BC5 /* PCCourseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609BD20A302BD00473BC5 /* PCCourseViewModel.m */; };
 		BEB609C220A3E17100473BC5 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609C120A3E17100473BC5 /* Course.m */; };
@@ -332,6 +334,10 @@
 		BEAE2FEB20B02049008E4569 /* ELCConsole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCConsole.m; sourceTree = "<group>"; };
 		BEAE2FEC20B02049008E4569 /* ELCAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAsset.m; sourceTree = "<group>"; };
 		BEAE2FED20B02049008E4569 /* ELCAlbumPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAlbumPickerController.m; sourceTree = "<group>"; };
+		BEAE2FFB20B1C5C8008E4569 /* AnnouncementDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnnouncementDataSource.h; sourceTree = "<group>"; };
+		BEAE2FFC20B1C5C8008E4569 /* AnnouncementDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnnouncementDataSource.m; sourceTree = "<group>"; };
+		BEAE2FFE20B1C744008E4569 /* AnouncementTableViewCell+ConfigureForAnnouncement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnouncementTableViewCell+ConfigureForAnnouncement.h"; sourceTree = "<group>"; };
+		BEAE2FFF20B1C744008E4569 /* AnouncementTableViewCell+ConfigureForAnnouncement.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AnouncementTableViewCell+ConfigureForAnnouncement.m"; sourceTree = "<group>"; };
 		BEB609B520A2A51100473BC5 /* PCChapterViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCChapterViewModel.h; sourceTree = "<group>"; };
 		BEB609B620A2A51100473BC5 /* PCChapterViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCChapterViewModel.m; sourceTree = "<group>"; };
 		BEB609BC20A302BD00473BC5 /* PCCourseViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCCourseViewModel.h; sourceTree = "<group>"; };
@@ -1486,6 +1492,10 @@
 				BE44B59320995D560001B143 /* Cell */,
 				BEDE52B62089B31600D00A98 /* PCAnouncementTableViewController.h */,
 				BEDE52B72089B31600D00A98 /* PCAnouncementTableViewController.m */,
+				BEAE2FFB20B1C5C8008E4569 /* AnnouncementDataSource.h */,
+				BEAE2FFC20B1C5C8008E4569 /* AnnouncementDataSource.m */,
+				BEAE2FFE20B1C744008E4569 /* AnouncementTableViewCell+ConfigureForAnnouncement.h */,
+				BEAE2FFF20B1C744008E4569 /* AnouncementTableViewCell+ConfigureForAnnouncement.m */,
 			);
 			path = Announcement;
 			sourceTree = "<group>";
@@ -2077,6 +2087,7 @@
 				BEB60D4820AB4AE100473BC5 /* CXMLNamespaceNode.m in Sources */,
 				BEB60D5F20AB4AE100473BC5 /* LSYNoteModel.m in Sources */,
 				BEB609E720A431AA00473BC5 /* DetailVideoViewController.m in Sources */,
+				BEAE2FFD20B1C5C9008E4569 /* AnnouncementDataSource.m in Sources */,
 				BEB60D5720AB4AE100473BC5 /* GTMNSString+HTML.m in Sources */,
 				BE21DAA0208732D40086B8BA /* PCCenterdView.m in Sources */,
 				BEB60A1920A8771E00473BC5 /* Season.m in Sources */,
@@ -2090,6 +2101,7 @@
 				BE44B5B7209AE5450001B143 /* UserInfo.m in Sources */,
 				BEB60D5620AB4AE100473BC5 /* UIImage+ImageEffects.m in Sources */,
 				BEDE52FA208DE65200D00A98 /* PushSettingViewController.m in Sources */,
+				BEAE300020B1C744008E4569 /* AnouncementTableViewCell+ConfigureForAnnouncement.m in Sources */,
 				BEB60D7020AB4AE100473BC5 /* LSYMarkVC.m in Sources */,
 				BE44B58720982B3F0001B143 /* SeasonSubview.m in Sources */,
 				BE44B56A2094254E0001B143 /* PCPickerView.m in Sources */,
@@ -2295,7 +2307,10 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = PoliceCollege/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Jep-.PoliceCollege";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2323,7 +2338,10 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = PoliceCollege/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Jep-.PoliceCollege";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

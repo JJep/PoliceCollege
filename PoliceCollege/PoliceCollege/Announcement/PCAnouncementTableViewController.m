@@ -13,8 +13,12 @@
 #import "PCAnouncementListViewModel.h"
 #import "BackView.h"
 #import <MJRefresh.h>
-@interface PCAnouncementTableViewController () <UITableViewDelegate, UITableViewDataSource>
+#import "AnnouncementDataSource.h"
+#import "AnouncementTableViewCell+ConfigureForAnnouncement.h"
+static NSString * const cellIdentifier = @"announcementCell";
 
+@interface PCAnouncementTableViewController () <UITableViewDelegate, UITableViewDataSource>
+@property (nonatomic, retain)AnnouncementDataSource *annoucementDataSource;
 @end
 int currentPage ;
 int totalPage ;
@@ -47,7 +51,6 @@ int totalPage ;
     
     tableView = [UITableView new];
     tableView.delegate = self;
-    tableView.dataSource = self;
     tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         [self getMoreList];
     }];
@@ -62,10 +65,20 @@ int totalPage ;
     
     //没有数据的时候显示背景图
     [tableView setHidden:true];
-
+    
+    AnnouncementTableViewCellConfigureBlock configureCell = ^(AnouncementTableViewCell *cell, PCAnnouncementModel *announcement) {
+        [cell configureForAnnoucement:announcement];
+    };
+    self.annoucementDataSource = [[AnnouncementDataSource alloc] initWithItems:promotionArray cellIdentifier:cellIdentifier configureCellBlock:configureCell];
+    
+    tableView.dataSource = self.annoucementDataSource;
+    
+    [tableView registerClass:[AnouncementTableViewCell class] forCellReuseIdentifier:cellIdentifier];
+    
 }
 
 - (void)updateUI {
+    [self.annoucementDataSource updateWithItems:promotionArray];
     if (promotionArray.count == 0) {
         [tableView setHidden:true];
     } else {
@@ -79,7 +92,6 @@ int totalPage ;
         if ([[responseObject objectForKey:@"state"] isEqualToString:@"1"]) {
             totalPage = [[responseObject objectForKey:@"sumPage"] intValue];
             NSArray *modelArray = [NSArray yy_modelArrayWithClass:[PCAnnouncementModel class] json:[responseObject objectForKey:@"newsList"]];
-            
             [self->promotionArray addObjectsFromArray:modelArray];
             currentPage = 2;
             [self updateUI];
@@ -110,28 +122,6 @@ int totalPage ;
 }
 
 #pragma mark - Table view data source
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *cellID = @"cell";
-    AnouncementTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    if (cell == nil) {
-        cell = [[AnouncementTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
-    }
-    [cell setModel:promotionArray[indexPath.row]];
-    return cell;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if (promotionArray.count == 0) {
-        return 0;
-    } else {
-        return 1;
-    }
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return promotionArray.count;
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     PCAnnouncementDetailViewController *VC = [PCAnnouncementDetailViewController new];
