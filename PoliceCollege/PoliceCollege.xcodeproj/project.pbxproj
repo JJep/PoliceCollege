@@ -903,6 +903,8 @@
 		BE44B59320995D560001B143 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				BEAE2FFE20B1C744008E4569 /* AnouncementTableViewCell+ConfigureForAnnouncement.h */,
+				BEAE2FFF20B1C744008E4569 /* AnouncementTableViewCell+ConfigureForAnnouncement.m */,
 				BEDE52B92089B36E00D00A98 /* AnouncementTableViewCell.h */,
 				BEDE52BA2089B36E00D00A98 /* AnouncementTableViewCell.m */,
 			);
@@ -1494,8 +1496,6 @@
 				BEDE52B72089B31600D00A98 /* PCAnouncementTableViewController.m */,
 				BEAE2FFB20B1C5C8008E4569 /* AnnouncementDataSource.h */,
 				BEAE2FFC20B1C5C8008E4569 /* AnnouncementDataSource.m */,
-				BEAE2FFE20B1C744008E4569 /* AnouncementTableViewCell+ConfigureForAnnouncement.h */,
-				BEAE2FFF20B1C744008E4569 /* AnouncementTableViewCell+ConfigureForAnnouncement.m */,
 			);
 			path = Announcement;
 			sourceTree = "<group>";

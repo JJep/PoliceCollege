@@ -10,7 +10,7 @@
 
 @implementation PCCurrentDate
 - (instancetype)init {
-    if (self == [super init]) {
+    if (self = [super init]) {
         NSDate *now = [NSDate date];
         NSLog(@"now date is: %@", now);
         

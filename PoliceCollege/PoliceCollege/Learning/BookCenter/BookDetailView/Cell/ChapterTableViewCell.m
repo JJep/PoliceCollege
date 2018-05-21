@@ -14,7 +14,7 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    if (self == [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         chapterNameLabel = [UILabel new];
         [self.contentView addSubview:chapterNameLabel];
         chapterNameLabel.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:13];

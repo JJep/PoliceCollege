@@ -81,6 +81,8 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    
+    [super viewWillAppear:animated];
 //    self.tabBarController.hidesBottomBarWhenPushed = NO;
     [self.navigationController setNavigationBarHidden:true animated:animated];
     

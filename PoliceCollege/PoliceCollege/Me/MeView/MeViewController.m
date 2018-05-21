@@ -155,6 +155,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:true animated:animated];
     if ([JMUserLocalData sharedManager].user) {
         _imageURL = [NSURL URLWithString:[JMUserLocalData sharedManager].user.headimg];

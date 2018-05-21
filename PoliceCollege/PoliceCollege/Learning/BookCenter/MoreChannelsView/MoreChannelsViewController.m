@@ -39,7 +39,7 @@
     [channelViewModel getAllChannelsWithType:[NSNumber numberWithInt:self.type] success:^(id responseObject) {
 //        NSArray *ary = [NSArray yy_modelArrayWithClass:[Channel class] json:[responseObject objectForKey:@"paramsetList"]];
         
-        NSMutableArray *ary = [NSMutableArray new];
+        NSMutableArray *ary ;
         ary = [NSMutableArray arrayWithArray:[NSArray yy_modelArrayWithClass:[Channel class] json:[responseObject objectForKey:@"paramsetList"]]];
         [ary removeObjectsInArray:self.myChannelDataArray];
         NSMutableArray *mutableAry = [NSMutableArray new];

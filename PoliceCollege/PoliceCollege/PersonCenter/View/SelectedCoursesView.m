@@ -152,7 +152,7 @@
     switch (style) {
         case OverviewVideoStyle:
         {
-            VideoOverview *videoOverview = [VideoOverview new];
+            VideoOverview *videoOverview ;
             videoOverview = (VideoOverview *)model;
             [creditLabel setText:[NSString stringWithFormat:@"%.1lf/%.1lf",videoOverview.creditHave,videoOverview.credit]];
             [commentLabel setText:[NSString stringWithFormat:@"%.1lf/%.1lf",videoOverview.ccreditHave,videoOverview.ccredit]];
@@ -162,7 +162,7 @@
         }
         case OverviewCourseStyle:
         {
-            CourseOverview *courseOverview = [CourseOverview new];
+            CourseOverview *courseOverview ;
             courseOverview = (CourseOverview *)model;
             [creditLabel setText:[NSString stringWithFormat:@"%.1lf/%.1lf",courseOverview.creditHave,courseOverview.credit]];
             [commentLabel setText:[NSString stringWithFormat:@"%.1lf/%.1lf",courseOverview.ccreditHave,courseOverview.ccredit]];

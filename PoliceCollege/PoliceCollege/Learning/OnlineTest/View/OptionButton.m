@@ -13,7 +13,7 @@
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
-    if (self == [super initWithFrame:frame]) {
+    if (self = [super initWithFrame:frame]) {
         
         self.layer.borderWidth = 2.0f;
         self.layer.borderColor = MyLightGrayColor.CGColor;
@@ -21,7 +21,7 @@
         self.layer.masksToBounds = true;
 //        self.layer.backgroundColor = rgba(74,144,226,1).CGColor;
         
-        fillView = [UIView new];
+        fillView = [[UIView alloc] init];
         [self addSubview:fillView];
         [fillView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self).offset(5);

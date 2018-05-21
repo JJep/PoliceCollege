@@ -126,7 +126,7 @@
     //清理上一题所记录的内容
     [selectedOptionsArray removeAllObjects];
     
-    Question *question = [Question new];
+    Question *question ;
     question = questionArray[currentIndex];
     [questionNameLabel setText:question.stem];
     [topLabel setText:[NSString stringWithFormat:@"%lu/%lu",currentIndex+1,questionArray.count]];

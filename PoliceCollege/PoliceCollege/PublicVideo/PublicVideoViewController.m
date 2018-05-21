@@ -147,6 +147,7 @@ static NSString *cellID = @"videoCell";
 }
 
 -(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:false];
 }
 

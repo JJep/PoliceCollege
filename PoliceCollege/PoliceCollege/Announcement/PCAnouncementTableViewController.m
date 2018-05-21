@@ -17,7 +17,7 @@
 #import "AnouncementTableViewCell+ConfigureForAnnouncement.h"
 static NSString * const cellIdentifier = @"announcementCell";
 
-@interface PCAnouncementTableViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface PCAnouncementTableViewController () <UITableViewDelegate>
 @property (nonatomic, retain)AnnouncementDataSource *annoucementDataSource;
 @end
 int currentPage ;
@@ -31,7 +31,7 @@ int totalPage ;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     [self initViews];
     
     viewModel = [PCAnouncementListViewModel new];
@@ -74,7 +74,7 @@ int totalPage ;
     tableView.dataSource = self.annoucementDataSource;
     
     [tableView registerClass:[AnouncementTableViewCell class] forCellReuseIdentifier:cellIdentifier];
-    
+
 }
 
 - (void)updateUI {
@@ -121,8 +121,6 @@ int totalPage ;
     }];
 }
 
-#pragma mark - Table view data source
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     PCAnnouncementDetailViewController *VC = [PCAnnouncementDetailViewController new];
     VC.model = promotionArray[indexPath.row];
@@ -137,8 +135,7 @@ int totalPage ;
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:false animated:animated];
 }
-
-
 @end

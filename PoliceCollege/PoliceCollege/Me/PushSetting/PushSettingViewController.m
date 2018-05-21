@@ -8,6 +8,9 @@
 
 #import "PushSettingViewController.h"
 #import "PushSettingTableViewCell.h"
+
+static NSString* const cellIdentifier = @"PushSettingCell";
+
 @interface PushSettingViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @end
@@ -22,6 +25,7 @@
     tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     tableView.delegate = self;
     tableView.dataSource = self;
+    [tableView registerClass:[PushSettingTableViewCell class] forCellReuseIdentifier:cellIdentifier];
     [self.view addSubview:tableView];
 
 }
@@ -32,9 +36,8 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *ID=@"PushSettingCell";
-    PushSettingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    cell = [[PushSettingTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+    PushSettingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
     return cell;
 }
 
@@ -51,6 +54,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:false];
 }
 
