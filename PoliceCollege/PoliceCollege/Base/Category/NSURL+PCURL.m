@@ -16,6 +16,14 @@
     return url;
 }
 
++ (NSURL *)pc_contentURLWithString:(NSString *)string {
+    NSURL *url;
+    NSString *baseURL = @"http://139.224.208.224/NetworkCollege/";
+//    url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",baseURL, [string substringWithRange:[NSMakeRange(7, string.length-7)]]]]];
+    url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",baseURL,[string substringWithRange:NSMakeRange(7, string.length-7)]]];
+    return url;
+}
+
 +(NSURL *)pc_videoURLWithString:(NSString *)string {
     NSString *baseURL = @"http://139.224.208.224/NetworkCollege/";
     NSString *urlStr = [NSString stringWithFormat:@"%@%@", baseURL, string];

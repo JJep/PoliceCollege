@@ -6,8 +6,8 @@
 //  Copyright © 2018年 Jep Xia. All rights reserved.
 //
 
-#import "Overview.h"
-@interface CourseOverview : Overview
+#import <Foundation/Foundation.h>
+@interface CourseOverview : NSObject
 @property (nonatomic, assign) CGFloat ccredit;
 @property (nonatomic, assign) CGFloat ccreditHave;
 @property (nonatomic, assign) CGFloat credit;

@@ -1,14 +1,14 @@
 //
-//  VideoOverview.h
+//  BookOverview.h
 //  PoliceCollege
 //
-//  Created by Jep Xia on 2018/5/14.
+//  Created by Jep Xia on 2018/5/23.
 //  Copyright © 2018年 Jep Xia. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface VideoOverview : NSObject
+@interface BookOverview : NSObject
 @property (nonatomic, assign) CGFloat ccredit;
 @property (nonatomic, assign) CGFloat ccreditHave;
 @property (nonatomic, assign) CGFloat credit;

@@ -8,9 +8,11 @@
 
 #import "AnouncementTableViewCell.h"
 #import "NSURL+PCURL.h"
+#import "UILabel+VerticalAlign.h"
+#import "TopLeftLabel.h"
 @implementation AnouncementTableViewCell {
     UIImageView *imageView;
-    UILabel *lbTitle;
+    TopLeftLabel *lbTitle;
     UILabel *lbTime;
 }
 
@@ -23,7 +25,7 @@
     if (self) {
         
         imageView = [UIImageView new];
-        lbTitle = [UILabel new];
+        lbTitle = [TopLeftLabel new];
         lbTime = [UILabel new];
         [self addSubview:imageView];
         [self addSubview:lbTitle];
@@ -35,6 +37,7 @@
         
         lbTitle.font = [UIFont fontWithName:@"PingFang-SC-Semibold" size:18];
         lbTitle.textColor = [UIColor colorWithRed:60/255.0 green:60/255.0 blue:60/255.0 alpha:1/1.0];
+    
         [lbTitle setNumberOfLines:2];
         
         lbTime.font = [UIFont fontWithName:@"PingFang-SC-Regular" size:13];
@@ -98,6 +101,7 @@
     [imageView sd_setImageWithURL:[NSURL pc_imageURLWithString:model.img] placeholderImage:[UIImage imageNamed:@"banner"]];
     
     [lbTitle setText:model.title];
+
     [lbTime setText:model.published];
     
 }

@@ -7,7 +7,7 @@
 //
 
 #import "BookCenterTableViewCell.h"
-
+#import "BookOverview.h"
 @implementation BookCenterTableViewCell {
     UIImageView *imageView;
     UILabel *bookNameLabel;
@@ -99,11 +99,20 @@
     return self;
 }
 
-- (void)setModel:(Book *)model {
-    [imageView sd_setImageWithURL:[NSURL pc_imageURLWithString:model.img] placeholderImage:[UIImage imageNamed:@"banner"]];
-    [bookNameLabel setText:model.title];
-    [authorNameLabel setText:model.author];
-    [bookTimeLabel setText:model.published];
+- (void)setModel:(id)model {
+    if ([[model class] isEqual:[Book class]]) {
+        Book *book = (Book *)model;
+        [imageView sd_setImageWithURL:[NSURL pc_imageURLWithString:book.img] placeholderImage:[UIImage imageNamed:@"banner"]];
+        [bookNameLabel setText:book.title];
+        [authorNameLabel setText:book.author];
+        [bookTimeLabel setText:book.published];
+    } else {
+        
+    }
+    
+//    if (self.isAlreadySelected) {
+//        startLearningBtn setTitle: forState:<#(UIControlState)#>
+//    }
     
 }
 

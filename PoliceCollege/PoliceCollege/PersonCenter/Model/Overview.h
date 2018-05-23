@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "VideoOverview.h"
+#import "BookOverview.h"
+#import "CourseOverview.h"
 @interface Overview : NSObject
+@property (nonatomic, strong) BookOverview * book;
+@property (nonatomic, strong) CourseOverview * course;
+@property (nonatomic, strong) VideoOverview * video;
 
 @end

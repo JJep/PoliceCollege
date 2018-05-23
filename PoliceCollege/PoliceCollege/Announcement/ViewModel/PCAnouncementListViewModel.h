@@ -16,4 +16,6 @@
 //获取当前页面的通知列表
 - (void)getPromotionListActionWithCurrentPage:(NSNumber *)currentPage success:(PCSuccessHandler)success fail:(PCFailedHandler)fail;
 
+- (void)getDetailAnnouncementActionWithID:(NSNumber *)announcementID success:(PCSuccessHandler)success fail:(PCFailedHandler)fail;
+
 @end

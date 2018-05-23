@@ -147,7 +147,7 @@
     [teacherNameLabel setText:model.teacher];
     [imageView sd_setImageWithURL:[NSURL pc_imageURLWithString:model.img] placeholderImage:[UIImage imageNamed:@"banner"]];
     [courseNameLabel setText:model.title];
-    [courseNameLabel setText:model.published];
+    [courseTimeLabel setText:model.published];
     [creditLabel setText: [NSString stringWithFormat:@"学分 %lf",model.credit]];
     [scoreLabel setText: [NSString stringWithFormat:@"评分 %lf",model.ccredit]];
     [clicksLabel setText:[NSString stringWithFormat:@"点击量 %lu", model.hit]];

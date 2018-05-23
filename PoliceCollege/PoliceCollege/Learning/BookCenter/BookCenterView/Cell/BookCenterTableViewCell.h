@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Book.h"
 @interface BookCenterTableViewCell : UITableViewCell
+//@property (nonatomic,assign)BOOL isAlreadySelected;
 @property (nonatomic,retain)UIImage *image;
 @property (nonatomic,copy)NSString *courseName;
 @property (nonatomic,copy)NSString *teacherName;

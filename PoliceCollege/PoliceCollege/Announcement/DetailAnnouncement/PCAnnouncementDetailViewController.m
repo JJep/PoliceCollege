@@ -10,6 +10,7 @@
 #import "PCAnnouncementTextTableViewCell.h"
 #import "PCAnnouncementModel.h"
 #import "PCAnnouncementViewModel.h"
+#import "NSURL+PCURL.h"
 #import <WebKit/WebKit.h>
 @interface PCAnnouncementDetailViewController () <WKUIDelegate, WKNavigationDelegate>
 
@@ -55,7 +56,7 @@
         NSString *headerString = @"<header><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'></header>";
         [webView loadHTMLString:[headerString stringByAppendingString:self.model.content] baseURL:nil];
     } else {
-        NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.model.content]];
+        NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL pc_contentURLWithString:self.model.content]];
         [webView loadRequest:request];
     }
 

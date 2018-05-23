@@ -43,8 +43,10 @@
     
     tableView.delegate = self;
     tableView.dataSource = self;
+    tableView.tableFooterView = [[UIView alloc] init];
     _modelArray = [[NSMutableArray alloc] init];
     tableView.contentInsetAdjustmentBehavior = NO;
+    tableView.tableFooterView = [[UIView alloc] init];
     [self initDataArray];
     
 }

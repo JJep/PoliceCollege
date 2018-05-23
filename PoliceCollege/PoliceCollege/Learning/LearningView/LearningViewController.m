@@ -19,6 +19,7 @@
 #import "OnlineTestViewModel.h"
 #import "PublicCourseViewController.h"
 #import "TestViewModel.h"
+#import "PCAnouncementTableViewController.h"
 @interface LearningViewController () <UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @end
@@ -68,7 +69,8 @@
     tableView.dataSource = self;
     
     tableView.tableHeaderView = [self headView];
-    
+    [tableView setTableFooterView:[[UIView alloc] init]];
+
     //利用systemLayoutSizeFittingSize:计算出真实高度
     CGFloat height = [tableView.tableHeaderView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
     CGRect headerFrame = tableView.tableHeaderView.frame;
@@ -86,16 +88,23 @@
 - (UIView *)headView {
     UIView *view = [UIView new];
 //    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 242)];
+    
+    CGFloat screenWidth = self.view.bounds.size.width;
+    CGFloat itemWidth = 50;
+    CGFloat itemHeight = 75;
+    CGSize itemSize = CGSizeMake(itemWidth, itemHeight);
+    CGFloat itemNumber = 4;
+    CGFloat lineSpacing = (screenWidth - itemNumber * itemWidth) / (itemNumber + 1);
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     
     // 设置cell的尺寸
-    layout.itemSize = CGSizeMake(50, 75);
+    layout.itemSize = itemSize;
     // 设置每一行的间距
     layout.minimumLineSpacing = 20;
     // 设置每个cell的间距
-    layout.minimumInteritemSpacing = 25;
+    layout.minimumInteritemSpacing = lineSpacing;
     // 设置每组的内边距
-    layout.sectionInset = UIEdgeInsetsMake(22, 30, 22, 30);
+    layout.sectionInset = UIEdgeInsetsMake(22, lineSpacing, 22, lineSpacing);
     //设置CollectionView的属性
     LearningMainCollectionView *collectionView = [[LearningMainCollectionView alloc] initWithFrame:view.bounds collectionViewLayout:layout];
     collectionView.delegate = self;
@@ -180,7 +189,8 @@
         newVC.hidesBottomBarWhenPushed = true;
         [self.navigationController pushViewController:newVC animated:true];
     } else if (indexPath.row == 4){
-        PublicCourseViewController *newVC = [PublicCourseViewController new];
+        PCAnouncementTableViewController *newVC = [[PCAnouncementTableViewController alloc] init];
+        newVC.isTheme = YES;
         newVC.hidesBottomBarWhenPushed = true;
         [self.navigationController pushViewController:newVC animated:true];
     }

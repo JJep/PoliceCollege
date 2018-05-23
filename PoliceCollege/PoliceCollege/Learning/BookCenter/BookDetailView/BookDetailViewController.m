@@ -75,7 +75,7 @@ static const int commentLearningCompletionErrStatus = 4;
                     NSLog(@"文本字符串创建完成");
                     if ([self writeFile:self->documentsDirectory fileString:fileString  fileName:self->fileName]) {
                         NSLog(@"文本写入成功");
-                        [SVProgressHUD showErrorWithStatus:@"文件写入成功"];
+                        [SVProgressHUD showSuccessWithStatus:@"文件写入成功"];
                     } else {
                         [SVProgressHUD showErrorWithStatus:@"文件写入失败"];
                         NSLog(@"文本写入失败");
@@ -191,6 +191,7 @@ static const int commentLearningCompletionErrStatus = 4;
     [commentButton setTitle:@"评论" forState:UIControlStateNormal];
     [commentButton addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
     [commentButton setTag:commentButtonTag];
+    [commentButton setHidden:true];
     UIImage *image = [UIImage imageNamed:@"comment"];
     image = [self scaleToSize:image size:CGSizeMake(15, 15)];
     [commentButton setImage:image forState:UIControlStateNormal];
@@ -254,6 +255,7 @@ static const int commentLearningCompletionErrStatus = 4;
                 make.left.top.right.equalTo(self.view);
                 make.bottom.equalTo(self.view).offset(-50);
             }];
+            [commentButton setHidden:NO];
             break;
         }
         case introductionView:
@@ -261,6 +263,7 @@ static const int commentLearningCompletionErrStatus = 4;
             [tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.edges.equalTo(self.view);
             }];
+            [commentButton setHidden:true];
             break;
         }
         default:
@@ -434,12 +437,36 @@ static const int commentLearningCompletionErrStatus = 4;
     self.view.frame =CGRectMake(0, self.navigationController.navigationBar.frame.origin.y + self.navigationController.navigationBar.bounds.size.height, self.view.frame.size.width, self.view.frame.size.height);
     
     [UIView commitAnimations];
-    
+    [self updateUI];
 }
 
 - (void)pushToReadBook {
-    LSYReadPageViewController *pageView = [[LSYReadPageViewController alloc] init];
     NSURL *fileURL = [[NSURL alloc] initFileURLWithPath:[self getLocalFilePath:fileName]];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[self getLocalFilePath:fileName]]) {
+//        if (!hasNetWork) {
+//            UIAlertView *alertView = [[UIAlertView alloc]init];
+//            [alertView setTitle:@"您当前无网络,请查看离线书籍"];
+//            [alertView addButtonWithTitle:@"确定"];
+//            [alertView show];
+//            return;
+//        }else
+//        if (self.book.contentType == SRBookContentType_Epub3){
+            UIAlertView *alertView = [[UIAlertView alloc]init];
+            [alertView setTitle:@"当前书籍需要先下载才能查看,是否下载书籍"];
+            [alertView addButtonWithTitle:@"取消"];
+            [alertView addButtonWithTitle:@"确定"];
+        [alertView show];
+//            [alertView showAlertViewWithCompleteBlock:^(NSInteger buttonIndex) {
+//                if (buttonIndex == 1) {
+//                    [self comfirmButtonClick];
+//                }
+//            }];
+            return;
+//        }
+    }
+
+    LSYReadPageViewController *pageView = [[LSYReadPageViewController alloc] init];
+
     pageView.resourceURL = fileURL;    //文件位置
     pageView.model = [LSYReadModel getLocalModelWithURL:fileURL];  //阅读模型
     [self presentViewController:pageView animated:YES completion:nil];

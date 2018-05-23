@@ -15,6 +15,7 @@
 #import <MJRefresh.h>
 #import "AnnouncementDataSource.h"
 #import "AnouncementTableViewCell+ConfigureForAnnouncement.h"
+#import "ThemeViewModel.h"
 static NSString * const cellIdentifier = @"announcementCell";
 
 @interface PCAnouncementTableViewController () <UITableViewDelegate>
@@ -27,6 +28,7 @@ int totalPage ;
     PCAnouncementListViewModel *viewModel;
     NSMutableArray *promotionArray;
     BackView *backView;
+    ThemeViewModel *themeViewModel;
 }
 
 - (void)viewDidLoad {
@@ -34,14 +36,21 @@ int totalPage ;
     
     [self initViews];
     
-    viewModel = [PCAnouncementListViewModel new];
-    promotionArray = [NSMutableArray new];
-    [self getFirstList];
+    viewModel = [[PCAnouncementListViewModel alloc] init];
+    themeViewModel = [[ThemeViewModel alloc] init];
+    promotionArray = [[NSMutableArray alloc] init];
+    
+    [self downloadData];
     
 }
 
 - (void)initViews {
-    self.title = @"通知公告";
+    if (self.isTheme) {
+        self.title = @"专题中心";
+    } else {
+        self.title = @"通知公告";
+    }
+    
     [self.view setBackgroundColor:MyWhiteBackgroundColor];
     
     backView = [[BackView alloc] initWithFrame:self.view.bounds];
@@ -77,6 +86,14 @@ int totalPage ;
 
 }
 
+- (void)downloadData {
+    if (self.isTheme) {
+        [self getFirstThemeList];
+    } else {
+        [self getFirstAnnouncementList];
+    }
+}
+
 - (void)updateUI {
     [self.annoucementDataSource updateWithItems:promotionArray];
     if (promotionArray.count == 0) {
@@ -87,7 +104,37 @@ int totalPage ;
     [tableView reloadData];
 }
 
-- (void)getFirstList {
+- (void)getFirstThemeList {
+    [themeViewModel downloadThemeListWithCurrentPage:@1 success:^(id responseObject) {
+        totalPage = [[responseObject objectForKey:@"sumPage"] intValue];
+        NSArray *modelArray = [NSArray yy_modelArrayWithClass:[PCAnnouncementModel class] json:[responseObject objectForKey:@"newsList"]];
+        [self->promotionArray addObjectsFromArray:modelArray];
+        currentPage = 2;
+        [self updateUI];
+    } fail:^(NSError *error) {
+        
+    }];
+}
+
+- (void)downloadMoreThemeList {
+    [themeViewModel downloadThemeListWithCurrentPage:[NSNumber numberWithInt:currentPage] success:^(id responseObject) {
+        NSArray *modelArray = [NSArray yy_modelArrayWithClass:[PCAnnouncementModel class] json:[responseObject objectForKey:@"newsList"]];
+        
+        [self->promotionArray addObjectsFromArray:modelArray];
+        
+        if (currentPage == totalPage) {
+            [self->tableView.mj_footer endRefreshingWithNoMoreData];
+        } else {
+            [self->tableView.mj_footer endRefreshing];
+            currentPage ++;
+        }
+        [self updateUI];
+    } fail:^(NSError *error) {
+        
+    }];
+}
+
+- (void)getFirstAnnouncementList {
     [viewModel getFirstPromotionListAction:^(id responseObject) {
         if ([[responseObject objectForKey:@"state"] isEqualToString:@"1"]) {
             totalPage = [[responseObject objectForKey:@"sumPage"] intValue];
@@ -103,12 +150,12 @@ int totalPage ;
     }];
 }
 
-- (void)getMoreList {
+- (void)downloadMoreAnnouncementLista {
     [viewModel getPromotionListActionWithCurrentPage:[NSNumber numberWithInt:currentPage] success:^(id responseObject) {
         NSArray *modelArray = [NSArray yy_modelArrayWithClass:[PCAnnouncementModel class] json:[responseObject objectForKey:@"newsList"]];
         
         [self->promotionArray addObjectsFromArray:modelArray];
-
+        
         if (currentPage == totalPage) {
             [self->tableView.mj_footer endRefreshingWithNoMoreData];
         } else {
@@ -119,6 +166,14 @@ int totalPage ;
     } fail:^(NSError *error) {
         
     }];
+}
+
+- (void)getMoreList {
+    if (self.isTheme) {
+        [self downloadMoreThemeList];
+    } else {
+        [self downloadMoreAnnouncementLista];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

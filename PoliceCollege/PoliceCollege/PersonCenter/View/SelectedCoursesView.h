@@ -10,7 +10,8 @@
 #import "Overview.h"
 typedef NS_ENUM(NSInteger, OverviewStyle) {
     OverviewVideoStyle,
-    OverviewCourseStyle
+    OverviewCourseStyle,
+    OverviewBookStyle
 };
 @interface SelectedCoursesView : UIView
 @property(nonatomic,retain)UILabel *selectedCoursesTitleLabel;
