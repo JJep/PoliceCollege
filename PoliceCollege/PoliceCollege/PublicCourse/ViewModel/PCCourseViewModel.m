@@ -44,4 +44,16 @@
     [request sendRequestSuccess:success error:fail];
 }
 
+- (void)downloadSelectedCourseWithCurrentPage:(NSNumber *)currentPage success:(PCSuccessHandler)success fail:(PCFailedHandler)fail {
+    PCBaseRequest *request = [[PCBaseRequest alloc] init];
+    request.requstType = @"post";
+    request.apiString = @"learnrecord";
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:@{
+                                                                                  @"type":@1,
+                                                                                  @"page.currentPage":currentPage
+                                                                                  }];
+    request.paraDict = dict;
+    [request sendRequestSuccess:success error:fail];
+}
+
 @end

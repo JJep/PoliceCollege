@@ -29,5 +29,8 @@
 @property (nonatomic, strong) NSObject * typeName;
 @property (nonatomic, assign) NSInteger userId;
 @property (nonatomic, strong) NSObject * userName;
+@property (nonatomic, strong) NSString * learnTime;
+@property (nonatomic, strong) NSString * progress;
+@property (nonatomic, strong) NSString * teacher;
 
 @end

@@ -143,7 +143,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DetailCourseViewController *detailCourseViewController = [DetailCourseViewController new];
     detailCourseViewController.idField = ((Course *)courseArray[indexPath.row]).idField;
-    NSLog(@"%ld", (long)((Course *)courseArray[indexPath.row]).idField);
     [self.navigationController pushViewController:detailCourseViewController animated:true];
 }
 

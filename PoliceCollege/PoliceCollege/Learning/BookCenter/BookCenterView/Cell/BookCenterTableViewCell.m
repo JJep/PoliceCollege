@@ -99,21 +99,20 @@
     return self;
 }
 
-- (void)setModel:(id)model {
-    if ([[model class] isEqual:[Book class]]) {
+- (void)setModel:(Book *)model isSelected:(BOOL)isSelected
+{
+    if (isSelected) {
+        [imageView sd_setImageWithURL:[NSURL pc_imageURLWithString:model.img] placeholderImage:[UIImage imageNamed:@"banner"]];
+        [bookNameLabel setText:model.title];
+        [authorNameLabel setText:model.teacher];
+        [bookTimeLabel setText:model.learnTime];
+    } else {
         Book *book = (Book *)model;
         [imageView sd_setImageWithURL:[NSURL pc_imageURLWithString:book.img] placeholderImage:[UIImage imageNamed:@"banner"]];
         [bookNameLabel setText:book.title];
         [authorNameLabel setText:book.author];
         [bookTimeLabel setText:book.published];
-    } else {
-        
     }
-    
-//    if (self.isAlreadySelected) {
-//        startLearningBtn setTitle: forState:<#(UIControlState)#>
-//    }
-    
 }
 
 - (void)layoutViews {

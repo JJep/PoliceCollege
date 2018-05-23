@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BookCenterViewController.h"
-@interface CourseCenterViewController : BookCenterViewController
 
+@interface CourseCenterViewController : UIViewController
+@property (nonatomic,assign)BOOL isSelected;//是否是已选课程
 @end

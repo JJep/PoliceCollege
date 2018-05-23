@@ -23,9 +23,7 @@
 
 @end
 
-static const int courseType = 3;
 static const int bookType = 4;
-static const int noType = -1;
 static NSString *bookCellID = @"BookCenterTableViewCell";
 @implementation BookCenterViewController {
     UITableView *tableView;
@@ -87,6 +85,7 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
     [tableView setHidden:true];
     
     channelView = [[ChannelView alloc] init];
+    [channelView setHidden:self.isSelected];
     [self.view addSubview:channelView];
     channelView.collectionView.delegate = self;
     channelView.collectionView.dataSource = self;
@@ -106,10 +105,16 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
         make.top.equalTo(self->channelView.mas_bottom);
     }];
     
-    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.equalTo(self.view);
-        make.top.equalTo(self->channelView.mas_bottom).offset(5);
-    }];
+    if (self.isSelected) {
+        [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self.view);
+        }];
+    } else {
+        [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.bottom.equalTo(self.view);
+            make.top.equalTo(self->channelView.mas_bottom).offset(5);
+        }];
+    }
 }
 
 - (void)updateUI {
@@ -123,11 +128,15 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
 }
 
 - (void)getData {
-    [self getMyChannel];
-    if (channelsArray.count == 1) {
-        [self getRecommendedBookList];
-    } else {
+    if (self.isSelected) {
         [self getBookList];
+    } else {
+        [self getMyChannel];
+        if (channelsArray.count == 1) {
+            [self getRecommendedBookList];
+        } else {
+            [self getBookList];
+        }
     }
 }
 
@@ -150,16 +159,29 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
 }
 
 - (void)getBookList {
-    [bookViewModel getBookListActionWithTypeID:[NSNumber numberWithInteger:currentChannel.idField] currentPage:[NSNumber numberWithInt:1] success:^(id responseObject) {
-        [self->booksArray removeAllObjects];
-        NSArray *tempAry = [NSArray yy_modelArrayWithClass:[Book class] json:[responseObject objectForKey:@"bookList"]];
-        [self->booksArray addObjectsFromArray:tempAry];
-        self->currentPage = 2;
-        [self updateUI];
-        [SVProgressHUD dismiss];
-    } fail:^(NSError *error) {
-        [SVProgressHUD dismiss];
-    }];
+    if (self.isSelected) {
+        [bookViewModel downloadSelectedBookListWithCurrentPage:[NSNumber numberWithInt:1] success:^(id responseObject) {
+            [self->booksArray removeAllObjects];
+            NSArray *tempAry = [NSArray yy_modelArrayWithClass:[Book class] json:[responseObject objectForKey:@"learnrecordList"]];
+            [self->booksArray addObjectsFromArray:tempAry];
+            self->currentPage = 2;
+            [self updateUI];
+        } fail:^(NSError *error) {
+            
+        }];
+    } else {
+        [bookViewModel getBookListActionWithTypeID:[NSNumber numberWithInteger:currentChannel.idField] currentPage:[NSNumber numberWithInt:1] success:^(id responseObject) {
+            [self->booksArray removeAllObjects];
+            self->totalPage = [[responseObject objectForKey:@"sumPage"] intValue];
+            NSArray *tempAry = [NSArray yy_modelArrayWithClass:[Book class] json:[responseObject objectForKey:@"bookList"]];
+            [self->booksArray addObjectsFromArray:tempAry];
+            self->currentPage = 2;
+            [self updateUI];
+            [SVProgressHUD dismiss];
+        } fail:^(NSError *error) {
+            [SVProgressHUD dismiss];
+        }];
+    }
 }
 
 - (void)getMoreRecommendedBookList {
@@ -245,7 +267,7 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BookCenterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:bookCellID];
-    [cell setModel:booksArray[indexPath.row]];
+    [cell setModel:booksArray[indexPath.row] isSelected:self.isSelected];
     return cell;
 }
 

@@ -5,7 +5,7 @@
 //  Created by Jep Xia on 2018/4/27.
 //  Copyright © 2018年 Jep Xia. All rights reserved.
 //
-
+#import "BookCenterViewController.h"
 #import "PersonViewController.h"
 #import "SeasonRank.h"
 #import "SelectedCoursesView.h"
@@ -149,7 +149,9 @@ static NSString * const cellID = @"overviewCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     SelectedOverviewTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.selected = NO;
-    
+    BookCenterViewController *bookViewController = [[BookCenterViewController alloc] init];
+    bookViewController.isSelected = YES;
+    [self.navigationController pushViewController:bookViewController animated:true];
     
 }
 
