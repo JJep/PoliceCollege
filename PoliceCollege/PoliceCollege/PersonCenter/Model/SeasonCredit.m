@@ -35,7 +35,7 @@ NSString *const kQuarterScoreQuarter4 = @"quarter4";
     if(![dictionary[kQuarterScoreQuarter2] isKindOfClass:[NSNull class]]){
         self.quarter2 = [[Quarter alloc] initWithDictionary:dictionary[kQuarterScoreQuarter2]];
     }
-    
+
     if(![dictionary[kQuarterScoreQuarter3] isKindOfClass:[NSNull class]]){
         self.quarter3 = [[Quarter alloc] initWithDictionary:dictionary[kQuarterScoreQuarter3]];
     }

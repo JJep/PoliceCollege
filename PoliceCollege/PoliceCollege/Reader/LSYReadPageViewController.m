@@ -240,8 +240,9 @@
 
 -(LSYReadViewController *)readViewWithChapter:(NSUInteger)chapter page:(NSUInteger)page{
 
-    
+    //是否更换了章节
     if (_model.record.chapter != chapter) {
+        //如果重新更换，需要updateFont
         [_model.record.chapterModel updateFont];
         if (_model.type == ReaderEpub) {
             if (!_model.chapters[chapter].epubframeRef) {
@@ -308,6 +309,7 @@
     }
 }
 #pragma mark -PageViewController DataSource
+//beforeViewController
 - (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
 {
 
@@ -328,6 +330,7 @@
     return [self readViewWithChapter:_chapterChange page:_pageChange];
     
 }
+//afterViewController
 - (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
 {
 

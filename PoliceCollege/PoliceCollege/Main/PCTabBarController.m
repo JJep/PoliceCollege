@@ -13,6 +13,7 @@
 #import "LearningViewController.h"
 #import "PersonViewController.h"
 #import "PCLoginViewController.h"
+#import "JMUserLocalData.h"
 @interface PCTabBarController ()
 
 @end
@@ -98,11 +99,17 @@
                           imageName:@"learningUnselected"
                   selectedImageName:@"learningSelected"];
     
-    
-    [self addOneChildViewController:[[UINavigationController alloc]initWithRootViewController:[[PersonViewController alloc]init]]
-                          WithTitle:@"个人中心"
-                          imageName:@"personalCenterUnselected"
-                  selectedImageName:@"personalCenterSelected"];
+    if ([JMUserLocalData sharedManager].isLogin) {
+        [self addOneChildViewController:[[UINavigationController alloc]initWithRootViewController:[[PersonViewController alloc]init]]
+                              WithTitle:@"个人中心"
+                              imageName:@"personalCenterUnselected"
+                      selectedImageName:@"personalCenterSelected"];
+    } else {
+        [self addOneChildViewController:[[UINavigationController alloc]initWithRootViewController:[[PCLoginViewController alloc]init]]
+                              WithTitle:@"个人中心"
+                              imageName:@"personalCenterUnselected"
+                      selectedImageName:@"personalCenterSelected"];
+    }
     
     
     [self addOneChildViewController:[[PCNavigationController alloc]initWithRootViewController:[[MeViewController alloc]init]]

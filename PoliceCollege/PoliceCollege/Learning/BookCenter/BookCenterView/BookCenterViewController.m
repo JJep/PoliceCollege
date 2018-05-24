@@ -51,11 +51,11 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
 }
 
 - (void)initData {
-    bookViewModel = [PCBookViewModel new];
-    channelViewModel = [PCChannelViewModel new];
-    booksArray = [NSMutableArray new];
-    channelsArray = [NSMutableArray new];
-    Channel *recommendChannel = [Channel new];
+    bookViewModel = [[PCBookViewModel alloc] init];
+    channelViewModel = [[PCChannelViewModel alloc] init];
+    booksArray = [[NSMutableArray alloc] init];
+    channelsArray = [[NSMutableArray alloc] init];
+    Channel *recommendChannel = [[Channel alloc] init];
     [recommendChannel setName:@"推荐"];
     [channelsArray addObject:recommendChannel];
     currentPage = 1;

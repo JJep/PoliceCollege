@@ -1049,13 +1049,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		BE44B5C1209C439E0001B143 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		BE44B5C2209C43AA0001B143 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1803,7 +1796,6 @@
 			children = (
 				BEDE532D2090C58A00D00A98 /* ChannelView */,
 				BE44B5C2209C43AA0001B143 /* ViewModel */,
-				BE44B5C1209C439E0001B143 /* View */,
 				BE44B5BD209C405B0001B143 /* Model */,
 				BEDE5332209166B100D00A98 /* Cell */,
 				BEDE532120904CF200D00A98 /* BookCenterViewController.h */,
@@ -2051,9 +2043,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PoliceCollege/Pods-PoliceCollege-frameworks.sh",
+				"${PODS_ROOT}/Reveal-SDK/RevealServer-14/iOS/RevealServer.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2409,10 +2404,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = PoliceCollege/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Jep-.PoliceCollege";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2440,10 +2432,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = PoliceCollege/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Jep-.PoliceCollege";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

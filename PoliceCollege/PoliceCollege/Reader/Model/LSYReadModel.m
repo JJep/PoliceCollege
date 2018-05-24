@@ -80,6 +80,13 @@
 {
     NSString *key = [url.path lastPathComponent];
     NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    
+//    NSMutableData *newdata=[[NSMutableData alloc]init];
+//    NSKeyedArchiver *archiver=[[NSKeyedArchiver alloc]initForWritingWithMutableData:newdata];
+//    LSYReadModel *newmodel = [[LSYReadModel alloc] initWithContent:[LSYReadUtilites encodeWithURL:url]];
+//    newmodel.resource = url;
+//    [archiver encodeObject:newmodel forKey:key];
+//    [archiver finishEncoding];
     if (!data) {
         if ([[key pathExtension] isEqualToString:@"txt"]) {
             LSYReadModel *model = [[LSYReadModel alloc] initWithContent:[LSYReadUtilites encodeWithURL:url]];

@@ -66,11 +66,10 @@ static const int commentLearningCompletionErrStatus = 4;
         NSLog(@"%@",self.model.sections);
         self->chapterArray = [NSArray yy_modelArrayWithClass:[Chapter class] json:self.model.sections];
         NSMutableString *fileString = [NSMutableString stringWithFormat:@"%@\n",self.model.title];
-
         if ([self createFile:self->documentsDirectory fileName:self->fileName]) {
             NSLog(@"文件创建成功");
             [self->chapterArray enumerateObjectsUsingBlock:^(Chapter* chapter, NSUInteger idx, BOOL * _Nonnull stop) {
-                [fileString appendString:[NSString stringWithFormat:@"%@\n",chapter.content]];
+                [fileString appendString:[NSString stringWithFormat:@"第%lu章 %@\n",++idx, chapter.content]];
                 if (idx == self->chapterArray.count-1) {
                     NSLog(@"文本字符串创建完成");
                     if ([self writeFile:self->documentsDirectory fileString:fileString  fileName:self->fileName]) {

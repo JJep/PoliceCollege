@@ -10,6 +10,7 @@
 #import "JMBaseResponseModel.h"
 #import "JMUserLocalData.h"
 #import "PCLoginViewModel.h"
+#import "PCLoginViewController.h"
 @interface PCBaseRequest()
 @property (nonatomic, strong) NSURLSessionTask *task;
 @property (nonatomic, strong) NSString *baseUrl;
@@ -20,11 +21,11 @@
     self = [super init];
     if(self) {
 #if DEBUG
-        self.baseUrl = @"http://139.224.208.224/NetworkCollege-app";
-//        self.baseUrl = @"http://192.168.0.108/NetworkCollege-app";
+        self.baseUrl = @"http://139.224.208.224:8080/NetworkCollege-app";
+//        self.baseUrl = @"http://192.168.0.108:8080/";
 #else
-        self.baseUrl = @"http://139.224.208.224/NetworkCollege-app";
-//        self.baseUrl = @"http://192.168.0.108/NetworkCollege-app";
+        self.baseUrl = @"http://139.224.208.224:8080/NetworkCollege-app";
+//        self.baseUrl = @"http://192.168.0.108:8080/";
 #endif
     }
     return self;
