@@ -11,6 +11,7 @@
 #import "LSYNoteModel.h"
 #import "LSYChapterModel.h"
 #import "LSYRecordModel.h"
+#import "ReadIndexPath.h"
 @interface LSYReadModel : NSObject<NSCoding>
 @property (nonatomic,strong) NSURL *resource;
 @property (nonatomic,copy) NSString *content;
@@ -23,6 +24,7 @@
 
 -(instancetype)initWithContent:(NSString *)content;
 -(instancetype)initWithePub:(NSString *)ePubPath;
+//-(ReadIndexPath *)readIndexPathOfContent:(NSString *)content;
 +(void)updateLocalModel:(LSYReadModel *)readModel url:(NSURL *)url;
 +(id)getLocalModelWithURL:(NSURL *)url;
 @end

@@ -17,6 +17,8 @@
 @end
 @interface LSYReadViewController : UIViewController
 @property (nonatomic,strong) NSString *content; //显示的内容
+@property (nonatomic,assign) NSUInteger chapter; //显示的内容的章节
+@property (nonatomic,assign) NSUInteger page; //显示的内容的章节页数
 @property (nonatomic,strong) id epubFrameRef;  //epub显示内容
 @property (nonatomic,strong) NSArray *imageArray;  //epub显示的图片
 @property (nonatomic,assign) ReaderType type;   //文本类型

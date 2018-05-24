@@ -274,6 +274,8 @@
     else{
         _readView.type = ReaderTxt;
         _readView.content = [_model.chapters[chapter] stringOfPage:page];
+        _readView.chapter = chapter;
+        _readView.page = page;
     }
     _readView.delegate = self;
     NSLog(@"_readGreate");
@@ -363,8 +365,13 @@
 }
 - (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray<UIViewController *> *)pendingViewControllers
 {
-    _chapter = _chapterChange;
-    _page = _pageChange;
+//    _chapter = _chapterChange;
+//    _page = _pageChange;
+    LSYReadViewController *readViewController = (LSYReadViewController *)[pendingViewControllers firstObject];
+//    _chapter = readViewController.recordModel.chapter;
+//    _page = readViewController.recordModel.page;
+    _chapter = readViewController.chapter;
+    _page = readViewController.page;
 }
 -(void)viewDidLayoutSubviews
 {

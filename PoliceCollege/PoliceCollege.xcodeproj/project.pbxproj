@@ -87,6 +87,7 @@
 		BEAE303520B66936008E4569 /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAE303420B66936008E4569 /* SearchTableViewCell.m */; };
 		BEAE303820B673E6008E4569 /* SearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAE303720B673E6008E4569 /* SearchModel.m */; };
 		BEAE303B20B6742B008E4569 /* SearchTableViewCell+ConfigureWithModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAE303A20B6742B008E4569 /* SearchTableViewCell+ConfigureWithModel.m */; };
+		BEAE304220B7118F008E4569 /* ReadIndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAE304120B7118F008E4569 /* ReadIndexPath.m */; };
 		BEB609B720A2A51100473BC5 /* PCChapterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609B620A2A51100473BC5 /* PCChapterViewModel.m */; };
 		BEB609BE20A302BD00473BC5 /* PCCourseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609BD20A302BD00473BC5 /* PCCourseViewModel.m */; };
 		BEB609C220A3E17100473BC5 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609C120A3E17100473BC5 /* Course.m */; };
@@ -377,6 +378,8 @@
 		BEAE303720B673E6008E4569 /* SearchModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchModel.m; sourceTree = "<group>"; };
 		BEAE303920B6742B008E4569 /* SearchTableViewCell+ConfigureWithModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SearchTableViewCell+ConfigureWithModel.h"; sourceTree = "<group>"; };
 		BEAE303A20B6742B008E4569 /* SearchTableViewCell+ConfigureWithModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SearchTableViewCell+ConfigureWithModel.m"; sourceTree = "<group>"; };
+		BEAE304020B7118F008E4569 /* ReadIndexPath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReadIndexPath.h; sourceTree = "<group>"; };
+		BEAE304120B7118F008E4569 /* ReadIndexPath.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReadIndexPath.m; sourceTree = "<group>"; };
 		BEB609B520A2A51100473BC5 /* PCChapterViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCChapterViewModel.h; sourceTree = "<group>"; };
 		BEB609B620A2A51100473BC5 /* PCChapterViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCChapterViewModel.m; sourceTree = "<group>"; };
 		BEB609BC20A302BD00473BC5 /* PCCourseViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCCourseViewModel.h; sourceTree = "<group>"; };
@@ -1185,6 +1188,15 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		BEAE303F20B7116F008E4569 /* ReadIndexPath */ = {
+			isa = PBXGroup;
+			children = (
+				BEAE304020B7118F008E4569 /* ReadIndexPath.h */,
+				BEAE304120B7118F008E4569 /* ReadIndexPath.m */,
+			);
+			path = ReadIndexPath;
+			sourceTree = "<group>";
+		};
 		BEB609B420A2A4FC00473BC5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1346,6 +1358,7 @@
 		BEB60CD020AB4AE000473BC5 /* Reader */ = {
 			isa = PBXGroup;
 			children = (
+				BEAE303F20B7116F008E4569 /* ReadIndexPath */,
 				BEB60CD120AB4AE000473BC5 /* LSYReadPageViewController.h */,
 				BEB60CD220AB4AE000473BC5 /* Core */,
 				BEB60CD920AB4AE000473BC5 /* Third */,
@@ -2111,6 +2124,7 @@
 				BEB60A2C20A9223300473BC5 /* CourseOverview.m in Sources */,
 				BEDE531B208F81A200D00A98 /* OnlineTestViewController.m in Sources */,
 				BE3A23BA20AE9BD600FAEE18 /* SendCommentView.m in Sources */,
+				BEAE304220B7118F008E4569 /* ReadIndexPath.m in Sources */,
 				BEB60D5A20AB4AE100473BC5 /* LSYReadPageViewController.m in Sources */,
 				BEAE302620B5398F008E4569 /* SelectedOverviewTableViewCell.m in Sources */,
 				BEAE2FEF20B02049008E4569 /* ELCOverlayImageView.m in Sources */,
@@ -2404,7 +2418,10 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = PoliceCollege/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Jep-.PoliceCollege";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2432,7 +2449,10 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = PoliceCollege/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Jep-.PoliceCollege";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

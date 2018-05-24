@@ -2898,7 +2898,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Reader/Model/LSYReadModel.m"
-            timestampString = "548860009.266251"
+            timestampString = "548869432.968233"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
@@ -2926,15 +2926,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Reader/LSYReadPageViewController.m"
-            timestampString = "548860009.268083"
+            timestampString = "548869432.972947"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "354"
-            endingLineNumber = "354"
+            startingLineNumber = "356"
+            endingLineNumber = "356"
             landmarkName = "-pageViewController:didFinishAnimating:previousViewControllers:transitionCompleted:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2942,15 +2942,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Reader/LSYReadPageViewController.m"
-            timestampString = "548860009.2687089"
+            timestampString = "548869432.975098"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "366"
-            endingLineNumber = "366"
+            startingLineNumber = "375"
+            endingLineNumber = "375"
             landmarkName = "-pageViewController:willTransitionToViewControllers:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2962,11 +2962,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Reader/LSYReadPageViewController.m"
-            timestampString = "548860009.269496"
+            timestampString = "548869432.9762"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "371"
-            endingLineNumber = "371"
+            startingLineNumber = "378"
+            endingLineNumber = "378"
             landmarkName = "-viewDidLayoutSubviews"
             landmarkType = "7">
          </BreakpointContent>
@@ -2974,15 +2974,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Reader/LSYReadPageViewController.m"
-            timestampString = "548860009.269966"
+            timestampString = "548869432.9776469"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "285"
-            endingLineNumber = "285"
+            startingLineNumber = "287"
+            endingLineNumber = "287"
             landmarkName = "-updateReadModelWithChapter:page:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2994,7 +2994,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Reader/LSYReadPageViewController.m"
-            timestampString = "548860009.270275"
+            timestampString = "548869432.9788181"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "243"
@@ -3010,7 +3010,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Reader/LSYReadPageViewController.m"
-            timestampString = "548860009.2706079"
+            timestampString = "548869432.979912"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "218"
@@ -3022,11 +3022,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Reader/LSYReadPageViewController.m"
-            timestampString = "548860009.270891"
+            timestampString = "548869432.9808871"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "210"
@@ -3042,7 +3042,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Reader/LSYReadPageViewController.m"
-            timestampString = "548860009.271189"
+            timestampString = "548869432.9818079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
@@ -3054,15 +3054,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Reader/LSYReadPageViewController.m"
-            timestampString = "548860009.271472"
+            timestampString = "548869432.9824131"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "315"
-            endingLineNumber = "315"
+            startingLineNumber = "317"
+            endingLineNumber = "317"
             landmarkName = "-pageViewController:viewControllerBeforeViewController:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3070,15 +3070,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Reader/LSYReadPageViewController.m"
-            timestampString = "548860009.271782"
+            timestampString = "548869432.983073"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "336"
-            endingLineNumber = "336"
+            startingLineNumber = "338"
+            endingLineNumber = "338"
             landmarkName = "-pageViewController:viewControllerAfterViewController:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3090,7 +3090,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Reader/LSYReadPageViewController.m"
-            timestampString = "548860009.272034"
+            timestampString = "548869432.983777"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "275"
@@ -3106,7 +3106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Reader/Model/LSYReadModel.m"
-            timestampString = "548860009.272223"
+            timestampString = "548869432.984762"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "72"
@@ -3118,11 +3118,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Reader/LSYReadPageViewController.m"
-            timestampString = "548860260.37032"
+            timestampString = "548869432.98508"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "205"
@@ -3134,16 +3134,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Reader/LSYReadPageViewController.m"
-            timestampString = "548860266.415413"
+            timestampString = "548869432.985949"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "134"
             endingLineNumber = "134"
             landmarkName = "-catalog:didSelectChapter:page:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PoliceCollege/Reader/LSYReadPageViewController.m"
+            timestampString = "548869432.98663"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "370"
+            endingLineNumber = "370"
+            landmarkName = "-pageViewController:willTransitionToViewControllers:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
