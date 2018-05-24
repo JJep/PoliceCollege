@@ -6,9 +6,9 @@
 //  Copyright © 2018年 Jep Xia. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "SearchTableViewCell.h"
 #import "Book.h"
-@interface BookTableViewCell : UITableViewCell
+@interface BookTableViewCell : SearchTableViewCell
 @property(nonatomic,retain)UIButton *readBtn;
 @property(nonatomic,retain)UIButton *downloadBtn;
 //@property(nonatomic,retain)BookModel *bookModel;

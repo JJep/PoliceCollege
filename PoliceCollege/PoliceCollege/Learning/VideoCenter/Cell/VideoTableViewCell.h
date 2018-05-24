@@ -6,8 +6,8 @@
 //  Copyright © 2018年 Jep Xia. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "SearchTableViewCell.h"
 #import "Video.h"
-@interface VideoTableViewCell : UITableViewCell
+@interface VideoTableViewCell : SearchTableViewCell
 - (void)setModel:(Video *)model;
 @end

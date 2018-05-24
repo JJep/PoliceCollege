@@ -18,5 +18,5 @@
 @property (nonatomic,assign)int score;
 @property (nonatomic,assign)int clicks;
 @property (nonatomic,assign)int commentsQuantity;
-- (void)setModel:(Book *)model isSelected:(BOOL)isSelected;
+- (void)setModel:(id)model isSelected:(BOOL)isSelected;
 @end

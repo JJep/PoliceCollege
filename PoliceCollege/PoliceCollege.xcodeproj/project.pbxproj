@@ -82,6 +82,11 @@
 		BEAE302020B51B40008E4569 /* PCDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAE301F20B51B40008E4569 /* PCDataSource.m */; };
 		BEAE302320B5208F008E4569 /* BookOverview.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAE302220B5208F008E4569 /* BookOverview.m */; };
 		BEAE302620B5398F008E4569 /* SelectedOverviewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAE302520B5398F008E4569 /* SelectedOverviewTableViewCell.m */; };
+		BEAE302F20B6503F008E4569 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAE302E20B6503F008E4569 /* SearchViewController.m */; };
+		BEAE303220B6641F008E4569 /* SearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAE303120B6641F008E4569 /* SearchViewModel.m */; };
+		BEAE303520B66936008E4569 /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAE303420B66936008E4569 /* SearchTableViewCell.m */; };
+		BEAE303820B673E6008E4569 /* SearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAE303720B673E6008E4569 /* SearchModel.m */; };
+		BEAE303B20B6742B008E4569 /* SearchTableViewCell+ConfigureWithModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAE303A20B6742B008E4569 /* SearchTableViewCell+ConfigureWithModel.m */; };
 		BEB609B720A2A51100473BC5 /* PCChapterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609B620A2A51100473BC5 /* PCChapterViewModel.m */; };
 		BEB609BE20A302BD00473BC5 /* PCCourseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609BD20A302BD00473BC5 /* PCCourseViewModel.m */; };
 		BEB609C220A3E17100473BC5 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB609C120A3E17100473BC5 /* Course.m */; };
@@ -362,6 +367,16 @@
 		BEAE302220B5208F008E4569 /* BookOverview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookOverview.m; sourceTree = "<group>"; };
 		BEAE302420B5398F008E4569 /* SelectedOverviewTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectedOverviewTableViewCell.h; sourceTree = "<group>"; };
 		BEAE302520B5398F008E4569 /* SelectedOverviewTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectedOverviewTableViewCell.m; sourceTree = "<group>"; };
+		BEAE302D20B6503F008E4569 /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		BEAE302E20B6503F008E4569 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		BEAE303020B6641F008E4569 /* SearchViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewModel.h; sourceTree = "<group>"; };
+		BEAE303120B6641F008E4569 /* SearchViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewModel.m; sourceTree = "<group>"; };
+		BEAE303320B66936008E4569 /* SearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
+		BEAE303420B66936008E4569 /* SearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewCell.m; sourceTree = "<group>"; };
+		BEAE303620B673E6008E4569 /* SearchModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchModel.h; sourceTree = "<group>"; };
+		BEAE303720B673E6008E4569 /* SearchModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchModel.m; sourceTree = "<group>"; };
+		BEAE303920B6742B008E4569 /* SearchTableViewCell+ConfigureWithModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SearchTableViewCell+ConfigureWithModel.h"; sourceTree = "<group>"; };
+		BEAE303A20B6742B008E4569 /* SearchTableViewCell+ConfigureWithModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SearchTableViewCell+ConfigureWithModel.m"; sourceTree = "<group>"; };
 		BEB609B520A2A51100473BC5 /* PCChapterViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCChapterViewModel.h; sourceTree = "<group>"; };
 		BEB609B620A2A51100473BC5 /* PCChapterViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCChapterViewModel.m; sourceTree = "<group>"; };
 		BEB609BC20A302BD00473BC5 /* PCCourseViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCCourseViewModel.h; sourceTree = "<group>"; };
@@ -1160,6 +1175,23 @@
 			path = ThematicCenter;
 			sourceTree = "<group>";
 		};
+		BEAE302C20B6501E008E4569 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				BEAE302D20B6503F008E4569 /* SearchViewController.h */,
+				BEAE302E20B6503F008E4569 /* SearchViewController.m */,
+				BEAE303020B6641F008E4569 /* SearchViewModel.h */,
+				BEAE303120B6641F008E4569 /* SearchViewModel.m */,
+				BEAE303320B66936008E4569 /* SearchTableViewCell.h */,
+				BEAE303420B66936008E4569 /* SearchTableViewCell.m */,
+				BEAE303620B673E6008E4569 /* SearchModel.h */,
+				BEAE303720B673E6008E4569 /* SearchModel.m */,
+				BEAE303920B6742B008E4569 /* SearchTableViewCell+ConfigureWithModel.h */,
+				BEAE303A20B6742B008E4569 /* SearchTableViewCell+ConfigureWithModel.m */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		BEB609B420A2A4FC00473BC5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1705,6 +1737,7 @@
 		BEDE530E208F44C400D00A98 /* Learning */ = {
 			isa = PBXGroup;
 			children = (
+				BEAE302C20B6501E008E4569 /* Search */,
 				BEAE300520B2C988008E4569 /* ThematicCenter */,
 				BE44B5BC209C3F790001B143 /* CourseCenter */,
 				BEDE53572092D7FA00D00A98 /* VideoCenter */,
@@ -2087,6 +2120,7 @@
 				BEAE302620B5398F008E4569 /* SelectedOverviewTableViewCell.m in Sources */,
 				BEAE2FEF20B02049008E4569 /* ELCOverlayImageView.m in Sources */,
 				BEDE52DE208B2BC800D00A98 /* MeItem.m in Sources */,
+				BEAE303820B673E6008E4569 /* SearchModel.m in Sources */,
 				BEB60A3320A9698200473BC5 /* TestViewModel.m in Sources */,
 				BE44B5A620999DE70001B143 /* PCRequestSerializer.m in Sources */,
 				BEB60A2620A8A33B00473BC5 /* Comment.m in Sources */,
@@ -2107,6 +2141,7 @@
 				BEB60D5D20AB4AE100473BC5 /* LSYChapterModel.m in Sources */,
 				BEDE532C20908A0300D00A98 /* ChannelCollectionViewCell.m in Sources */,
 				BE44B5812095799A0001B143 /* TestBottomView.m in Sources */,
+				BEAE303520B66936008E4569 /* SearchTableViewCell.m in Sources */,
 				BEDE535A2092D80C00D00A98 /* VideoTableViewCell.m in Sources */,
 				BEB60A2F20A92A5100473BC5 /* Overview.m in Sources */,
 				BEB60D4020AB4AE100473BC5 /* LSYReadUtilites.m in Sources */,
@@ -2128,6 +2163,7 @@
 				BE21DA892086F09F0086B8BA /* PCBaseViewController.m in Sources */,
 				BE21DA652086DE3C0086B8BA /* AppDelegate.m in Sources */,
 				BEB60D4920AB4AE100473BC5 /* CXMLNode_XPathExtensions.m in Sources */,
+				BEAE303220B6641F008E4569 /* SearchViewModel.m in Sources */,
 				BE21DAB22087815A0086B8BA /* HotIssueTableViewCell.m in Sources */,
 				BEB60D4220AB4AE100473BC5 /* zip.c in Sources */,
 				BE44B5EF20A0536E0001B143 /* Chapter.m in Sources */,
@@ -2152,6 +2188,7 @@
 				BEAE2FFD20B1C5C9008E4569 /* AnnouncementDataSource.m in Sources */,
 				BEB60D5720AB4AE100473BC5 /* GTMNSString+HTML.m in Sources */,
 				BE21DAA0208732D40086B8BA /* PCCenterdView.m in Sources */,
+				BEAE302F20B6503F008E4569 /* SearchViewController.m in Sources */,
 				BEB60A1920A8771E00473BC5 /* Season.m in Sources */,
 				BEDE5305208F355800D00A98 /* PushSettingTableViewCell.m in Sources */,
 				BEB60D4F20AB4AE100473BC5 /* CTidy.m in Sources */,
@@ -2184,6 +2221,7 @@
 				BEB60A1C20A8859F00473BC5 /* Quarter.m in Sources */,
 				BE44B5DE209E09280001B143 /* PCBookViewModel.m in Sources */,
 				BEDE53422091AF2100D00A98 /* BookTableViewCell.m in Sources */,
+				BEAE303B20B6742B008E4569 /* SearchTableViewCell+ConfigureWithModel.m in Sources */,
 				BEB60D3F20AB4AE100473BC5 /* LSYReadParser.m in Sources */,
 				BEB609D020A4167300473BC5 /* DetailCourse.m in Sources */,
 				BEAE2FF720B02049008E4569 /* ELCConsole.m in Sources */,

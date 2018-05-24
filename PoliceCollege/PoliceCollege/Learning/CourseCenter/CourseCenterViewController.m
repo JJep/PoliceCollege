@@ -19,12 +19,16 @@
 #import "MyChannel.h"
 #import <MJRefresh.h>
 #import "DetailCourseViewController.h"
+#import "SearchViewController.h"
 @interface CourseCenterViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end
 
 static const int courseType = 3;
 static NSString *courseCellID = @"CourseCenterTableViewCell";
+static const int searchButtonTag = 5;
+
+
 @implementation CourseCenterViewController {
     UITableView *tableView;
     ChannelView *channelView;
@@ -61,10 +65,24 @@ static NSString *courseCellID = @"CourseCenterTableViewCell";
     currentPage = 1;
 }
 
+- (void)initNavigationBar {
+    UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeSystem];
+//    [moreButton setTitle:@"更多" forState:UIControlStateNormal];
+//    [moreButton setTitleColor:rgba(181,181,181,1) forState:UIControlStateNormal];
+    [searchButton setImage:[UIImage imageNamed:@"searchIcon"] forState:UIControlStateNormal];
+    [searchButton addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [searchButton setTag:searchButtonTag];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:searchButton];
+    self.navigationItem.rightBarButtonItem = rightButton;
+    [self.view setBackgroundColor:rgb(244, 244, 249)];
+}
+
 - (void)createUI {
     
     [self.view setBackgroundColor:MyWhiteBackgroundColor];
     self.title = @"课件中心";
+    
+    [self initNavigationBar];
     
     backView = [[BackView alloc] init];
     [backView setName:@"暂无课件"];
@@ -296,10 +314,23 @@ static NSString *courseCellID = @"CourseCenterTableViewCell";
 }
 
 - (void)didTouchBtn:(UIButton *)button {
-    MoreChannelsViewController *newVC = [MoreChannelsViewController new];
-    newVC.type = courseType;
-    newVC.idField = myChannel.idField;
-    newVC.myChannelDataArray = channelsArray;
-    [self.navigationController pushViewController:newVC animated:true];
+    switch (button.tag) {
+        case searchButtonTag:
+        {
+            SearchViewController *searchViewController = [[SearchViewController alloc] init];
+            [self.navigationController pushViewController:searchViewController animated:true];
+            break;
+        }
+        default:
+        {
+            MoreChannelsViewController *newVC = [MoreChannelsViewController new];
+            newVC.type = courseType;
+            newVC.idField = myChannel.idField;
+            newVC.myChannelDataArray = channelsArray;
+            [self.navigationController pushViewController:newVC animated:true];
+            break;
+        }
+    }
+    
 }
 @end

@@ -8,6 +8,7 @@
 
 #import "BookCenterTableViewCell.h"
 #import "BookOverview.h"
+#import "Course.h"
 @implementation BookCenterTableViewCell {
     UIImageView *imageView;
     UILabel *bookNameLabel;
@@ -99,19 +100,27 @@
     return self;
 }
 
-- (void)setModel:(Book *)model isSelected:(BOOL)isSelected
+- (void)setModel:(id)model isSelected:(BOOL)isSelected
 {
     if (isSelected) {
-        [imageView sd_setImageWithURL:[NSURL pc_imageURLWithString:model.img] placeholderImage:[UIImage imageNamed:@"banner"]];
-        [bookNameLabel setText:model.title];
-        [authorNameLabel setText:model.teacher];
-        [bookTimeLabel setText:model.learnTime];
-    } else {
+        Book *book = (Book *)model;
+        [imageView sd_setImageWithURL:[NSURL pc_imageURLWithString:book.img] placeholderImage:[UIImage imageNamed:@"banner"]];
+        [startLearningBtn setTitle:book.progress forState:UIControlStateNormal];
+        [bookNameLabel setText:book.title];
+        [authorNameLabel setText:book.teacher];
+        [bookTimeLabel setText:book.learnTime];
+    } else if ([[model class] isEqual:[Book class]]){
         Book *book = (Book *)model;
         [imageView sd_setImageWithURL:[NSURL pc_imageURLWithString:book.img] placeholderImage:[UIImage imageNamed:@"banner"]];
         [bookNameLabel setText:book.title];
         [authorNameLabel setText:book.author];
         [bookTimeLabel setText:book.published];
+    } else {
+        Course *course = (Course *)model;
+        [imageView sd_setImageWithURL:[NSURL pc_imageURLWithString:course.img] placeholderImage:[UIImage imageNamed:@"banner"]];
+        [bookNameLabel setText:course.title];
+        [authorNameLabel setText:course.teacher];
+        [bookTimeLabel setText:course.published];
     }
 }
 

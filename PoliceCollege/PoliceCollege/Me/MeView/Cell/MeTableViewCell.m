@@ -19,9 +19,7 @@
     
     //使用model的类名拼接一个"cell"来获取到cell类名
     NSString *cellName = [modelName stringByAppendingString:@"TableViewCell"];
-    
-    
-    
+
     //根据提供的cellName来给予不同cell所对应的'cell子类'初始化一个cell对象返回给我们的父类对象
     
     //唯一标示符可以使我们所提供的model来给与不同cell所对应的标示符来重用

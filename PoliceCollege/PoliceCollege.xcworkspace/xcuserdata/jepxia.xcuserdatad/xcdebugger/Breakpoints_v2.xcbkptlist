@@ -1701,7 +1701,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/PersonCenter/PersonViewController.m"
-            timestampString = "548762392.700067"
+            timestampString = "548822846.921386"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "71"
@@ -1717,7 +1717,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/PersonCenter/PersonViewController.m"
-            timestampString = "548762392.701084"
+            timestampString = "548822846.938875"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "71"
@@ -2638,7 +2638,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/Me/PersonalInfo/Cell/PersonalInfoTableViewCell.m"
-            timestampString = "548762392.718454"
+            timestampString = "548830060.197132"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "88"
@@ -2814,7 +2814,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PoliceCollege/PersonCenter/PersonViewController.m"
-            timestampString = "548762392.723295"
+            timestampString = "548822846.9559439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "72"
@@ -2884,6 +2884,22 @@
             startingLineNumber = "164"
             endingLineNumber = "164"
             landmarkName = "-getBookList"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PoliceCollege/Learning/BookCenter/BookCenterView/Cell/BookCenterTableViewCell.m"
+            timestampString = "548830060.203283"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "-setModel:isSelected:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
