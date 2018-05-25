@@ -16,7 +16,7 @@
     if (self = [super init]) {
         titleLabel = [UILabel new];
         _textView = [UITextView new];
-        _commentButton = [UIButton new];
+        _commentButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [self addSubview:_textView];
         [self addSubview:_commentButton];
         [self addSubview:titleLabel];
@@ -37,6 +37,7 @@
         [_commentButton.layer setBorderColor:rgba(74,144,226,1).CGColor];
         [_commentButton.layer setBorderWidth:1.0f];
         [_commentButton.layer setCornerRadius:15];
+//        [_commentButton addTarget:self action:@selector(uploadComment) forControlEvents:UIControlEventTouchUpInside];
         
         [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self).offset(15);
@@ -60,5 +61,9 @@
     }
     return self;
 }
+//
+//- (void)uploadComment {
+//    NSLog(@"uploadComment");
+//}
 
 @end

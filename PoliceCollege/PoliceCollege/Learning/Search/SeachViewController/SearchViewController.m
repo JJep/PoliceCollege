@@ -16,6 +16,7 @@
 #import "VideoTableViewCell.h"
 #import "SearchViewController+NetWork.h"
 #import "SearchViewController+PushViewController.h"
+#import <MJRefresh.h>
 @interface SearchViewController () <UISearchBarDelegate, UITableViewDelegate, UIScrollViewDelegate>
 
 @end
@@ -30,6 +31,7 @@ static NSString * const cellID = @"searchTableViewCell";
         self.searchViewModel = [[SearchViewModel alloc] init];
         self.searchBar = [[UISearchBar alloc] init];
         self.currentPage = 1;
+        self.totalPage = 1;
         self.tableView = [[UITableView alloc] init];
         self.dataArray = [[NSMutableArray alloc] init];
         TableViewCellConfigureBlock block = ^(SearchTableViewCell *cell, SearchModel *model) {
@@ -55,6 +57,10 @@ static NSString * const cellID = @"searchTableViewCell";
     self.tableView.delegate = self;
     self.tableView.dataSource = self.searchTableViewDataSource;
     [self registerCell];
+
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [self afGetList];
+    }];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.searchBar.mas_bottom);
         make.left.right.bottom.equalTo(self.view);
@@ -96,6 +102,8 @@ static NSString * const cellID = @"searchTableViewCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell setSelected:NO];
     [self pushViewControllerWithIndexPath:indexPath];
 }
 

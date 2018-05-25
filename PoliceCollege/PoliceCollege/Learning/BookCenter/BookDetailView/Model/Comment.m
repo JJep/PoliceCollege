@@ -9,5 +9,9 @@
 #import "Comment.h"
 
 @implementation Comment
-
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{@"nameComment":@"name_comment",
+             @"imgComment":@"img_comment"
+             };
+}
 @end

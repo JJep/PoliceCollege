@@ -19,6 +19,7 @@ typedef NS_ENUM(NSUInteger, LearningCenterType) {
 @property (nonatomic, retain)UISearchBar *searchBar;
 @property (nonatomic, retain)NSNumber *typeNumber;
 @property (nonatomic, assign)NSUInteger currentPage;
+@property (nonatomic, assign)NSUInteger totalPage;
 @property (nonatomic, retain)UITableView *tableView;
 @property (nonatomic, retain)PCDataSource *searchTableViewDataSource;
 @property (nonatomic, retain)NSMutableArray *dataArray;

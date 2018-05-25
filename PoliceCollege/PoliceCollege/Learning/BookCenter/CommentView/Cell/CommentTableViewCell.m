@@ -72,7 +72,9 @@
 }
 
 - (void)setModel:(Comment *)model {
-    [portraitImageView sd_setImageWithURL:[NSURL pc_imageURLWithString:model.imgComment]];
+#warning url为测试版
+//    [portraitImageView sd_setImageWithURL:[NSURL pc_imageURLWithString:model.imgComment]];
+    [portraitImageView sd_setImageWithURL:[NSURL URLWithString:model.imgComment]];
     [userNameLabel setText:model.nameComment];
     [contentLabel setText:model.content];
     [timeLabel setText:model.published];

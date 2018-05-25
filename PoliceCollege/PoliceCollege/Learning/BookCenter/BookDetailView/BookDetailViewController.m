@@ -22,6 +22,7 @@
 
 @interface BookDetailViewController () <UITableViewDataSource, UITableViewDelegate, UITextViewDelegate>
 @property (nonatomic,assign)int currentView;
+@property (nonatomic, retain)UIView *contentView;
 @end
 
 @implementation BookDetailViewController {
@@ -47,11 +48,6 @@ static const int commentViewButtonTag = 1234;
 static const int readButtonTag = 12345;
 static const int downloadButtonTag = 123456;
 static const int commentButtonTag = 333321;
-//1-成功，2-参数问题，3-已评论，4-未完成学习
-static const int commentSuccessStatus = 1;
-static const int commentParaErrStatus = 2;
-static const int commentCommentedErrStatus = 3;
-static const int commentLearningCompletionErrStatus = 4;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -124,38 +120,24 @@ static const int commentLearningCompletionErrStatus = 4;
     if (sendCommentView.textView.text.length >= 200) {
         
         [commentViewModel uploadCommentWithBookID:[NSNumber numberWithInteger:self.model.idField] commentContent:sendCommentView.textView.text success:^(id responseObject) {
-            NSInteger status = [[responseObject objectForKey:@"status"] integerValue];
-            switch (status) {
-                case commentSuccessStatus:
-                {
-                    [SVProgressHUD showWithStatus:@"评论成功"];
-                    self->currentCommentPage = 1;
-                    [self downloadCommentList];
-                    break;
-                }
-                case commentParaErrStatus:
-                {
-                    [SVProgressHUD showErrorWithStatus:@"参数错误,请重试"];
-                break;
-                }
-                case commentCommentedErrStatus:
-                {
-                    [SVProgressHUD showErrorWithStatus:@"你已经评论过啦"];
-                    break;
-                }
-                case commentLearningCompletionErrStatus:
-                {
-                    [SVProgressHUD showErrorWithStatus:@"学习未完成无法评论"];
-                    break;
-                }
-                default:
-                    break;
+            NSString *status = [responseObject objectForKey:@"state"];
+            //1-成功，2-参数问题，3-已评论，4-未完成学习
+            if ([status isEqualToString:@"1"]) {
+                [SVProgressHUD showWithStatus:@"评论成功"];
+                self->currentCommentPage = 1;
+                [self downloadCommentList];
+            } else if ([status isEqualToString:@"2"]) {
+                [SVProgressHUD showErrorWithStatus:@"参数错误,请重试"];
+            } else if ([status isEqualToString:@"3"]) {
+                [SVProgressHUD showErrorWithStatus:@"你已经评论过啦"];
+            } else if ([status isEqualToString:@"4"]) {
+                [SVProgressHUD showErrorWithStatus:@"学习未完成无法评论"];
             }
         } fail:^(NSError *error) {
             
         }];
     } else {
-        [SVProgressHUD showWithStatus:@"评论字数必须大于200字"];
+        [SVProgressHUD showErrorWithStatus:@"评论字数必须大于200字"];
     }
     
    
@@ -163,11 +145,19 @@ static const int commentLearningCompletionErrStatus = 4;
 
 - (void)initViews {
     self.title = @"图书详情";
+    [self.view setBackgroundColor:[UIColor whiteColor]];
+    self.contentView = [[UIView alloc] init];
+    [self.view addSubview:self.contentView];
+    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.equalTo(self.view);
+        make.bottom.equalTo(self.view).offset(180);
+    }];
     
     tableView = [[UITableView alloc] init];
+    [tableView setBackgroundColor:[UIColor whiteColor]];
     tableView.delegate = self;
     tableView.dataSource = self;
-    [self.view addSubview:tableView];
+    [self.contentView addSubview:tableView];
     tableView.estimatedRowHeight = 205;
     tableView.rowHeight = UITableViewAutomaticDimension;
     
@@ -182,7 +172,7 @@ static const int commentLearningCompletionErrStatus = 4;
     _currentView = introductionView;
     
     commentButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [self.view addSubview:commentButton];
+    [self.contentView addSubview:commentButton];
     [commentButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.view);
         make.top.equalTo(self->tableView.mas_bottom);
@@ -194,14 +184,18 @@ static const int commentLearningCompletionErrStatus = 4;
     UIImage *image = [UIImage imageNamed:@"comment"];
     image = [self scaleToSize:image size:CGSizeMake(15, 15)];
     [commentButton setImage:image forState:UIControlStateNormal];
-    sendCommentView = [SendCommentView new];
-    [self.view addSubview:sendCommentView];
+    
+    
+    sendCommentView = [[SendCommentView alloc] init];
+    [self.contentView addSubview:sendCommentView];
     sendCommentView.textView.delegate = self;
+//    [sendCommentView setUserInteractionEnabled:YES];
     [sendCommentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
         make.top.equalTo(self.view.mas_bottom);
         make.height.mas_equalTo(180);
     }];
+//    [sendCommentView.commentButton setUserInteractionEnabled:YES];
     [sendCommentView.commentButton addTarget:self action:@selector(uploadComment) forControlEvents:UIControlEventTouchUpInside];
     
     //注册键盘弹出通知
@@ -355,7 +349,9 @@ static const int commentLearningCompletionErrStatus = 4;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    [sendCommentView.textView resignFirstResponder];
+    if ([scrollView isEqual:tableView]) {
+        [sendCommentView.textView resignFirstResponder];
+    }
 }
 
 
@@ -380,7 +376,6 @@ static const int commentLearningCompletionErrStatus = 4;
         case commentButtonTag: {
             [commentButton setHidden:true];
             [sendCommentView.textView becomeFirstResponder];
-            
             break;
         }
         default:
@@ -409,13 +404,13 @@ static const int commentLearningCompletionErrStatus = 4;
     [UIView beginAnimations:@"ResizeView" context:nil];
     
     [UIView setAnimationDuration:animationDuration];
-    
+
     if(y > 0)
-        
+
     {
-        
-        self.view.frame = CGRectMake(0, -y+self.navigationController.navigationBar.bounds.size.height, self.view.frame.size.width, self.view.frame.size.height);
-        
+
+        self.contentView.frame = CGRectMake(0, -y, self.contentView.frame.size.width, self.contentView.frame.size.height);
+
     }
     
     [UIView commitAnimations];
@@ -433,10 +428,57 @@ static const int commentLearningCompletionErrStatus = 4;
     
     [UIView setAnimationDuration:animationDuration];
     
-    self.view.frame =CGRectMake(0, self.navigationController.navigationBar.frame.origin.y + self.navigationController.navigationBar.bounds.size.height, self.view.frame.size.width, self.view.frame.size.height);
+    self.contentView.frame =CGRectMake(0, self.navigationController.navigationBar.bounds.origin.y, self.contentView.frame.size.width, self.contentView.frame.size.height);
     
     [UIView commitAnimations];
     [self updateUI];
+}
+
+- (UIView *)keyboardView
+{
+    UIWindow* tempWindow;
+    
+    //Because we cant get access to the UIKeyboard throught the SDK we will just use UIView.
+    //UIKeyboard is a subclass of UIView anyways
+    UIView* keyboard;
+    
+    NSLog(@"windows %ld", [[[UIApplication sharedApplication]windows]count]);
+    
+    //Check each window in our application
+    for(int c = 0; c < [[[UIApplication sharedApplication] windows] count]; c ++)
+    {
+        //Get a reference of the current window
+        tempWindow = [[[UIApplication sharedApplication] windows] objectAtIndex:c];
+        
+        //Get a reference of the current view
+        for(int i = 0; i < [tempWindow.subviews count]; i++)
+        {
+            keyboard = [tempWindow.subviews objectAtIndex:i];
+            NSLog(@"view: %@, on index: %d, class: %@", [keyboard description], i, [[tempWindow.subviews objectAtIndex:i] class]);
+            if([[keyboard description] hasPrefix:@"(lessThen)UIKeyboard"] == YES)
+            {
+                //If we get to this point, then our UIView "keyboard" is referencing our keyboard.
+                return keyboard;
+            }
+        }
+        
+        for(UIView* potentialKeyboard in tempWindow.subviews)
+            // if the real keyboard-view is found, remember it.
+            if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
+                if([[potentialKeyboard description] hasPrefix:@"<UILayoutContainerView"] == YES)
+                    keyboard = potentialKeyboard;
+            }
+            else if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 3.2) {
+                if([[potentialKeyboard description] hasPrefix:@"<UIPeripheralHost"] == YES)
+                    keyboard = potentialKeyboard;
+            }
+            else {
+                if([[potentialKeyboard description] hasPrefix:@"<UIKeyboard"] == YES)
+                    keyboard = potentialKeyboard;
+            }
+    }
+    
+    return keyboard;
 }
 
 - (void)pushToReadBook {
