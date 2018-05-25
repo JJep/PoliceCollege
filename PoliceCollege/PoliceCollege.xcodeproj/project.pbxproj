@@ -28,6 +28,8 @@
 		BE3A23B120AE7A1400FAEE18 /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3A23B020AE7A1400FAEE18 /* CommentViewController.m */; };
 		BE3A23B620AE7E4600FAEE18 /* CommentViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3A23B520AE7E4600FAEE18 /* CommentViewModel.m */; };
 		BE3A23BA20AE9BD600FAEE18 /* SendCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3A23B920AE9BD600FAEE18 /* SendCommentView.m */; };
+		BE3B439320B7B9B900848182 /* SearchViewController+NetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3B439220B7B9B900848182 /* SearchViewController+NetWork.m */; };
+		BE3B439620B7BCE600848182 /* SearchViewController+PushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3B439520B7BCE600848182 /* SearchViewController+PushViewController.m */; };
 		BE44B56A2094254E0001B143 /* PCPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5692094254E0001B143 /* PCPickerView.m */; };
 		BE44B571209468660001B143 /* PCTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B570209468660001B143 /* PCTopView.m */; };
 		BE44B57420946C790001B143 /* LearningMainCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B57320946C790001B143 /* LearningMainCollectionView.m */; };
@@ -261,6 +263,10 @@
 		BE3A23B520AE7E4600FAEE18 /* CommentViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentViewModel.m; sourceTree = "<group>"; };
 		BE3A23B820AE9BD600FAEE18 /* SendCommentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SendCommentView.h; sourceTree = "<group>"; };
 		BE3A23B920AE9BD600FAEE18 /* SendCommentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SendCommentView.m; sourceTree = "<group>"; };
+		BE3B439120B7B9B900848182 /* SearchViewController+NetWork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SearchViewController+NetWork.h"; sourceTree = "<group>"; };
+		BE3B439220B7B9B900848182 /* SearchViewController+NetWork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SearchViewController+NetWork.m"; sourceTree = "<group>"; };
+		BE3B439420B7BCE600848182 /* SearchViewController+PushViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SearchViewController+PushViewController.h"; sourceTree = "<group>"; };
+		BE3B439520B7BCE600848182 /* SearchViewController+PushViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SearchViewController+PushViewController.m"; sourceTree = "<group>"; };
 		BE44B5682094254E0001B143 /* PCPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCPickerView.h; sourceTree = "<group>"; };
 		BE44B5692094254E0001B143 /* PCPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCPickerView.m; sourceTree = "<group>"; };
 		BE44B56F209468660001B143 /* PCTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCTopView.h; sourceTree = "<group>"; };
@@ -841,6 +847,19 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		BE3B439020B7B98600848182 /* SeachViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BEAE302D20B6503F008E4569 /* SearchViewController.h */,
+				BEAE302E20B6503F008E4569 /* SearchViewController.m */,
+				BE3B439120B7B9B900848182 /* SearchViewController+NetWork.h */,
+				BE3B439220B7B9B900848182 /* SearchViewController+NetWork.m */,
+				BE3B439420B7BCE600848182 /* SearchViewController+PushViewController.h */,
+				BE3B439520B7BCE600848182 /* SearchViewController+PushViewController.m */,
+			);
+			path = SeachViewController;
+			sourceTree = "<group>";
+		};
 		BE44B56B209448B00001B143 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1174,8 +1193,7 @@
 		BEAE302C20B6501E008E4569 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				BEAE302D20B6503F008E4569 /* SearchViewController.h */,
-				BEAE302E20B6503F008E4569 /* SearchViewController.m */,
+				BE3B439020B7B98600848182 /* SeachViewController */,
 				BEAE303020B6641F008E4569 /* SearchViewModel.h */,
 				BEAE303120B6641F008E4569 /* SearchViewModel.m */,
 				BEAE303320B66936008E4569 /* SearchTableViewCell.h */,
@@ -2174,6 +2192,7 @@
 				BEB60D4920AB4AE100473BC5 /* CXMLNode_XPathExtensions.m in Sources */,
 				BEAE303220B6641F008E4569 /* SearchViewModel.m in Sources */,
 				BE21DAB22087815A0086B8BA /* HotIssueTableViewCell.m in Sources */,
+				BE3B439320B7B9B900848182 /* SearchViewController+NetWork.m in Sources */,
 				BEB60D4220AB4AE100473BC5 /* zip.c in Sources */,
 				BE44B5EF20A0536E0001B143 /* Chapter.m in Sources */,
 				BEB60D6E20AB4AE100473BC5 /* LSYNoteVC.m in Sources */,
@@ -2197,6 +2216,7 @@
 				BEAE2FFD20B1C5C9008E4569 /* AnnouncementDataSource.m in Sources */,
 				BEB60D5720AB4AE100473BC5 /* GTMNSString+HTML.m in Sources */,
 				BE21DAA0208732D40086B8BA /* PCCenterdView.m in Sources */,
+				BE3B439620B7BCE600848182 /* SearchViewController+PushViewController.m in Sources */,
 				BEAE302F20B6503F008E4569 /* SearchViewController.m in Sources */,
 				BEB60A1920A8771E00473BC5 /* Season.m in Sources */,
 				BEDE5305208F355800D00A98 /* PushSettingTableViewCell.m in Sources */,

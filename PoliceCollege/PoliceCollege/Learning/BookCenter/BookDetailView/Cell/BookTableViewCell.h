@@ -8,7 +8,7 @@
 
 #import "SearchTableViewCell.h"
 #import "Book.h"
-@interface BookTableViewCell : SearchTableViewCell
+@interface BookTableViewCell : UITableViewCell
 @property(nonatomic,retain)UIButton *readBtn;
 @property(nonatomic,retain)UIButton *downloadBtn;
 //@property(nonatomic,retain)BookModel *bookModel;

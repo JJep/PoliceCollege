@@ -24,7 +24,7 @@
 
 @end
 
-static const int courseType = 3;
+//static const int courseType = 3;
 static NSString *courseCellID = @"CourseCenterTableViewCell";
 static const int searchButtonTag = 5;
 
@@ -67,8 +67,6 @@ static const int searchButtonTag = 5;
 
 - (void)initNavigationBar {
     UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeSystem];
-//    [moreButton setTitle:@"更多" forState:UIControlStateNormal];
-//    [moreButton setTitleColor:rgba(181,181,181,1) forState:UIControlStateNormal];
     [searchButton setImage:[UIImage imageNamed:@"searchIcon"] forState:UIControlStateNormal];
     [searchButton addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
     [searchButton setTag:searchButtonTag];
@@ -235,7 +233,7 @@ static const int searchButtonTag = 5;
 
 - (void)getMyChannel {
     //获取我的频道
-    [channelViewModel getMyChannelWithType:[NSNumber numberWithInt:3] success:^(id responseObject) {
+    [channelViewModel getMyChannelWithType:[NSNumber numberWithInteger:learningCourseType] success:^(id responseObject) {
         if ([[responseObject objectForKey:@"state"] isEqualToString:@"1"]) {
             self->myChannel = [MyChannel yy_modelWithJSON:[responseObject objectForKey:@"myParamset"]];
             //移除之前的频道
@@ -317,14 +315,14 @@ static const int searchButtonTag = 5;
     switch (button.tag) {
         case searchButtonTag:
         {
-            SearchViewController *searchViewController = [[SearchViewController alloc] init];
+            SearchViewController *searchViewController = [[SearchViewController alloc] initWithType:[NSNumber numberWithInt:learningCourseType]];
             [self.navigationController pushViewController:searchViewController animated:true];
             break;
         }
         default:
         {
             MoreChannelsViewController *newVC = [MoreChannelsViewController new];
-            newVC.type = courseType;
+            newVC.type = learningCourseType;
             newVC.idField = myChannel.idField;
             newVC.myChannelDataArray = channelsArray;
             [self.navigationController pushViewController:newVC animated:true];

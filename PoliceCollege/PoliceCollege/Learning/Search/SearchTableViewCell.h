@@ -10,6 +10,6 @@
 @class SearchModel;
 @interface SearchTableViewCell : UITableViewCell
 @property (nonatomic, retain)SearchModel *model;
-
+//- (void)setModel:(SearchModel *)model;
 + (instancetype)initWithModel:(SearchModel *)model ;
 @end

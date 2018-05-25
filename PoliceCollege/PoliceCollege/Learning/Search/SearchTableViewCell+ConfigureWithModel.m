@@ -10,8 +10,7 @@
 #import "SearchModel.h"
 @implementation SearchTableViewCell (ConfigureWithModel)
 - (void)configureWithModel:(SearchModel *)model {
-    SearchTableViewCell *cell = [SearchTableViewCell initWithModel:model];
-    [cell setModel:model];
+    [self setModel:model];
 }
 
 

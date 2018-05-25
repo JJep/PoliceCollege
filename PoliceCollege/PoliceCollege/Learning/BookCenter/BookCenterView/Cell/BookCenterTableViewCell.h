@@ -6,9 +6,9 @@
 //  Copyright © 2018年 Jep Xia. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "SearchTableViewCell.h"
 #import "Book.h"
-@interface BookCenterTableViewCell : UITableViewCell
+@interface BookCenterTableViewCell : SearchTableViewCell
 //@property (nonatomic,assign)BOOL isAlreadySelected;
 @property (nonatomic,retain)UIImage *image;
 @property (nonatomic,copy)NSString *courseName;
@@ -18,5 +18,6 @@
 @property (nonatomic,assign)int score;
 @property (nonatomic,assign)int clicks;
 @property (nonatomic,assign)int commentsQuantity;
+- (void)setModel:(id)model ;
 - (void)setModel:(id)model isSelected:(BOOL)isSelected;
 @end

@@ -17,10 +17,13 @@
 #import "PCChannelViewModel.h"
 #import "MyChannel.h"
 #import "DetailVideoViewController.h"
+#import "SearchViewController.h"
 @interface  VideoCenterViewController() <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end
-static const int videoType = 5;
+//static const int videoType = 5;
+static const int searchButtonTag = 5;
+
 @implementation VideoCenterViewController {
     UITableView *tableView;
     ChannelView *channelView;
@@ -66,10 +69,22 @@ static const int videoType = 5;
     }];
 }
 
+- (void)initNavigationBar {
+    UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [searchButton setImage:[UIImage imageNamed:@"searchIcon"] forState:UIControlStateNormal];
+    [searchButton addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [searchButton setTag:searchButtonTag];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:searchButton];
+    self.navigationItem.rightBarButtonItem = rightButton;
+    [self.view setBackgroundColor:rgb(244, 244, 249)];
+}
+
 - (void)initViews {
     
     [self.view setBackgroundColor:MyWhiteBackgroundColor];
     self.title = @"视频中心";
+    
+    [self initNavigationBar];
     
     backView = [[BackView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:backView];
@@ -116,7 +131,7 @@ static const int videoType = 5;
 
 - (void)getMyChannel {
     //获取我的频道
-    [channelViewModel getMyChannelWithType:[NSNumber numberWithInt:videoType] success:^(id responseObject) {
+    [channelViewModel getMyChannelWithType:[NSNumber numberWithInt:learningVideoType] success:^(id responseObject) {
         if ([[responseObject objectForKey:@"state"] isEqualToString:@"1"]) {
             self->myChannel = [MyChannel yy_modelWithJSON:[responseObject objectForKey:@"myParamset"]];
             //移除之前的频道
@@ -188,6 +203,12 @@ static const int videoType = 5;
     }
     
 }
+
+- (void)didTouchBtn:(UIButton *)button {
+    SearchViewController *searchViewController = [[SearchViewController alloc] initWithType:[NSNumber numberWithInt:learningVideoType]];
+    [self.navigationController pushViewController:searchViewController animated:true];
+}
+
 @end
 
 

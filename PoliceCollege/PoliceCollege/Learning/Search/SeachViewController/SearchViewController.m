@@ -12,14 +12,12 @@
 #import "SearchTableViewCell.h"
 #import "SearchModel.h"
 #import "SearchTableViewCell+ConfigureWithModel.h"
-@interface SearchViewController () <UISearchBarDelegate, UITableViewDelegate>
-@property (nonatomic, retain)UISearchBar *searchBar;
-@property (nonatomic, retain)NSNumber *typeNumber;
-@property (nonatomic, retain)SearchViewModel *searchViewModel;
-@property (nonatomic, assign)NSUInteger currentPage;
-@property (nonatomic, retain)UITableView *tableView;
-@property (nonatomic, retain)PCDataSource *searchTableViewDataSource;
-@property (nonatomic, retain)NSMutableArray *dataArray;
+#import "BookCenterTableViewCell.h"
+#import "VideoTableViewCell.h"
+#import "SearchViewController+NetWork.h"
+#import "SearchViewController+PushViewController.h"
+@interface SearchViewController () <UISearchBarDelegate, UITableViewDelegate, UIScrollViewDelegate>
+
 @end
 
 static NSString * const cellID = @"searchTableViewCell";
@@ -52,8 +50,29 @@ static NSString * const cellID = @"searchTableViewCell";
 }
 
 - (void)setupTableView {
+    [self.view addSubview:self.tableView];
+    [self.tableView setTableFooterView:[[UIView alloc] init]];
     self.tableView.delegate = self;
     self.tableView.dataSource = self.searchTableViewDataSource;
+    [self registerCell];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.searchBar.mas_bottom);
+        make.left.right.bottom.equalTo(self.view);
+    }];
+}
+
+- (void)registerCell {
+    switch ([self.typeNumber integerValue]) {
+        case learningBookType:
+        case learningCourseType:
+            [self.tableView registerClass:[BookCenterTableViewCell class] forCellReuseIdentifier:cellID];
+            break;
+        case learningVideoType:
+            [self.tableView registerClass:[VideoTableViewCell class] forCellReuseIdentifier:cellID];
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)setupSearchBar {
@@ -67,19 +86,22 @@ static NSString * const cellID = @"searchTableViewCell";
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    self.currentPage = 1;
+    [self.searchBar resignFirstResponder];
     [self afGetList];
 }
 
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
-    self.currentPage = 1;
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [self.searchBar resignFirstResponder];
 }
 
-- (void)afGetList {
-    [self.searchViewModel afGetListWithTitle:self.searchBar.text type:self.typeNumber currentPage:[NSNumber numberWithInteger:self.currentPage] success:^(id responseObject) {
-        
-    } fail:^(NSError *error) {
-        
-    }];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self pushViewControllerWithIndexPath:indexPath];
+}
+
+- (void)updateUI {
+    [self.searchTableViewDataSource updateWithItems:self.dataArray];
+    [self.tableView reloadData];
 }
 
 @end

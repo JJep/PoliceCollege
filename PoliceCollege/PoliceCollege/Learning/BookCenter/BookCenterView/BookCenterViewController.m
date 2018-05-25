@@ -19,12 +19,16 @@
 #import "Book.h"
 #import "MyChannel.h"
 #import <MJRefresh.h>
+#import "SearchViewController.h"
 @interface BookCenterViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end
 
-static const int bookType = 4;
+//static const int bookType = 4;
+static const int searchButtonTag = 5;
 static NSString *bookCellID = @"BookCenterTableViewCell";
+
+
 @implementation BookCenterViewController {
     UITableView *tableView;
     ChannelView *channelView;
@@ -61,10 +65,21 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
     currentPage = 1;
 }
 
+- (void)initNavigationBar {
+    UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [searchButton setImage:[UIImage imageNamed:@"searchIcon"] forState:UIControlStateNormal];
+    [searchButton addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [searchButton setTag:searchButtonTag];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:searchButton];
+    self.navigationItem.rightBarButtonItem = rightButton;
+    [self.view setBackgroundColor:rgb(244, 244, 249)];
+}
+
 - (void)createUI {
     
     [self.view setBackgroundColor:MyWhiteBackgroundColor];
     self.title = @"图书中心";
+    [self initNavigationBar];
     
     backView = [[BackView alloc] init];
     [backView setName:@"暂无图书"];
@@ -73,6 +88,7 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
     
     tableView = [[UITableView alloc] init];
     [backView addSubview:tableView];
+    [tableView setTableFooterView:[[UIView alloc] init]];
     tableView.mj_footer = [MJRefreshFooter footerWithRefreshingBlock:^{
         if ([self->currentChannel.name isEqualToString:@"推荐"]) {
             [self getMoreRecommendedBookList];
@@ -216,7 +232,7 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
 
 - (void)getMyChannel {
     //获取我的频道
-    [channelViewModel getMyChannelWithType:[NSNumber numberWithInt:bookType] success:^(id responseObject) {
+    [channelViewModel getMyChannelWithType:[NSNumber numberWithInt:learningBookType] success:^(id responseObject) {
         if ([[responseObject objectForKey:@"state"] isEqualToString:@"1"]) {
             self->myChannel = [MyChannel yy_modelWithJSON:[responseObject objectForKey:@"myParamset"]];
             //移除之前的频道
@@ -295,11 +311,24 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
 }
 
 - (void)didTouchBtn:(UIButton *)button {
-    MoreChannelsViewController *newVC = [MoreChannelsViewController new];
-    newVC.type = bookType;
-    newVC.idField = myChannel.idField;
-    newVC.myChannelDataArray = channelsArray;
-    [self.navigationController pushViewController:newVC animated:true];
+    
+    switch (button.tag) {
+        case searchButtonTag:
+        {
+            SearchViewController *searchViewController = [[SearchViewController alloc] initWithType:[NSNumber numberWithInt:learningBookType]];
+            [self.navigationController pushViewController:searchViewController animated:true];
+            break;
+        }
+        default:
+        {
+            MoreChannelsViewController *newVC = [MoreChannelsViewController new];
+            newVC.type = learningBookType;
+            newVC.idField = myChannel.idField;
+            newVC.myChannelDataArray = channelsArray;
+            [self.navigationController pushViewController:newVC animated:true];
+            break;
+        }
+    }
 }
 @end
 

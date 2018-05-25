@@ -100,6 +100,10 @@
     return self;
 }
 
+- (void)setModel:(id)model {
+    [self setModel:model isSelected:NO];
+}
+
 - (void)setModel:(id)model isSelected:(BOOL)isSelected
 {
     if (isSelected) {

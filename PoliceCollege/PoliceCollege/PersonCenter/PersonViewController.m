@@ -151,6 +151,7 @@ static NSString * const cellID = @"overviewCell";
     cell.selected = NO;
     BookCenterViewController *bookViewController = [[BookCenterViewController alloc] init];
     bookViewController.isSelected = YES;
+    bookViewController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:bookViewController animated:true];
     
 }

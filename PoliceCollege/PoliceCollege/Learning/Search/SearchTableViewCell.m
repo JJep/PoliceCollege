@@ -10,7 +10,7 @@
 #import "Course.h"
 #import "Book.h"
 #import "Video.h"
-#import "BookTableViewCell.h"
+#import "BookCenterTableViewCell.h"
 #import "VideoTableViewCell.h"
 #import "SearchModel.h"
 @implementation SearchTableViewCell
@@ -20,7 +20,7 @@
     if ([[model class] isEqual:[Video class]]) {
         cell = [[VideoTableViewCell alloc] init];
     } else {
-        cell = [[BookTableViewCell alloc] init];
+        cell = [[BookCenterTableViewCell alloc] init];
     }
     return cell;
 }
