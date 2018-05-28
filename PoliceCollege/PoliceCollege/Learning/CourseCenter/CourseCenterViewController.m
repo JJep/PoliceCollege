@@ -34,7 +34,7 @@ static const int searchButtonTag = 5;
     ChannelView *channelView;
     ChannelCollectionViewCell *tempCell;
     BackView *backView;
-    NSMutableArray *dataArray;
+//    NSMutableArray *dataArray;
     PCCourseViewModel *courseViewModel;
     PCChannelViewModel *channelViewModel;
     NSMutableArray *channelsArray;
@@ -178,10 +178,15 @@ static const int searchButtonTag = 5;
 - (void)getCourseList {
     if (self.isSelected) {
         [courseViewModel downloadSelectedCourseWithCurrentPage:[NSNumber numberWithInt:1] success:^(id responseObject) {
+            self->totalPage = [[responseObject objectForKey:@"sumPage"] intValue];
             [self->coursesArray removeAllObjects];
             NSArray *tempAry = [NSArray yy_modelArrayWithClass:[Course class] json:[responseObject objectForKey:@"learnrecordList"]];
             [self->coursesArray addObjectsFromArray:tempAry];
-            self->currentPage = 2;
+            if (self->currentPage == self->totalPage) {
+                
+            } else {
+                self->currentPage ++;
+            }
             [self updateUI];
         } fail:^(NSError *error) {
             
@@ -289,8 +294,10 @@ static const int searchButtonTag = 5;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell setSelected:NO];
     DetailCourseViewController *newVC = [[DetailCourseViewController alloc] init];
-    newVC.idField = ((Course *)dataArray[indexPath.row]).idField;
+    newVC.idField = ((Course *)coursesArray[indexPath.row]).idField;
     [self.navigationController pushViewController:newVC animated:true];
 }
 
@@ -302,6 +309,7 @@ static const int searchButtonTag = 5;
         [cell setIsSelected:true];
         tempCell = cell;
         currentChannel = ((Channel *)channelsArray[indexPath.row]);
+        currentPage = 1;
         if ([currentChannel.name isEqualToString:@"推荐"]) {
             [self getRecommendedCourseList];
         } else {

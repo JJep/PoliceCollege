@@ -29,6 +29,7 @@
         
         
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+//        UIAlertAction *actrio = [uialertac]
         
 //        // 设置按钮背景图片
 //        UIImage *accessoryImage = [[UIImage imageNamed:@"selectRDImag.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];

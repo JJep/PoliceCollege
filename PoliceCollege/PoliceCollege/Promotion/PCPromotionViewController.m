@@ -13,6 +13,8 @@
 #import "PCAnouncementTableViewController.h"
 #import "PublicCourseViewController.h"
 #import "PublicVideoViewController.h"
+#import "JMUserLocalData.h"
+#import "PCLoginViewController.h"
 #define leftBtnTag 123
 #define centerBtnTag 1234
 #define rightBtnTag 12345
@@ -28,6 +30,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if (![JMUserLocalData sharedManager].isLogin) {
+        PCLoginViewController *loginVC = [[PCLoginViewController alloc] init];
+        [self presentViewController:loginVC animated:true completion:nil];
+    }
+    
     [self setPromotionView];
     [self.view setBackgroundColor:MyWhiteBackgroundColor];
 }

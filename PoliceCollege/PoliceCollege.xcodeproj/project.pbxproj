@@ -30,6 +30,8 @@
 		BE3A23BA20AE9BD600FAEE18 /* SendCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3A23B920AE9BD600FAEE18 /* SendCommentView.m */; };
 		BE3B439320B7B9B900848182 /* SearchViewController+NetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3B439220B7B9B900848182 /* SearchViewController+NetWork.m */; };
 		BE3B439620B7BCE600848182 /* SearchViewController+PushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3B439520B7BCE600848182 /* SearchViewController+PushViewController.m */; };
+		BE3B439C20B805AF00848182 /* UIImage+ScaleToSize.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3B439B20B805AF00848182 /* UIImage+ScaleToSize.m */; };
+		BE3B439F20B81EAE00848182 /* TestCompletionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3B439E20B81EAE00848182 /* TestCompletionView.m */; };
 		BE44B56A2094254E0001B143 /* PCPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B5692094254E0001B143 /* PCPickerView.m */; };
 		BE44B571209468660001B143 /* PCTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B570209468660001B143 /* PCTopView.m */; };
 		BE44B57420946C790001B143 /* LearningMainCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE44B57320946C790001B143 /* LearningMainCollectionView.m */; };
@@ -267,6 +269,10 @@
 		BE3B439220B7B9B900848182 /* SearchViewController+NetWork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SearchViewController+NetWork.m"; sourceTree = "<group>"; };
 		BE3B439420B7BCE600848182 /* SearchViewController+PushViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SearchViewController+PushViewController.h"; sourceTree = "<group>"; };
 		BE3B439520B7BCE600848182 /* SearchViewController+PushViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SearchViewController+PushViewController.m"; sourceTree = "<group>"; };
+		BE3B439A20B805AF00848182 /* UIImage+ScaleToSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+ScaleToSize.h"; sourceTree = "<group>"; };
+		BE3B439B20B805AF00848182 /* UIImage+ScaleToSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ScaleToSize.m"; sourceTree = "<group>"; };
+		BE3B439D20B81EAE00848182 /* TestCompletionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestCompletionView.h; sourceTree = "<group>"; };
+		BE3B439E20B81EAE00848182 /* TestCompletionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestCompletionView.m; sourceTree = "<group>"; };
 		BE44B5682094254E0001B143 /* PCPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCPickerView.h; sourceTree = "<group>"; };
 		BE44B5692094254E0001B143 /* PCPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCPickerView.m; sourceTree = "<group>"; };
 		BE44B56F209468660001B143 /* PCTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCTopView.h; sourceTree = "<group>"; };
@@ -943,6 +949,8 @@
 				BE44B5832095BBB70001B143 /* OptionView.m */,
 				BEB60A3820AB126B00473BC5 /* OptionButton.h */,
 				BEB60A3920AB126B00473BC5 /* OptionButton.m */,
+				BE3B439D20B81EAE00848182 /* TestCompletionView.h */,
+				BE3B439E20B81EAE00848182 /* TestCompletionView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1131,6 +1139,8 @@
 				BEB609F320A56A9400473BC5 /* NSObject+PropertyMapper.m */,
 				BEAE301820B50D27008E4569 /* UILabel+VerticalAlign.h */,
 				BEAE301920B50D27008E4569 /* UILabel+VerticalAlign.m */,
+				BE3B439A20B805AF00848182 /* UIImage+ScaleToSize.h */,
+				BE3B439B20B805AF00848182 /* UIImage+ScaleToSize.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -2103,6 +2113,7 @@
 				BEB60D4320AB4AE100473BC5 /* ioapi.c in Sources */,
 				BEDE52C62089DB9C00D00A98 /* MePortraitTableViewCell.m in Sources */,
 				BEDE533920916A1A00D00A98 /* MyChannelsCollectionViewCell.m in Sources */,
+				BE3B439C20B805AF00848182 /* UIImage+ScaleToSize.m in Sources */,
 				BE44B5D8209D8CF20001B143 /* OnlineTestViewModel.m in Sources */,
 				BEB60D4520AB4AE100473BC5 /* ZipArchive.mm in Sources */,
 				BEB609E420A4317900473BC5 /* DetailVideo.m in Sources */,
@@ -2194,6 +2205,7 @@
 				BE21DAB22087815A0086B8BA /* HotIssueTableViewCell.m in Sources */,
 				BE3B439320B7B9B900848182 /* SearchViewController+NetWork.m in Sources */,
 				BEB60D4220AB4AE100473BC5 /* zip.c in Sources */,
+				BE3B439F20B81EAE00848182 /* TestCompletionView.m in Sources */,
 				BE44B5EF20A0536E0001B143 /* Chapter.m in Sources */,
 				BEB60D6E20AB4AE100473BC5 /* LSYNoteVC.m in Sources */,
 				BE44B5CD209C61490001B143 /* PCAnnouncementModel.m in Sources */,

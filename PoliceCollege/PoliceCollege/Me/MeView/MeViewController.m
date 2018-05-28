@@ -209,6 +209,8 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell setSelected:NO];
     if (indexPath.row == 0) {
         [self pushToViewController:[PersonalInformationViewController new]];
         
@@ -216,6 +218,33 @@
         [self pushToViewController:[ChangePasswordViewController new]];
     } else if (indexPath.row == 2) {
         [self pushToViewController:[PushSettingViewController new]];
+    } else if (indexPath.row == 3) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"是否删除缓存" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//            [self cacheClear];
+        }];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        }];
+        [alert addAction:cancel];
+        [alert addAction:ok];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+
+}
+
+- (void)cacheClear {
+    // 获取Library文件夹路径
+    NSString *libPath = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0];
+    // 获取Library下Caches文件夹路径
+    NSString *cachePath = [libPath stringByAppendingPathComponent:@"Caches"];
+    // 实例化NSFileManager
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    // 获取Caches文件夹下的所有文件及文件夹
+    NSArray *array = [fileManager contentsOfDirectoryAtPath:cachePath error:nil];
+    // 循环删除Caches下的所有文件及文件夹
+    for (NSString *fileName in array) {
+        [fileManager removeItemAtPath:[cachePath stringByAppendingPathComponent:fileName] error:nil];
     }
 }
 

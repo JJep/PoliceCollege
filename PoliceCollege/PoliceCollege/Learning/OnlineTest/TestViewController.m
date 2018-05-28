@@ -14,6 +14,7 @@
 #import "OptionButton.h"
 #import "OptionView.h"
 #import "PCCurrentDate.h"
+#import "TestCompletionView.h"
 @interface TestViewController ()
 
 @end
@@ -26,6 +27,7 @@
     UILabel *questionNameLabel;
     UILabel *topLabel ;
     NSInteger currentScore;
+    NSUInteger totalScore;
     NSMutableArray *selectedOptionsArray;
     NSArray *optionsArray;
     NSMutableArray *questionTOArray;
@@ -46,7 +48,7 @@
     selectedOptionsArray = [NSMutableArray new];
     [testViewModel getQuestionsActionwithTestID:[NSNumber numberWithInteger:self.testID] success:^(id responseObject) {
         self->questionArray = [NSArray yy_modelArrayWithClass:[Question class] json:[responseObject objectForKey:@"questionList"]];
-        NSLog(@"%@",self->questionArray);
+        self->totalScore = ((Question *)self->questionArray[0]).score * self->questionArray.count;
         self->currentIndex = 0;
         [self updateUI];
     } fail:^(NSError *error) {
@@ -253,7 +255,19 @@
 
 - (void)complete {
     [self uploadAnswer:(Question *)questionArray[currentIndex-1]];
+    TestCompletionView *testCompletionView = [[TestCompletionView alloc] initWithCurrentScore:currentScore totalScore:totalScore];
+    for (UIView *subview in self.view.subviews) {
+        [subview removeFromSuperview];
+    }
+    [self.view addSubview:testCompletionView];
+    [testCompletionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    [testCompletionView.completeButton addTarget:self action:@selector(pop) forControlEvents:UIControlEventTouchUpInside];
     
+}
+
+- (void)pop {
     [self.navigationController popViewControllerAnimated:true];
 }
 

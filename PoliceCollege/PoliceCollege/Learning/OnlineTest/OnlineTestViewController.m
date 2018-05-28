@@ -56,6 +56,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell setSelected:NO];
     [SVProgressHUD show];
     [testViewModel readyToStartActionWithTestID:[NSNumber numberWithInteger:((TestPaper *)self.paperArray[indexPath.row]).idField] success:^(id responseObject) {
         

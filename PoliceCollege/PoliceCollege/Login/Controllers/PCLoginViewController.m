@@ -55,10 +55,13 @@
             NSLog(@"%@",self->user);
             NSLog(@"%@",[JMUserLocalData sharedManager].user);
             //弹出消息框
-            PCAlertControllerViewController *alertController = [[PCAlertControllerViewController alloc] initWithMessage:@"登录成功"];
-            [self presentViewController:alertController animated:true completion:^{
-                [self dismissViewControllerAnimated:true completion:nil];
-            }];
+//            PCAlertControllerViewController *alertController = [[PCAlertControllerViewController alloc] initWithMessage:@"登录成功"];
+////            [self presentViewController:alertController animated:true completion:nil];
+//            [self presentViewController:alertController animated:true completion:^{
+//
+//            }];
+            [SVProgressHUD showSuccessWithStatus:@"登录成功"];
+            [self dismissViewControllerAnimated:true completion:nil];
         } else {
             //登录失败
             PCAlertControllerViewController *alertController = [[PCAlertControllerViewController alloc] initWithMessage:@"账户密码错误"];

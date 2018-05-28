@@ -12,6 +12,7 @@
 static NSString* const cellIdentifier = @"PushSettingCell";
 
 @interface PushSettingViewController () <UITableViewDelegate, UITableViewDataSource>
+@property (nonatomic, retain)NSArray *dataArray;
 
 @end
 
@@ -22,12 +23,21 @@ static NSString* const cellIdentifier = @"PushSettingCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self initData];
+    
     tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     tableView.delegate = self;
     tableView.dataSource = self;
+    [tableView setTableFooterView:[[UIView alloc] init]];
     [tableView registerClass:[PushSettingTableViewCell class] forCellReuseIdentifier:cellIdentifier];
     [self.view addSubview:tableView];
+}
 
+- (void)initData {
+    self.dataArray = @[
+                       @"消息推送",
+                       @"通知响铃",
+                       @"通知震动"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,7 +47,7 @@ static NSString* const cellIdentifier = @"PushSettingCell";
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PushSettingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
+    [cell setTitle:self.dataArray[indexPath.row]];
     return cell;
 }
 
@@ -46,7 +56,7 @@ static NSString* const cellIdentifier = @"PushSettingCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return self.dataArray.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

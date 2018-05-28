@@ -10,13 +10,17 @@
 #import "VideoViewModel.h"
 #import "WebVideoViewController.h"
 #import "DetailVideoTableViewCell.h"
+#import "UIImage+ScaleToSize.h"
+#import "CommentViewController.h"
 @interface DetailVideoViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @end
 static NSString *cellID = @"detailVideoCell";
+static const int commentButtonTag = 15;
 @implementation DetailVideoViewController{
     UITableView *tableView;
     VideoViewModel *videoViewModel;
+    UIButton *commentButton;
 }
 
 - (void)viewDidLoad {
@@ -54,6 +58,22 @@ static NSString *cellID = @"detailVideoCell";
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+    
+    
+    commentButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [self.view addSubview:commentButton];
+    [commentButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.height.mas_equalTo(50);
+    }];
+    [commentButton setTitle:@"评论" forState:UIControlStateNormal];
+    [commentButton addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [commentButton setTag:commentButtonTag];
+    [commentButton setHidden:true];
+    UIImage *image = [UIImage imageNamed:@"comment"];
+    image = [UIImage scaleToSize:image size:CGSizeMake(15, 15)];
+    [commentButton setImage:image forState:UIControlStateNormal];
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -75,6 +95,11 @@ static NSString *cellID = @"detailVideoCell";
     WebVideoViewController *webVideoViewcontroller = [WebVideoViewController new];
     webVideoViewcontroller.URLString = self.model.videoUrl;
     [self.navigationController pushViewController:webVideoViewcontroller animated:true];
+}
+
+- (void)didTouchBtn:(UIButton *)button {
+    CommentViewController *commentVC = [[CommentViewController alloc] init];
+    [self.navigationController pushViewController:commentVC animated:true];
 }
 
 - (void)didReceiveMemoryWarning {

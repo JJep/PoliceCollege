@@ -10,13 +10,17 @@
 #import "PCDetailCourseTableViewCell.h"
 #import "WebVideoViewController.h"
 #import "PCCourseViewModel.h"
+#import "UIImage+ScaleToSize.h"
+#import "CommentViewController.h"
 @interface DetailCourseViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @end
 static NSString *cellID = @"detailCourseCell";
+static const int commentButtonTag = 456;
 @implementation DetailCourseViewController {
     UITableView *tableView;
     PCCourseViewModel *courseViewModel;
+    UIButton *commentButton;
 }
 
 - (void)viewDidLoad {
@@ -54,6 +58,21 @@ static NSString *cellID = @"detailCourseCell";
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+    
+    
+    commentButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [self.view addSubview:commentButton];
+    [commentButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.height.mas_equalTo(50);
+    }];
+    [commentButton setTitle:@"评论" forState:UIControlStateNormal];
+    [commentButton addTarget:self action:@selector(didTouchBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [commentButton setTag:commentButtonTag];
+    [commentButton setHidden:true];
+    UIImage *image = [UIImage imageNamed:@"comment"];
+    image = [UIImage scaleToSize:image size:CGSizeMake(15, 15)];
+    [commentButton setImage:image forState:UIControlStateNormal];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -80,6 +99,11 @@ static NSString *cellID = @"detailCourseCell";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)didTouchBtn:(UIButton *)button {
+    CommentViewController *commentVC = [[CommentViewController alloc] init];
+    [self.navigationController pushViewController:commentVC animated:true];
 }
 
 /*

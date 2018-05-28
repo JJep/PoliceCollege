@@ -18,6 +18,7 @@
 #import "MyChannel.h"
 #import "DetailVideoViewController.h"
 #import "SearchViewController.h"
+#import <MJRefresh.h>
 @interface  VideoCenterViewController() <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end
@@ -55,19 +56,10 @@ static const int searchButtonTag = 5;
     } else {
         [tableView setHidden:false];
     }
-    [channelView.collectionView reloadData];
+//    [channelView.collectionView reloadData];
     [tableView reloadData];
 }
 
-- (void)downloadRecommendedVideo {
-    [videoViewModel getRecommendedVideoListActionWithCurrentPage:[NSNumber numberWithUnsignedInteger:currentPage] success:^(id responseObject) {
-        NSArray *ary = [NSArray yy_modelArrayWithClass:[Video class] json:[responseObject objectForKey:@"videoList"]];
-        [self->videoArray addObjectsFromArray:ary];
-        [self updateUI];
-    } fail:^(NSError *error) {
-        
-    }];
-}
 
 - (void)initNavigationBar {
     UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -98,6 +90,13 @@ static const int searchButtonTag = 5;
     tableView.dataSource = self;
     [tableView setHidden:true];
     [tableView registerClass:[VideoTableViewCell class] forCellReuseIdentifier:@"videoCell"];
+    tableView.mj_footer = [MJRefreshFooter footerWithRefreshingBlock:^{
+        if ([self->currentChannel.name isEqualToString:@"推荐"]) {
+            [self downloadRecommendedVideo];
+        } else {
+            [self afGetVideoList];
+        }
+    }];
     
     channelView = [[ChannelView alloc] init];
     [self.view addSubview:channelView];
@@ -129,6 +128,47 @@ static const int searchButtonTag = 5;
     [self getMyChannel];
 }
 
+- (void)downloadRecommendedVideo {
+    [videoViewModel getRecommendedVideoListActionWithCurrentPage:[NSNumber numberWithUnsignedInteger:currentPage] success:^(id responseObject) {
+        self->totalPage = [[responseObject objectForKey:@"sumPage"] intValue];
+        if (self->currentPage == 1) {
+            [self->videoArray removeAllObjects];
+        }
+        NSArray *ary = [NSArray yy_modelArrayWithClass:[Video class] json:[responseObject objectForKey:@"videoList"]];
+        [self->videoArray addObjectsFromArray:ary];
+        if (self->currentPage == self->totalPage) {
+            [self->tableView.mj_footer endRefreshingWithNoMoreData];
+        } else {
+            [self->tableView.mj_footer endRefreshing];
+            self->currentPage ++;
+        }
+        [SVProgressHUD dismiss];
+        [self updateUI];
+    } fail:^(NSError *error) {
+        
+    }];
+}
+
+- (void)afGetVideoList {
+    [videoViewModel getVideoListActionWithType:[NSNumber numberWithInteger:currentChannel.idField] currentPage:[NSNumber numberWithInteger:currentPage] success:^(id responseObject) {
+        if (self->currentPage == 1) {
+            [self->videoArray removeAllObjects];
+        }
+        NSArray *tempAry = [NSArray yy_modelArrayWithClass:[Video class] json:[responseObject objectForKey:@"videoList"]];
+        [self->videoArray addObjectsFromArray:tempAry];
+        if (self->currentPage == self->totalPage) {
+            [self->tableView.mj_footer endRefreshingWithNoMoreData];
+        } else {
+            [self->tableView.mj_footer endRefreshing];
+            self->currentPage++;
+        }
+        [self updateUI];
+        [SVProgressHUD dismiss];
+    } fail:^(NSError *error) {
+        
+    }];
+}
+
 - (void)getMyChannel {
     //获取我的频道
     [channelViewModel getMyChannelWithType:[NSNumber numberWithInt:learningVideoType] success:^(id responseObject) {
@@ -148,6 +188,7 @@ static const int searchButtonTag = 5;
             //重绘
             //            [self updateUI];
             [self->channelView.collectionView reloadData];
+            [SVProgressHUD dismiss];
         }
     } fail:^(NSError *error) {
         
@@ -189,6 +230,8 @@ static const int searchButtonTag = 5;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell setSelected:NO];
     DetailVideoViewController *detailVideoViewController = [DetailVideoViewController new];
     detailVideoViewController.idField = ((Video *)videoArray[indexPath.row]).idField;
     [self.navigationController pushViewController:detailVideoViewController animated:true];
@@ -196,10 +239,18 @@ static const int searchButtonTag = 5;
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (tempCell) {
+        [SVProgressHUD show];
         ChannelCollectionViewCell *cell = (ChannelCollectionViewCell *)[channelView.collectionView cellForItemAtIndexPath:indexPath];
         [tempCell setIsSelected:false];
         [cell setIsSelected:true];
         tempCell = cell;
+        currentChannel = ((Channel *)channelsArray[indexPath.row]);
+        currentPage = 1;
+        if ([currentChannel.name isEqualToString:@"推荐"]) {
+            [self downloadRecommendedVideo];
+        } else {
+            [self afGetVideoList];
+        }
     }
     
 }

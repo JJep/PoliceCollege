@@ -141,6 +141,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell setSelected:NO];
     DetailCourseViewController *detailCourseViewController = [DetailCourseViewController new];
     detailCourseViewController.idField = ((Course *)courseArray[indexPath.row]).idField;
     [self.navigationController pushViewController:detailCourseViewController animated:true];

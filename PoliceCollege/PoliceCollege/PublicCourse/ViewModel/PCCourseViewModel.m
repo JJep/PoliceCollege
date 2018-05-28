@@ -9,6 +9,20 @@
 #import "PCCourseViewModel.h"
 
 @implementation PCCourseViewModel
+
+- (void)afGetCourseListWithTypeID:(NSNumber *)typeID currentPage:(NSNumber *)currentPage success:(PCSuccessHandler)success fail:(PCFailedHandler)fail
+{
+    PCBaseRequest *request = [PCBaseRequest new];
+    request.requstType = @"post";
+    request.apiString = @"courseSearchByTypeAjax";
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:@{
+                                                                                  @"type":typeID,
+                                                                         @"page.currentPage":currentPage
+                                                                                  }];
+    request.paraDict = dict;
+    [request sendRequestSuccess:success error:fail];
+}
+
 - (void)getFirstRecommendedCourseListAction:(PCSuccessHandler)success fail:(PCFailedHandler)fail
 {
     PCBaseRequest *request = [PCBaseRequest new];

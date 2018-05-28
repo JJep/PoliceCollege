@@ -288,6 +288,8 @@ static NSString *bookCellID = @"BookCenterTableViewCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell setSelected:NO];
     BookDetailViewController *newVC = [BookDetailViewController new];
     newVC.model = booksArray[indexPath.row];
     [self.navigationController pushViewController:newVC animated:true];

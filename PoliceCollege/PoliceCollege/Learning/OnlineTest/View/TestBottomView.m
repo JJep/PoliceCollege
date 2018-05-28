@@ -32,7 +32,7 @@
         [_nextButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         
         [self addSubview:bottomView];
-        [self addSubview:_listButton];
+//        [self addSubview:_listButton];
         [self addSubview:_nextButton];
         
         [self layoutViews];
@@ -46,12 +46,12 @@
         make.height.mas_equalTo(50);
     }];
     
-    [_listButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self->bottomView).offset(15);
-        make.top.equalTo(self->bottomView).offset(8);
-        make.bottom.equalTo(self->bottomView).offset(-8);
-        make.width.mas_equalTo(75);
-    }];
+//    [_listButton mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self->bottomView).offset(15);
+//        make.top.equalTo(self->bottomView).offset(8);
+//        make.bottom.equalTo(self->bottomView).offset(-8);
+//        make.width.mas_equalTo(75);
+//    }];
     
     [_nextButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.top.bottom.equalTo(self->bottomView);
